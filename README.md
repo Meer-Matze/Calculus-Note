@@ -1,8 +1,26 @@
-# Calculus-Note
+# 高等数学笔记
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-个人微积分学习笔记。
+---
+
+个人微积分学习笔记，基于现成的[$\LaTeX$模板](https://zhuanlan.zhihu.com/p/604236564)制作。
+
+## 总体内容
+
+本笔记以练习为主。
+定义和定理虽有涉及，但均不含证明。
+总的来说，与其说是笔记，不如说是我在写题后的整理。
+~~看哭百万做题区~~
+
+## 目前进度
+
+- 第一章 极限与连续
+- 第二章 微分中值定理的证明题
+- 第三章 泰勒公式
+- 第四章 一元函数微分学
+- 第五章 常微分方程
+- 第六章 空间解析几何（待写）
 
 ## 许可证
 

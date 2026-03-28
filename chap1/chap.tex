@@ -1,0 +1,276 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+%\input{../config/cover}
+\else
+\fi
+
+\chapter{极限与连续}
+\section{极限与连续练习}
+\begin{exercise}
+求极限$\displaystyle\lim_{x \to \frac{\pi}{4}} (\tan x)^{\frac{1}{\cos x-\sin x}}$
+\end{exercise}
+\begin{solution}
+        $\displaystyle\lim_{x \to \frac{\pi}{4}} (\tan x)^{\frac{1}{\cos x-\sin x}} 
+        = e^{\lim\limits_{x \to \frac{\pi}{4}} \frac{\ln(\tan x)}{\cos x - \sin x}}
+        = e^{\lim\limits_{x \to \frac{\pi}{4}}\frac{1}{\cos x}\cdot \frac{\tan x - 1}{1 - \tan x}} 
+        = e^{-\sqrt{2}}$
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{x \to 0}\dfrac{(x-\sin x)e^{-x^{2}}}{\sqrt{1-x^{3}-1}}$
+\end{exercise}
+\begin{solution}
+    $\lim\limits_{x \to 0}\dfrac{(x-\sin x)e^{-x^{2}}}{\sqrt{1-x^{3}-1}}
+    = \lim\limits_{x \to 0}\dfrac{\dfrac{1}{6}x^{3}}{-\dfrac{1}{2}x^{3}}
+    = -\dfrac{1}{3}$
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{n \to \infty}[(n+1)^{\alpha}-n^{\alpha}]$
+\end{exercise}
+\begin{solution}
+    $\lim\limits_{n \to \infty}[(n+1)^{\alpha}-n^{\alpha}]
+    =\lim\limits_{n \to \infty} n^{\alpha}\left[(1+ \frac{1}{n})^{\alpha}-1\right]
+    =\lim\limits_{n \to \infty} \alpha n^{\alpha-1}=
+    \begin{cases}
+        0, & \alpha < 1\\
+        \alpha, & \alpha = 1\\
+        +\infty, & \alpha > 1
+    \end{cases}$
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{x \to 0}\dfrac{\ln(1+x^{2}-x^{2})}{\sin^{4} x}$
+\end{exercise}
+\begin{solution}
+    $\lim\limits_{x \to 0}\dfrac{\ln(1+x^{2}-x^{2})}{\sin^{4} x}
+    =\lim\limits_{x \to 0}\dfrac{x^2 + \dfrac{1}{2}x^4 +o(x^4)-x^2}{x^4}
+    =\dfrac{1}{2}$
+\end{solution}
+\begin{exercise}
+    已知$f(1)=0,f'(1)$存在，求$I=\lim\limits_{x \to 0}\dfrac{f(\sin^{2} x+\cos x)}{\left( e^{x^{2}}-1\right)\sin x}$
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+        I&=\lim\limits_{x \to 0}{\dfrac{3xf(\sin^{2} x+\cos x)}{x^{3}}}
+        =\lim\limits_{x \to 0}3\dfrac{f(\sin^{2} x+\cos x)-f(1)}{\sin^{2} x +\cos x -1} \cdot \dfrac{\sin^{2} x+\cos x -1}{x^{2}}\\
+        &=3f'(1) \cdot \dfrac{1}{2}= \dfrac{3}{2}f'(1)
+    \end{align*}
+\end{solution}
+\begin{exercise}
+    设$f(0)\neq 0,f(x)$连续，求$I=\lim\limits_{x \to 0}\dfrac{2\displaystyle\int_{0}^{x}(x-t)f(t)\d t}{x\displaystyle\int_{0}^{x}f(x-t)\d t}$
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+            I&=\lim\limits_{x \to 0} 2\dfrac{x\displaystyle\int_{0}^{x}f(t)\d t-\displaystyle\int_{0}^{x}tf(t)\d t}{x\int_{0}^{x}f(t)\d t}
+            =2-2\lim\limits_{x \to 0}\dfrac{\displaystyle\int_{0}^{x}tf(t)\d t}{x\displaystyle\int_{0}^{x}f(t)\d t}\\
+            &\overset{\tfrac{0}{0}}{=}2-2\lim\limits_{x \to 0}\dfrac{xf(x)}{x f(x)+\displaystyle\int_{0}^{x}f(t)\d t}\\
+    \end{align*}
+            由积分中值定理可得
+            \[
+            I=2-2\lim\limits_{\substack{x \to 0 \\ 0<|\xi|<|x|}}\dfrac{xf(x)}{xf(x)+xf(\xi)}
+            \]
+            即
+            \[
+            I=2-2\times \dfrac{f(0)}{2f(0)}=1
+            \]
+\end{solution}
+\begin{exercise}
+    研究$y=\dfrac{x^3}{x^2 +2x-3}$的渐进线
+\end{exercise}
+\begin{solution}
+    分母$x^2 +2x-3\neq 0 \Rightarrow (x+3)(x-1) \neq 0 \Rightarrow \text{定义域为} \mathbb{R} \setminus \{-3, 1\}$\\[6pt]
+    当$x \to \pm \infty$时，$y=\dfrac{x^3}{x^2 +2x-3} \sim x$，斜渐进线的斜率$k=\lim\limits_{x\to\infty}\dfrac{y}{x}=1$\\[6pt]
+    截距$b=\lim\limits_{x\to\infty}(y - kx)=\lim\limits_{x\to\infty}\dfrac{x^3}{x^2 +2x-3} - x = \lim\limits_{x\to\infty}\dfrac{-2x^2 +3x}{x^2 +2x-3} = -2$\\[6pt]
+    故有斜渐进线$y=x-2$\\[6pt]
+    当$x \to 1$时，$y=\dfrac{x^3}{x^2 +2x-3} \sim \dfrac{1}{x-1}$，故有垂直渐进线$x=1$\\[6pt]
+    当$x \to -3$时，$y=\dfrac{x^3}{x^2 +2x-3} \sim -\dfrac{9}{2(x+3)}$，故有垂直渐进线$x=-3$
+\end{solution}
+\begin{exercise}
+    设$x_1 > 0,x_{n+1}=\dfrac{1}{2}\left(x_n + \dfrac{1}{x_n}\right),n \in \mathbb{N}^+$，求$\lim\limits_{n \to \infty} x_n$
+\end{exercise}
+\begin{solution}
+    由$x_1 > 0,$可得$x_{n+1} > 0\Rightarrow x_n = \dfrac{1}{2}\left(x_{n-1} + \dfrac{1}{x_{n-1}}\right) \ge \dfrac{1}{2}\left(2\sqrt{x_{n-1} \cdot \dfrac{1}{x_{n-1}}}\right) = 1,n \ge 2$\\
+    又$\dfrac{x_{n+1}}{x_n}= \dfrac{1}{2}\left(1 + \dfrac{1}{x_n^2}\right) \le 1 \Rightarrow \{x_n\}$单调递减且有下界1，故$\{x_n\}$收敛，设$\lim\limits_{n \to \infty} x_n = a$\\
+    则$a=\dfrac{1}{2}\left(a + \dfrac{1}{a}\right) \Rightarrow a=1$，故$\lim\limits_{n \to \infty} x_n = 1$.
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{n \to \infty} \left(\dfrac{1}{n+1}+\dfrac{1}{n+2}+\cdots +\dfrac{1}{n+n}\right)$
+\end{exercise}
+\begin{solution}
+    $\lim\limits_{n \to \infty} \left(\dfrac{1}{n+1}+\dfrac{1}{n+2}+\cdots +\dfrac{1}{n+n}\right)
+    =\lim\limits_{n \to \infty} \dfrac{1}{n}\displaystyle\sum_{k=1}^{n}\dfrac{1}{1+\frac{k}{n}}
+    =\int_{0}^{1}\dfrac{1}{1+x}\d x = \ln 2$
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{x \to \infty} \left(x^{\frac{1}{x}}-1\right)^{\frac{1}{\ln x}}$
+\end{exercise}
+\begin{solution}
+    $\lim\limits_{x \to \infty} \left(x^{\frac{1}{x}}-1\right)^{\frac{1}{\ln x}}
+    =e^{\displaystyle\lim\limits_{x \to \infty} \dfrac{\ln \left(x^{\frac{1}{x}}-1\right)}{\ln x}}
+    =e^{\displaystyle\lim\limits_{x \to \infty} \dfrac{x^{\frac{1}{x}}\left(-\dfrac{1}{x^2}\ln x +\dfrac{1}{x^2}\right)}{\dfrac{1}{x}\left(x^{\frac{1}{x}}-1\right)}}$\\[10pt]
+    $\text{\qquad}
+    =e^{\displaystyle\lim\limits_{x \to \infty}\dfrac{1-\ln x}{x\left(e^{\frac{1}{x}\ln x}-1\right)}}
+    =e^{\displaystyle\lim\limits_{x \to \infty}\dfrac{1-\ln x}{\ln x}}
+    =e^{-1}$
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{x \to 0}\dfrac{\sin[\ln (1+x)] - \ln(1+\sin x)}{(\sqrt{1+x^2}-1)\tan x}$
+\end{exercise}
+\begin{solution}
+    记$I=\lim\limits_{x \to 0}\dfrac{\sin[\ln (1+x)] - \ln(1+\sin x)}{(\sqrt{1+x^2}-1)\tan x}$，则
+    \begin{align*}
+        I&=\lim\limits_{x \to 0}\dfrac{\sin[\ln (1+x)] - \ln(1+x)+\ln(1+x) - \ln(1+\sin x)}{(\dfrac{1}{2}x^3}\\
+        &=2\lim\limits_{x \to 0}\dfrac{\sin[\ln (1+x)] - \ln(1+x)}{x^3} + 2\lim\limits_{x \to 0}\dfrac{\ln(1+x) - \ln(1+\sin x)}{x^3}\\
+    \end{align*}
+    由拉格朗日中值定理可得
+    \[
+    \ln(1+x)-\ln(1+\sin x) = \dfrac{x - \sin x}{1 +\xi} , |\sin x| < |\xi| < |x|
+    \]
+    故
+    \begin{align*}
+        I=2\lim\limits_{x \to 0}\dfrac{-\dfrac{1}{6}\ln^3(1+x)}{x^3}+ 2\lim\limits_{\substack{x \to 0 \\ |\sin x| < |\xi| < |x|}}\dfrac{(x-\sin x)\dfrac{1}{1+\xi}}{x^3}
+        =2 \times \left(-\dfrac{1}{6}\right) + 2 \times \dfrac{1}{6} = 0
+    \end{align*}
+\end{solution}
+\begin{exercise}
+    求极限$I=\lim\limits_{x \to \infty} \dfrac{\pi \displaystyle\int_{0}^{x} t|\sin t| \d t}{2x^2}$
+\end{exercise}
+\begin{solution}
+    $n\pi \le x < (n+1)\pi , n \in \mathbb{Z}$时，有$\displaystyle\int_{0}^{n\pi}t|\sin t| \d t = \displaystyle\sum_{k=0}^{n-1}\displaystyle\int_{k\pi}^{(k+1)\pi} (-1)^k\cdot t|\sin t| \d t$\\
+    其中$\displaystyle\int_{k\pi}^{(k+1)\pi}t\sin t \d t=(-t\cos t+\sin t)\bigg|_{k\pi}^{(k+1)\pi}=(-1)^k \cdot \pi(2k+1)$\\
+    于是$\displaystyle\int_{0}^{n\pi} t|\sin t| \d t = \pi \displaystyle\sum_{k=0}^{n-1} (2k+1) = n^2 \pi$\quad ，
+    故显然有$\dfrac{n^2}{2(n+1)^2}\le I \le \dfrac{(n+1)^2}{2n^2}$\\
+    由夹逼定理易得$I=\dfrac{1}{2}$
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{x \to 0}\left(\dfrac{x}{(e^x -1)\sqrt{1-x}}\right)^{\dfrac{1}{\ln(x+\sqrt{1-x})}}$
+\end{exercise}
+\begin{solution}
+    由于$\lim\limits_{x \to 0}\dfrac{\ln(x+\sqrt{1+x^2})}{x}=1+\lim\limits_{x \to 0}\dfrac{\sqrt{1+x^2}-1}{x}=1$，故\\
+    原式$=e^{\displaystyle\lim\limits_{x \to 0}\dfrac{1}{\ln(x+\sqrt{1+x^2})}\displaystyle\ln \dfrac{x}{(e^x-1)\sqrt{1-x}}}
+    =e^{\displaystyle\lim\limits_{x \to 0}\dfrac{1}{x} \cdot \dfrac{x-(e^x -1)\sqrt{1-x}}{(e^x -1)\sqrt{1-x}}}$\\[6pt]
+    $\text{\qquad}
+    =e^{\displaystyle\lim\limits_{x \to 0}\dfrac{x-(x+\frac{1}{2}x^2 +o(x^3))(1-\frac{1}{2}x+o(x))}{x}}
+    =e^{\displaystyle\lim\limits_{x \to 0}\dfrac{1}{x^2}\left[x-\left(x+\frac{x^2}{2}-\frac{x^2}{2}-\frac{x^3}{3}+o(x^2)\right)\right]}$\\[6pt]
+    $\text{\qquad}
+    =1$
+\end{solution}
+\begin{exercise}
+    设函数$f(x)$在$x=0$附近有界，且满足方程$f(x)-\dfrac{1}{2}f(\dfrac{x}{2})=x^2$，求$f(x)$
+\end{exercise}
+\begin{solution}
+    \begin{align*}
+        &f(x)-\dfrac{1}{2}f(\dfrac{x}{2})=x^2\\
+        &\dfrac{1}{2}f{\left(\dfrac{x}{2}\right)}-\dfrac{1}{2^2}f{\left(\dfrac{x}{2^2}\right)}=\dfrac{1}{2}\left(\dfrac{x}{2}\right)^2\\
+        &\dfrac{1}{2^2}f{\left(\dfrac{x}{2^2}\right)}-\dfrac{1}{2^3}f{\left(\dfrac{x}{2^3}\right)}=\dfrac{1}{2^2}\left(\dfrac{x}{2^2}\right)^2 ,
+        \cdots \\
+        &\dfrac{1}{2^{n-1}}f{\left(\dfrac{x}{2^{n-1}}\right)}-\dfrac{1}{2^n}f{\left(\dfrac{x}{2^n}\right)}=\dfrac{1}{2^{n-1}}\left(\dfrac{x}{2^{n-1}}\right)^2
+    \end{align*}
+    将上面$n$个等式相加，得
+    \[
+    f(x)-\dfrac{1}{2^n}f{\left(\dfrac{x}{2^n}\right)}=x^2\displaystyle\sum_{k=0}^{n-1}\dfrac{1}{2^k \cdot 4^k} = x^2 \cdot \dfrac{1-\left(\dfrac{1}{8}\right)^n}{1-\dfrac{1}{8}} = \dfrac{8}{7}x^2\left[1-\left(\dfrac{1}{8}\right)^n\right]
+    \]
+    由于$f(x)$在$x=0$附近有界，令$n \to \infty$，得$f(x)=\dfrac{8}{7}x^2$
+\end{solution}
+\begin{exercise}
+    设$\displaystyle\sum_{k=1}^{n}a_k = 0$，求$\lim\limits_{x \to +\infty} \displaystyle\sum_{k=1}^{n} a_k \sqrt{k+x}$
+\end{exercise}
+\begin{solution}
+    法一：由于$\sqrt{k+x}=\sqrt{x}\sqrt{1+\dfrac{k}{x}}=\sqrt{x}\left(1+\dfrac{k}{2x}+o\left(\dfrac{1}{x}\right)\right)$，故
+    \begin{align*}
+        \lim\limits_{x \to +\infty} \displaystyle\sum_{k=1}^{n} a_k \sqrt{k+x}
+        &=\lim\limits_{x \to +\infty} \sqrt{x} \displaystyle\sum_{k=1}^{n} a_k \left(1+\dfrac{k}{2x}+o\left(\dfrac{1}{x}\right)\right)\\
+        &=\lim\limits_{x \to +\infty} \sqrt{x} \left(\displaystyle\sum_{k=1}^{n} a_k + \dfrac{1}{2x}\displaystyle\sum_{k=1}^{n} k a_k + o\left(\dfrac{1}{x}\right)\right)\\
+        &=\lim\limits_{x \to +\infty} \sqrt{x} \cdot \dfrac{1}{2x}\displaystyle\sum_{k=1}^{n} k a_k + \lim\limits_{x \to +\infty} \sqrt{x} \cdot o\left(\dfrac{1}{x}\right)\\
+        &=0
+    \end{align*}
+    法二：注意到在$x>0$时，$\displaystyle\sum_{k=1}^{n}a_k\sqrt{x} = 0$，于是
+    \begin{align*}
+        \lim\limits_{x \to +\infty} \displaystyle\sum_{k=1}^{n} a_k \sqrt{k+x}
+        =\lim\limits_{x \to +\infty} \displaystyle\sum_{k=1}^{n} \left(a_k \sqrt{k+x}-a_k\sqrt{x}\right)
+        =\lim\limits_{x \to +\infty} \displaystyle\sum_{k=1}^{n} \dfrac{a_k k}{\sqrt{k+x}+\sqrt{x}}=0
+    \end{align*}
+\end{solution}
+\begin{exercise}
+    求极限$\lim\limits_{n \to \infty} \displaystyle\prod_{k=1}^{n} \left(1+\dfrac{k}{n^2}\right)$
+\end{exercise}
+\begin{solution}
+    记$x_n = \displaystyle\prod_{k=1}^{n} \left(1+\dfrac{k}{n^2}\right)$，则$\lim\limits_{n \to \infty} \ln x_n = \lim\limits_{n \to \infty} \displaystyle\sum_{k=1}^{n} \ln\left(1+\dfrac{k}{n^2}\right)$\\
+    当$x > 0$时，$x-\dfrac{x^2}{2} \le \ln(1+x) \le x$，故
+    \begin{align*}
+        \lim\limits_{n \to \infty} \displaystyle\sum_{k=1}^{n} \left(\dfrac{k}{n^2} - \dfrac{k^2}{2n^4}\right)
+        &\le \lim\limits_{n \to \infty} \displaystyle\sum_{k=1}^{n} \ln\left(1+\dfrac{k}{n^2}\right) \le \lim\limits_{n \to \infty} \displaystyle\sum_{k=1}^{n} \dfrac{k}{n^2}\\
+        \lim\limits_{n \to \infty} \left(\dfrac{n(n+1)}{2n^2} - \dfrac{n(n+1)(2n+1)}{12n^4}\right)
+        &\le \lim\limits_{n \to \infty} \displaystyle\sum_{k=1}^{n} \ln\left(1+\dfrac{k}{n^2}\right) \le \lim\limits_{n \to \infty} \dfrac{n(n+1)}{2n^2}\\
+        \dfrac{1}{2} &\le \lim\limits_{n \to \infty} \displaystyle\sum_{k=1}^{n} \ln\left(1+\dfrac{k}{n^2}\right) \le \dfrac{1}{2}
+    \end{align*}
+    由夹逼定理可得$\lim\limits_{n \to \infty} \ln x_n = \dfrac{1}{2}$，即$\lim\limits_{n \to \infty} x_n = e^{\frac{1}{2}}$
+\end{solution}
+\begin{exercise}
+    设$f(x)$在$[0,1]$上连续，且$f(0)=f(1)$，求证：$\forall n \in \mathbb{N}^+$，$\exists x \in [0,1]$，使得$f(x)=f\left(x+\dfrac{1}{n}\right)$
+\end{exercise}
+\begin{proof}
+    令$h(x)=f\left(x+\dfrac{1}{n}\right)-f(x)$\\[6pt]
+    $h(0)=f\left(\dfrac{1}{n}\right)-f(0)$，$h(\dfrac{1}{n})=f\left(\dfrac{2}{n}\right)-f\left(\dfrac{1}{n}\right)$，$\cdots$，$h\left(\dfrac{n-1}{n}\right)=f(1)-f\left(\dfrac{n-1}{n}\right)$\\[6pt]
+    则$\displaystyle\sum_{k=0}^{n-1} h\left(\dfrac{k}{n}\right)=f(1)-f(0)=0$\\
+    另一方面，$nm \le \displaystyle\sum_{k=0}^{n-1} h\left(\dfrac{k}{n}\right) \le M \Rightarrow nm \le \dfrac{1}{n}\displaystyle\sum_{k=0}^{n-1} h\left(\dfrac{k}{n}\right) \le M$，故由闭区间上连续函数介值定理知$\exists x \in [0,1]$，使得$h(x)=0$，即$f(x)=f\left(x+\dfrac{1}{n}\right)$
+\end{proof}
+\begin{exercise}
+    求极限$\lim\limits_{x \to +\infty} \sqrt{x}\displaystyle\int_{x}^{x+1} \dfrac{1}{\sqrt{t+\sin t +x}} \d t$
+\end{exercise}
+\begin{solution}
+    当$x$足够大时，有
+    \[\int_{x}^{x+1} \dfrac{1}{\sqrt{t+\sin t +x}} \d t
+    \le \int_{x}^{x+1} \dfrac{1}{\sqrt{x -1 + x}} \d t
+    =\dfrac{1}{\sqrt{2x -1}}\]
+    \[\int_{x}^{x+1} \dfrac{1}{\sqrt{t+\sin t +x}} \d t
+    \ge \int_{x}^{x+1} \dfrac{1}{\sqrt{x + 1 + 1 + x}} \d t
+    =\dfrac{1}{\sqrt{2x + 2}}\]
+    因为
+    \[\lim\limits_{x \to +\infty} \sqrt{x} \cdot \dfrac{1}{\sqrt{2x + 2}} = \dfrac{1}{\sqrt{2}}
+    ,\qquad 
+    \lim\limits_{x \to +\infty} \sqrt{x} \cdot \dfrac{1}{\sqrt{2x - 1}} = \dfrac{1}{\sqrt{2}}
+    \]
+    故由夹逼定理可得
+    \[\lim\limits_{x \to +\infty} \sqrt{x}\displaystyle\int_{x}^{x+1} \dfrac{1}{\sqrt{t+\sin t +x}} \d t = \dfrac{1}{\sqrt{2}}\]
+\end{solution}
+\begin{myRemark}
+    遇到无穷与三角函数结合的极限时，应当考虑利用三角函数的有界性进行夹逼。
+\end{myRemark}
+\begin{exercise}
+    若$f''(x)$不变号，且曲线$y=f(x)$在点$(1,1)$处的曲率圆为$x^2 + y^2 = 2$,则函数$f(x)$在区间$(1,2)$内（~~~~~~~）
+    \begin{tasks}[style = itemize, label=\Alph*.](4)
+        \task 有极值点，无零点
+        \task 无极值点，有零点
+        \task 有极值点，有零点
+        \task 无极值点，无零点
+    \end{tasks}
+\end{exercise}
+\begin{solution}
+    曲率圆心和$(1,1)$的连线与该点切线垂直，故$f'(1)=-1$,且曲率中心在曲线的凹侧，故$f''(1)<0$，又$f''(x)$不变号，故$f''(x)<0$，
+    故$f'(x)$单调递减，且$f'(x)<f'(1)=-1<0$，故$f(x)$在$(1,2)$内无极值点，对$f(x)$在点$(1,1)$泰勒展开得
+    \[f(x)=1 - (x-1) + \dfrac{f''(\xi)}{2}(x-1)^2 < 2 - x , \xi \in (1,x)\]
+    故$f(2)<0$，由介值定理知$f(x)$在$(1,2)$内有零点，故选B。
+\end{solution}
+\begin{exercise}
+    设函数$f(x)$在$[a,b]$上连续且单调递增,$I_1=\displaystyle\int_{a}^{b} xf(x)\,\d x , I_2=\frac{a+b}{2}\int_a^bf(x)\,\d x$，则（~~~~~~~）
+    \begin{tasks}[style = itemize, label=\Alph*.](4)
+        \task $I_1 > I_2$
+        \task $I_1 < I_2$
+        \task $I_1 = I_2$
+        \task 无法比较
+    \end{tasks}
+\end{exercise}
+\begin{solution}
+    设辅助函数$F(x)=\displaystyle\int_{a}^{x} f(t)\,\d t-\frac{a+x}{2}\int_a^x f(x)\,\d x$，则
+    \begin{align*}
+        F'(x)&=xf(x)-\dfrac{1}{2}\int_a^x f(t)\,\d t - \dfrac{a+x}{2}f(x)
+    =\dfrac{1}{2}\left[(x-a)f(x) - \displaystyle\int_a^x f(t)\,\d t\right]\\
+    &=\dfrac{1}{2}\displaystyle\int_a^x [f(x)-f(t)]\,\d t \ge 0
+    \end{align*}
+    故$F(x)$在$[a,b]$上单调递增，且$F(a)=0$，故$F(b) > 0$，即$I_1 > I_2$，选A。
+\end{solution}
+\ifx\allfiles\undefined
+\end{document}
+\fi

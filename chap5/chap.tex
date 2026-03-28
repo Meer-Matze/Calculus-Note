@@ -1,0 +1,458 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{常微分方程}
+\section{可分离变量的微分方程}
+\begin{example}
+    求微分方程$\displaystyle\sqrt{1-x^2}\,y'=\sqrt{1-y^2}$的通解。
+\end{example}
+\begin{solution}
+    原方程可化为$\displaystyle\frac{dy}{\sqrt{1-y^2}}=\frac{dx}{\sqrt{1-x^2}}$，两边积分得
+    \begin{align}
+        \label{eq1}
+        \arcsin y=\arcsin x+C
+    \end{align}
+    即通解为$y=\sin(\arcsin x+C)$。
+\end{solution}
+\begin{myRemark}
+    该解法中，式\ref{eq1}舍去了$y = \pm 1$的解，实际上它们也是原方程的解，称为\textbf{奇解}。
+\end{myRemark}
+\begin{myRemark}
+    对于任意的微分方程来说，它的全部解为通解与奇解的并。
+\end{myRemark}
+
+\section{齐次微分方程}
+\begin{example}
+    求微分方程$\dfrac{\d y}{\d x}=\dfrac{y}{x}-\dfrac{1}{2}\left(\dfrac{y}{x}\right)^3$中满足$y\Big|_{x=1}=1$的特解。
+\end{example}
+\begin{solution}
+    令$u=\dfrac{y}{x}$，则$y=ux$，代入原方程得
+    \[
+    u+x\frac{\d u}{\d x}=u-\frac{1}{2}u^3 \quad\Rightarrow\quad -2\dfrac{\d u}{u^3}=\dfrac{\d x}{x}
+    \]
+    即通解为
+    \[y=\frac{x}{\sqrt{\ln|x|+C}}\]
+    代入$y\Big|_{x=1}=1$得$C=1$，所求特解之一为
+    \[y=\frac{x}{\sqrt{\ln|x|+1}}\]
+\end{solution}
+\begin{myRemark}
+    事实上，由于题目只要求特解，故不必保留$|x|$，$y=\dfrac{x}{\sqrt{\ln x+1}}$同样符合题意
+\end{myRemark}
+\section{一阶线性微分方程}
+\begin{definition}
+    方程$y'+P(x)y=Q(x)$称为\textbf{一阶线性微分方程}，其中$P(x),Q(x)$为$x$的连续函数。
+\end{definition}
+\begin{theorem}
+    一阶线性微分方程的通解为
+    \[
+    y=e^{-\int P(x)\,\d x}\left(\int Q(x)e^{\int P(x)\,\d x}\,\d x+C\right)
+    \]
+\end{theorem}
+\begin{example}
+    设曲线$y=f(x)$过点$(1,1)$，且在任意点$(x,y)$处的切线的纵截距等于切点的横坐标，求该曲线的方程。
+\end{example}
+\begin{solution}
+    设切点为$(x,y)$，则切线方程为
+    \[Y-y=f'(x)(X-x)\]
+    令$X=0$，则纵截距为$y-f'(x)x$，由题意得$y-f'(x)x=x$，化为一阶线性微分方程得
+    \[y'-\dfrac{1}{x}y=-1\]
+    于是
+    \begin{align*}
+        y&=e^{\int \frac{1}{x}\,\d x}\left(\int -1\cdot e^{-\int \frac{1}{x}\,\d x}\,\d x+C\right)
+        ={eq2}|x|\left(-\int \frac{1}{|x|}\,\d x+C\right)
+        =x\left(-\int \frac{1}{x}\,\d x+C\right)\\
+        &=x(-\ln|x|+C)
+    \end{align*}
+    代入点$(1,1)$得$C=1$，所求曲线方程为
+    \[y=x(1-\ln x)\]
+\end{solution}
+\begin{myRemark}
+    求解一阶线性微分方程时，括号内外的$|x|$总可以去绝对值符号，因为内外的符号总是可抵消的。
+\end{myRemark}
+\begin{example}
+    求满足$f(x)+2\displaystyle\int_{0}^{x}f(t)\,\d t=x^2$的连续函数$f(x)$。
+\end{example}
+\begin{solution}
+    $f(x)$连续$\Rightarrow\displaystyle\int_{0}^{x}f(t)\,\d t$可微$\Rightarrow f(x)=x^2-2\displaystyle\int_{0}^{x}f(t)\,\d t$可微，
+    同理可得$f(x)$任意阶可微，故两边对$x$求导得
+    \[f'(x)+2f(x)=2x\]
+    法一：
+    这是一阶线性微分方程，其通解为
+    \[f(x)=e^{-\int 2\,\d x}\left(\int 2xe^{\int 2\,\d x}\,\d x+C\right)=x-\dfrac{1}{2}+Ce^{-2x}\]
+    法二：
+    注意到等式两端同乘以$e^{2x}$后可化为
+    \[\frac{\d}{\d x}\left(f(x)e^{2x}\right)=2xe^{2x}\]
+    故通解为
+    \[x-\dfrac{1}{2}+Ce^{-2x}\]
+    易知$f(0)=0$，代入得$C=\dfrac{1}{2}$，所求函数为
+    \[f(x)=x-\dfrac{1}{2}+\dfrac{1}{2}e^{-2x}\]
+\end{solution}
+\begin{example}
+    求微分方程$y'=\dfrac{1}{xy+y^3}$的通解。
+\end{example}
+\begin{solution}
+    \[
+    \begin{array}{l@{\qquad\qquad}c}
+        &\dfrac{\d y}{\d x}=\dfrac{1}{xy+y^3}\\[8pt]
+        \Rightarrow & \dfrac{\d x}{\d y}=xy+y^3\\[8pt]
+        \Rightarrow & \dfrac{\d x}{\d y}-yx=y^3\\[8pt]
+        \Rightarrow & x=e^{\int y\,\d y}\left(\int y^3e^{-\int y\,\d y}\,\d y+C\right)\\[8pt]
+        \Rightarrow & x=-(y^2+2)+Ce^{\frac{y^2}{2}}\\[8pt]
+    \end{array}
+    \]
+\end{solution}
+\section{伯努利方程}
+\begin{definition}
+    \textbf{伯努利方程}形如$y'+P(x)y=Q(x)y^\alpha$，其中$\alpha\neq 0,1$。
+\end{definition}
+\begin{theorem}
+    令$z=y^{1-\alpha}$，则伯努利方程可化为线性方程：
+    \[z'+(1-\alpha)P(x)z=(1-\alpha)Q(x)\]
+\end{theorem}
+\begin{example}
+    求微分方程$y'+\dfrac{4x}{x^2-1}y=x\sqrt{y}$的通解。
+\end{example}
+\begin{solution}
+    令$z=y^{\frac{1}{2}}$，则
+    \[z'+\dfrac{1}{2}\cdot\dfrac{4x}{x^2-1}z=\dfrac{1}{2}x\]
+    故\begin{align*}
+    z&=e^{-\int \frac{2x}{x^2-1}\,\d x}\left(\int \dfrac{1}{2}xe^{\int \frac{2x}{x^2-1}\,\d x}\,\d x+C\right)\\
+    &=\dfrac{x^2(x^2-2)+C}{8(x^2-1)}
+    \end{align*}
+    即通解为
+    \[y=\left[\dfrac{x^2(x^2-2)+C}{8(x^2-1)}\right]^2\]
+\end{solution}
+\section{二阶可降阶微分方程}
+\subsection{$y''=f(x,y')$型}
+\begin{example}
+    求微分方程$xy''+3y'=0$的通解。
+\end{example}
+\begin{solution}
+    令$y'=p$，则$y''=\dfrac{\d p}{\d x}$，原方程化为
+    \[x\dfrac{\d p}{\d x}+3p=0\]
+    分离变量得
+    \[\int \dfrac{\d p}{p}=-3\int \dfrac{\d x}{x}\]
+    即$p=\dfrac{C_3}{x^3}$，故
+    \[y=\int \dfrac{C_3}{x^3}\,\d x=-\dfrac{C_3}{2x^2}+C_2\]
+    即通解为
+    \[y=\dfrac{C_1}{x^2}+C_2,\,C_1 = -\dfrac{C_3}{2}\]
+\end{solution}
+\subsection{$y''=f(y,y')$型}
+记$y' = p$，则$y'' = \dfrac{\d p}{\d x} = \dfrac{\d p}{\d y} \cdot \dfrac{\d y}{\d x} = p \dfrac{\d p}{\d y}$.
+\begin{example}
+    求满足方程$y y''+(y')^2=0$且$y(0)=1,y'(0)=\dfrac{1}{2}$的特解。
+\end{example}
+\begin{solution}
+    令$y'=p$，则$y''=p\dfrac{\d p}{\d y}$，原方程化为
+    \[y p \dfrac{\d p}{\d y} + p^2=0\]
+    显然$p$不恒为零，故
+    \[(yp)'=0\]
+    即$yp=C_1$，故带入初值条件得$C_1=\dfrac{1}{2}$，即
+    \[y y'=\dfrac{1}{2}\]
+    分离变量得
+    \[\int y\,\d y=\dfrac{1}{2}\int \d x\]
+    即
+    \[y^2=x+C_2\]
+    易得$C_2=1$，所求特解为
+    \[y=\sqrt{x+1}\]
+\end{solution}
+\section{二阶常系数线性微分方程}
+\begin{theorem}[解的结构]
+    二阶常系数线性微分方程$y''+py'+qy=f(x)$的通解为对应的齐次方程$y''+py'+qy=0$的通解与原方程的一个特解之和。
+\end{theorem}
+\subsection{齐次方程}
+\begin{theorem}
+    对于齐次方程$y''+py'+qy=0$，其特征方程为$\lambda^2+p\lambda+q=0$。
+    \begin{enumerate}
+        \item 若有两个不等实根$\lambda_1,\lambda_2$，则齐次通解为$Y=C_1e^{\lambda_1 x}+C_2e^{\lambda_2 x}$；
+        \item 若有重根$\lambda$，则齐次通解为$Y=(C_1+C_2x)e^{\lambda x}$；
+        \item 若有共轭复根$\alpha\pm \beta i$，则齐次通解为$Y=e^{\alpha x}(C_1\cos \beta x + C_2 \sin \beta x)$。
+    \end{enumerate}
+\end{theorem}
+\begin{example}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 求$y''-y'+\dfrac{1}{4}y=0$的通解；
+        \item 求$y''-2y'-3y=0$的通解;
+        \item 求$y''-2y'+5y=0$的通解.
+    \end{enumerate}
+\end{example}
+\begin{solution}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 特征方程$\lambda^2 - \lambda + \dfrac{1}{4} = 0$，有重根$\lambda_1 = \lambda_2 = \dfrac{1}{2}$，故通解为
+        \[y=(C_1 + C_2 x) e^{\frac{x}{2}}\]
+        \item 特征方程$\lambda^2 - 2\lambda - 3 = 0$，有不等实根$\lambda_1=3, \lambda_2=-1$，故通解为
+        \[y=C_1 e^{3x} + C_2 e^{-x}\]
+        \item 特征方程$\lambda^2 - 2\lambda + 5 = 0$，有共轭复根$\lambda_{1,2} = 1 \pm 2i$，故通解为
+        \[y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)\]
+    \end{enumerate}
+\end{solution}
+\subsection{非齐次方程}
+\begin{theorem}[待定系数法]
+    记$P_m(x),Q_m(x),M_n(x),N_n(x)$分别为$m$次和$n$次多项式。
+    \begin{enumerate}
+        \item 若$f(x)=P_m(x)e^{rx}$，则可设非齐次特解$y^*=x^k Q_m(x)e^{r x}$，其中
+        \[
+        k = \begin{cases}
+            0, & r \neq \lambda_1, \lambda_2 \\
+            1, & r = \lambda_1 \neq \lambda_2 \\
+            2, & r = \lambda_1 = \lambda_2
+        \end{cases}
+        \]
+        \item 若$f(x)=e^{\alpha x}[P_l(x)\cos \beta x + Q_m(x)\sin \beta x]$，
+        则可设非齐次特解$y^*=x^k e^{\alpha x}\left[M_n(x)\cos \beta x + N_n(x)\sin \beta x\right]$，其中$n=\max{\{l,m\}}$，
+        \[
+        k = \begin{cases}
+            0, & \alpha + \beta i \text{ 不是特征根} \\
+            1, & \alpha + \beta i \text{ 是特征根}
+        \end{cases}
+        \]
+    \end{enumerate}
+\end{theorem}
+\begin{example}
+    求微分方程$y''+4y'+4y=e^{-2x}$的通解。
+\end{example}
+\begin{solution}
+    \textcolor{infoBlue}{先求齐次通解}\\
+    特征方程为$\lambda^2+4\lambda+4=0$，有重根$\lambda_1=\lambda_2=-2$，故齐次通解为
+    \[Y=(C_1+C_2 x)e^{-2x}\]
+    \textcolor{infoBlue}{再求非齐次特解}\\
+    由于$f(x)=e^{-2x}$，且$r=-2$为重根，故可设非齐次特解为
+    \[y^*=A x^2 e^{-2x}\]
+    将$y^*,y^{*'},y^{*''}$代入原方程得$A=\dfrac{1}{2}$，故非齐次特解为
+    \[y^*=\dfrac{1}{2}x^2 e^{-2x}\]
+    故所求通解为
+    \[y=(C_1+C_2 x)e^{-2x}+\dfrac{1}{2}x^2 e^{-2x}\]
+\end{solution}
+\begin{example}
+    求微分方程$y''-2y'+5y=\dfrac{1}{2}e^{x}\cos 2x$的通解。
+\end{example}
+\begin{solution}
+    \textcolor{infoBlue}{先求齐次通解}\\
+    特征方程为$\lambda^2-2\lambda+5=0$，有共轭复根$\lambda_{1,2}=1\pm 2i$，故齐次通解为
+    \[Y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)\]
+    \textcolor{infoBlue}{再求非齐次特解}\\
+    由于$f(x)=\dfrac{1}{2}e^{x}\cos 2x$，且$\alpha + \beta i = 1 + 2i$为特征根，故可设非齐次特解为
+    \[y^*=xe^{x}(A \cos 2x + B \sin 2x)\]
+    将$y^*,y^{*'},y^{*''}$代入原方程得$A=0,B=\dfrac{1}{8}$，故非齐次特解为
+    \[y^*=\dfrac{1}{8}xe^{x} \sin 2x\]
+    故所求通解为
+    \[y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)+\dfrac{1}{8}xe^{x} \sin 2x\]
+\end{solution}
+\section{高阶常系数线性齐次微分方程}
+\begin{definition}
+    方程$y^{(n)} + a_1 y^{(n-1)} + \cdots + a_{n-1} y' + a_n y = 0$称为\textbf{$n$阶常系数线性齐次微分方程}，其中$a_1, a_2, \cdots, a_n$为常数。
+\end{definition}
+\begin{theorem}
+    对于$n$阶常系数线性齐次微分方程，其特征方程为$\lambda^n + a_{1} \lambda^{n-1} + \cdots + a_{n-1} \lambda + a_n = 0$。
+    \begin{enumerate}
+        \item 若特征方程有$n$个互异实根$\lambda_1, \lambda_2, \cdots, \lambda_n$，则通解为
+        \[y = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} + \cdots + C_n e^{\lambda_n x}\]
+        \item 若特征方程有$m$重实根$\lambda$，则通解中含有对应于该特征根的$m$个线性无关解
+        \[e^{\lambda x}, x e^{\lambda x}, \cdots, x^{m-1} e^{\lambda x}\]
+        \item 若特征方程有$m$重共轭复根$\alpha \pm \beta i$，则通解中含有对应于这对特征根的$2m$个线性无关解
+        \[e^{\alpha x} \cos \beta x, x e^{\alpha x} \cos \beta x, \cdots, x^{m-1} e^{\alpha x} \cos \beta x\]
+        \[e^{\alpha x} \sin \beta x, x e^{\alpha x} \sin \beta x, \cdots, x^{m-1} e^{\alpha x} \sin \beta x\]
+    \end{enumerate}
+\end{theorem}
+\begin{example}
+    求微分方程$y^{(4)}-2y'''+5y''=0$的通解。
+\end{example}
+\begin{solution}
+    特征方程为$\lambda^4 - 2\lambda^3 + 5\lambda^2 = 0$，解得特征根$\lambda_1=\lambda_2=0,\lambda_{3,4}=1\pm 2i$，故通解为
+    \[y=C_1 + C_2 x + e^{x}(C_3 \cos 2x + C_4 \sin 2x)\]
+\end{solution}
+\section{欧拉方程}
+\begin{definition}
+    形如
+    \[x^n y^{(n)} + a_1 x^{n-1} y^{(n-1)} + \cdots + a_{n-1} x y' + a_n y = f(x)\]
+    的微分方程称为\textbf{欧拉方程}，其中$a_1, a_2, \cdots, a_n$为常数。
+\end{definition}
+\begin{theorem}
+    作变量代换$t=\ln|x|$（即$|x|=e^t$），可以将欧拉方程化为以$t$为自变量的常系数线性微分方程。
+    记算子$D=\dfrac{\d}{\d t}$，则有
+    \[
+    \begin{aligned}
+        x y' &= D y \\
+        x^2 y'' &= D(D-1) y \\
+        &\vdots \\
+        x^k y^{(k)} &= D(D-1)\cdots(D-k+1) y
+    \end{aligned}
+    \]
+\end{theorem}
+\begin{example}
+    求微分方程$x^2 y'' + 4x y' + 2y = 0,(x>0)$的通解。
+\end{example}
+\begin{solution}
+    令$x=e^{t}$，记$Dy=\dfrac{\d y}{\d t}$，则原方程化为
+    \[D(D-1)y+4Dy+2y=0\]
+    即
+    \[D^2y + 3Dy + 2y=0\]
+    特征方程$\lambda^2 + 3\lambda + 2 = 0$，有不等实根$\lambda_1 = -1, \lambda_2 = -2$，故通解为
+    \[y = C_1 e^{-t} + C_2 e^{-2t}\]
+    即
+    \[y = C_1 x^{-1} + C_2 x^{-2}\]
+\end{solution}
+\section{微分方程练习}
+\begin{exercise}
+    若$f(x)$满足$f''(x)+f'(x)-2f(x)=0$，且$f''(x)+f(x)=2e^{x}$，求$f(x)$。
+\end{exercise}
+\begin{solution}
+    由$f''(x)+f'(x)-2f(x)=0$，可得齐次通解为
+    \[f(x)=C_1 e^{x} + C_2 e^{-2x}\]
+    代入$f''(x)+f(x)=2e^{x}$得
+    \[C_1 e^{x} + C_2 e^{-2x} + C_1 e^{x} + 4 C_2 e^{-2x} = 2 e^{x}\]
+    即
+    \[2 C_1 e^{x} + 5 C_2 e^{-2x} = 2 e^{x}\]
+    故$C_1=1,C_2=0$，所求函数为
+    \[f(x) = e^{x}\]
+\end{solution}
+\begin{exercise}
+    求微分方程$\dfrac{\d y}{\d x}x\ln x\, \sin y +\cos y\,(1-x\cos y)=0$的通解。
+\end{exercise}
+\begin{solution}
+    原方程可化为
+    \[
+    \begin{array}{l@{\qquad}c@{\quad}r}
+        \Rightarrow & \displaystyle \dfrac{-\d \cos y}{\d x}+\dfrac{\cos y}{x\ln x}=\dfrac{1}{\ln x}\cos^2y & \\[8pt]
+        \Rightarrow & \displaystyle \dfrac{\d \frac{1}{\cos y}}{\d x}+\dfrac{1}{x\ln x}\cdot \dfrac{1}{\cos y}=\dfrac{1}{\ln x}&\\[8pt]
+        \Rightarrow & \displaystyle \dfrac{1}{\cos y}=e^{-\int \frac{1}{x\ln x}\d x}\left[\int\dfrac{1}{\ln x}e^{\int \frac{1}{x\ln x}\d x}+C\right]=\dfrac{x+C}{\ln x}&
+    \end{array}
+    \]
+    于是通解为
+    \[(x+C)\cos y=\ln x\]
+\end{solution}
+\begin{exercise}
+    可导函数$f(x)$满足$f(x)\cos x+2\displaystyle\int_{0}^{2}f(t)\sin t\d t=x+1$，求$f(x)$.
+\end{exercise}
+\begin{solution}
+    令$y=f(x)$，题设方程两边对$x$求导得
+    \[y'+y\tan x=\sec x\]
+    于是
+    \begin{align*}
+        y&=e^{-\int \tan x\d x}\left[\sec xe^{\int \tan x \d x}\d x+C\right]\\
+        &=|\cos x|\left[\int \dfrac{\sec x}{|\cos x|}\d x+C\right]=\cos x(\tan x+C)
+    \end{align*}
+    代入$x=0$得$f(x)=1\Rightarrow C=1$，所求函数为
+    \[ f(x)=\cos x(\tan x+1) \]
+\end{solution}
+\begin{exercise}
+    若$f(x)$在$[0,+\infty)$上是有界连续函数，证明：$y'+14y'+13y=f(x)$的每一个解在$[0,+\infty)$上都是有界的。
+\end{exercise}
+\begin{proof}
+    该方程对应的齐次方程为$y''+14y'+13y=0$，其特征方程$\lambda^2+14\lambda+13=0$，有不等实根$\lambda_1=-1,\lambda_2=-13$，故齐次通解为
+    \[Y=C_1 e^{-x} + C_2 e^{-13x}\]
+    又
+    \[
+        \begin{array}{rcl}
+            y''+y'+13(y'+y)=f(x)&\Rightarrow&\displaystyle y'+y=e^{-13x}\left[\int f(x)e^{13x}\d x+C_3\right]\\[8pt]
+            y''+13y'+(y'+13y)=f(x)&\Rightarrow&\displaystyle y'+13y=e^{-x}\left[\int f(x)e^{x}\d x+C_4\right]
+        \end{array}
+    \]
+    于是可得
+    \[y=C_1 e^{-x} + C_2 e^{-13x} - \dfrac{1}{12}e^{-13x}\int f(x)e^{13x}\d x + \dfrac{1}{12}e^{-x}\int f(x)e^{x}\d x\]
+    由于$f(x)$在$[0,+\infty)$上有界，设$|f(x)| \le M$，则
+    \[\left| - \dfrac{1}{12}e^{-13x}\int f(x)e^{13x}\d x \right| \le \dfrac{M}{12} \quad\text{且}\quad \left| \dfrac{1}{12}e^{-x}\int f(x)e^{x}\d x \right| \le \dfrac{M}{12}\]
+    故$y$在$[0,+\infty)$上有界。
+\end{proof}
+\begin{exercise}
+    求方程$(x^2+y^2+3) \dfrac{\d y}{\d x} = 2x(2y - \dfrac{x^2}{y})$的通解。
+\end{exercise}
+\begin{solution}
+    令$u=x^2,v=y^2$，则$\dfrac{\d v}{\d u}=\dfrac{y \d y}{x \d x}$，原方程化为
+    \[\dfrac{\d v}{\d u}=\dfrac{2(2v - u)}{u+v+3}\]
+    令$\begin{cases}
+        2v-u=0\\
+        u+v+3=0
+    \end{cases}\Rightarrow
+    \begin{cases}
+        u=-2\\
+        v=-1
+    \end{cases}\qquad\qquad$
+    ，令$U=u+2,V=v+1$，则
+    \[\dfrac{\d V}{\d U}=\dfrac{4V-2U}{U+V}\]
+    再令$W=\dfrac{V}{U}$，得$U \dfrac{\d W}{\d U} + W = \dfrac{4W - 2}{1 + W}$，即
+    \[-\dfrac{W+1}{(W-1)(W-2)} \d W = \dfrac{\d U}{U}\]
+    故
+    \[\int \dfrac{2}{W-1}-\dfrac{3}{W-2}\d W = \int \dfrac{\d U}{U}\]
+    即
+    \[(W-1)^2=CU(W-2)^3,C=\pm e^{C'}\neq 0\]
+    代入$W=\dfrac{V}{U},U=u+2,V=v+1,u=x^2,v=y^2$得通解为
+    \[C(y^2-2x^2-3)^3=(y^2 - x^2 -1)^2\]
+\end{solution}
+\begin{exercise}
+    求全微分方程$(x^3-y^2)\d x +(x^2y+xy)\d y=0$的通解。
+\end{exercise}
+\begin{solution}
+    法一：\\
+    设$u=y^2$，则原方程化为$\displaystyle \frac{\d u}{\d x}-\frac{2u}{x(1+x)}=-\frac{2x^2}{x+1}$，即
+    \[\left(\frac{1+x}{x}\right)^2y^2+(1+x^2)=C\]
+    法二：\\
+    原方程化为
+    \[
+        \begin{array}{l@{\qquad}c}
+            &\displaystyle x\d x+y \d y +y \frac{x\d y-y\d x}{x^2}=0\\[10pt]
+            \Rightarrow & \displaystyle \dfrac{1}{2}\d(x^2+y^2)+y \d \left(\frac{y}{x}\right)=0\\[10pt]
+            \Rightarrow & \displaystyle \dfrac{1}{2}\cdot \dfrac{\d(x^2+y^2)}{\sqrt{x^2+y^2}}+\dfrac{\left(\frac{y}{x}\right)}{\sqrt{1+\left(\frac{y}{x}\right)^2}}\d \left(\frac{y}{x}\right)=0\\[20pt]
+            \Rightarrow & \displaystyle \d \sqrt{x^2+y^2}+\d \sqrt{1+\left(\frac{y}{x}\right)^2}=0\\[10pt]
+            \Rightarrow & \displaystyle \sqrt{x^2+y^2}+\sqrt{1+\left(\frac{y}{x}\right)^2}=C\\
+        \end{array}
+    \]
+    故通解为
+    \[(1+x)\sqrt{x^2+y^2}=Cx\]
+\end{solution}
+\begin{exercise}
+    解微分方程$y''y-\left(y'\right)^2-\left(y'\right)^4=0$
+\end{exercise}
+\begin{solution}
+    令$y'=p$，则$y''=\dfrac{\d p}{\d x}=\dfrac{\d p}{\d y}\cdot \dfrac{\d y}{\d x}=p \dfrac{\d p}{\d y}$，原方程化为
+    \[y p \dfrac{\d p}{\d y} - p^2 - p^4 = 0\]
+    在$p$不恒为零时，可分离变量得
+    \[\dfrac{\d p}{p + p^3} = \dfrac{\d y}{y}\]
+    于是可得
+    \[\ln |y| = \ln |p| - \dfrac{1}{2} \ln |1 + p^2| + C'\]
+    即
+    \[y' = \dfrac{C_1 y}{\sqrt{1 + (y')^2}}\]
+    再令$C_1y = \cos \theta$，则$C_1\d y= -\sin \theta \d \theta$，那么原式化为
+    \[\frac{\sqrt{1-C_1^2y^2}}{C_1y}\d y=-\sin \theta \d \theta\]
+    左侧积分得
+    \begin{align*}
+        &\displaystyle\int \dfrac{\sqrt{1-C_1^2y^2}}{C_1y}\d y 
+        = \int \dfrac{\sqrt{1-\cos^2 \theta}}{\cos \theta} \cdot \left(-\dfrac{\sin \theta}{C_1}\right) \d \theta 
+        = -\dfrac{1}{C_1} \int \sec \theta - \cos \theta \d \theta\\
+        &= -\dfrac{1}{C_1} \left( \ln |\sec \theta + \tan \theta| - \sin \theta \right)
+    \end{align*}
+    故通解为
+    \[\sqrt{1-C_1^2y^2}-\ln\left|\dfrac{1+\sqrt{1-C_1^2y^2}}{C_1y}\right| = C_1x+C_2\]
+\end{solution}
+\begin{exercise}
+    敌方导弹A沿$y$轴正方向飞行，速度恒为$v$，经过点$(0,0)$时，我方导弹B从点$(16,0)$发射，速度恒为$2v$，且始终朝向敌方导弹A的当前位置。
+    求我方导弹B的飞行轨迹方程及导弹A、B相遇时的坐标。
+\end{exercise}
+\begin{solution}
+    相同时间内。我方导弹B的路程是敌方导弹A的两倍，同时有初值条件$y'\Big|_{(16,0)}=0$，于是有
+    \[\int_{x}^{16}\sqrt{1+\left(y'\right)^2}\d x = 2(y-y'x)\]
+    两边对$x$求导得
+    \[-\sqrt{1+\left(y'\right)^2}=-2y''x\]
+    即
+    \[\frac{\d y'}{\sqrt{1+\left(y'\right)^2}}=\dfrac{1}{2x}\d x\]
+    故两边积分得
+    \[2\ln\left|y'+\sqrt{1+\left(y'\right)^2}\right|=\ln|x|+C_1\]
+    代入初值条件得$C_1=\ln 16$，即
+    \[y'+\sqrt{1+\left(y'\right)^2}=\frac{\sqrt{x}}{4}\]
+    \[-y'+\sqrt{1+\left(y'\right)^2} = \frac{4}{\sqrt{x}}\]
+    故
+    \[y'=\frac{\sqrt{x}}{8} - \frac{2}{\sqrt{x}}\]
+    于是积分得
+    \[y=\dfrac{1}{12}x^{\frac{3}{2}} - 4\sqrt{x} + C_2\]
+    代入初值条件得$C_2=\dfrac{16}{3}$，故我方导弹B的飞行轨迹方程为
+    \[y=\dfrac{1}{12}x^{\frac{3}{2}} - 4\sqrt{x} + \dfrac{32}{3}\]
+    $x=0$时，$y=\dfrac{32}{3}$，即导弹A、B相遇时的坐标为$(0,\dfrac{32}{3})$.
+\end{solution}
+\ifx\allfiles\undefined
+\end{document}
+\fi
