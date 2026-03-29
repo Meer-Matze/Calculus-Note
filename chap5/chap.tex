@@ -9,7 +9,7 @@
 \chapter{常微分方程}
 \section{可分离变量的微分方程}
 \begin{example}
-    求微分方程$\displaystyle\sqrt{1-x^2}\,y'=\sqrt{1-y^2}$的通解。
+    求微分方程$\displaystyle\sqrt{1-x^2}\,y'=\sqrt{1-y^2}$的通解．
 \end{example}
 \begin{solution}
     原方程可化为$\displaystyle\frac{dy}{\sqrt{1-y^2}}=\frac{dx}{\sqrt{1-x^2}}$，两边积分得
@@ -17,18 +17,18 @@
         \label{eq1}
         \arcsin y=\arcsin x+C
     \end{align}
-    即通解为$y=\sin(\arcsin x+C)$。
+    即通解为$y=\sin(\arcsin x+C)$．
 \end{solution}
 \begin{myRemark}
-    该解法中，式\ref{eq1}舍去了$y = \pm 1$的解，实际上它们也是原方程的解，称为\textbf{奇解}。
+    该解法中，式\ref{eq1}舍去了$y = \pm 1$的解，实际上它们也是原方程的解，称为\textbf{奇解}．
 \end{myRemark}
 \begin{myRemark}
-    对于任意的微分方程来说，它的全部解为通解与奇解的并。
+    对于任意的微分方程来说，它的全部解为通解与奇解的并．
 \end{myRemark}
 
 \section{齐次微分方程}
 \begin{example}
-    求微分方程$\dfrac{\d y}{\d x}=\dfrac{y}{x}-\dfrac{1}{2}\left(\dfrac{y}{x}\right)^3$中满足$y\Big|_{x=1}=1$的特解。
+    求微分方程$\dfrac{\d y}{\d x}=\dfrac{y}{x}-\dfrac{1}{2}\left(\dfrac{y}{x}\right)^3$中满足$y\Big|_{x=1}=1$的特解．
 \end{example}
 \begin{solution}
     令$u=\dfrac{y}{x}$，则$y=ux$，代入原方程得
@@ -45,7 +45,7 @@
 \end{myRemark}
 \section{一阶线性微分方程}
 \begin{definition}
-    方程$y'+P(x)y=Q(x)$称为\textbf{一阶线性微分方程}，其中$P(x),Q(x)$为$x$的连续函数。
+    方程$y'+P(x)y=Q(x)$称为\textbf{一阶线性微分方程}，其中$P(x),Q(x)$为$x$的连续函数．
 \end{definition}
 \begin{theorem}
     一阶线性微分方程的通解为
@@ -54,7 +54,7 @@
     \]
 \end{theorem}
 \begin{example}
-    设曲线$y=f(x)$过点$(1,1)$，且在任意点$(x,y)$处的切线的纵截距等于切点的横坐标，求该曲线的方程。
+    设曲线$y=f(x)$过点$(1,1)$，且在任意点$(x,y)$处的切线的纵截距等于切点的横坐标，求该曲线的方程．
 \end{example}
 \begin{solution}
     设切点为$(x,y)$，则切线方程为
@@ -72,10 +72,10 @@
     \[y=x(1-\ln x)\]
 \end{solution}
 \begin{myRemark}
-    求解一阶线性微分方程时，括号内外的$|x|$总可以去绝对值符号，因为内外的符号总是可抵消的。
+    求解一阶线性微分方程时，括号内外的$|x|$总可以去绝对值符号，因为内外的符号总是可抵消的．
 \end{myRemark}
 \begin{example}
-    求满足$f(x)+2\displaystyle\int_{0}^{x}f(t)\,\d t=x^2$的连续函数$f(x)$。
+    求满足$f(x)+2\displaystyle\int_{0}^{x}f(t)\,\d t=x^2$的连续函数$f(x)$．
 \end{example}
 \begin{solution}
     $f(x)$连续$\Rightarrow\displaystyle\int_{0}^{x}f(t)\,\d t$可微$\Rightarrow f(x)=x^2-2\displaystyle\int_{0}^{x}f(t)\,\d t$可微，
@@ -93,7 +93,7 @@
     \[f(x)=x-\dfrac{1}{2}+\dfrac{1}{2}e^{-2x}\]
 \end{solution}
 \begin{example}
-    求微分方程$y'=\dfrac{1}{xy+y^3}$的通解。
+    求微分方程$y'=\dfrac{1}{xy+y^3}$的通解．
 \end{example}
 \begin{solution}
     \[
@@ -108,14 +108,14 @@
 \end{solution}
 \section{伯努利方程}
 \begin{definition}
-    \textbf{伯努利方程}形如$y'+P(x)y=Q(x)y^\alpha$，其中$\alpha\neq 0,1$。
+    \textbf{伯努利方程}形如$y'+P(x)y=Q(x)y^\alpha$，其中$\alpha\neq 0,1$．
 \end{definition}
 \begin{theorem}
     令$z=y^{1-\alpha}$，则伯努利方程可化为线性方程：
     \[z'+(1-\alpha)P(x)z=(1-\alpha)Q(x)\]
 \end{theorem}
 \begin{example}
-    求微分方程$y'+\dfrac{4x}{x^2-1}y=x\sqrt{y}$的通解。
+    求微分方程$y'+\dfrac{4x}{x^2-1}y=x\sqrt{y}$的通解．
 \end{example}
 \begin{solution}
     令$z=y^{\frac{1}{2}}$，则
@@ -130,7 +130,7 @@
 \section{二阶可降阶微分方程}
 \subsection{$y''=f(x,y')$型}
 \begin{example}
-    求微分方程$xy''+3y'=0$的通解。
+    求微分方程$xy''+3y'=0$的通解．
 \end{example}
 \begin{solution}
     令$y'=p$，则$y''=\dfrac{\d p}{\d x}$，原方程化为
@@ -145,7 +145,7 @@
 \subsection{$y''=f(y,y')$型}
 记$y' = p$，则$y'' = \dfrac{\d p}{\d x} = \dfrac{\d p}{\d y} \cdot \dfrac{\d y}{\d x} = p \dfrac{\d p}{\d y}$.
 \begin{example}
-    求满足方程$y y''+(y')^2=0$且$y(0)=1,y'(0)=\dfrac{1}{2}$的特解。
+    求满足方程$y y''+(y')^2=0$且$y(0)=1,y'(0)=\dfrac{1}{2}$的特解．
 \end{example}
 \begin{solution}
     令$y'=p$，则$y''=p\dfrac{\d p}{\d y}$，原方程化为
@@ -163,15 +163,15 @@
 \end{solution}
 \section{二阶常系数线性微分方程}
 \begin{theorem}[解的结构]
-    二阶常系数线性微分方程$y''+py'+qy=f(x)$的通解为对应的齐次方程$y''+py'+qy=0$的通解与原方程的一个特解之和。
+    二阶常系数线性微分方程$y''+py'+qy=f(x)$的通解为对应的齐次方程$y''+py'+qy=0$的通解与原方程的一个特解之和．
 \end{theorem}
 \subsection{齐次方程}
 \begin{theorem}
-    对于齐次方程$y''+py'+qy=0$，其特征方程为$\lambda^2+p\lambda+q=0$。
+    对于齐次方程$y''+py'+qy=0$，其特征方程为$\lambda^2+p\lambda+q=0$．
     \begin{enumerate}
         \item 若有两个不等实根$\lambda_1,\lambda_2$，则齐次通解为$Y=C_1e^{\lambda_1 x}+C_2e^{\lambda_2 x}$；
         \item 若有重根$\lambda$，则齐次通解为$Y=(C_1+C_2x)e^{\lambda x}$；
-        \item 若有共轭复根$\alpha\pm \beta i$，则齐次通解为$Y=e^{\alpha x}(C_1\cos \beta x + C_2 \sin \beta x)$。
+        \item 若有共轭复根$\alpha\pm \beta i$，则齐次通解为$Y=e^{\alpha x}(C_1\cos \beta x + C_2 \sin \beta x)$．
     \end{enumerate}
 \end{theorem}
 \begin{example}
@@ -193,7 +193,7 @@
 \end{solution}
 \subsection{非齐次方程}
 \begin{theorem}[待定系数法]
-    记$P_m(x),Q_m(x),M_n(x),N_n(x)$分别为$m$次和$n$次多项式。
+    记$P_m(x),Q_m(x),M_n(x),N_n(x)$分别为$m$次和$n$次多项式．
     \begin{enumerate}
         \item 若$f(x)=P_m(x)e^{rx}$，则可设非齐次特解$y^*=x^k Q_m(x)e^{r x}$，其中
         \[
@@ -214,7 +214,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{example}
-    求微分方程$y''+4y'+4y=e^{-2x}$的通解。
+    求微分方程$y''+4y'+4y=e^{-2x}$的通解．
 \end{example}
 \begin{solution}
     \textcolor{infoBlue}{先求齐次通解}\\
@@ -229,7 +229,7 @@
     \[y=(C_1+C_2 x)e^{-2x}+\dfrac{1}{2}x^2 e^{-2x}\]
 \end{solution}
 \begin{example}
-    求微分方程$y''-2y'+5y=\dfrac{1}{2}e^{x}\cos 2x$的通解。
+    求微分方程$y''-2y'+5y=\dfrac{1}{2}e^{x}\cos 2x$的通解．
 \end{example}
 \begin{solution}
     \textcolor{infoBlue}{先求齐次通解}\\
@@ -245,10 +245,10 @@
 \end{solution}
 \section{高阶常系数线性齐次微分方程}
 \begin{definition}
-    方程$y^{(n)} + a_1 y^{(n-1)} + \cdots + a_{n-1} y' + a_n y = 0$称为\textbf{$n$阶常系数线性齐次微分方程}，其中$a_1, a_2, \cdots, a_n$为常数。
+    方程$y^{(n)} + a_1 y^{(n-1)} + \cdots + a_{n-1} y' + a_n y = 0$称为\textbf{$n$阶常系数线性齐次微分方程}，其中$a_1, a_2, \cdots, a_n$为常数．
 \end{definition}
 \begin{theorem}
-    对于$n$阶常系数线性齐次微分方程，其特征方程为$\lambda^n + a_{1} \lambda^{n-1} + \cdots + a_{n-1} \lambda + a_n = 0$。
+    对于$n$阶常系数线性齐次微分方程，其特征方程为$\lambda^n + a_{1} \lambda^{n-1} + \cdots + a_{n-1} \lambda + a_n = 0$．
     \begin{enumerate}
         \item 若特征方程有$n$个互异实根$\lambda_1, \lambda_2, \cdots, \lambda_n$，则通解为
         \[y = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} + \cdots + C_n e^{\lambda_n x}\]
@@ -260,7 +260,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{example}
-    求微分方程$y^{(4)}-2y'''+5y''=0$的通解。
+    求微分方程$y^{(4)}-2y'''+5y''=0$的通解．
 \end{example}
 \begin{solution}
     特征方程为$\lambda^4 - 2\lambda^3 + 5\lambda^2 = 0$，解得特征根$\lambda_1=\lambda_2=0,\lambda_{3,4}=1\pm 2i$，故通解为
@@ -270,10 +270,10 @@
 \begin{definition}
     形如
     \[x^n y^{(n)} + a_1 x^{n-1} y^{(n-1)} + \cdots + a_{n-1} x y' + a_n y = f(x)\]
-    的微分方程称为\textbf{欧拉方程}，其中$a_1, a_2, \cdots, a_n$为常数。
+    的微分方程称为\textbf{欧拉方程}，其中$a_1, a_2, \cdots, a_n$为常数．
 \end{definition}
 \begin{theorem}
-    作变量代换$t=\ln|x|$（即$|x|=e^t$），可以将欧拉方程化为以$t$为自变量的常系数线性微分方程。
+    作变量代换$t=\ln|x|$（即$|x|=e^t$），可以将欧拉方程化为以$t$为自变量的常系数线性微分方程．
     记算子$D=\dfrac{\d}{\d t}$，则有
     \[
     \begin{aligned}
@@ -285,7 +285,7 @@
     \]
 \end{theorem}
 \begin{example}
-    求微分方程$x^2 y'' + 4x y' + 2y = 0,(x>0)$的通解。
+    求微分方程$x^2 y'' + 4x y' + 2y = 0,(x>0)$的通解．
 \end{example}
 \begin{solution}
     令$x=e^{t}$，记$Dy=\dfrac{\d y}{\d t}$，则原方程化为
@@ -299,7 +299,7 @@
 \end{solution}
 \section{微分方程练习}
 \begin{exercise}
-    若$f(x)$满足$f''(x)+f'(x)-2f(x)=0$，且$f''(x)+f(x)=2e^{x}$，求$f(x)$。
+    若$f(x)$满足$f''(x)+f'(x)-2f(x)=0$，且$f''(x)+f(x)=2e^{x}$，求$f(x)$．
 \end{exercise}
 \begin{solution}
     由$f''(x)+f'(x)-2f(x)=0$，可得齐次通解为
@@ -312,7 +312,7 @@
     \[f(x) = e^{x}\]
 \end{solution}
 \begin{exercise}
-    求微分方程$\dfrac{\d y}{\d x}x\ln x\, \sin y +\cos y\,(1-x\cos y)=0$的通解。
+    求微分方程$\dfrac{\d y}{\d x}x\ln x\, \sin y +\cos y\,(1-x\cos y)=0$的通解．
 \end{exercise}
 \begin{solution}
     原方程可化为
@@ -341,7 +341,7 @@
     \[ f(x)=\cos x(\tan x+1) \]
 \end{solution}
 \begin{exercise}
-    若$f(x)$在$[0,+\infty)$上是有界连续函数，证明：$y'+14y'+13y=f(x)$的每一个解在$[0,+\infty)$上都是有界的。
+    若$f(x)$在$[0,+\infty)$上是有界连续函数，证明：$y'+14y'+13y=f(x)$的每一个解在$[0,+\infty)$上都是有界的．
 \end{exercise}
 \begin{proof}
     该方程对应的齐次方程为$y''+14y'+13y=0$，其特征方程$\lambda^2+14\lambda+13=0$，有不等实根$\lambda_1=-1,\lambda_2=-13$，故齐次通解为
@@ -357,10 +357,10 @@
     \[y=C_1 e^{-x} + C_2 e^{-13x} - \dfrac{1}{12}e^{-13x}\int f(x)e^{13x}\d x + \dfrac{1}{12}e^{-x}\int f(x)e^{x}\d x\]
     由于$f(x)$在$[0,+\infty)$上有界，设$|f(x)| \le M$，则
     \[\left| - \dfrac{1}{12}e^{-13x}\int f(x)e^{13x}\d x \right| \le \dfrac{M}{12} \quad\text{且}\quad \left| \dfrac{1}{12}e^{-x}\int f(x)e^{x}\d x \right| \le \dfrac{M}{12}\]
-    故$y$在$[0,+\infty)$上有界。
+    故$y$在$[0,+\infty)$上有界．
 \end{proof}
 \begin{exercise}
-    求方程$(x^2+y^2+3) \dfrac{\d y}{\d x} = 2x(2y - \dfrac{x^2}{y})$的通解。
+    求方程$(x^2+y^2+3) \dfrac{\d y}{\d x} = 2x(2y - \dfrac{x^2}{y})$的通解．
 \end{exercise}
 \begin{solution}
     令$u=x^2,v=y^2$，则$\dfrac{\d v}{\d u}=\dfrac{y \d y}{x \d x}$，原方程化为
@@ -385,7 +385,7 @@
     \[C(y^2-2x^2-3)^3=(y^2 - x^2 -1)^2\]
 \end{solution}
 \begin{exercise}
-    求全微分方程$(x^3-y^2)\d x +(x^2y+xy)\d y=0$的通解。
+    求全微分方程$(x^3-y^2)\d x +(x^2y+xy)\d y=0$的通解．
 \end{exercise}
 \begin{solution}
     法一：\\
@@ -430,11 +430,11 @@
     \[\sqrt{1-C_1^2y^2}-\ln\left|\dfrac{1+\sqrt{1-C_1^2y^2}}{C_1y}\right| = C_1x+C_2\]
 \end{solution}
 \begin{exercise}
-    敌方导弹A沿$y$轴正方向飞行，速度恒为$v$，经过点$(0,0)$时，我方导弹B从点$(16,0)$发射，速度恒为$2v$，且始终朝向敌方导弹A的当前位置。
-    求我方导弹B的飞行轨迹方程及导弹A、B相遇时的坐标。
+    敌方导弹A沿$y$轴正方向飞行，速度恒为$v$，经过点$(0,0)$时，我方导弹B从点$(16,0)$发射，速度恒为$2v$，且始终朝向敌方导弹A的当前位置．
+    求我方导弹B的飞行轨迹方程及导弹A、B相遇时的坐标．
 \end{exercise}
 \begin{solution}
-    相同时间内。我方导弹B的路程是敌方导弹A的两倍，同时有初值条件$y'\Big|_{(16,0)}=0$，于是有
+    相同时间内．我方导弹B的路程是敌方导弹A的两倍，同时有初值条件$y'\Big|_{(16,0)}=0$，于是有
     \[\int_{x}^{16}\sqrt{1+\left(y'\right)^2}\d x = 2(y-y'x)\]
     两边对$x$求导得
     \[-\sqrt{1+\left(y'\right)^2}=-2y''x\]

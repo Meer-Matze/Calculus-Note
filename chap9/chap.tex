@@ -1,0 +1,128 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{二重极限}
+\section{二重极限不存在的证明}
+\begin{theorem}[二重极限不存在的常见证法]
+一般的，证明二重极限不存在的方法有以下几种：
+    \begin{enumerate}
+        \item \textbf{路径法}：通过选择不同的路径（如$x$轴、$y$轴、$y=kx$等）来计算极限，如果不同路径得到的极限值不同或不存在，则二重极限不存在．
+        \item \textbf{$\bm{y=kx^p}$路径法}：换元将式子凑成齐次，若结果依赖于$k$，则二重极限不存在．
+    \item \textbf{极坐标法}：将$(x,y)$转换为极坐标$(\rho,\theta)$，如果极限值依赖于$\theta$，则二重极限不存在．
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{example}
+    证明下列极限不存在：
+    \begin{tasks}[label=(\arabic*), item-indent=1em](2)
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x+y}{xy}$
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2 + y^2}$
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4}$
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x+y}{x-y}$
+    \end{tasks}
+\end{example}
+
+
+\begin{proof}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 单路径法：沿$y=x$趋近，$\lim\limits_{\substack{x \to 0 \\ y = x \to 0}} \dfrac{2x}{x^2} = \lim\limits_{x \to 0} \dfrac{2}{x} = \infty$；
+        \item 双路径法：$\lim\limits_{ \substack{x \to 0 \\ y = x \to 0} } \dfrac{x^2}{x^2 + x^2} = \dfrac{1}{2}$；$\lim\limits_{ \substack{x \to 0 \\ y = -x \to 0} } \dfrac{-x^2}{x^2 + x^2} = -\dfrac{1}{2}$．不同路径得到的极限值不同，因此极限不存在．\\
+            $y=kx$路径法：沿$y=kx$趋近，$\lim\limits_{x \to 0} \dfrac{x \cdot kx}{x^2 + (kx)^2} = \lim\limits_{x \to 0} \dfrac{k x^2}{x^2 (1 + k^2)} = \dfrac{k}{1 + k^2}$．$\lim\limits_{x \to 0} \dfrac{k}{1 + k^2}$依赖于$k$，因此极限不存在．\\
+            极坐标法：将$(x,y)$转换为极坐标$(\rho,\theta)$，$\dfrac{xy}{x^2 + y^2} = \dfrac{\rho \cos\theta \cdot \rho \sin\theta}{\rho^2} = \cos\theta \sin\theta = \dfrac{1}{2} \sin 2\theta$．$\lim\limits_{\rho \to 0} \dfrac{1}{2} \sin 2\theta$依赖于$\theta$，因此极限不存在．
+        \item $y=kx^p$路径法：令$x=ky^2$，则$\lim\limits_{y \to 0} \dfrac{k y^4}{k^2 y^4 + y^4} = \dfrac{k}{k^2 + 1}$．$\lim\limits_{y \to 0} \dfrac{k}{k^2 + 1}$依赖于$k$，因此极限不存在．
+        \item 路径法：沿$y=x+x^2$趋近，$\lim\limits_{\substack{x \to 0 \\ y = x + x^2 \to 0}} \dfrac{x+x + x^2}{x-(x + x^2)} = \lim\limits_{x \to 0} \dfrac{2x+x^2}{-x^2} = \infty$
+    \end{enumerate}
+\end{proof}
+
+
+\begin{myRemark}
+    形如$\lim\limits_{(x,y) \to (0,0)} \dfrac{x^p y^q}{x^m+y^n}(m,n \in \mathbb{N^*}, p,q > 0)$的极限，有以下结论：
+    \begin{enumerate}
+        \item $m,n$中有奇数时，极限不存在；
+        \item $m,n$中全为偶数时，\begin{itemize}
+            \item 当$\dfrac{p}{m} + \dfrac{q}{n} > 1$时，极限为0；
+            \item 当$\dfrac{p}{m} + \dfrac{q}{n} \le 1$时，极限不存在，可选取$y=kx^{\frac{m-p}{q}}$路径证明．
+        \end{itemize}
+    \end{enumerate}
+\end{myRemark}
+
+
+\section{二重极限的计算}
+\begin{theorem}[二重极限的常见计算方法]
+一般的，计算二重极限的方法有以下几种：
+    \begin{enumerate}
+        \item \textbf{连续性}：直接代入
+        \item \textbf{等价无穷小}
+        \item \textbf{夹逼定理}
+        \item \textbf{$\bm{0\cdot}$ 有界量}
+        \item \textbf{极坐标法}
+    \end{enumerate}
+
+\end{theorem}
+
+
+\begin{example}
+    计算下列极限：
+    \begin{tasks}[label=(\arabic*), item-indent=1em](3)
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{\sqrt{x^2 + y^2}}$
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2 + y^2}$
+        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2+y^2}{|x|+|y|}$
+    \end{tasks}
+\end{example}
+
+
+\begin{solution}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 由于 $0 < \left| \dfrac{xy}{\sqrt{x^2 + y^2}} \right| \le |x| \to 0 \, (x \to 0)$，因此 $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{\sqrt{x^2 + y^2}} = 0$．
+
+        \item 
+        \begin{align*}
+            \lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2 + y^2} &= \lim\limits_{(x,y) \to (0,0)} \dfrac{x^2y^4}{x^2 + y^2} \\
+            &= \lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2 + y^2} \cdot y^4
+        \end{align*}
+
+        由于 $\dfrac{x^2}{x^2 + y^2} \le 1$，因此 $\dfrac{x^2}{x^2 + y^2}$ 是有界量．又由于 $y^4 \to 0 \, (y \to 0)$，因此 
+        \[\lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2 + y^2} = 0\]
+
+        \item 法一：原式可变形为 $|x| \dfrac{|x|}{|x|+|y|} + |y| \dfrac{|y|}{|x|+|y|}$，由于 $0 \le \dfrac{|x|}{|x|+|y|} \le 1$，$0 \le \dfrac{|y|}{|x|+|y|} \le 1$，因此 $\dfrac{|x|}{|x|+|y|}$ 和 $\dfrac{|y|}{|x|+|y|}$ 是有界量．又由于 $|x| \to 0 \, (x \to 0)$，$|y| \to 0 \, (y \to 0)$，因此 $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2+y^2}{|x|+|y|} = 0$．
+        法二：令 $x = \rho \cos\theta$，$y = \rho \sin\theta$，则原式可变形为 $\dfrac{\rho^2}{\rho(|\cos\theta| + |\sin\theta|)} = \dfrac{\rho}{|\cos\theta| + |\sin\theta|}$．由于 $\dfrac{1}{|\cos\theta| + |\sin\theta|}$ 是有界量，$\rho \to 0 \, (\rho \to 0)$，因此 $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2+y^2}{|x|+|y|} = 0$．
+    \end{enumerate}
+\end{solution}
+
+
+\begin{example}
+    判断函数$f(x,y) = \begin{cases}
+        \dfrac{2xy^2}{x^2+y^2}-\dfrac{2x^3y^2}{(x^2+y^2)^2}, & (x,y) \ne (0,0) \\ 0, & (x,y) = (0,0)
+    \end{cases}$在点$(0,0)$处是否连续．
+\end{example}
+
+\
+\begin{solution}
+    \[
+        \lim_{(x,y) \to (0,0)} f(x,y) = \lim_{(x,y) \to (0,0)} 2x\dfrac{y^2}{x^2+y^2} - x\dfrac{2x^2y^2}{(x^2+y^2)^2}
+    \]
+    又
+    \[
+        0 \le \dfrac{y^2} {x^2+y^2} \le 1, \quad 0 \le \dfrac{2x^2y^2}{(x^2+y^2)^2} \le 1
+    \]
+    因此，$\dfrac{y^2}{x^2+y^2}$和$\dfrac{2x^2y^2}{(x^2+y^2)^2}$是有界量．又由于$x \to 0 (x \to 0)$，因此$\lim_{(x,y) \to (0,0)} f(x,y) = 0$．又$f(0,0) = 0$，因此函数$f(x,y)$在点$(0,0)$处连续．
+\end{solution}
+
+
+\subsection{二重极限与二次极限的辨析}
+\begin{example}
+    求极限$\lim\limits_{x \to 0} \lim\limits_{y \to 0} x\sin\dfrac{1}{y} + y\sin\dfrac{1}{x}$
+\end{example}
+
+\begin{solution}
+    由于$\lim\limits_{y \to 0} x\sin\dfrac{1}{y}$不存在，因此整个二次极限不存在．
+\end{solution}
+\ifx\allfiles\undefined
+\end{document}
+\fi

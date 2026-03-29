@@ -1,0 +1,78 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{空间解析几何}
+\begin{exercise}
+    求$x=y^2,z=x^2$在点$(1,1,1)$处的切线和法平面方程．
+\end{exercise}
+\begin{solution}
+    容易得到参数方程为
+    \[ \begin{cases} x=t^2 \\ y=t \\ z=t^4 \end{cases} \]
+
+    对参数$t$求导，得到切线向量：
+    \[ \frac{dx}{dt} = 2t, \quad \frac{dy}{dt} = 1, \quad \frac{dz}{dt} = 4t^3 \]
+    
+    在点$(1,1,1)$处，$t=1$，切线向量为
+    \[ \bm{n} = (2, 1, 4) \]
+    
+    因此，切线方程为
+    \[ \frac{x-1}{2} = \frac{y-1}{1} = \frac{z-1}{4} \]
+    
+    在曲线中，切向量$\bm{n}$即为法平面的法向量，因此，
+
+    法平面方程为
+    \[ 2(x-1) + 1(y-1) + 4(z-1) = 0 \]
+    
+\end{solution}
+\begin{exercise}
+    求直线$\begin{cases}
+        x=3-t \\ y =-1+t\\z=1+2t
+    \end{cases}$绕$y$轴旋转一周所成的曲面方程．
+\end{exercise}
+\begin{solution}
+    直线上的点$(3-t, -1+t, 1+2t)$绕$y$轴旋转一周所成的曲面方程为
+    
+    由于绕$y$轴旋转，$y$坐标不变，$x$和$z$在垂直于$y$轴的平面上旋转．
+    
+    旋转曲面上任意点$(x, y, z)$到$y$轴的距离等于原直线上对应点$(3-t, -1+t, 1+2t)$到$y$轴的距离．
+    
+    点$(x, y, z)$到$y$轴的距离为$\sqrt{x^2 + z^2}$．
+    
+    原直线上点到$y$轴的距离为$\sqrt{(3-t)^2 + (1+2t)^2} = \sqrt{5t^2 - 2t + 10}$．
+    
+    因此，
+    \[ x^2 + z^2 = 5t^2 - 2t + 10 \]
+    
+    又$y = -1 + t$，所以$t = y + 1$．
+    
+    代入得
+    \[ x^2 + z^2 = 5(y+1)^2 - 2(y+1) + 10 = 5(y^2 + 2y + 1) - 2y - 2 + 10 = 5y^2 + 8y + 13 \]
+\end{solution}
+\begin{myRemark}
+    \textbf{一般情况：任意曲线绕任意轴旋转的曲面}
+    
+    设曲线方程为参数形式 $\bm{r}(t) = (x(t), y(t), z(t))$，旋转轴为通过点 $\bm{p} = (p_x, p_y, p_z)$ 且方向向量 $\bm{u} = (u_x, u_y, u_z)$ 的直线．
+    
+    旋转曲面上的点 $\bm{q} = (x, y, z)$ 满足：
+    \begin{itemize}
+        \item $\bm{q}$ 到轴的距离等于 $\bm{r}(t)$ 到轴的距离，即 $|\bm{q} - \bm{p}| \times \bm{u} = |\bm{r}(t) - \bm{p}| \times \bm{u}$．
+        \item $\bm{q}$ 在轴上的投影与 $\bm{r}(t)$ 在轴上的投影相同．
+    \end{itemize}
+    
+    具体推导可通过坐标变换：将轴变换为 $z'$ 轴，然后应用绕 $z'$ 轴的旋转公式，最后变换回原坐标．
+    
+    对于绕坐标轴的特殊情况：
+    \begin{itemize}
+        \item 绕 $z$ 轴：$x^2 + y^2 = x(t)^2 + y(t)^2$，$z = z(t)$．
+        \item 绕 $y$ 轴：$x^2 + z^2 = x(t)^2 + z(t)^2$，$y = y(t)$．
+        \item 绕 $x$ 轴：$y^2 + z^2 = y(t)^2 + z(t)^2$，$x = x(t)$．
+    \end{itemize}
+\end{myRemark}
+\ifx\allfiles\undefined
+\end{document}
+\fi

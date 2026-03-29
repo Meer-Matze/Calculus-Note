@@ -1,18 +1,28 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {
-		"editor.cursorSmoothCaretAnimation": "explicit",
-		"extensions.experimental.ignoredExtensions": [
-		"hancel.markdown-image",
-		"shd101wyy.markdown-preview-enhanced",
-		"yzane.markdown-pdf",
-		"yzhang.markdown-all-in-one",
-		"be5invis.vscode-custom-css",
-		"christian-kohler.path-intellisense"
-  ]
-	}
+  "folders": [
+    {
+      "path": ".",
+    },
+  ],
+  "settings": {
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "extensions.experimental.ignoredExtensions": [
+      "hancel.markdown-image",
+      "shd101wyy.markdown-preview-enhanced",
+      "yzane.markdown-pdf",
+      "yzhang.markdown-all-in-one",
+      "be5invis.vscode-custom-css",
+      "christian-kohler.path-intellisense",
+    ],
+    "latex-workshop.intellisense.newenvironment.user": {
+      "exercise": {
+        "snippet": "\\begin{exercise}\n\t$0\n\\end{exercise}",
+        "detail": "Custom exercise environment",
+      },
+      "solution": {
+        "snippet": "\\begin{solution}\n\t$0\n\\end{solution}",
+        "detail": "Custom solution environment",
+      },
+    },
+  },
 }
