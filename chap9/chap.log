@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.27)  4 APR 2026 14:19
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.27)  4 APR 2026 13:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1413,116 +1413,55 @@ Package hyperref Info: Link coloring ON on input line 5.
 \c@lstlisting=\count400
 
 第一章
-LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
 
 (D:\Appdata\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 
 (D:\Appdata\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 13
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12
 .
 
 (D:\Appdata\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 
-13.
+12.
 
 (D:\Appdata\MiKTeX\tex/latex/yhmath\omxyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 )
 LaTeX Font Info:    Trying to load font information for U+esint on input line 1
-3.
+2.
 
 (D:\Appdata\MiKTeX\tex/latex/esint\uesint.fd
 File: uesint.fd 
-) [1
+)
+
+LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
+(Font)              using `TU/SimSun(0)/b/n' instead on input line 29.
+
+[1
 
 
 ]
-
-Package tasks Warning: The width of `label-width' is too small on line 54.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 54--54
-\TU/lmr/m/n/12 (1)
+Underfull \hbox (badness 7613) in paragraph at lines 51--52
+[][]\TU/SimSun(0)/b/n/12 定 理 \TU/lmr/bx/n/12 1.2.1 \TU/lmr/m/n/12 (\TU/SimSun(0
+)/m/n/12 拉 格 朗 日 乘 数 法\TU/lmr/m/n/12 )\TU/lmr/bx/n/12 . []\TU/SimSun(0)/m/n/12 
+为 了 求 函 数 $\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; x[]; [] ; x
+[]\OT1/cmr/m/n/12 )$ \TU/SimSun(0)/m/n/12 在 约 束 条 件
  []
-
-
-Package tasks Warning: The width of `label-width' is too small on line 54.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 54--54
-\TU/lmr/m/n/12 (2)
- []
-
-
-Package tasks Warning: The width of `label-width' is too small on line 54.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 54--54
-\TU/lmr/m/n/12 (3)
- []
-
-
-Package tasks Warning: The width of `label-width' is too small on line 54.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 54--54
-\TU/lmr/m/n/12 (4)
- []
-
-
-LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
-(Font)              using `TU/SimSun(0)/b/n' instead on input line 57.
 
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
-64.
-[2] [3]
-
-Package tasks Warning: The width of `label-width' is too small on line 94.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 94--94
-\TU/lmr/m/n/12 (1)
- []
-
-
-Package tasks Warning: The width of `label-width' is too small on line 94.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 94--94
-\TU/lmr/m/n/12 (2)
- []
-
-
-Package tasks Warning: The width of `label-width' is too small on line 94.
-(tasks)                Please set it at least to 15.024pt.
-
-
-Overfull \hbox (4.0238pt too wide) in paragraph at lines 94--94
-\TU/lmr/m/n/12 (3)
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--105
-
- []
-
-[4] [5] (chap.aux)
+65.
+[2] [3] [4] [5] (chap.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1532,16 +1471,16 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `chap.out' has not changed.
-(rerunfilecheck)             Checksum: 92422A86C64F70D1805E5DD486049137;412.
+(rerunfilecheck)             Checksum: 5F4F751F7376FE2EC284B43C8B95B8A0;263.
  )
-(\end occurred when \ifx on line 134 was incomplete) 
+(\end occurred when \ifx on line 146 was incomplete) 
 Here is how much of TeX's memory you used:
- 29874 strings out of 402987
- 616934 string characters out of 5454112
- 2152463 words of memory out of 5000000
- 58052 multiletter control sequences out of 15000+600000
- 639396 words of font info for 114 fonts, out of 8000000 for 9000
+ 29849 strings out of 402987
+ 616396 string characters out of 5454112
+ 2147463 words of memory out of 5000000
+ 58032 multiletter control sequences out of 15000+600000
+ 639356 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,10n,111p,1264b,636s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,8n,111p,1264b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on chap.pdf (5 pages).

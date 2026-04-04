@@ -299,30 +299,23 @@
     \end{cases}$ 在点 $(1,1,1)$ 处的切线与法平面．
 \end{example}
 \begin{solution}
-    令 $y=t$，由曲线方程可得参数方程为
-    \[
-        \begin{cases}
-            x = t^2\\
-            y = t\\
-            z = (t^2)^2 = t^4
-        \end{cases}
-    \]
-    在点 $(1,1,1)$ 处，$t=1$．切向量为
-    \[
-        \boldsymbol{\tau} = \left.\frac{d\mathbf{r}}{dt}\right|_{t=1} = (2t, 1, 4t^3)\bigg|_{t=1} = (2, 1, 4)
-    \]
+    容易得到参数方程为
+    \[ \begin{cases} x=t^2 \\ y=t \\ z=t^4 \end{cases} \]
+
+    对参数$t$求导，得到切线向量：
+    \[ \frac{dx}{dt} = 2t, \quad \frac{dy}{dt} = 1, \quad \frac{dz}{dt} = 4t^3 \]
+    
+    在点$(1,1,1)$处，$t=1$，切线向量为
+    \[ \bm{n} = (2, 1, 4) \]
+    
     因此，切线方程为
-    \[
-        \frac{x-1}{2} = \frac{y-1}{1} = \frac{z-1}{4}
-    \]
+    \[ \frac{x-1}{2} = \frac{y-1}{1} = \frac{z-1}{4} \]
+    
+    在曲线中，切向量$\bm{n}$即为法平面的法向量，因此，
+
     法平面方程为
-    \[
-        2(x-1) + 1(y-1) + 4(z-1) = 0
-    \]
-    即
-    \[
-        2x + y + 4z = 7
-    \]
+    \[ 2(x-1) + 1(y-1) + 4(z-1) = 0 \]
+    
 \end{solution}
 
 

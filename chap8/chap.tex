@@ -6,72 +6,64 @@
 % \input{../config/cover}
 \else
 \fi
-\chapter{空间解析几何}
+\chapter{多元函数微分学}
 \begin{exercise}
-    求$x=y^2,z=x^2$在点$(1,1,1)$处的切线和法平面方程．
+    设可微函数$z=z(x,y)$满足$x^2\dfrac{\partial z}{\partial x}+y^2\dfrac{\partial z}{\partial y}=2z^2$，又设$u=x,v=\dfrac{1}{y}-\dfrac{1}{x},w=\dfrac{1}{z}-\dfrac{1}{x}$，则对于函数$w=w(u,v)$，求$\dfrac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}}$。
 \end{exercise}
 \begin{solution}
-    容易得到参数方程为
-    \[ \begin{cases} x=t^2 \\ y=t \\ z=t^4 \end{cases} \]
-
-    对参数$t$求导，得到切线向量：
-    \[ \frac{dx}{dt} = 2t, \quad \frac{dy}{dt} = 1, \quad \frac{dz}{dt} = 4t^3 \]
+    已知 $u=x, v = \dfrac{1}{y} - \dfrac{1}{x}, w = \dfrac{1}{z} - \dfrac{1}{x}$．
     
-    在点$(1,1,1)$处，$t=1$，切线向量为
-    \[ \bm{n} = (2, 1, 4) \]
+    故$$x=u,\quad\dfrac{1}{y} = v + \dfrac{1}{u},\quad\dfrac{1}{z} = w + \dfrac{1}{u}$$
     
-    因此，切线方程为
-    \[ \frac{x-1}{2} = \frac{y-1}{1} = \frac{z-1}{4} \]
+    对 $w=w(u,v)$ 关于 $u$ 求偏导：
+    \[ \frac{\partial w}{\partial u} = \frac{\partial}{\partial u} \left( \frac{1}{z} - \frac{1}{u} \right) = -\frac{1}{z^2} \frac{\partial z}{\partial u} + \frac{1}{u^2} \]
+    其中 $z$ 是 $x, y$ 的函数，而 $x, y$ 又是 $u, v$ 的函数．由复合函数求导法则：
+    \[ \frac{\partial z}{\partial u} = \frac{\partial z}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial z}{\partial y} \frac{\partial y}{\partial u} \]
+    由 $x=u$ 知 $\dfrac{\partial x}{\partial u} = 1$．
+    由 $\dfrac{1}{y} = v + \dfrac{1}{u}$ 知 $-\dfrac{1}{y^2} \dfrac{\partial y}{\partial u} = -\dfrac{1}{u^2}$，即 $\dfrac{\partial y}{\partial u} = \dfrac{y^2}{u^2} = \dfrac{y^2}{x^2}$．
     
-    在曲线中，切向量$\bm{n}$即为法平面的法向量，因此，
-
-    法平面方程为
-    \[ 2(x-1) + 1(y-1) + 4(z-1) = 0 \]
-    
+    代入得：
+    \[ \frac{\partial z}{\partial u} = \frac{\partial z}{\partial x} \cdot 1 + \frac{\partial z}{\partial y} \cdot \frac{y^2}{x^2} = \frac{1}{x^2} \left( x^2 \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} \right) \]
+    已知原方程 $x^2 \dfrac{\partial z}{\partial x} + y^2 \dfrac{\partial z}{\partial y} = 2z^2$，则：
+    \[ \frac{\partial z}{\partial u} = \frac{2z^2}{x^2} \]
+    代入 $\dfrac{\partial w}{\partial u}$ 的表达式：
+    \[ \frac{\partial w}{\partial u} = -\frac{1}{z^2} \cdot \frac{2z^2}{x^2} + \frac{1}{x^2} = -\frac{2}{x^2} + \frac{1}{x^2} = -\frac{1}{x^2} \]
+    当 $u=2, v=1$ 时，$x=u=2$，故：
+    \[ \frac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}} = -\frac{1}{2^2} = -\frac{1}{4} \]
 \end{solution}
 \begin{exercise}
-    求直线$\begin{cases}
-        x=3-t \\ y =-1+t\\z=1+2t
-    \end{cases}$绕$y$轴旋转一周所成的曲面方程．
+    设$z=f(x,y)$是区域$D=\{(x,y)|0\le x\le 1,0\le y\le 1\}$上连续可微的函数，且满足$f(0,0)=0$，且$\d z\Big|_{(0,0)}=3\d x+2\d y$，求极限$\displaystyle\lim_{x \to 0} \dfrac{\displaystyle \int_{0}^{x^2}\d t\displaystyle\int_{x}^{\sqrt{t}}f(t,u)\d u}{1-\sqrt[4]{1-x^4}}$
 \end{exercise}
 \begin{solution}
-    直线上的点$(3-t, -1+t, 1+2t)$绕$y$轴旋转一周所成的曲面方程为
+    设极限为 $L$．首先处理分母：当 $x \to 0$ 时，使用等价无穷小 $(1+x)^\alpha - 1 \sim \alpha x$，有：
+    \[ 1 - \sqrt[4]{1-x^4} = 1 - (1 - x^4)^{1/4} \sim -\left[ \frac{1}{4} (-x^4) \right] = \frac{1}{4}x^4 \]
+    于是：
+    \[ L = \lim_{x \to 0} \frac{\displaystyle\int_{0}^{x^2} \d t \int_{x}^{\sqrt{t}} f(t,u) \d u}{\frac{1}{4}x^4} \]
+    接下来处理分子，对分子先进行交换积分次序：
+    \[ \int_{0}^{x^2} \d t \int_{x}^{\sqrt{t}} f(t,u) \d u = -\int_{0}^{x}\d u\int_{0}^{u^2} f(t,u) \d t \]
+    容易发现整个分式是$\frac{0}{0}$型的，因此可以使用洛必达法则．对分子分母求导：
+    \[L = \lim_{x \to 0^+}\frac{-\displaystyle\int_{0}^{x}\d u\int_{0}^{u^2} f(t,u) \d t}{\frac{1}{4}x^4}
+        = -\lim_{x \to 0^+}\frac{\displaystyle\int_{0}^{x^2}f(t,x)\d t}{x^3} \]
+    容易发现分子分母又是$\frac{0}{0}$型的，但如果继续使用洛必达法则，分子是变限积分，求导后积分仍然存在，不如使用定积分中值定理．\\
+    由定积分中值定理，存在 $\xi \in (0, x^2)$ 使得：
+    \[ \int_{0}^{x^2} f(t,x) \d t = f(\xi, x) \cdot x^2 \]
+    因此：
+    \[ L = -\lim_{x \to 0^+} \frac{f(\xi, x) \cdot x^2}{x^3} = -\lim_{x \to 0^+} \frac{f(\xi, x)}{x} \]
+    当 $x \to 0^+$ 时，$\xi \to 0^+$，因此：
+    \[ f(\xi, x) = f(0,0) + \frac{\partial f}{\partial x}(0,0) \cdot \xi + \frac{\partial f}{\partial y}(0,0) \cdot x + o(\sqrt{\xi^2 + x^2}) \]
+    代入得：
+    \[ L = -\lim_{x \to 0^+} \frac{f(0,0) + 3\xi + 2x + o(\sqrt{\xi^2 + x^2})}{x}
+        = -2 + 3\lim_{x \to 0^+} \frac{\xi}{x}+\lim_{x\to 0^+}\frac{o(\sqrt{\xi^2 + x^2})}{x} \]
+    由于 $0 < \xi < x^2$，所以$0 < \dfrac{\xi}{x} < x$，因此 $\lim\limits_{x \to 0^+} \dfrac{\xi}{x} = 0$．
+    而 $$\lim_{x \to 0^+} \frac{\sqrt{\xi^2 + x^2}}{x} = \lim_{x \to 0^+} \frac{o(\sqrt{\xi^2 + x^2})}{\sqrt{\xi^2 + x^2}} \cdot \frac{\sqrt{\xi^2 + x^2}}{x} = 0$$
+    因此：
+    \[ L = -2 \]
     
-    由于绕$y$轴旋转，$y$坐标不变，$x$和$z$在垂直于$y$轴的平面上旋转．
-    
-    旋转曲面上任意点$(x, y, z)$到$y$轴的距离等于原直线上对应点$(3-t, -1+t, 1+2t)$到$y$轴的距离．
-    
-    点$(x, y, z)$到$y$轴的距离为$\sqrt{x^2 + z^2}$．
-    
-    原直线上点到$y$轴的距离为$\sqrt{(3-t)^2 + (1+2t)^2} = \sqrt{5t^2 - 2t + 10}$．
-    
-    因此，
-    \[ x^2 + z^2 = 5t^2 - 2t + 10 \]
-    
-    又$y = -1 + t$，所以$t = y + 1$．
-    
-    代入得
-    \[ x^2 + z^2 = 5(y+1)^2 - 2(y+1) + 10 = 5(y^2 + 2y + 1) - 2y - 2 + 10 = 5y^2 + 8y + 13 \]
 \end{solution}
 \begin{myRemark}
-    \textbf{一般情况：任意曲线绕任意轴旋转的曲面}
-    
-    设曲线方程为参数形式 $\bm{r}(t) = (x(t), y(t), z(t))$，旋转轴为通过点 $\bm{p} = (p_x, p_y, p_z)$ 且方向向量 $\bm{u} = (u_x, u_y, u_z)$ 的直线．
-    
-    旋转曲面上的点 $\bm{q} = (x, y, z)$ 满足：
-    \begin{itemize}
-        \item $\bm{q}$ 到轴的距离等于 $\bm{r}(t)$ 到轴的距离，即 $|\bm{q} - \bm{p}| \times \bm{u} = |\bm{r}(t) - \bm{p}| \times \bm{u}$．
-        \item $\bm{q}$ 在轴上的投影与 $\bm{r}(t)$ 在轴上的投影相同．
-    \end{itemize}
-    
-    具体推导可通过坐标变换：将轴变换为 $z'$ 轴，然后应用绕 $z'$ 轴的旋转公式，最后变换回原坐标．
-    
-    对于绕坐标轴的特殊情况：
-    \begin{itemize}
-        \item 绕 $z$ 轴：$x^2 + y^2 = x(t)^2 + y(t)^2$，$z = z(t)$．
-        \item 绕 $y$ 轴：$x^2 + z^2 = x(t)^2 + z(t)^2$，$y = y(t)$．
-        \item 绕 $x$ 轴：$y^2 + z^2 = y(t)^2 + z(t)^2$，$x = x(t)$．
-    \end{itemize}
+    关于多重变限积分的求导，事实上是莱布尼茨积分法则的推广，具体来说，如果 $F(x) = \displaystyle\int_{a(x)}^{b(x)} f(t,x) \d t$，则：
+\[ F'(x) = f(b(x), x) \cdot b'(x) - f(a(x), x) \cdot a'(x) + \int_{a(x)}^{b(x)} \frac{\partial f(t,x)}{\partial x} \d t \]
+    在本题中，分子中的积分是一个二重变限积分，因此需要对内外两层积分分别使用莱布尼茨法则进行求导．
 \end{myRemark}
 \ifx\allfiles\undefined
 \end{document}

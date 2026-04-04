@@ -34,3 +34,22 @@
 \contentsline {section}{\numberline {5.7}高阶常系数线性齐次微分方程}{39}{section.5.7}%
 \contentsline {section}{\numberline {5.8}欧拉方程}{40}{section.5.8}%
 \contentsline {section}{\numberline {5.9}微分方程练习}{41}{section.5.9}%
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}空间解析几何}{47}{chapter.6}%
+\contentsline {section}{\numberline {6.1}空间中的直线和平面}{47}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}直线、平面的相对位置关系}{47}{subsection.6.1.1}%
+\contentsline {subsubsection}{两平面的位置关系}{47}{subsubsection*.2}%
+\contentsline {subsubsection}{两直线的位置关系}{47}{subsubsection*.3}%
+\contentsline {subsubsection}{直线与平面的位置关系}{48}{subsubsection*.4}%
+\contentsline {subsection}{\numberline {6.1.2}距离公式}{48}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}空间曲线与空间曲面}{49}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}常见空间曲面}{49}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}旋转曲面}{51}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}空间解析几何部分例题}{53}{section.6.3}%
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}二重极限}{54}{chapter.7}%
+\contentsline {section}{\numberline {7.1}二重极限不存在的证明}{54}{section.7.1}%
+\contentsline {section}{\numberline {7.2}二重极限的计算}{56}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}二次极限}{58}{subsection.7.2.1}%
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}多元函数微分学}{59}{chapter.8}%
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}函数极值}{62}{chapter.9}%
+\contentsline {section}{\numberline {9.1}多元函数极值}{62}{section.9.1}%
+\contentsline {section}{\numberline {9.2}条件极值}{63}{section.9.2}%

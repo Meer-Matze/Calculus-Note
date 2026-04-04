@@ -6,122 +6,142 @@
 % \input{../config/cover}
 \else
 \fi
-\chapter{二重极限}
-\section{二重极限不存在的证明}
-\begin{theorem}[二重极限不存在的常见证法]
-一般的，证明二重极限不存在的方法有以下几种：
-    \begin{enumerate}
-        \item \textbf{路径法}：通过选择不同的路径（如$x$轴、$y$轴、$y=kx$等）来计算极限，如果不同路径得到的极限值不同或不存在，则二重极限不存在．
-        \item \textbf{$\bm{y=kx^p}$路径法}：换元将式子凑成齐次，若结果依赖于$k$，则二重极限不存在．
-    \item \textbf{极坐标法}：将$(x,y)$转换为极坐标$(\rho,\theta)$，如果极限值依赖于$\theta$，则二重极限不存在．
-    \end{enumerate}
-\end{theorem}
-
-
-\begin{example}
-    证明下列极限不存在：
-    \begin{tasks}[label=(\arabic*), item-indent=1em](2)
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x+y}{xy}$
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{x^2 + y^2}$
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy^2}{x^2 + y^4}$
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x+y}{x-y}$
-    \end{tasks}
-\end{example}
-
-
-\begin{proof}
-    \begin{enumerate}[label=(\arabic*)]
-        \item 单路径法：沿$y=x$趋近，$\lim\limits_{\substack{x \to 0 \\ y = x \to 0}} \dfrac{2x}{x^2} = \lim\limits_{x \to 0} \dfrac{2}{x} = \infty$；
-        \item 双路径法：$\lim\limits_{ \substack{x \to 0 \\ y = x \to 0} } \dfrac{x^2}{x^2 + x^2} = \dfrac{1}{2}$；$\lim\limits_{ \substack{x \to 0 \\ y = -x \to 0} } \dfrac{-x^2}{x^2 + x^2} = -\dfrac{1}{2}$．不同路径得到的极限值不同，因此极限不存在．\\
-            $y=kx$路径法：沿$y=kx$趋近，$\lim\limits_{x \to 0} \dfrac{x \cdot kx}{x^2 + (kx)^2} = \lim\limits_{x \to 0} \dfrac{k x^2}{x^2 (1 + k^2)} = \dfrac{k}{1 + k^2}$．$\lim\limits_{x \to 0} \dfrac{k}{1 + k^2}$依赖于$k$，因此极限不存在．\\
-            极坐标法：将$(x,y)$转换为极坐标$(\rho,\theta)$，$\dfrac{xy}{x^2 + y^2} = \dfrac{\rho \cos\theta \cdot \rho \sin\theta}{\rho^2} = \cos\theta \sin\theta = \dfrac{1}{2} \sin 2\theta$．$\lim\limits_{\rho \to 0} \dfrac{1}{2} \sin 2\theta$依赖于$\theta$，因此极限不存在．
-        \item $y=kx^p$路径法：令$x=ky^2$，则$\lim\limits_{y \to 0} \dfrac{k y^4}{k^2 y^4 + y^4} = \dfrac{k}{k^2 + 1}$．$\lim\limits_{y \to 0} \dfrac{k}{k^2 + 1}$依赖于$k$，因此极限不存在．
-        \item 路径法：沿$y=x+x^2$趋近，$\lim\limits_{\substack{x \to 0 \\ y = x + x^2 \to 0}} \dfrac{x+x + x^2}{x-(x + x^2)} = \lim\limits_{x \to 0} \dfrac{2x+x^2}{-x^2} = \infty$
-    \end{enumerate}
-\end{proof}
-
-
-\begin{myRemark}
-    形如$\lim\limits_{(x,y) \to (0,0)} \dfrac{x^p y^q}{x^m+y^n}(m,n \in \mathbb{N^*}, p,q > 0)$的极限，有以下结论：
-    \begin{enumerate}
-        \item $m,n$中有奇数时，极限不存在；
-        \item $m,n$中全为偶数时，\begin{itemize}
-            \item 当$\dfrac{p}{m} + \dfrac{q}{n} > 1$时，极限为0；
-            \item 当$\dfrac{p}{m} + \dfrac{q}{n} \le 1$时，极限不存在，可选取$y=kx^{\frac{m-p}{q}}$路径证明．
+\chapter{函数极值}
+\section{多元函数极值}
+\begin{theorem}
+    设 $f(x,y)$ 在点 $(x_0, y_0)$ 的某邻域内具有二阶连续偏导数，且满足：
+    \[ f_x(x_0, y_0) = 0, \quad f_y(x_0, y_0) = 0 \]
+    定义
+    \[ D = f_{xx}(x_0, y_0) f_{yy}(x_0, y_0) - [f_{xy}(x_0, y_0)]^2 \]
+    则：
+    \begin{itemize}
+        \item 当 $D > 0$ 且\begin{itemize}
+            \item $f_{xx}(x_0, y_0) > 0$ 时，$f$ 在 $(x_0, y_0)$ 处有极小值；
+            \item $f_{xx}(x_0, y_0) < 0$ 时，$f$ 在 $(x_0, y_0)$ 处有极大值。
         \end{itemize}
-    \end{enumerate}
-\end{myRemark}
-
-
-\section{二重极限的计算}
-\begin{theorem}[二重极限的常见计算方法]
-一般的，计算二重极限的方法有以下几种：
-    \begin{enumerate}
-        \item \textbf{连续性}：直接代入
-        \item \textbf{等价无穷小}
-        \item \textbf{夹逼定理}
-        \item \textbf{$\bm{0\cdot}$ 有界量}
-        \item \textbf{极坐标法}
-    \end{enumerate}
-
+        \item 当 $D < 0$ 时，$f$ 在 $(x_0, y_0)$ 处没有极值；
+        \item 当 $D = 0$ 时，无法确定 $f$ 在 $(x_0, y_0)$ 处的极值性质。
+    \end{itemize}
 \end{theorem}
-
-
 \begin{example}
-    计算下列极限：
-    \begin{tasks}[label=(\arabic*), item-indent=1em](3)
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{\sqrt{x^2 + y^2}}$
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2 + y^2}$
-        \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2+y^2}{|x|+|y|}$
-    \end{tasks}
+    求函数 $f(x,y) = x^3 - y^3 + 3x^2 + 3y^2 -9x$ 的极值．
 \end{example}
-
-
 \begin{solution}
-    \begin{enumerate}[label=(\arabic*)]
-        \item 由于 $0 < \left| \dfrac{xy}{\sqrt{x^2 + y^2}} \right| \le |x| \to 0 \, (x \to 0)$，因此 $\lim\limits_{(x,y) \to (0,0)} \dfrac{xy}{\sqrt{x^2 + y^2}} = 0$．
-
-        \item 
-        \begin{align*}
-            \lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2 + y^2} &= \lim\limits_{(x,y) \to (0,0)} \dfrac{x^2y^4}{x^2 + y^2} \\
-            &= \lim\limits_{(x,y) \to (0,0)} \dfrac{x^2}{x^2 + y^2} \cdot y^4
-        \end{align*}
-
-        由于 $\dfrac{x^2}{x^2 + y^2} \le 1$，因此 $\dfrac{x^2}{x^2 + y^2}$ 是有界量．又由于 $y^4 \to 0 \, (y \to 0)$，因此 
-        \[\lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2 + y^2} = 0\]
-
-        \item 法一：原式可变形为 $|x| \dfrac{|x|}{|x|+|y|} + |y| \dfrac{|y|}{|x|+|y|}$，由于 $0 \le \dfrac{|x|}{|x|+|y|} \le 1$，$0 \le \dfrac{|y|}{|x|+|y|} \le 1$，因此 $\dfrac{|x|}{|x|+|y|}$ 和 $\dfrac{|y|}{|x|+|y|}$ 是有界量．又由于 $|x| \to 0 \, (x \to 0)$，$|y| \to 0 \, (y \to 0)$，因此 $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2+y^2}{|x|+|y|} = 0$．
-        法二：令 $x = \rho \cos\theta$，$y = \rho \sin\theta$，则原式可变形为 $\dfrac{\rho^2}{\rho(|\cos\theta| + |\sin\theta|)} = \dfrac{\rho}{|\cos\theta| + |\sin\theta|}$．由于 $\dfrac{1}{|\cos\theta| + |\sin\theta|}$ 是有界量，$\rho \to 0 \, (\rho \to 0)$，因此 $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2+y^2}{|x|+|y|} = 0$．
-    \end{enumerate}
+    首先计算 $f$ 的一阶偏导数：
+    \[ f_x = 3x^2 + 6x - 9, \quad f_y = -3y^2 + 6y \]
+    解方程组 $f_x = 0, f_y = 0$，得到临界点 $(1,0), (-3,0), (1,2), (-3,2)$．
+    
+    接下来计算二阶偏导数：
+    \[ f_{xx} = 6x + 6, \quad f_{yy} = -6y + 6, \quad f_{xy} = 0 \]
+    对每个临界点计算 $D$ 和 $f_{xx}$：
+    \begin{itemize}
+        \item 对于 $(1,0)$：$D = 72 > 0$，且 $f_{xx}(1,0) = 12 > 0$，因此 $(1,0)$ 是极小值点。
+        \item 对于 $(-3,0)$：$D = -72 < 0$，因此 $(-3,0)$ 没有极值。
+        \item 对于 $(1,2)$：$D = -72 < 0$，因此 $(1,2)$ 没有极值。
+        \item 对于 $(-3,2)$：$D = 72 > 0$，且 $f_{xx}(-3,2) = -12 < 0$，因此 $(-3,2)$ 是极大值点。
+    \end{itemize}
+    
+    综合以上分析，函数 $f(x,y)$ 在\begin{itemize}
+        \item 点 $(1,0)$ 处有极小值，极小值为 $f(1,0) = -5$；
+        \item 点 $(-3,2)$ 处有极大值，极大值为 $f(-3,2) = 31$。
+    \end{itemize}
 \end{solution}
-
-
+\section{条件极值}
+\begin{theorem}[拉格朗日乘数法]
+    为了求函数$f(x_1,x_2,\ldots,x_n)$在约束条件$\varphi(x_1,x_2,\ldots,x_n) = 0$下的极值，构造拉格朗日函数
+    \[ L(x_1,x_2,\ldots,x_n,\lambda) = f(x_1,x_2,\ldots,x_n) - \lambda\varphi(x_1,x_2,\ldots,x_n) \]
+    其中 $\lambda$ 是拉格朗日乘数．求解方程：
+    \[ \nabla L = \mathbf{0} \]
+    满足上述方程的点即为函数 $f$ 在约束条件 $\varphi = 0$ 下的极值点．
+    将极值点和端点进行比较，即可确定函数 $f$ 在约束条件 $\varphi = 0$ 下的最大值和最小值．
+\end{theorem}
 \begin{example}
-    判断函数$f(x,y) = \begin{cases}
-        \dfrac{2xy^2}{x^2+y^2}-\dfrac{2x^3y^2}{(x^2+y^2)^2}, & (x,y) \ne (0,0) \\ 0, & (x,y) = (0,0)
-    \end{cases}$在点$(0,0)$处是否连续．
+    求表面积为 $a^2$ 的长方体的最大体积．
 \end{example}
-
-\
 \begin{solution}
-    \[
-        \lim_{(x,y) \to (0,0)} f(x,y) = \lim_{(x,y) \to (0,0)} 2x\dfrac{y^2}{x^2+y^2} - x\dfrac{2x^2y^2}{(x^2+y^2)^2}
-    \]
-    又
-    \[
-        0 \le \dfrac{y^2} {x^2+y^2} \le 1, \quad 0 \le \dfrac{2x^2y^2}{(x^2+y^2)^2} \le 1
-    \]
-    因此，$\dfrac{y^2}{x^2+y^2}$和$\dfrac{2x^2y^2}{(x^2+y^2)^2}$是有界量．又由于$x \to 0 (x \to 0)$，因此$\lim_{(x,y) \to (0,0)} f(x,y) = 0$．又$f(0,0) = 0$，因此函数$f(x,y)$在点$(0,0)$处连续．
+    设长方体的长、宽、高分别为 $x, y, z$，则体积为 $V = xyz$，表面积为 $S = 2(xy + yz + zx)$．
+    
+    约束条件为 $2(xy + yz + zx) = a^2$．构造拉格朗日函数：
+    \[ L(x,y,z,\lambda) = xyz - \lambda (2(xy + yz + zx) - a^2) \]
+    对 $L$ 求偏导数并令其等于零：
+    \begin{align*}
+        L_x &= yz - \lambda (2y + 2z) = 0 \\
+        L_y &= xz - \lambda (2x + 2z) = 0 \\
+        L_z &= xy - \lambda (2x + 2y) = 0 \\
+        L_\lambda &= 2(xy + yz + zx) - a^2 = 0
+    \end{align*}
+    
+    从前三个方程中可以得到：
+    \[ yz = 2\lambda(y+z), \quad xz = 2\lambda(x+z), \quad xy = 2\lambda(x+y) \]
+    将上述三个方程两两相除，得到：
+    \[ \frac{yz}{xz} = \frac{y+z}{x+z}, \quad \frac{yz}{xy} = \frac{y+z}{x+y}, \quad \frac{xz}{xy} = \frac{x+z}{x+y} \]
+    从而可以推导出 $x=y=z$．将 $x=y=z$ 代入约束条件，得到：
+    \[ 6x^2 = a^2 \implies x = y = z = \frac{a}{\sqrt{6}} \]
+    该点为唯一驻点，因此，长方体的最大体积为：
+    \[ V_{\max} = xyz = \left( \frac{a}{\sqrt{6}} \right)^3 = \frac{a^3}{6\sqrt{6}} \]
 \end{solution}
-
-
-\subsection{二重极限与二次极限的辨析}
 \begin{example}
-    求极限$\lim\limits_{x \to 0} \lim\limits_{y \to 0} x\sin\dfrac{1}{y} + y\sin\dfrac{1}{x}$
+    在椭圆$x^2 + 4y^2 = 4$上，求一点使得其到直线$2x + 3y - 6 = 0$的距离最小．
 \end{example}
-
 \begin{solution}
-    由于$\lim\limits_{y \to 0} x\sin\dfrac{1}{y}$不存在，因此整个二次极限不存在．
+    设点为 $(x,y)$，则距离为：
+    \[ d = \frac{|2x + 3y - 6|}{\sqrt{2^2 + 3^2}} = \frac{|2x + 3y - 6|}{\sqrt{13}} \]
+    约束条件为 $x^2 + 4y^2 = 4$．构造拉格朗日函数：
+    \[ L(x,y,\lambda) = (2x + 3y - 6)^2 + \lambda (x^2 + 4y^2 - 4) = \]
+    对 $L$ 求偏导数并令其等于零，得到：
+    \[
+    \begin{cases}
+        4(2x + 3y - 6) \cdot 2 + 2\lambda x = 0 \\
+        4(2x + 3y - 6) \cdot 3 + 8\lambda y = 0 \\
+        x^2 + 4y^2 - 4 = 0
+    \end{cases}
+    \]
+    解上述方程组，得到两个解：$(\frac{8}{5}, \frac{3}{5})$ 和 $(-\frac{8}{5}, -\frac{3}{5})$．
+    计算距离，得到：
+    \[ d\Big|_{(\frac{8}{5}, \frac{3}{5})} = \frac{1}{\sqrt{13}}, \quad d\Big|_{(-\frac{8}{5}, -\frac{3}{5})} = \frac{11}{\sqrt{13}} \]
+    因此，点 $(\frac{8}{5}, \frac{3}{5})$ 是使距离最小的点，最小距离为 $\frac{1}{\sqrt{13}}$．
+\end{solution}
+\begin{example}
+    抛物面 $z = x^2 + y^2$ 被平面 $x + y + z = 1$ 截得成一个封闭曲线，求该曲线上的点到原点的距离的最大值．
+\end{example}
+\begin{solution}
+    设点为 $(x,y,z)$，则距离为：
+    \[ d = \sqrt{x^2 + y^2 + z^2} \]
+    约束条件为 $z = x^2 + y^2$ 和 $x + y + z = 1$．构造拉格朗日函数：
+    \[ L(x,y,z,\lambda,\mu) = x^2 + y^2 + z^2 - \lambda (z - x^2 - y^2) - \mu (x + y + z - 1) \]
+    对 $L$ 求偏导数并令其等于零，得到：
+    \[
+    \begin{cases}
+        2x + 2\lambda x - \mu = 0 \\
+        2y + 2\lambda y - \mu = 0 \\
+        2z - \lambda + \mu = 0 \\
+        x^2 + y^2 - z = 0 \\
+        x + y + z - 1 = 0
+    \end{cases}
+    \]
+    解上述方程组，得到两个解：$(\frac{-1+\sqrt{3}}{2}, \frac{-1+\sqrt{3}}{2}, 2-\sqrt{3})$ 和 $(\frac{-1-\sqrt{3}}{2}, \frac{-1-\sqrt{3}}{2}, 2+\sqrt{3})$．
+    计算距离，得到：
+    \[ d^2 = z + z^2 = 9 \pm 5\sqrt{3} \]
+    因此，最大距离为 $\sqrt{9 + 5\sqrt{3}}$．
+\end{solution}
+\begin{example}
+    求函数 $z=x^2-y^2+2$ 在椭圆域 $D=\{(x,y)|x^2+\dfrac{y^2}{4}\le 1\}$ 上的最大值和最小值．
+\end{example}
+\begin{solution}
+    \begin{itemize}
+        \item 首先求函数在域内的极值．计算 $z$ 的一阶偏导数：
+        \[ z_x = 2x, \quad z_y = -2y \]
+        解方程组 $z_x = 0, z_y = 0$，得到临界点 $(0,0)$．计算二阶偏导数：
+        \[ z_{xx} = 2, \quad z_{yy} = -2, \quad z_{xy} = 0 \]
+        计算 $D$：
+        \[ D = z_{xx}z_{yy} - (z_{xy})^2 = 2 \cdot (-2) - 0^2 = -4 < 0 \]
+        因此，点 $(0,0)$ 是鞍点．
+        \item 接下来求函数在边界上的极值．边界由方程 $x^2 + \dfrac{y^2}{4} = 1$ 定义，那么
+        \[z=x^2 - y^2 + 2 = 3 - \frac{y^2}{4} - y^2 = 3 - \frac{5y^2}{4},\qquad -2 \leq y \leq 2\]
+        因此，$z \in [-2,3]$．
+    \end{itemize}
+    综合以上分析，函数 $z$ 在域 $D$ 上的最大值为 $3$，最小值为 $-2$．\\
+    \sout{不会有人想用拉格朗日乘数法来解这个题吧？}
 \end{solution}
 \ifx\allfiles\undefined
 \end{document}
