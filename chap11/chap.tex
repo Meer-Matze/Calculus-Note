@@ -1,0 +1,207 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{曲线积分}
+\section{第一类曲线积分}
+\begin{theorem}[弧微分]
+    \[\d s = \sqrt{1 + y'^2} \d x = \sqrt{[x'(t)]^2+y'[t]^2}\d t=\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\d \theta\]
+\end{theorem}
+\begin{example}
+    计算曲线积分 $\int_\Gamma (x^2+y^2+z^2) \d s$，其中 $\Gamma$ 是螺旋线 $x = a\cos t, y = a\sin t, z = kt$上相应于 $t \in [0,2\pi]$ 的部分．
+\end{example}
+\begin{solution}
+    \begin{align*}
+        \int_\Gamma (x^2+y^2+z^2) \d s &= \int_0^{2\pi} (a^2 + k^2t^2) \sqrt{a^2+k^2} \d t \\
+        &= \sqrt{a^2+k^2} \left( 2\pi a^2 + \frac{k^2}{3}t^3\Big|_0^{2\pi} \right) \\
+        &= \sqrt{a^2+k^2}(2\pi a^2 + \frac{8}{3}\pi^3 k^2)
+    \end{align*}
+\end{solution}
+\begin{example}
+    设 $L$ 为椭圆 $\frac{x^2}{4} + \frac{y^2}{3} = 1$，周长为$a$，求$\oint_L (2xy+3x^2+4y^2)\d s$．
+\end{example}
+\begin{solution}
+    记积分结果为$I$，注意到被积函数中的项$2xy$是关于$x$轴和$y$轴的奇函数，因此在椭圆$L$上积分为零．因此有
+    \[I = \oint_L (3x^2 + 4y^2) \d s = 12\oint_L \d s= 12a\]
+\end{solution}
+\begin{example}
+    计算曲线积分 $\oint_L(x^2+y^2)\d s$，其中 $L$ 为球面$x^2+y^2+z^2=a^2$与平面$x+y+z=0$的交线．
+\end{example}
+\begin{solution}
+    注意到被积表达式满足轮换对称，$L$同样满足轮换对称，因此有
+    \[\oint_L (x^2+y^2)\d s = \frac{2}{3}\oint_L (x^2+y^2+z^2) \d s = \frac{2}{3}a^2\oint_L \d s=\frac{4}{3}\pi a^2\]
+\end{solution}
+
+\section{第二类曲线积分}
+\begin{definition}[第二类曲线积分的定义]
+    设 $\Gamma$ 为 $n$ 维空间中一条从点 $A$ 到点 $B$ 的有向光滑弧，$\bm{F}(\bm{r})$ 是定义在 $\Gamma$ 上的连续向量场。将 $\Gamma$ 任意分割成 $n$ 个有向小弧段 $\Delta \Gamma_i$。在每个小弧段上任取一点 $\bm{\xi}_i$，若极限
+    \[ \int_\Gamma \bm{F} \cdot \d \bm{r} = \lim_{\lambda \to 0} \sum_{i = 1}^{n} \bm{F}(\bm{\xi}_i) \cdot \Delta \bm{r}_i \]
+    存在（其中 $\Delta \bm{r}_i$ 是第 $i$ 段位移向量，$\lambda$ 为分割的模），则称此极限为向量场 $\bm{F}$ 沿有向曲线 $\Gamma$ 的第二类曲线积分。
+\end{definition}
+\begin{itemize}
+    \item \textbf{坐标形式 (以三维为例)}：若 $\bm{F} = (P, Q, R)$，$\d \bm{r} = (\d x, \d y, \d z)$，则积分为：
+    \[ \int_\Gamma P \d x + Q \d y + R \d z \]
+    \item \textbf{参数化计算}：设 $\Gamma$ 的参数方程为 $\bm{r}(t), t \in [\alpha, \beta]$，则计算公式为：
+    \[ \int_\Gamma \bm{F} \cdot \d \bm{r} = \int_{\alpha}^{\beta} \bm{F}(\bm{r}(t)) \cdot \bm{r'}(t) \d t \]
+\end{itemize}
+
+\begin{theorem}[两类曲线积分间的关系]
+    设 $\bm{\tau}$ 是有向光滑曲线 $\Gamma$ 在点 $(x,y,z)$ 处的单位切向量，其方向余弦为 $(\cos \alpha, \cos \beta, \cos \gamma)$。若向量场 $\bm{F} = (P, Q, R)$，则两类曲线积分之间存在如下关系：
+    \[ \int_\Gamma P \d x + Q \d y + R \d z = \int_\Gamma (P \cos \alpha + Q \cos \beta + R \cos \gamma) \d s \]
+    用向量形式可简洁地表示为：
+    \[ \int_\Gamma \bm{F} \cdot \d \bm{r} = \int_\Gamma (\bm{F} \cdot \bm{\tau}) \d s \]
+    其中 $\d s$ 为第一类曲线积分的弧微分。该公式揭示了：第二类曲线积分本质上是向量场在曲线切轴方向投影的第一类曲线积分。
+\end{theorem}
+\begin{example}
+    计算曲线积分 $\int_L xy\d x$，其中 $L$ 是$y^2=x$上从点$A(1,-1)$到点$B(1,1)$的弧段．
+\end{example}
+\begin{solution}
+    法一：
+    \[\int_L xy \d x = \int_{\overset{\frown}{AO}} xy \d x + \int_{\overset{\frown}{OB}} xy \d x = \int_{1}^{0} -x\sqrt{x}\d x + \int_{0}^{1} x\sqrt{x} \d x = \frac{4}{5}\]
+    法二：
+    \[\int_L xy \d x = \int_L y^2\cdot y\cdot 2y \d y = 2\int_{-1}^{1} y^4 \d y = \frac{4}{5}\]
+\end{solution}
+\begin{example}
+    计算曲线积分 $\int_\Gamma x^3 \d x + 3zy^2 \d y - x^2y \d z$，其中 $\Gamma$ 是由点 $A(3,2,1)$ 沿直线到点 $B(0,0,0)$ 的有向线段．
+\end{example}
+\begin{solution}
+    设 $\Gamma^-$为由点$B$沿直线到点$A$的有向线段，参数方程为
+\[\begin{cases}
+x = 3t \\
+y = 2t \\
+z = t
+\end{cases}, \quad t \in [0,1]\]
+    则\begin{align*}
+        \int_\Gamma x^3 \d x + 3zy^2 \d y - x^2y \d z &= -\int_{\Gamma^-} x^3 \d x + 3zy^2 \d y - x^2y \d z \\
+        &= -\int_0^1 (3t)^3(3) + 3t(2t)^2(2) - (3t)^2(2t)(1) \d t \\
+        &= -\int_0^1 81t^3 + 24t^3 - 18t^3 \d t = -\int_0^1 87t^3 \d t = -\frac{87}{4}
+    \end{align*}
+\end{solution}
+\section{格林公式}
+\begin{theorem}[Green's Theorem]
+    设平面闭区域 $D$ 由分段\textbf{光滑}的\textbf{正向闭}曲线 $L$ 围成。若函数 $P(x,y)$ 和 $Q(x,y)$ \textbf{在 $D$ 上具有一阶连续偏导数}，则有
+    \[ \oint_L P \d x + Q \d y = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \d x \d y \]
+    其中 $L$ 的正方向规定为：沿 $L$ 行进时，区域 $D$ 始终在其左侧。（外层曲线为逆时针方向，内层曲线为顺时针方向）
+\end{theorem}
+\begin{itemize}
+    \item \textbf{面积计算}：利用格林公式，平面区域 $D$ 的面积 $A$ 可表示为：
+    \[ A = \iint_D \d x \d y = \oint_L x \d y = -\oint_L y \d x = \frac{1}{2} \oint_L x \d y - y \d x \]
+    \item \textbf{单连通区域与路径无关}：若 $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$ 在单连通区域 $D$ 内恒成立，则第二类曲线积分 $\int_L P \d x + Q \d y$ 与路径无关。
+    \item \textbf{物理含义 (环量与散度)}：
+    \begin{itemize}
+        \item \textbf{环量 (Circulation)}：左侧 $\oint_L \bm{F} \cdot \d \bm{r}$ 表示向量场沿闭曲线的环量。
+        \item \textbf{旋度 (Curl)}：右侧被积项 $\left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)$ 是二维向量场的旋转强度（即 $\text{curl} \bm{F}$ 的 $k$ 分量）。
+        \item \textbf{直观理解}：格林公式说明了“边界上的累积环量”等于“内部所有微小涡旋强度的总和”。如果区域内处处无旋，则沿闭曲线的环量为零。
+    \end{itemize}
+\end{itemize}
+\begin{example}
+    计算曲线积分 $\int_L x^2\d x+(y-x) \d y$，其中 $L$ 是$y=\sqrt{a^2-x^2}$，方向为逆时针．
+\end{example}
+\begin{solution}
+    法一：极坐标换元，读者自做练习．\\
+    法二：取$L_1:y=0$，从$(-a,0)$到$(a,0)$，$D$为$L$和$L_1$围成的区域，则
+    \[\oint_{L+L_1} x^2\d x+(y-x) \d y = \iint_D -1\d x \d y = -\frac{1}{2}\pi a^2\]
+    注意到$\displaystyle\int_{L_1} x^2\d x+(y-x) \d y = \int_{-a}^{a} x^2 \d x = \frac{2}{3}a^3$，因此
+    \[\int_L x^2\d x+(y-x) \d y = -\frac{1}{2}\pi a^2 - \frac{2}{3}a^3\]
+\end{solution}
+\begin{example}
+    计算曲线积分 $I=\displaystyle\oint_L \dfrac{x\d y-y\d x}{4x^2+y^2}$，其中 $L$ 是以$(1,0)$为圆心，半径为$R$的圆周，方向为逆时针．
+\end{example}
+\begin{solution}
+    注意到\[\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} = \frac{y^2-4x^2}{(4x^2+y^2)^2}\]
+    但$P,Q$在点$(0,0)$处无定义，因此无法直接使用格林公式．\\
+    故取$L_1:4x^2+y^2=\varepsilon^2$，方向为顺时针，其中$\varepsilon$为一个足够小的正数．则$L$和$L_1$围成的区域$D$满足格林公式的条件，因此
+    \[\oint_{L+L_1} \dfrac{x\d y-y\d x}{4x^2+y^2} = 0\]
+    容易计算出
+    \[
+    \int_{L_1} \dfrac{x\d y-y\d x}{4x^2+y^2} = -\frac{1}{\varepsilon^2}\oint_{L_1^-} x\d y-y\d x
+    = -\frac{1}{\varepsilon^2}\iint_{D_\varepsilon} 2\d \sigma = -\pi
+    \]
+    因此\[\int_L \dfrac{x\d y-y\d x}{4x^2+y^2} = \pi\]
+\end{solution}
+
+\section{斯托克斯公式}
+\begin{theorem}[Stokes' Theorem]
+    设 $\Sigma$ 为分片光滑的有向曲面，$\Gamma$ 为 $\Sigma$ 的分段光滑的边界曲线。若函数 $P, Q, R$ 在包含 $\Sigma$ 在内的某个空间区域内具有一阶连续偏导数，则有
+    \begin{align*}&\oint_\Gamma P \d x + Q \d y + R \d z \\
+        =& \iint_\Sigma \begin{vmatrix} \d y \d z & \d z \d x & \d x \d y \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ P & Q & R \end{vmatrix}\\ 
+        =& \iint_\Sigma \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right) \d y \d z + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right) \d z \d x + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \d x \d y 
+    \end{align*}
+    其中 $\Gamma$ 的方向与 $\Sigma$ 的侧满足右手螺旋法则。
+\end{theorem}
+\begin{itemize}
+    \item \textbf{向量形式}：若令 $\bm{F} = (P, Q, R)$，$\bm{n}$ 为曲面 $\Sigma$ 的单位法向量，则公式可表示为：
+    \[ \oint_\Gamma \bm{F} \cdot \d \bm{r} = \iint_\Sigma (\nabla \times \bm{F}) \cdot \d \bm{S} = \iint_\Sigma (\text{curl} \bm{F} \cdot \bm{n}) \d S \]
+    \item \textbf{物理含义}：斯托克斯公式是格林公式在三维空间的推广。它表明向量场沿闭曲线的环量等于该向量场的旋度通过由该曲线所围曲面的通量。
+    \item \textbf{与格林公式的关系}：当曲面 $\Sigma$ 位于 $xOy$ 平面时（即 $\bm{n} = \bm{\hat{k}}$），斯托克斯公式即退化为格林公式。
+\end{itemize}
+\begin{example}
+    计算曲线积分 $I=\displaystyle\oint_\Gamma y\d x + z\d y + x\d z$，其中 $\Gamma:\begin{cases}
+        x^2+y^2+z^2=2az\\
+        x+z=a
+    \end{cases}(a>0)$，且从$z$轴正向看去，$\Gamma$为逆时针方向．
+\end{example}
+\begin{solution}
+    法一：取$\Sigma$为$\Gamma$在$x+z=a$上包围的部分，方向取外侧，同时，$x+z=a$上的单位法向量为$\bm{n} = (\frac{1}{\sqrt{2}},0,\frac{1}{\sqrt{2}})$，满足斯托克斯公式的条件，因此
+    \begin{align*}
+        I &= \iint_\Sigma \begin{vmatrix} \frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ y & z & x \end{vmatrix}\d S \\
+        &= -\sqrt{2}\iint_\Sigma -1 \d y \d z = -\sqrt{2}\pi a^2
+    \end{align*}
+    法二：设$\Gamma$在$xOy$平面上的投影为$L:2x^2+y^2=a^2$，包围区域$D$，又$\d z=-\d x$，因此
+    \[I=\oint_\Gamma y\d x + z\d y + x\d z = \oint_L y\d x + (a-x)\d y - x\d x = \iint_D -2\d \sigma=-\sqrt{2}\pi a^2\]
+
+\end{solution}
+\begin{myRemark}
+    \begin{itemize}
+        \item 该例中，$\Gamma$是由两个曲面相交得到的空间曲线，无法直接参数化，因此我们通过选择合适的曲面$\Sigma$来应用斯托克斯公式进行计算。需要注意的是，$\Sigma$的选择\textbf{并不唯一}，只要满足边界条件和定理的要求即可。
+        \item 在法二中，我们巧妙地利用了$\Gamma$在$xOy$平面上的投影来简化计算（也就是\textbf{消元}）。通过将三维曲线积分转化为二维区域上的双重积分，我们避免了直接处理空间曲线的复杂性。这种方法在处理类似问题时非常有效，尤其是当曲线的参数化较为困难时，但该种方法不太好说明，故不推荐在大题中使用。
+    \end{itemize}
+\end{myRemark}
+
+\section{场论初步：三类核心物理算子}
+在场论中，我们通过研究向量场在无穷小区域内的行为来理解其宏观性质。正如《费曼物理学讲义》中所述，理解这些算子的关键在于想象流体的运动。
+
+\subsection{散度 (Divergence)}
+\begin{definition}
+    向量场 $\bm{F} = (P,Q,R)$ 的散度是一个标量，定义为：
+    \[ \text{div} \bm{F} = \nabla \cdot \bm{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \]
+\end{definition}
+\textbf{直观解释}：
+\begin{itemize}
+    \item \textbf{“源”与“洞”}：如果将 $\bm{F} $ 想象为流体的速度场，$\text{div} \bm{F} $ 在某点的值就代表了该点处单位体积内流体流出的净速率。
+    \item \textbf{正负含义}：若 $\text{div} \bm{F}  > 0$，该点是“正源”（如喷头）；若 $\text{div} \bm{F}  < 0$，该点是“负源”或“洞”（如排水口）；若处处为 $0$，则称场为\textbf{无源场}（或螺线场），流体不可压缩。
+\end{itemize}
+
+\subsection{旋度 (Curl)}
+\begin{definition}
+    向量场 $\bm{F}$ 的旋度是一个向量，描述了场在某点附近的旋转特性：
+    \[ \text{curl} \bm{F} = \nabla \times \bm{F} = \begin{vmatrix} \bm{\hat{i}} & \bm{\hat{j}} & \bm{\hat{k}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ P & Q & R \end{vmatrix} \]
+\end{definition}
+\textbf{直观解释}：
+\begin{itemize}
+    \item \textbf{“小风车”模型}：费曼曾给出一个直观的比喻：如果你在流体中放置一个带有极小叶片的小风车，风车转轴的方向即为旋度的方向（服从右手定则），而转动的角速度则正比于旋度的模。
+    \item \textbf{无旋场}：若 $\text{curl} \bm{F} = \bm{0}$，则场是\textbf{无旋}的（或保守场）。这意味着该场可以表示为一个标量势函数的梯度，即 $\bm{F} = \nabla \phi$。
+\end{itemize}
+
+\subsection{环量 (Circulation) 与通量 (Flux)}
+这是两个描述向量场在特定几何对象上累积效果的量：
+\begin{itemize}
+    \item \textbf{环量 ($\Gamma$)}：向量场沿闭曲线 $\Gamma$ 的线积分 $\displaystyle\oint_\Gamma \bm{F} \cdot \d \bm{r}$。它衡量了场沿路径“循环”的强度。斯托克斯公式建立了\textbf{环量}与\textbf{旋度通量}的等价性。
+    \item \textbf{通量 ($\Phi$)}：向量场穿过曲面 $\Sigma$ 的积分 $\displaystyle\iint_\Sigma \bm{F} \cdot \d \bm{S}$。它衡量了场“穿过”曲面的总量。高斯公式建立了\textbf{通量}与\textbf{散度体积分}的等价性。
+\end{itemize}
+
+\subsection{核心定理的统一视角}
+\begin{itemize}
+    \item \textbf{高斯公式 (散度定理)}\footnote{$\partial V$ 表示区域 $V$ 的边界曲面，方向默认取外侧。}：$$\iiint_V (\nabla \cdot \bm{F}) \d V = \oiint_{\partial V} \bm{F} \cdot \d \bm{S} $$
+    含义：内部源的总强度 = 穿过边界的净通量。
+    \item \textbf{斯托克斯公式}\footnote{$\partial \Sigma$ 表示曲面 $\Sigma$ 的边界曲线，方向与曲面侧满足右手螺旋法则。}：$$\iint_\Sigma (\nabla \times \bm{F}) \cdot \d \bm{S} = \oint_{\partial \Sigma} \bm{F} \cdot \d \bm{r} $$
+    含义：穿过曲面的总旋度 = 沿边界曲线的总环量。
+\end{itemize}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

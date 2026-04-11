@@ -1,0 +1,154 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+\chapter{二重积分}
+\section{二重积分的一般计算方法}
+\begin{theorem}
+计算二重积分的一般步骤如下：
+\begin{itemize}
+    \item 确定积分区域 $D$ 的形状和边界。
+    \item 将二重积分转化为迭代积分，选择合适的积分顺序（先对 $x$ 积分还是先对 $y$ 积分）。
+    \item 确定内外层积分的积分限，根据积分区域 $D$ 的边界条件进行设置。
+    \item 计算内层积分，得到一个关于外层变量的函数，然后计算外层积分。
+\end{itemize}   
+\end{theorem}
+\begin{example}
+    计算二重积分 $\iint_D xy \d \sigma$，其中 $D$ 是由 $y^2 = x$ 和 $y = x -2$ 围成的区域．
+\end{example}
+\begin{solution}
+首先确定积分区域 $D$ 的边界。曲线 $y^2 = x$ 与 $y = x - 2$ 的交点可以通过解方程组
+\[\begin{cases}
+y^2 = x \\
+y = x - 2
+\end{cases}\qquad\Rightarrow\qquad \begin{cases}
+    (1,-1) \\
+    (4,2)
+\end{cases}\]
+图像如下：
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-0.5,0) -- (5,0) node[right] {$x$};
+    \draw[->] (0,-2) -- (0,3) node[above] {$y$};
+    \draw[domain=0:2.2, smooth, variable=\y, blue] plot ({\y^2}, {\y});
+    \draw[domain=0:1.2, smooth, variable=\y, blue] plot ({\y^2}, {-\y});
+    \draw[domain=0.5:4.5, smooth, variable=\x, red] plot ({\x}, {\x - 2});
+    \node at (1,-1) [below right] {$(1,-1)$};
+    \node at (4,2) [above right] {$(4,2)$};
+\end{tikzpicture}
+\end{center}
+根据图像可以看出，如果先对 $y$ 积分，也就是从垂直$x$方向从下往上积分，那么积分区域 $D$ 势必被分成两部分，以$(1,-1)$为分界点．因此我们选择先对 $x$ 积分．对于每个固定的 $y$，$x$ 的积分限由两条曲线 $y^2 = x$ 和 $y = x - 2$ 决定．于是二重积分可以写成：
+\[\iint_D xy \d \sigma = \int_{-1}^{2} \left( \int_{y^2}^{y+2} xy \d x \right) \d y \]
+分别计算内层积分和外层积分：
+\begin{align*}
+\int_{-1}^{2} \left( \int_{y^2}^{y+2} xy \d x \right) \d y &= 
+\int_{-1}^{2} y\d y\left[\frac{1}{2}x^2\right]_{y^2}^{y+2} \\
+&=\frac{1}{2} \int_{-1}^{2} y\left( y^2 + 4y + 4 - y^4 \right) \d y \\
+&=\frac{1}{2} \left[ -\frac{1}{6}y^6 + \frac{1}{4}y^4 + \frac{4}{3}y^3 +2y^2 \right]_{-1}^{2} \\
+&=\frac{45}{8}
+\end{align*}
+\end{solution}
+\begin{example}
+    计算积分 $\int_0^1 x \d x \int_x^1 e^{-y^2} \d y$．
+\end{example}
+\begin{solution}
+根据积分的上下限可以看出，积分区域$D$ 是由 $y = x$ 和 $y = 1$ 围成的区域．
+\begin{tikzpicture}
+    \draw[->] (-0.5,0) -- (1.5,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,1.5) node[above] {$y$};
+    \draw[domain=0:1, smooth, variable=\x, blue] plot ({\x}, {\x});
+    \draw[domain=0:1, smooth, variable=\x, red] plot ({\x}, {1});
+    \node at (1,1) [above right] {$(1,1)$};
+\end{tikzpicture}
+记积分结果为$I$，则交换积分顺序得到：
+\begin{align*}
+    I &= \int_0^1 e^{-y^2} \d y \int_0^y x \d x 
+    = \frac{1}{3} \int_0^1 y^3 e^{-y^2} \d y 
+    = \frac{1}{6} \int_0^1 y^2e^{-y^2} \d (y^2) 
+    = -\frac{1}{6} \left[ (y^2 + 1)e^{-y^2} \right]_0^1 \\
+    &= \frac{1}{6} - \frac{1}{3e}
+\end{align*}
+\end{solution}
+\begin{example}
+    计算积分 $\iint_D \max(xy,1) \d x \d y$，其中 $D = \{(x,y)|0 \le x \le 2, 0 \le y \le 2\}$．
+\end{example}
+\begin{solution}
+根据函数 $\max(xy,1)$ 的定义，可以将积分区域 $D$ 分成两部分：\[
+D_1 = \{(x,y)|0 \le x \le 2, 0 \le y \le 2, xy \le 1\} \quad \text{和} \quad D_2 = \{(x,y)|0 \le x \le 2, 0 \le y \le 2, xy > 1\}
+\]记积分结果为$I$，则：\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\begin{tikzpicture}
+    \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
+    \draw[domain=0.5:2, smooth, variable=\x, blue] plot ({\x}, {1/\x});
+    \draw[domain=0:2, smooth, variable=\x, red] plot ({\x}, {2});
+    \draw[domain=0:2, smooth, variable=\y, red] plot ({2}, {\y});
+    \node at (1/2,2) [above] {$(\frac{1}{2},2)$};
+    \node at (2,1/2) [right] {$(2,\frac{1}{2})$};
+    \node at (0.5,0.5)  {$D_1$};
+    \node at (1.5,1.5)  {$D_2$};
+\end{tikzpicture}
+\begin{align*}
+    I &= \iint_{D_1} 1 \, \d x\d y+ \iint_{D_2} xy \, \d x\d y \\
+    &= \int_\frac{1}{2}^2 x\d x \int_\frac{1}{x}^{2} y \, \d y + 4 -\int_\frac{1}{2}^2 \d x \int_\frac{1}{x}^2  \, \d y \\
+    &= \int_{\frac{1}{2}}^{2} x\left(2-\frac{1}{2x^2} \right) \d x + 4 - \int_{\frac{1}{2}}^{2} \left( 2- \frac{1}{x} \right) \d x\\
+    &= \left[ x^2 - \frac{1}{2} \ln x \right]_{\frac{1}{2}}^{2} + 4 - 3 + \ln x\Big|_{\frac{1}{2}}^{2} \\
+    &= \frac{19}{4} + \ln 2
+\end{align*}
+\end{solution}
+\section{利用对称性简化计算}
+\begin{example}
+    设区域 $D$ 由 $y=4-x^2,y=-3x,x=1$ 围成，计算 $I=\iint_D y\ln(x+\sqrt{1+x^2})\d x \d y$．
+\end{example}
+\begin{solution}
+首先确定积分区域 $D$ 的边界。曲线 $y=4-x^2$ 与 $y=-3x$ 的交点可以通过解方程组
+
+\begin{tabular}{ll}
+$\begin{cases}
+y = 4 - x^2 \\
+y = -3x
+\end{cases}\quad\Rightarrow\qquad \begin{cases}
+    (-1, 3) \\
+    (4, -12)
+\end{cases}$ & 
+\begin{tikzpicture}[yscale=0.4, baseline=(current bounding box.center)]
+    \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+    \draw[->] (0,-4) -- (0,5) node[above] {$y$};
+    \draw[domain=-1.2:1.2, smooth, variable=\x, green] plot (\x, {4-\x*\x});
+    \draw[domain=-1.2:1.2, smooth, variable=\x, red] plot (\x, {-3*\x});
+    \draw[yellow, thick] (1,-3.5) -- (1,4.5);
+    \draw[blue, dashed] (0,0) -- (1,3);
+    \node at (-1,3) [above left] {$(-1,3)$};
+    \node at (1,-3) [below right] {$(1,-3)$};
+    \node at (1,3) [above right] {$(1,3)$};
+    \node at (0,2)  {$D_1$};
+    \node at (0.7,-1)  {$D_2$};
+\end{tikzpicture}
+\end{tabular}
+
+其中$D_1$和$D_2$由直线$y=3x$分开，于是二重积分可以写成：
+\[ I=\iint_{D_1} y\ln(x+\sqrt{1+x^2})\d x \d y + \iint_{D_2} y\ln(x+\sqrt{1+x^2})\d x \d y\]
+容易发现，$D_1$ 关于$y$轴对称，且被积函数是$x$的奇函数，因此$\iint_{D_1} y\ln(x+\sqrt{1+x^2})\d x \d y=0$．$D_2$ 关于$x$轴对称，且被积函数是$y$的奇函数，因此$\iint_{D_2} y\ln(x+\sqrt{1+x^2})\d x \d y=0$．综上所述，$I=0$．
+\end{solution}
+\begin{example}
+    设区域 $D=\{(x,y) | x^2+y^2 \le 4,\; x,y \ge 0\}$，$f(x)$ 为$D$上正值连续函数，$a,b$为常数，求：
+    \[I=\iint_D\frac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqrt{f(x)}+\sqrt{f(y)}}\]
+\end{example}
+\begin{solution}
+    注意到积分区域$D$关于$y=x$对称，且被积函数满足轮换对称，记$g(x,y)=\dfrac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqrt{f(x)}+\sqrt{f(y)}}$，因此有
+    \[ I = \frac{1}{2}\iint_D \left[ g(x,y) + g(y,x) \right] \d x \d y = \frac{1}{2}\iint_D (a+b) \d x \d y = \frac{a+b}{2}\pi\]
+\end{solution}
+\begin{example}
+    计算积分 $\iint_D e^{-x^2-y^2}-x^3e^y \d x \d y$，其中 $D$ 是以原点为中心，半径为 $a$ 的圆盘．
+\end{example}
+\begin{solution}
+    \sout{圆神!启动！}\\
+    换用极坐标，其中被积表达式中的第二项是关于$x$的奇函数，因此在圆盘$D$上积分为零．因此有
+\[I = \iint_D e^{-x^2-y^2} \d x \d y = \int_0^{2\pi} \d \theta\int_0^a e^{-r^2}\cdot r \d r  = \pi (1 - e^{-a^2})\]
+\end{solution}
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
