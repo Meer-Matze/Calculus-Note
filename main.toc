@@ -44,12 +44,30 @@
 \contentsline {section}{\numberline {6.2}空间曲线与空间曲面}{49}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}常见空间曲面}{49}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}旋转曲面}{51}{subsection.6.2.2}%
-\contentsline {section}{\numberline {6.3}空间解析几何部分例题}{53}{section.6.3}%
-\contentsline {chapter}{\numberline {第七章\hspace {.3em}}二重极限}{54}{chapter.7}%
-\contentsline {section}{\numberline {7.1}二重极限不存在的证明}{54}{section.7.1}%
-\contentsline {section}{\numberline {7.2}二重极限的计算}{56}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}二次极限}{58}{subsection.7.2.1}%
-\contentsline {chapter}{\numberline {第八章\hspace {.3em}}多元函数微分学}{59}{chapter.8}%
-\contentsline {chapter}{\numberline {第九章\hspace {.3em}}函数极值}{62}{chapter.9}%
-\contentsline {section}{\numberline {9.1}多元函数极值}{62}{section.9.1}%
-\contentsline {section}{\numberline {9.2}条件极值}{63}{section.9.2}%
+\contentsline {section}{\numberline {6.3}多元函数微分在空间几何的应用}{53}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}曲线的切线和法平面}{53}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}曲面的法线和切平面}{55}{subsection.6.3.2}%
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}二重极限}{56}{chapter.7}%
+\contentsline {section}{\numberline {7.1}二重极限不存在的证明}{56}{section.7.1}%
+\contentsline {section}{\numberline {7.2}二重极限的计算}{58}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}二次极限}{60}{subsection.7.2.1}%
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}多元函数微分学}{61}{chapter.8}%
+\contentsline {section}{\numberline {8.1}偏导数与微分}{61}{section.8.1}%
+\contentsline {section}{\numberline {8.2}方向导数}{67}{section.8.2}%
+\contentsline {section}{\numberline {8.3}梯度}{67}{section.8.3}%
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}函数极值}{69}{chapter.9}%
+\contentsline {section}{\numberline {9.1}多元函数极值}{69}{section.9.1}%
+\contentsline {section}{\numberline {9.2}条件极值}{70}{section.9.2}%
+\contentsline {chapter}{\numberline {第十章\hspace {.3em}}二重积分}{74}{chapter.10}%
+\contentsline {section}{\numberline {10.1}二重积分的一般计算方法}{74}{section.10.1}%
+\contentsline {section}{\numberline {10.2}利用对称性简化计算}{76}{section.10.2}%
+\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}曲线积分}{78}{chapter.11}%
+\contentsline {section}{\numberline {11.1}第一类曲线积分}{78}{section.11.1}%
+\contentsline {section}{\numberline {11.2}第二类曲线积分}{79}{section.11.2}%
+\contentsline {section}{\numberline {11.3}格林公式}{81}{section.11.3}%
+\contentsline {section}{\numberline {11.4}斯托克斯公式}{82}{section.11.4}%
+\contentsline {section}{\numberline {11.5}场论初步：三类核心物理算子}{84}{section.11.5}%
+\contentsline {subsection}{\numberline {11.5.1}散度 (Divergence)}{84}{subsection.11.5.1}%
+\contentsline {subsection}{\numberline {11.5.2}旋度 (Curl)}{84}{subsection.11.5.2}%
+\contentsline {subsection}{\numberline {11.5.3}环量 (Circulation) 与通量 (Flux)}{85}{subsection.11.5.3}%
+\contentsline {subsection}{\numberline {11.5.4}核心定理的统一视角}{85}{subsection.11.5.4}%

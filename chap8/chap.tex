@@ -7,8 +7,54 @@
 \else
 \fi
 \chapter{多元函数微分学}
+\section{偏导数与微分}
+\begin{definition}
+    设函数$z=f(x,y)$在点$(x_0,y_0)$的某邻域内有定义，且存在常数$A,B$使得
+    \[ \lim_{(x,y) \to (x_0,y_0)} \frac{|f(x,y) - f(x_0,y_0) - A(x-x_0) - B(y-y_0)|}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} = 0 \]
+    则称函数$z=f(x,y)$在点$(x_0,y_0)$处可微．
+\end{definition}
+\begin{theorem}
+    多元函数的可微、连续可微、偏导数存在及连续的关系如下：
+    \begin{center}
+        \begin{tikzpicture}[node distance=1.5cm, auto]
+            \node (cd) {连续可微（偏导数连续）};
+            \node (diff) [below of=cd] {可微};
+            \node (cont) [below left of=diff, xshift=-0.5cm] {连续};
+            \node (pd) [below right of=diff, xshift=0.5cm] {偏导数存在};
+            
+            \draw[->, double] (cd) -- (diff);
+            \draw[->, double] (diff) -- (cont);
+            \draw[->, double] (diff) -- (pd);
+            
+            \draw[<->, dashed] (cont) -- (pd);
+            \node at (-0.3, -2.55) {$\times$};
+        \end{tikzpicture}
+    \end{center}
+\end{theorem}
 \begin{exercise}
-    设可微函数$z=z(x,y)$满足$x^2\dfrac{\partial z}{\partial x}+y^2\dfrac{\partial z}{\partial y}=2z^2$，又设$u=x,v=\dfrac{1}{y}-\dfrac{1}{x},w=\dfrac{1}{z}-\dfrac{1}{x}$，则对于函数$w=w(u,v)$，求$\dfrac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}}$。
+    设$f(x,y)=\begin{cases}
+    \dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\ne (0,0)\\
+    0, & (x,y) = (0,0)
+    \end{cases}$，证明：$f(x,y)$在$(0,0)$处不可微．
+\end{exercise}
+\begin{proof}
+    计算$f(x,y)$在$(0,0)$处的偏导数：
+    \[ f_x(0,0) = \lim_{h \to 0} \frac{f(h,0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0 \]
+    \[ f_y(0,0) = \lim_{k \to 0} \frac{f(0,k) - f(0,0)}{k} = \lim_{k \to 0} \frac{0 - 0}{k} = 0 \]
+    因此，$f(x,y)$在$(0,0)$处的偏导数存在且为零．
+    
+    接下来验证$f(x,y)$在$(0,0)$处是否可微．根据可微的定义，需验证：
+    \[ \lim_{(x,y) \to (0,0)} \frac{|f(x,y) - f(0,0) - f_x(0,0)x - f_y(0,0)y|}{\sqrt{x^2 + y^2}} = 0 \]
+    即：
+    \[ \lim_{(x,y) \to (0,0)} \frac{\left|\frac{xy}{\sqrt{x^2 + y^2}}\right|}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{|xy|}{x^2 + y^2} \]
+    使用极坐标变换，设$x=r\cos\theta$，$y=r\sin\theta$，则：
+    \[ \lim_{r \to 0} \frac{r^2 |\cos\theta||\sin\theta|}{r^2} = |\cos\theta||\sin\theta| \]
+    当$\theta = \frac{\pi}{4}$时，$|\cos\theta||\sin\theta| = \frac{1}{2}$，因此极限不为零．
+    
+    因此，$f(x,y)$在$(0,0)$处不可微．
+\end{proof}
+\begin{exercise}
+    设可微函数$z=z(x,y)$满足$x^2\dfrac{\partial z}{\partial x}+y^2\dfrac{\partial z}{\partial y}=2z^2$，又设$u=x,v=\dfrac{1}{y}-\dfrac{1}{x},w=\dfrac{1}{z}-\dfrac{1}{x}$，则对于函数$w=w(u,v)$，求$\dfrac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}}$．
 \end{exercise}
 \begin{solution}
     已知 $u=x, v = \dfrac{1}{y} - \dfrac{1}{x}, w = \dfrac{1}{z} - \dfrac{1}{x}$．
@@ -65,6 +111,91 @@
 \[ F'(x) = f(b(x), x) \cdot b'(x) - f(a(x), x) \cdot a'(x) + \int_{a(x)}^{b(x)} \frac{\partial f(t,x)}{\partial x} \d t \]
     在本题中，分子中的积分是一个二重变限积分，因此需要对内外两层积分分别使用莱布尼茨法则进行求导．
 \end{myRemark}
+\begin{exercise}
+    设函数$f(x,y)$可微，$f'_x(x,y)=-f(x,y),f(0,\frac{\pi}{2})=1$，且满足\[\lim_{n\to\infty}\left[\frac{f(0,y+\frac{1}{n})}{f(0,y)}\right]^n = e^{\cot y}\]求$f(x,y)$
+\end{exercise}
+\begin{solution}
+    将$f'_x(x,y)=-f(x,y)$视为关于$x$的常微分方程，解出$f(x,y)$关于$x$的表达式：
+    \[\frac{\d f(x,y)}{f(x,y)}= -\d x\Rightarrow f(x,y) = \varphi(y)e^{-x}\]
+    依题意，得
+    \[e^{\cot y} = \lim_{n\to\infty}\left[\frac{\varphi(y+\frac{1}{n})}{\varphi(y)}\right]^n =e^{\displaystyle\lim_{n\to\infty} \frac{\ln \varphi({y+\frac{1}{n}})-\ln \varphi(y)}{\frac{1}{n}}}= e^{\frac{\varphi'(y)}{\varphi(y)}}\Rightarrow \frac{\varphi'(y)}{\varphi(y)} = \cot y\]
+    解出$\varphi(y) = C\sin y$，又由$f(0,\frac{\pi}{2})=1$，得$C=1$，因此$f(x,y) = e^{-x}\sin y$．
+\end{solution}
+\begin{exercise}
+    设$z=u\cdot v,x=e^u\cos v,y=e^u\sin v$，求$\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$．
+\end{exercise}
+\begin{solution}
+    利用微分不变性，得：
+    \[ \d z = v \d u + u \d v \]
+    \[\d x = e^u \cos v \d u - e^u \sin v \d v,\qquad\d y = e^u \sin v \d u + e^u \cos v \d v\]
+    将 $\d z$ 表示为 $\d x$ 和 $\d y$ 的线性组合：
+    \[\d z = \frac{v \cos v - u \sin v}{e^u} \d x + \frac{v \sin v + u \cos v}{e^u} \d y\]
+\end{solution}
+\begin{myRemark}
+    或许有人会想可以利用$\frac{\partial u}{\partial x}=\frac{1}{\frac{\partial x}{\partial u}}$来求解，但这是不一定成立的．当且仅当等式两边固定的变量相同时，才有$\frac{\partial u}{\partial x}=\frac{1}{\frac{\partial x}{\partial u}}$．在本题中，$\frac{\partial u}{\partial x}$是固定$y$（$\d y=0$）求$u$的偏导数，而$\frac{\partial x}{\partial u}$是固定$v$（$\d v=0$）求$x$的偏导数，因此两者固定的变量不同，无法使用该等式．
+\end{myRemark}
+\begin{theorem}[微分不变性求一阶偏导数和二阶偏导数]
+    若全微分 $\d z = A \d x + B \d y$，则其一阶偏导数为：
+    \[ \frac{\partial z}{\partial x} = A, \quad \frac{\partial z}{\partial y} = B \]
+    若二阶全微分 $\d^2 z = P \d x^2 + 2Q \d x \d y + R \d y^2$，则其二阶偏导数为：
+    \[ \frac{\partial^2 z}{\partial x^2} = P, \quad \frac{\partial^2 z}{\partial x \partial y} = Q, \quad \frac{\partial^2 z}{\partial y^2} = R \]
+\end{theorem}
+\begin{proof}
+    由自变量的全微分定义：
+    对于一阶全微分，$\d z = \frac{\partial z}{\partial x} \d x + \frac{\partial z}{\partial y} \d y$．
+    由于 $\d x, \d y$ 是自变量的增量且线性无关，其系数 $A, B$ 必满足 $A = \frac{\partial z}{\partial x}$ 且 $B = \frac{\partial z}{\partial y}$．
+    
+    对于二阶全微分，利用 $\d^2 z = \d(\d z)$：
+    \[ \d^2 z = \d\left( \frac{\partial z}{\partial x} \d x + \frac{\partial z}{\partial y} \d y \right) = \d\left( \frac{\partial z}{\partial x} \right) \d x + \frac{\partial z}{\partial x} \d^2 x + \d\left( \frac{\partial z}{\partial y} \right) \d y + \frac{\partial z}{\partial y} \d^2 y \]
+    由于 $x, y$ 是最终自变量，有 $\d^2 x = 0, \d^2 y = 0$，则上述代数式简化为：
+    \[ \d^2 z = \left( \frac{\partial^2 z}{\partial x^2} \d x + \frac{\partial^2 z}{\partial x \partial y} \d y \right) \d x + \left( \frac{\partial^2 z}{\partial y \partial x} \d x + \frac{\partial^2 z}{\partial y^2} \d y \right) \d y \]
+    展开并整理得：
+    \[ \d^2 z = \frac{\partial^2 z}{\partial x^2} \d x^2 + 2 \frac{\partial^2 z}{\partial x \partial y} \d x \d y + \frac{\partial^2 z}{\partial y^2} \d y^2 \]
+    利用混合偏导数相等 $\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial^2 z}{\partial y \partial x}$，通过对比给定的形式 $\d^2 z = P \d x^2 + 2Q \d x \d y + R \d y^2$，可得各二阶偏导数．
+\end{proof}
+\begin{exercise}
+    设变换$\begin{cases}
+        u = x-2y\\
+        v = x+ay
+    \end{cases}$可把方程$\displaystyle{6\frac{\partial^2z}{\partial x^2}+\frac{\partial^2z}{\partial x \partial y}-\frac{\partial^2z}{\partial y^2}}$化简为$\displaystyle\frac{\partial^2 z}{\partial u \partial v} = 0$，求常数$a$．
+\end{exercise}
+\begin{solution}
+    \[\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}+\frac{\partial z}{\partial v},\qquad\frac{\partial z}{\partial y}=-2\frac{\partial z}{\partial u}+a\frac{\partial z}{\partial v}\]
+    \[\frac{\partial^2z}{\partial x^2}=\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\]
+    \[\frac{\partial^2 z}{\partial x \partial y}=-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\]
+    \[\frac{\partial^2 z}{\partial y^2}=4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\]
+    将上述三个二阶偏导数代入原方程，得：
+    \[6\left(\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\right) + \left(-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\right) - \left(4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\right) = 0 \]
+    整理得：
+    \[ (10+5a)\frac{\partial^2z}{\partial u \partial v}+(6+a-a^2)\frac{\partial^2 z}{\partial v^2} = 0 \]
+    因此，需满足 $10 + 5a \neq 0$ 且 $6 + a - a^2 = 0$．解出 $a = 3$．
+\end{solution}
+\section{方向导数}
+\begin{definition}
+    设函数 $f(x, y)$ 在点 $(x_0, y_0)$ 处可微，$\bm{l} = (\cos \alpha, \sin \alpha)$ 是从点 $(x_0, y_0)$ 出发的单位向量，则称
+    \[ \frac{\partial f}{\partial \bm{l}} = \lim_{h \to 0^+} \frac{f(x_0 + h\cos \alpha, y_0 + h\sin \alpha) - f(x_0, y_0)}{h} \]
+    为函数 $f$ 在点 $(x_0, y_0)$ 沿方向 $\bm{l}$ 的方向导数．
+\end{definition}
+\begin{theorem}
+    若函数$f(x,y)$在点$(x_0,y_0)$处可微，则对于任意单位向量$\bm{l}=(\cos \alpha, \sin \alpha)$，函数$f$在点$(x_0,y_0)$沿方向$\bm{l}$的方向导数存在，且满足：
+    \[ \frac{\partial f}{\partial \bm{l}} = \frac{\partial f}{\partial x}(x_0, y_0) \cos \alpha + \frac{\partial f}{\partial y}(x_0, y_0) \sin \alpha = \nabla f \cdot \bm{l} \]
+\end{theorem}
+\section{梯度}
+\begin{definition}
+    设函数 $f(x, y)$ 在点 $(x_0, y_0)$ 处具有偏导数，则称向量
+    \[ \left( \frac{\partial f}{\partial x}(x_0, y_0), \frac{\partial f}{\partial y}(x_0, y_0) \right) \]
+    为函数 $f(x, y)$ 在点 $(x_0, y_0)$ 处的梯度，记作 $\operatorname{grad} f(x_0, y_0)$ 或 $\nabla f(x_0, y_0)$．
+\end{definition}
+\begin{theorem}
+    若函数 $f(x, y)$ 在点 $P(x_0, y_0)$ 处可微，$\bm{l}$ 是与梯度 $\nabla f|_P$ 方向夹角为 $\theta$ 的任一方向，则
+    \[ \frac{\partial f}{\partial \bm{l}} = |\nabla f| \cos \theta \]
+    由此可知：
+    \begin{enumerate}
+        \item 当 $\theta = 0$，即方向 $\bm{l}$ 与梯度 $\nabla f$ 方向相同时，方向导数达到最大值 $|\nabla f|$．这说明梯度方向是函数增加最快的方向；
+        \item 当 $\theta = \pi$，即方向 $\bm{l}$ 与梯度 $\nabla f$ 方向相反时，方向导数达到最小值 $-|\nabla f|$．这说明梯度的反方向是函数减少最快的方向；
+        \item 当 $\theta = \frac{\pi}{2}$，即方向 $\bm{l}$ 与梯度 $\nabla f$ 垂直时，方向导数为 $0$．
+    \end{enumerate}
+\end{theorem}
 \ifx\allfiles\undefined
 \end{document}
 \fi

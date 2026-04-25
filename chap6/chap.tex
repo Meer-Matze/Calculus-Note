@@ -290,7 +290,21 @@
     \]
 \end{solution}
 
-\section{空间解析几何部分例题}
+\section{多元函数微分在空间几何的应用}
+\subsection{曲线的切线和法平面}
+\begin{theorem}
+    设空间曲线 $\Gamma$ 的参数方程为 $\begin{cases} x = x(t) \\ y = y(t) \\ z = z(t) \end{cases}$，那么在$t=t_0$处的切向量为
+    \[\left( x'(t_0), y'(t_0), z'(t_0) \right)\]
+    若在 $t=t_0$ 处满足 $x'(t_0)^2 + y'(t_0)^2 + z'(t_0)^2 \ne 0$．
+    则曲线 $\Gamma$ 在点 $P(x(t_0), y(t_0), z(t_0))$ 处的切线方程为
+    \[
+        \frac{x - x(t_0)}{x'(t_0)} = \frac{y - y(t_0)}{y'(t_0)} = \frac{z - z(t_0)}{z'(t_0)}
+    \]
+    法平面方程为
+    \[
+        x'(t_0)(x - x(t_0)) + y'(t_0)(y - y(t_0)) + z'(t_0)(z - z(t_0)) = 0
+    \]
+\end{theorem}
 
 \begin{example}
     求曲线 $\begin{cases}
@@ -317,6 +331,41 @@
     \[ 2(x-1) + 1(y-1) + 4(z-1) = 0 \]
     
 \end{solution}
+
+\begin{example}
+    求曲线 $\begin{cases}
+        x^2 + y^2 + z^2 -3x =0\\
+        2x - 3y + 5z - 4 = 0
+    \end{cases}$ 在点 $(1,1,1)$ 处的切线与法平面方程．
+\end{example}
+\begin{solution}
+    注意到曲线 $\Gamma$ 是两个曲面 $\Sigma_1: x^2 + y^2 + z^2 -3x =0$ 和 $\Sigma_2: 2x - 3y + 5z - 4 = 0$ 的交线．\\
+    则曲线上任意一点的切向量都与两个平面的法向量垂直．因此，切向量 $\bm{n}$ 可以通过两个平面的法向量的叉积得到．\\
+    $\Sigma_1$ 的法向量为 $\nabla F = (2x - 3, 2y, 2z)$，$\Sigma_2$ 的法向量为 $\nabla G = (2, -3, 5)$．
+    在点 $(1,1,1)$ 处，$\nabla F = (-1, 2, 2)$，$\nabla G = (2, -3, 5)$．
+    则切向量为
+    \[ \bm{n} = \nabla F \times \nabla G = (16, -9, -1) \]
+    因此，切线方程为
+    \[ \frac{x-1}{16} = \frac{y-1}{-9} = \frac{z-1}{-1} \]
+    法平面方程为
+    \[ 16(x-1) - 9(y-1) - (z-1) = 0 \]
+
+\end{solution}
+\subsection{曲面的法线和切平面}
+\begin{theorem}
+    设空间曲面 $\Sigma$ 的隐函数方程为 $F(x, y, z) = 0$，则在点$P(x_0, y_0, z_0)$处的法向量为
+    \[ \left( F_x(x_0, y_0, z_0), F_y(x_0, y_0, z_0), F_z(x_0, y_0, z_0) \right) \]
+    若在点 $P$ 处满足 $F_x^2 + F_y^2 + F_z^2 \ne 0$．
+    则曲面 $\Sigma$ 在点 $P$ 处的法线方程为
+    \[
+        \frac{x - x_0}{F_x} = \frac{y - y_0}{F_y} = \frac{z - z_0}{F_z}
+    \]
+    切平面方程为
+    \[
+        F_x(x - x_0) + F_y(y - y_0) + F_z(z - z_0) = 0
+    \]
+\end{theorem}
+
 
 
 \ifx\allfiles\undefined

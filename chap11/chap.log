@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.27)  11 APR 2026 13:36
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.24)  25 APR 2026 12:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1223,6 +1223,16 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 Package: ulem 2019/11/18
 \ULdepth=\dimen330
 )
+(D:\Appdata\MiKTeX\tex/latex/physics\physics.sty
+Package: physics 
+)
+(D:\Appdata\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip94
+\multirow@cntb=\count393
+\multirow@dima=\skip95
+\bigstrutjot=\dimen331
+)
 (D:\Appdata\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1267,29 +1277,29 @@ File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )) (../config/theorem1_zh.tex
 (D:\Appdata\MiKTeX\tex/latex/changepage\changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count393
-\cp@tempcnt=\count394
+\c@cp@cntr=\count394
+\cp@tempcnt=\count395
 )
 (D:\Appdata\MiKTeX\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip94
-\fb@frw=\dimen331
-\fb@frh=\dimen332
-\FrameRule=\dimen333
-\FrameSep=\dimen334
+\OuterFrameSep=\skip96
+\fb@frw=\dimen332
+\fb@frh=\dimen333
+\FrameRule=\dimen334
+\FrameSep=\dimen335
 )
-\c@myDefn=\count395
-\c@myLemma=\count396
-\c@myProposition=\count397
-\c@example=\count398
-\c@exercise=\count399
+\c@myDefn=\count396
+\c@myLemma=\count397
+\c@myProposition=\count398
+\c@example=\count399
+\c@exercise=\count400
 ) (../config/custom.tex)
 (../config/cover_package_3.tex)
 (D:\Appdata\MiKTeX\tex/latex/titling\titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip95
-\thanksmargin=\skip96
-\droptitle=\skip97
+\thanksmarkwidth=\skip97
+\thanksmargin=\skip98
+\droptitle=\skip99
 )) (chap.aux)
 \openout1 = `chap.aux'.
 
@@ -1410,7 +1420,7 @@ Package hyperref Info: Link coloring ON on input line 5.
 \@outlinefile=\write4
 \openout4 = `chap.out'.
 
-\c@lstlisting=\count400
+\c@lstlisting=\count401
 
 第一章
 LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
@@ -1454,11 +1464,7 @@ LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
 58.
- [2] [3] [4] [5] [6]
-Overfull \vbox (14.89185pt too high) detected at line 183
- []
-
-[7] [8] (chap.aux)
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] (chap.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1467,17 +1473,23 @@ L3 programming layer <2022/08/05>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `chap.out' has not changed.
-(rerunfilecheck)             Checksum: ACC743BC789E99ACBAB7C9199EA1AE26;1279.
+
+Package rerunfilecheck Warning: File `chap.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `chap.out':
+(rerunfilecheck)             Before: 7BC4F2C70F3CEA857C157380BF9244CE;1628
+(rerunfilecheck)             After:  13D50A46FC32C7DEC7BB918634C9F91C;1699.
  )
-(\end occurred when \ifx on line 205 was incomplete) 
+(\end occurred when \ifx on line 386 was incomplete) 
 Here is how much of TeX's memory you used:
- 30092 strings out of 402987
- 628763 string characters out of 5454112
- 2152463 words of memory out of 5000000
- 58259 multiletter control sequences out of 15000+600000
+ 30719 strings out of 402987
+ 638796 string characters out of 5454113
+ 2163754 words of memory out of 5000000
+ 58880 multiletter control sequences out of 15000+600000
  645747 words of font info for 141 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,16n,111p,1264b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,16n,111p,1264b,556s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chap.pdf (8 pages).
+Output written on chap.pdf (15 pages).

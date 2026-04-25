@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.27)  4 APR 2026 12:59
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.27)  23 APR 2026 14:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1211,6 +1211,18 @@ Package bm Info: No bold for \OMX/yhex/m/n, using \pmb.
 Package bm Info: No bold for \U/esint/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
+(D:\Appdata\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box83
+\UL@hyphenbox=\box84
+\UL@skip=\skip93
+\UL@hook=\toks45
+\UL@height=\dimen328
+\UL@pe=\count392
+\UL@pixel=\dimen329
+\ULC@box=\box85
+Package: ulem 2019/11/18
+\ULdepth=\dimen330
+)
 (D:\Appdata\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1255,29 +1267,29 @@ File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )) (../config/theorem1_zh.tex
 (D:\Appdata\MiKTeX\tex/latex/changepage\changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count392
-\cp@tempcnt=\count393
+\c@cp@cntr=\count393
+\cp@tempcnt=\count394
 )
 (D:\Appdata\MiKTeX\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip93
-\fb@frw=\dimen328
-\fb@frh=\dimen329
-\FrameRule=\dimen330
-\FrameSep=\dimen331
+\OuterFrameSep=\skip94
+\fb@frw=\dimen331
+\fb@frh=\dimen332
+\FrameRule=\dimen333
+\FrameSep=\dimen334
 )
-\c@myDefn=\count394
-\c@myLemma=\count395
-\c@myProposition=\count396
-\c@example=\count397
-\c@exercise=\count398
+\c@myDefn=\count395
+\c@myLemma=\count396
+\c@myProposition=\count397
+\c@example=\count398
+\c@exercise=\count399
 ) (../config/custom.tex)
 (../config/cover_package_3.tex)
 (D:\Appdata\MiKTeX\tex/latex/titling\titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip94
-\thanksmargin=\skip95
-\droptitle=\skip96
+\thanksmarkwidth=\skip95
+\thanksmargin=\skip96
+\droptitle=\skip97
 )) (chap.aux)
 \openout1 = `chap.aux'.
 
@@ -1398,47 +1410,65 @@ Package hyperref Info: Link coloring ON on input line 5.
 \@outlinefile=\write4
 \openout4 = `chap.out'.
 
-\c@lstlisting=\count399
+\c@lstlisting=\count400
 
 第一章
-LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
 
 (D:\Appdata\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
 
 
 (D:\Appdata\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 11
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 12
 .
 
 (D:\Appdata\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 
-11.
+12.
 
 (D:\Appdata\MiKTeX\tex/latex/yhmath\omxyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 )
 LaTeX Font Info:    Trying to load font information for U+esint on input line 1
-1.
+2.
 
 (D:\Appdata\MiKTeX\tex/latex/esint\uesint.fd
 File: uesint.fd 
 )
 
 LaTeX Font Warning: Font shape `TU/SimSun(0)/b/it' undefined
-(Font)              using `TU/SimSun(0)/b/n' instead on input line 13.
+(Font)              using `TU/SimSun(0)/b/n' instead on input line 41.
 
 [1
 
 
-] [2] [3] (chap.aux)
+]
+LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
+76.
+ [2] [3] [4] [5]
+Overfull \hbox (5.44974pt too wide) detected at line 168
+\OT1/cmr/m/n/12 6 [] + [] \OMS/cmsy/m/n/12 ^^@ [] \OT1/cmr/m/n/12 = 0
+ []
+
+[6]
+Underfull \hbox (badness 1199) in paragraph at lines 180--181
+[][]\TU/SimSun(0)/b/n/12 定 理 \TU/lmr/bx/n/12 1.2.1. []\TU/SimSun(0)/m/n/12 若 函 
+数 $\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; y\OT1/cmr/m/n/12 )$ \
+TU/SimSun(0)/m/n/12 在 点 $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; y[]\OT1/cmr/m/n
+/12 )$ \TU/SimSun(0)/m/n/12 处 可 微，|  则 对 于 任 意 单 位 向 量 $\OML/cmm/b/it/12 l \OT1
+/cmr/m/n/12 =
+ []
+
+[7] [8] (chap.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1448,16 +1478,16 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `chap.out' has not changed.
-(rerunfilecheck)             Checksum: BAC1B135F98F0DCF664B1C33F88C5D63;99.
+(rerunfilecheck)             Checksum: 26394157121E0AEDCC6ACD9371530532;357.
  )
-(\end occurred when \ifx on line 68 was incomplete) 
+(\end occurred when \ifx on line 199 was incomplete) 
 Here is how much of TeX's memory you used:
- 29676 strings out of 402987
- 611561 string characters out of 5454112
- 2156631 words of memory out of 5000000
- 57871 multiletter control sequences out of 15000+600000
- 639194 words of font info for 101 fonts, out of 8000000 for 9000
+ 29973 strings out of 402987
+ 619478 string characters out of 5454112
+ 2154463 words of memory out of 5000000
+ 58160 multiletter control sequences out of 15000+600000
+ 639332 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 98i,8n,111p,1264b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,10n,111p,1264b,912s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chap.pdf (3 pages).
+Output written on chap.pdf (8 pages).
