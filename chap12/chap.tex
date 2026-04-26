@@ -7,14 +7,273 @@
 \else
 \fi
 \chapter{无穷级数}
-\section{正项级数}
-\section{交错级数}
+\section{正项级数及其收敛判定}
+\begin{theorem}[比较判别法的极限形式]
+    设 $\sum u_n$ 和 $\sum v_n$ 为正项级数，且 $\lim_{n \to \infty} \frac{u_n}{v_n} = l$：
+    \begin{itemize}
+        \item 若 $0 < l < +\infty$，则 $\sum u_n$ 与 $\sum v_n$ 同敛散；
+        \item 若 $l = 0$，且 $\sum v_n$ 收敛，则 $\sum u_n$ 收敛；
+        \item 若 $l = +\infty$，且 $\sum v_n$ 发散，则 $\sum u_n$ 发散．
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[比值判别法 (D'Alembert)]
+    若 $\lim_{n \to \infty} \dfrac{u_{n+1}}{u_n} = \rho$：
+    \begin{itemize}
+        \item $\rho < 1$ 时级数收敛；
+        \item $\rho > 1$ 时级数发散；
+        \item $\rho = 1$ 时失效．
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[根值判别法 (Cauchy)]
+    若 $\lim_{n \to \infty} \sqrt[n]{u_n} = \rho$：
+    \begin{itemize}
+        \item $\rho < 1$ 时级数收敛；
+        \item $\rho > 1$ 时级数发散；
+        \item $\rho = 1$ 时失效．
+    \end{itemize}
+\end{theorem}
+
+\begin{corollary}[广义 $p$-级数]
+    级数 \[\sum_{n=2}^\infty \frac{1}{n^\alpha (\ln n)^\beta}\] 的收敛性如下：
+    \begin{itemize}
+        \item 当 $\alpha > 1$ 时，对任意 $\beta$，级数收敛；
+        \item 当 $\alpha < 1$ 时，对任意 $\beta$，级数发散；
+        \item 当 $\alpha = 1$ 时
+            \begin{itemize}
+                \item $\beta > 1$ 时级数收敛；
+                \item $\beta \le 1$ 时级数发散．
+            \end{itemize}
+    \end{itemize}
+\end{corollary}
+
+\begin{proof}[广义 $p$-级数的证明]
+    \begin{enumerate}
+        \item 当 $\alpha > 1$ 时，取实数 $p$ 使得 $1 < p < \alpha$．由极限关系
+        \[ \lim_{n \to \infty} \frac{ \frac{1}{n^\alpha (\ln n)^\beta} }{ \frac{1}{n^p} } = \lim_{n \to \infty} \frac{1}{n^{\alpha-p} (\ln n)^\beta} = 0 \]
+        可知存在充分大的 $N$，当 $n > N$ 时有 $\dfrac{1}{n^\alpha (\ln n)^\beta} \le \dfrac{1}{n^p}$．因 $p>1$，由收敛的最基本 $p$-级数结论和比较判别法知，原级数收敛．
+        \item 当 $\alpha < 1$ 时，取实数 $p$ 使得 $\alpha < p < 1$．由极限关系（利用洛必达法则）
+        \[ \lim_{n \to \infty} \frac{ \frac{1}{n^\alpha (\ln n)^\beta} }{ \frac{1}{n^p} } = \lim_{n \to \infty} \frac{n^{p-\alpha}}{(\ln n)^\beta} = +\infty \]
+        可知对于充分大的 $n$，有 $\dfrac{1}{n^\alpha (\ln n)^\beta} \ge \dfrac{1}{n^p}$．因 $p<1$，级数 $\sum \frac{1}{n^p}$ 发散，故由比较判别法知，原级数发散．
+        \item 当 $\alpha = 1$ 时，利用积分判别法．考察函数 $f(x) = \dfrac{1}{x (\ln x)^\beta}$，当 $x$ 充分大时 $f(x)$ 连续、恒正且单调递减．计算反常积分：
+        \[ \int_2^{+\infty} \frac{1}{x (\ln x)^\beta} \d x = \int_{\ln 2}^{+\infty} \frac{1}{u^\beta} \d u \quad (\text{令 } u = \ln x) \]
+        由反常积分 $p$-积分的判定结论知，该积分当且仅当 $\beta > 1$ 时收敛，$\beta \le 1$ 时发散．因此原级数与积分敛散性一致．
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    判定级数$\displaystyle\sum_{n=1}^{\infty}\frac{2n-1}{2^n}$的敛散性．
+\end{example}
+\begin{solution}
+    \textbf{法一（比值判别法）：} 设 $u_n = \frac{2n-1}{2^n}$，则
+    \[ \lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{2(n+1)-1}{2^{n+1}} \cdot \frac{2^n}{2n-1} = \lim_{n \to \infty} \frac{2n+1}{2(2n-1)} = \frac{1}{2} < 1 \]
+    由比值判别法知，级数收敛．
+
+    \textbf{法二（比较判别法的极限形式）：} 选取收敛的几何级数 $\sum \left(\frac{3}{4}\right)^n$．
+    \[ \lim_{n \to \infty} \frac{u_n}{(3/4)^n} = \lim_{n \to \infty} \frac{2n-1}{2^n} \cdot \frac{4^n}{3^n} = \lim_{n \to \infty} (2n-1) \left(\frac{2}{3}\right)^n = 0 \]
+    由比较判别法的极限形式知，级数收敛．
+
+    \textbf{法三（根值判别法）：}
+    \[ \lim_{n \to \infty} \sqrt[n]{u_n} = \lim_{n \to \infty} \frac{\sqrt[n]{2n-1}}{2} = \frac{1}{2} < 1 \]
+    （利用 $\lim_{n \to \infty} \sqrt[n]{n} = 1$ 可推得 $\lim_{n \to \infty} \sqrt[n]{2n-1} = 1$）．由根值判别法知，级数收敛．
+\end{solution}
+
+\section{交错级数与绝对收敛}
+\begin{theorem}[Leibniz 判别法]
+    若交错级数 $\sum_{n=1}^\infty (-1)^{n-1} u_n$ ($u_n > 0$) 在$n$充分大时满足：
+    \begin{enumerate}
+        \item $u_n \ge u_{n+1}$ (单调不增)；
+        \item $\lim_{n \to \infty} u_n = 0$；
+    \end{enumerate}
+    则该级数收敛，且其余项 $|R_n| \le u_{n+1}$．
+\end{theorem}
+
+\begin{definition}[绝对收敛与条件收敛]
+    若 $\sum |u_n|$ 收敛，称 $\sum u_n$ \textbf{绝对收敛}；若 $\sum u_n$ 收敛但 $\sum |u_n|$ 发散，称 $\sum u_n$ \textbf{条件收敛}．
+\end{definition}
+
+\begin{example}
+    设$u_n=(-1)^n\ln(1+\dfrac{1}{\sqrt{n}})$，判定$\displaystyle\sum_{n=1}^{\infty}u_n$的敛散性．
+\end{example}
+\begin{solution}
+    令 $v_n = |u_n| = \ln(1+\dfrac{1}{\sqrt{n}})$．
+    \begin{enumerate}
+        \item 显然随着 $n \to \infty$，$\frac{1}{\sqrt{n}} \to 0$，则 $v_n \to 0$．且函数 $y = \ln(1+x^{-\frac{1}{2}})$ 随 $x$ 增大严格单调递减，说明 $v_n$ 单调递减趋向于 $0$．由 Leibniz 判别法知，交错级数 $\sum u_n$ 收敛．
+        \item 对于其绝对值级数 $\sum |u_n|$，由等价无穷小可知当 $n \to \infty$ 时，$v_n \sim \dfrac{1}{\sqrt{n}}$．由于 $p$-级数 $\sum \dfrac{1}{\sqrt{n}}$ 发散（$p = \frac{1}{2} \le 1$），由极限形式比较判别法知 $\sum |u_n|$ 发散．
+    \end{enumerate}
+    综上所述，该级数条件收敛．
+\end{solution}
+
 \section{幂级数}
 \subsection{收敛半径与收敛域}
-\subsection{和函数}
-\subsection{和函数展开为幂级数}
+\begin{theorem}[Abel 定理]
+    若 $\sum a_n x^n$ 在 $x_0 \neq 0$ 处收敛，则对于满足 $|x| < |x_0|$ 的一切 $x$ 都绝对收敛；若在 $x_0$ 处发散，则对于满足 $|x| > |x_0|$ 的一切 $x$ 都发散．
+\end{theorem}
+\begin{itemize}
+    \item \textbf{收敛半径} $R$ 可通过以下公式求得：
+        \begin{itemize}
+            \item \textbf{比值法}：$R = \lim_{n \to \infty} \left| \dfrac{a_n}{a_{n+1}} \right|$
+            \item \textbf{根值法}：$R = \dfrac{1}{\lim_{n \to \infty} \sqrt[n]{|a_n|}}$
+        \end{itemize}
+\end{itemize}
+
+\begin{example}
+     求下列幂级数的收敛域
+     \begin{tasks}[label=(\arabic*)](3)
+        \task $\displaystyle\sum_{n=1}^{\infty}\left(\frac{3^n}{n^2}\right)x^n$
+        \task $\displaystyle\sum_{n=0}^{\infty}\frac{n^2+1}{n!}x^n$
+        \task $\displaystyle\sum_{n=1}^{\infty}\frac{4^nx^{2n-1}}{n}$
+    \end{tasks}
+\end{example}
+
+\begin{example}
+    设$\displaystyle\sum_{n=0}^{\infty}a_nx^n$的收敛半径为$R=3$，则$\displaystyle\sum_{n=1}^{\infty}na_n(x-1)^{n+1}$在$x=3$处（~~~~~~）
+    \begin{tasks}[style = itemize, label=\Alph*.](2)
+        \task 绝对收敛
+        \task 条件收敛
+        \task 发散
+        \task 与收敛区间端点的收敛性相同
+    \end{tasks}
+\end{example}
+\begin{solution}
+    \textbf{A}. 由逐项求导知 $\sum_{n=1}^\infty n a_n x^{n-1}$ 与原级数 $\sum_{n=0}^\infty a_n x^n$ 的收敛半径相同，均为 $R = 3$．同样 $\sum_{n=1}^\infty n a_n x^n$ 及 $\sum_{n=1}^\infty n a_n (x-1)^{n+1}$ (平移并不改变绝对收敛半径，只是中心变为 1)，其收敛域内绝对收敛的半径为 $|x-1| < 3$，即 $x \in (-2, 4)$．在 $x = 3$ 处，满足 $|3-1| = 2 < 3$，因此在收敛区间内部，级数绝对收敛．
+\end{solution}
+
+\begin{theorem}[幂级数的分析性质 (逐项求导与积分)]
+    设幂级数 $\displaystyle\sum_{n=0}^\infty a_n x^n$ 的收敛半径为 $R > 0$，其和函数 $S(x) = \displaystyle\sum_{n=0}^\infty a_n x^n$：
+    \begin{itemize}
+        \item \textbf{逐项求导定理}：$S(x)$ 在 $(-R, R)$ 内无限次可导，且逐项求导后：
+        \[ S'(x) = \sum_{n=1}^\infty n a_n x^{n-1} \]
+        逐项求导所得级数的收敛半径仍为 $R$．
+        \item \textbf{逐项积分定理}：$S(x)$ 在 $(-R, R)$ 内连续可积，且：
+        \[ \int_0^x S(t) \d t = \sum_{n=0}^\infty \frac{a_n}{n+1} x^{n+1} \]
+        逐项积分所得级数的收敛半径仍为 $R$．
+    \end{itemize}
+    注意：尽管收敛半径不变，但在端点处的敛散性可能不同。
+\end{theorem}
+
+\subsection{和函数与幂级数的转换}
+\begin{table}[H]
+    \centering
+    \caption{常用函数的幂级数展开式}
+    \renewcommand\arraystretch{1.5}
+    \begin{tabular}{lll}
+        \hline
+        \textbf{函数表达式} & \textbf{幂级数展开及收敛域} \\
+        \hline
+        $e^x$ & $\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$ & $ x \in (-\infty, +\infty)$ \\
+        $\sin x$ & $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ & $ x \in (-\infty, +\infty)$ \\
+        $\cos x$ & $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n}}{(2n)!}$ & $ x \in (-\infty, +\infty)$ \\
+        $\dfrac{1}{1-x}$ & $\displaystyle\sum_{n=0}^\infty x^n$ & $ x \in (-1, 1)$ \\
+        $\dfrac{1}{1+x}$ & $\displaystyle\sum_{n=0}^\infty (-1)^n x^n$ & $ x \in (-1, 1)$ \\
+        $\ln(1+x)$ & $\displaystyle\sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n}$ & $x \in (-1, 1]$ \\
+        $-\ln(1-x)$ & $\displaystyle\sum_{n=1}^\infty \frac{x^n}{n}$ & $x \in [-1, 1)$ \\
+        $\arctan x$ & $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n+1}$ & $ x \in [-1, 1]$ \\
+        $\dfrac{1}{2}\ln\left(\dfrac{1+x}{1-x}\right)$ & $\displaystyle\sum_{n=0}^{\infty}\frac{x^{2n+1}}{2n+1}$ & $x\in (-1,1)$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{example}
+    计算$\displaystyle\sum_{n=0}^{\infty}(2n+1)x^n$的收敛域及和函数，并求$\displaystyle\sum_{n=0}^{\infty}(-1)^n\frac{2n+1}{2^n}$
+\end{example}
+\begin{solution}
+    令 \[S(x) = \sum_{n=0}^\infty (2n+1)x^n = 2\sum_{n=0}^\infty nx^n + \sum_{n=0}^\infty x^n\]
+    已知 $\displaystyle\sum_{n=0}^\infty x^n = \frac{1}{1-x}$，收敛域为 $(-1, 1)$．\\
+    利用逐项求导：\[\sum_{n=0}^\infty nx^n = x \sum_{n=1}^\infty nx^{n-1} = x \left(\sum_{n=0}^\infty x^n\right)' = x \left(\frac{1}{1-x}\right)' = \frac{x}{(1-x)^2}\]
+    因此，和函数 $S(x) = \dfrac{2x}{(1-x)^2} + \dfrac{1}{1-x} = \dfrac{1+x}{(1-x)^2}$，收敛域为 $(-1, 1)$．\\
+    代入$x=-\dfrac{1}{2}$，得$\displaystyle\sum_{n=0}^{\infty}(-1)^n\frac{2n+1}{2^n}=\frac{2}{9}$
+\end{solution}
+
+\begin{example}
+    求下列幂级数的和函数$S(x)$
+    \begin{tasks}[label=(\arabic*)](2)
+        \task $\displaystyle\sum_{n=1}^{\infty}\frac{x^{n+1}}{n(n+1)}$
+        \task $\displaystyle\sum_{n=1}^{\infty}\frac{1}{2n}x^{2n+1}$
+    \end{tasks}
+\end{example}
+\begin{solution}
+    \begin{enumerate}[label=(\arabic*)]
+        \item 易知级数收敛半径 $R=1$。当 $x=1$ 时，级数为 $\sum \frac{1}{n(n+1)}$ 收敛；当 $x=-1$ 时，级数为 $\sum \frac{(-1)^{n+1}}{n(n+1)}$ 绝对收敛。故收敛域为 $[-1, 1]$。\\
+        当 $x \in (-1, 1)$ 时，和函数 $S(x)$ 满足：
+        \[S''(x) = \sum_{n=1}^\infty x^{n-1} = \frac{1}{1-x}\]
+        积分两次得 $S(x) = (1-x)\ln(1-x) + x, \; x \in (-1, 1)$。\\
+        对于端点 $x=1$：由于级数在此处收敛且由 Abel 第二定理知和函数左连续，有
+        \[S(1) = \sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty \left(\frac{1}{n}-\frac{1}{n+1}\right) = 1\]
+        而 $\lim\limits_{x \to 1^-} [(1-x)\ln(1-x) + x] = 1$。\\
+        综上所述，和函数为
+        \[ S(x) = \begin{cases} (1-x)\ln(1-x) + x, & -1 \le x < 1 \\ 1, & x = 1 \end{cases} \]
+        \item 易知级数收敛半径 $R=1$。当 $x=\pm 1$ 时级数发散，故成立区间为 $(-1, 1)$。\\
+        和函数为
+        \[S(x)=\frac{x}{2}\sum_{n=1}^{\infty}\frac{(x^2)^n}{n}=-\frac{x}{2}\ln(1-x^2), \quad x \in (-1, 1)\]
+    \end{enumerate}
+\end{solution}
+
+\begin{example}
+    将$\ln (4+x)$展开为$x$的幂级数，并指出成立区间．
+\end{example}
+\begin{solution}
+    将函数化为已知形式：$\ln (4+x) = \ln\left[4(1+\frac{x}{4})\right] = \ln 4 + \ln(1+\frac{x}{4})$．\\
+    已知 $\ln(1+u) = \displaystyle\sum_{n=1}^\infty (-1)^{n-1} \frac{u^n}{n}, u \in (-1, 1]$．\\
+    代入 $u = \frac{x}{4}$，得 \[\ln(4+x) = \ln 4 + \sum_{n=1}^\infty (-1)^{n-1} \frac{x^n}{n \cdot 4^n}\]
+    成立区间为 $-1 < \frac{x}{4} \le 1$，即 $x \in (-4, 4]$．
+\end{solution}
+
+\begin{example}
+    将函数$f(x)=\dfrac{1}{x^2-3x-4}$展开成$x-1$的幂级数，并指出成立区间．
+\end{example}
+\begin{solution}
+    分解部分分式：$f(x) = \dfrac{1}{(x-4)(x+1)} = \dfrac{1}{5} \left( \dfrac{1}{x-4} - \dfrac{1}{x+1} \right)$．\\
+    令 $t = x-1$，则原式为 $\frac{1}{5} \left( \dfrac{1}{t-3} - \dfrac{1}{t+2} \right) = \dfrac{1}{5} \left( -\dfrac{1}{3}\cdot\dfrac{1}{1-\frac{t}{3}} - \dfrac{1}{2}\cdot\dfrac{1}{1+\frac{t}{2}} \right)$．\\
+    利用 $\dfrac{1}{1-u} = \displaystyle\sum_{n=0}^\infty u^n$，得：
+    \[ f(t) = \frac{1}{5} \left( -\frac{1}{3}\sum_{n=0}^\infty \left(\frac{t}{3}\right)^n - \frac{1}{2}\sum_{n=0}^\infty \left(-\frac{t}{2}\right)^n \right) \]
+    回代 $x$：\[ f(x) = -\frac{1}{15} \sum_{n=0}^\infty \frac{(x-1)^n}{3^n} - \frac{1}{10} \sum_{n=0}^\infty \frac{(-1)^n (x-1)^n}{2^n} \]
+    收敛域取并集，故 $x-1 \in (-2, 2)$，即 $x\in(-1, 3)$．
+\end{solution}
+
 \section{傅里叶级数}
-\section{级数练习}
+\begin{theorem}[Dirichlet 收敛定理]
+    设 $f(x)$ 是周期为 $2\pi$ 的周期函数，在一个周期内分段连续且仅有有限个极值点，则 $f(x)$ 的傅里叶级数收敛于：
+    \[ \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx) = \frac{f(x^+) + f(x^-)}{2} \]
+    其中：
+    \[ a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx \d x, \quad b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx \d x \]
+\end{theorem}
+
+\begin{corollary}[周期为 $T=2L$ 的傅里叶级数]
+    若 $f(x)$ 是周期为 $T=2L$ 的周期函数，且满足 Dirichlet 收敛条件，则其傅里叶级数展开式为：
+    \[ f(x) \sim \frac{a_0}{2} + \sum_{n=1}^\infty \left( a_n \cos \frac{n\pi x}{L} + b_n \sin \frac{n\pi x}{L} \right) \]
+    其中系数计算公式为：
+    \[ a_n = \frac{1}{L} \int_{-L}^{L} f(x) \cos \frac{n\pi x}{L} \d x, \quad (n=0, 1, 2, \dots) \]
+    \[ b_n = \frac{1}{L} \int_{-L}^{L} f(x) \sin \frac{n\pi x}{L} \d x, \quad (n=1, 2, \dots) \]
+\end{corollary}
+
+\begin{example}
+    设周期函数$f(x)$的周期为$2\pi,\,f(x)$在$[-\pi,\pi)$上表达式为$f(x)=e^{2x}$，试将$f(x)$展开为傅里叶级数．
+\end{example}
+\begin{solution}
+    直接套用公式计算系数：
+    \[a_0 = \frac{1}{\pi} \int_{-\pi}^\pi e^{2x} \d x = \frac{e^{2\pi} - e^{-2\pi}}{2\pi}\]
+    对于 $n \ge 1$，利用分部积分法可得：
+    \[a_n = \frac{1}{\pi} \int_{-\pi}^\pi e^{2x} \cos nx \d x = \frac{2(-1)^n(e^{2\pi} - e^{-2\pi})}{\pi(4+n^2)}\]
+    \[b_n = \frac{1}{\pi} \int_{-\pi}^\pi e^{2x} \sin nx \d x = \frac{-n(-1)^n(e^{2\pi} - e^{-2\pi})}{\pi(4+n^2)}\]
+    故 $f(x)$ 的傅里叶级数为：
+    \[ \frac{e^{2\pi} - e^{-2\pi}}{4\pi} + \frac{e^{2\pi} - e^{-2\pi}}{\pi} \sum_{n=1}^\infty \frac{(-1)^n}{4+n^2} (2\cos nx - n\sin nx) \]
+\end{solution}
+
+\begin{example}
+    将$f(x)=2+|x|\;(x\in[-1,1])$展开成以$2$为周期的傅里叶级数，并求$\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^2}$．
+\end{example}
+\begin{solution}
+    $f(x)$ 为偶函数，所以 $b_n = 0$，只有余弦项展开，且周期 $2L = 2, L = 1$。
+    \[a_0 = \frac{2}{1} \int_0^1 (2+x) \d x = 5\]
+    \[a_n = 2 \int_0^1 (2+x) \cos(n\pi x) \d x = 2\left(\frac{x\sin(n\pi x)}{n\pi} \Big|_0^1 - \int_0^1 \frac{\sin(n\pi x)}{n\pi} \d x\right)\]由于 $\sin(n\pi) = 0$：
+    \[a_n = \left[\frac{2\cos(n\pi x)}{(n\pi)^2}\right]_0^1 = \frac{2((-1)^n - 1)}{n^2\pi^2}\]
+    故 \[f(x) = \frac{5}{2} - \sum_{k=0}^\infty \frac{4}{(2k+1)^2\pi^2} \cos((2k+1)\pi x)\]由于 $f(x)$ 连续，这在整个实轴成立。
+    代入令 $x = 0$，则 $f(0) = 2$，得到 \[2 = \frac{5}{2} - \frac{4}{\pi^2} \sum_{k=0}^\infty \frac{1}{(2k+1)^2}\]即 \[\sum_{k=0}^\infty \frac{1}{(2k+1)^2} = \frac{\pi^2}{8}\]
+    由于 \[\sum_{n=1}^\infty \frac{1}{n^2} = \sum_{k=0}^\infty \frac{1}{(2k+1)^2} + \sum_{m=1}^\infty \frac{1}{(2m)^2}\]易得 \[\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}\]
+\end{solution}
+
 \ifx\allfiles\undefined
 \end{document}
 \fi
