@@ -66,38 +66,43 @@
 \contentsline {section}{\numberline {10.3}重积分的对称性}{79}{section.10.3}%
 \contentsline {subsection}{\numberline {10.3.1}普通对称性（奇偶性）}{79}{subsection.10.3.1}%
 \contentsline {subsection}{\numberline {10.3.2}轮换对称性}{80}{subsection.10.3.2}%
-\contentsline {section}{\numberline {10.4}坐标变换与微元}{81}{section.10.4}%
-\contentsline {subsection}{\numberline {10.4.1}坐标变换关系}{81}{subsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.4.2}重积分变量替换公式（雅可比行列式）}{82}{subsection.10.4.2}%
-\contentsline {subsection}{\numberline {10.4.3}微元对照表}{83}{subsection.10.4.3}%
-\contentsline {subsection}{\numberline {10.4.4}单位向量的微分与演化}{83}{subsection.10.4.4}%
-\contentsline {section}{\numberline {10.5}重积分练习}{84}{section.10.5}%
-\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}曲线积分与曲面积分}{88}{chapter.11}%
-\contentsline {section}{\numberline {11.1}第一类曲线积分}{88}{section.11.1}%
-\contentsline {section}{\numberline {11.2}第二类曲线积分}{89}{section.11.2}%
-\contentsline {section}{\numberline {11.3}格林公式}{91}{section.11.3}%
-\contentsline {section}{\numberline {11.4}第一类曲面积分}{92}{section.11.4}%
-\contentsline {section}{\numberline {11.5}第二类曲面积分}{94}{section.11.5}%
-\contentsline {section}{\numberline {11.6}高斯公式}{97}{section.11.6}%
-\contentsline {section}{\numberline {11.7}斯托克斯公式}{99}{section.11.7}%
-\contentsline {section}{\numberline {11.8}场论初步：三类核心物理算子}{100}{section.11.8}%
-\contentsline {subsection}{\numberline {11.8.1}散度 (Divergence)}{100}{subsection.11.8.1}%
-\contentsline {subsection}{\numberline {11.8.2}旋度 (Curl)}{101}{subsection.11.8.2}%
-\contentsline {subsection}{\numberline {11.8.3}环量 (Circulation) 与通量 (Flux)}{101}{subsection.11.8.3}%
-\contentsline {subsection}{\numberline {11.8.4}核心定理的统一视角}{101}{subsection.11.8.4}%
-\contentsline {section}{\numberline {11.9}练习}{102}{section.11.9}%
-\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}无穷级数}{103}{chapter.12}%
-\contentsline {section}{\numberline {12.1}正项级数及其收敛判定}{103}{section.12.1}%
-\contentsline {section}{\numberline {12.2}交错级数与绝对收敛}{105}{section.12.2}%
-\contentsline {section}{\numberline {12.3}幂级数}{106}{section.12.3}%
-\contentsline {subsection}{\numberline {12.3.1}收敛半径与收敛域}{106}{subsection.12.3.1}%
-\contentsline {subsection}{\numberline {12.3.2}和函数与幂级数的转换}{108}{subsection.12.3.2}%
-\contentsline {section}{\numberline {12.4}傅里叶级数}{110}{section.12.4}%
-\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}偏微分方程初步与全微分方程}{113}{chapter.13}%
-\contentsline {section}{\numberline {13.1}全微分方程\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces (Exact Differential Equations)}{113}{section.13.1}%
-\contentsline {subsection}{\numberline {13.1.1}全微分的物理含义与 $\dfrac {\partial P}{\partial y}=\dfrac {\partial Q}{\partial x}$ 判定}{113}{subsection.13.1.1}%
-\contentsline {subsection}{\numberline {13.1.2}偏积分解法\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces (Method of Partial Integration)}{114}{subsection.13.1.2}%
-\contentsline {subsection}{\numberline {13.1.3}常用全微分公式与配凑法}{114}{subsection.13.1.3}%
-\contentsline {section}{\numberline {13.2}偏微分方程初步\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces (Introduction to PDEs)}{117}{section.13.2}%
-\contentsline {subsection}{\numberline {13.2.1}三大基本方程（一般三维形式）}{117}{subsection.13.2.1}%
-\contentsline {subsection}{\numberline {13.2.2}降维打击：分离变量法 (Separation of Variables)}{118}{subsection.13.2.2}%
+\contentsline {section}{\numberline {10.4}重积分的导数}{81}{section.10.4}%
+\contentsline {section}{\numberline {10.5}坐标变换与微元}{82}{section.10.5}%
+\contentsline {subsection}{\numberline {10.5.1}坐标变换关系}{82}{subsection.10.5.1}%
+\contentsline {subsection}{\numberline {10.5.2}重积分变量替换公式（雅可比行列式）}{83}{subsection.10.5.2}%
+\contentsline {subsection}{\numberline {10.5.3}微元对照表}{85}{subsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.5.4}单位向量的微分与演化}{86}{subsection.10.5.4}%
+\contentsline {section}{\numberline {10.6}重积分练习}{88}{section.10.6}%
+\contentsline {subsection}{\numberline {10.6.1}二重积分}{88}{subsection.10.6.1}%
+\contentsline {subsection}{\numberline {10.6.2}三重积分}{88}{subsection.10.6.2}%
+\contentsline {subsection}{\numberline {10.6.3}重积分的应用}{95}{subsection.10.6.3}%
+\contentsline {subsection}{\numberline {10.6.4}技巧性问题}{97}{subsection.10.6.4}%
+\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}曲线积分与曲面积分}{101}{chapter.11}%
+\contentsline {section}{\numberline {11.1}第一类曲线积分}{101}{section.11.1}%
+\contentsline {section}{\numberline {11.2}第二类曲线积分}{102}{section.11.2}%
+\contentsline {section}{\numberline {11.3}格林公式}{104}{section.11.3}%
+\contentsline {section}{\numberline {11.4}第一类曲面积分}{105}{section.11.4}%
+\contentsline {section}{\numberline {11.5}第二类曲面积分}{107}{section.11.5}%
+\contentsline {section}{\numberline {11.6}高斯公式}{110}{section.11.6}%
+\contentsline {section}{\numberline {11.7}斯托克斯公式}{112}{section.11.7}%
+\contentsline {section}{\numberline {11.8}场论初步：三类核心物理算子}{113}{section.11.8}%
+\contentsline {subsection}{\numberline {11.8.1}散度 (Divergence)}{113}{subsection.11.8.1}%
+\contentsline {subsection}{\numberline {11.8.2}旋度 (Curl)}{114}{subsection.11.8.2}%
+\contentsline {subsection}{\numberline {11.8.3}环量 (Circulation) 与通量 (Flux)}{114}{subsection.11.8.3}%
+\contentsline {subsection}{\numberline {11.8.4}核心定理的统一视角}{114}{subsection.11.8.4}%
+\contentsline {section}{\numberline {11.9}练习}{115}{section.11.9}%
+\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}无穷级数}{116}{chapter.12}%
+\contentsline {section}{\numberline {12.1}正项级数及其收敛判定}{116}{section.12.1}%
+\contentsline {section}{\numberline {12.2}交错级数与绝对收敛}{118}{section.12.2}%
+\contentsline {section}{\numberline {12.3}幂级数}{119}{section.12.3}%
+\contentsline {subsection}{\numberline {12.3.1}收敛半径与收敛域}{119}{subsection.12.3.1}%
+\contentsline {subsection}{\numberline {12.3.2}和函数与幂级数的转换}{121}{subsection.12.3.2}%
+\contentsline {section}{\numberline {12.4}傅里叶级数}{123}{section.12.4}%
+\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}偏微分方程初步与全微分方程}{126}{chapter.13}%
+\contentsline {section}{\numberline {13.1}全微分方程\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces (Exact Differential Equations)}{126}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}全微分的物理含义与 $\dfrac {\partial P}{\partial y}=\dfrac {\partial Q}{\partial x}$ 判定}{126}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}偏积分解法\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces (Method of Partial Integration)}{127}{subsection.13.1.2}%
+\contentsline {subsection}{\numberline {13.1.3}常用全微分公式与配凑法}{127}{subsection.13.1.3}%
+\contentsline {section}{\numberline {13.2}偏微分方程初步\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces (Introduction to PDEs)}{130}{section.13.2}%
+\contentsline {subsection}{\numberline {13.2.1}三大基本方程（一般三维形式）}{130}{subsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.2.2}降维打击：分离变量法 (Separation of Variables)}{131}{subsection.13.2.2}%
