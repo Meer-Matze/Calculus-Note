@@ -31,31 +31,10 @@
         \end{tikzpicture}
     \end{center}
 \end{theorem}
-\begin{exercise}
-    设$f(x,y)=\begin{cases}
-    \dfrac{xy}{\sqrt{x^2+y^2}},&(x,y)\ne (0,0)\\
-    0, & (x,y) = (0,0)
-    \end{cases}$，证明：$f(x,y)$在$(0,0)$处不可微．
-\end{exercise}
-\begin{proof}
-    计算$f(x,y)$在$(0,0)$处的偏导数：
-    \[ f_x(0,0) = \lim_{h \to 0} \frac{f(h,0) - f(0,0)}{h} = \lim_{h \to 0} \frac{0 - 0}{h} = 0 \]
-    \[ f_y(0,0) = \lim_{k \to 0} \frac{f(0,k) - f(0,0)}{k} = \lim_{k \to 0} \frac{0 - 0}{k} = 0 \]
-    因此，$f(x,y)$在$(0,0)$处的偏导数存在且为零．
-    
-    接下来验证$f(x,y)$在$(0,0)$处是否可微．根据可微的定义，需验证：
-    \[ \lim_{(x,y) \to (0,0)} \frac{|f(x,y) - f(0,0) - f_x(0,0)x - f_y(0,0)y|}{\sqrt{x^2 + y^2}} = 0 \]
-    即：
-    \[ \lim_{(x,y) \to (0,0)} \frac{\left|\frac{xy}{\sqrt{x^2 + y^2}}\right|}{\sqrt{x^2 + y^2}} = \lim_{(x,y) \to (0,0)} \frac{|xy|}{x^2 + y^2} \]
-    使用极坐标变换，设$x=r\cos\theta$，$y=r\sin\theta$，则：
-    \[ \lim_{r \to 0} \frac{r^2 |\cos\theta||\sin\theta|}{r^2} = |\cos\theta||\sin\theta| \]
-    当$\theta = \frac{\pi}{4}$时，$|\cos\theta||\sin\theta| = \frac{1}{2}$，因此极限不为零．
-    
-    因此，$f(x,y)$在$(0,0)$处不可微．
-\end{proof}
-\begin{exercise}
+
+\begin{example}
     设可微函数$z=z(x,y)$满足$x^2\dfrac{\partial z}{\partial x}+y^2\dfrac{\partial z}{\partial y}=2z^2$，又设$u=x,v=\dfrac{1}{y}-\dfrac{1}{x},w=\dfrac{1}{z}-\dfrac{1}{x}$，则对于函数$w=w(u,v)$，求$\dfrac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}}$．
-\end{exercise}
+\end{example}
 \begin{solution}
     已知 $u=x, v = \dfrac{1}{y} - \dfrac{1}{x}, w = \dfrac{1}{z} - \dfrac{1}{x}$．
     
@@ -77,43 +56,10 @@
     当 $u=2, v=1$ 时，$x=u=2$，故：
     \[ \frac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}} = -\frac{1}{2^2} = -\frac{1}{4} \]
 \end{solution}
-\begin{exercise}
-    设$z=f(x,y)$是区域$D=\{(x,y)|0\le x\le 1,0\le y\le 1\}$上连续可微的函数，且满足$f(0,0)=0$，且$\d z\Big|_{(0,0)}=3\d x+2\d y$，求极限$\displaystyle\lim_{x \to 0} \dfrac{\displaystyle \int_{0}^{x^2}\d t\displaystyle\int_{x}^{\sqrt{t}}f(t,u)\d u}{1-\sqrt[4]{1-x^4}}$
-\end{exercise}
-\begin{solution}
-    设极限为 $L$．首先处理分母：当 $x \to 0$ 时，使用等价无穷小 $(1+x)^\alpha - 1 \sim \alpha x$，有：
-    \[ 1 - \sqrt[4]{1-x^4} = 1 - (1 - x^4)^{1/4} \sim -\left[ \frac{1}{4} (-x^4) \right] = \frac{1}{4}x^4 \]
-    于是：
-    \[ L = \lim_{x \to 0} \frac{\displaystyle\int_{0}^{x^2} \d t \int_{x}^{\sqrt{t}} f(t,u) \d u}{\frac{1}{4}x^4} \]
-    接下来处理分子，对分子先进行交换积分次序：
-    \[ \int_{0}^{x^2} \d t \int_{x}^{\sqrt{t}} f(t,u) \d u = -\int_{0}^{x}\d u\int_{0}^{u^2} f(t,u) \d t \]
-    容易发现整个分式是$\frac{0}{0}$型的，因此可以使用洛必达法则．对分子分母求导：
-    \[L = \lim_{x \to 0^+}\frac{-\displaystyle\int_{0}^{x}\d u\int_{0}^{u^2} f(t,u) \d t}{\frac{1}{4}x^4}
-        = -\lim_{x \to 0^+}\frac{\displaystyle\int_{0}^{x^2}f(t,x)\d t}{x^3} \]
-    容易发现分子分母又是$\frac{0}{0}$型的，但如果继续使用洛必达法则，分子是变限积分，求导后积分仍然存在，不如使用定积分中值定理．\\
-    由定积分中值定理，存在 $\xi \in (0, x^2)$ 使得：
-    \[ \int_{0}^{x^2} f(t,x) \d t = f(\xi, x) \cdot x^2 \]
-    因此：
-    \[ L = -\lim_{x \to 0^+} \frac{f(\xi, x) \cdot x^2}{x^3} = -\lim_{x \to 0^+} \frac{f(\xi, x)}{x} \]
-    当 $x \to 0^+$ 时，$\xi \to 0^+$，因此：
-    \[ f(\xi, x) = f(0,0) + \frac{\partial f}{\partial x}(0,0) \cdot \xi + \frac{\partial f}{\partial y}(0,0) \cdot x + o(\sqrt{\xi^2 + x^2}) \]
-    代入得：
-    \[ L = -\lim_{x \to 0^+} \frac{f(0,0) + 3\xi + 2x + o(\sqrt{\xi^2 + x^2})}{x}
-        = -2 + 3\lim_{x \to 0^+} \frac{\xi}{x}+\lim_{x\to 0^+}\frac{o(\sqrt{\xi^2 + x^2})}{x} \]
-    由于 $0 < \xi < x^2$，所以$0 < \dfrac{\xi}{x} < x$，因此 $\lim\limits_{x \to 0^+} \dfrac{\xi}{x} = 0$．
-    而 $$\lim_{x \to 0^+} \frac{\sqrt{\xi^2 + x^2}}{x} = \lim_{x \to 0^+} \frac{o(\sqrt{\xi^2 + x^2})}{\sqrt{\xi^2 + x^2}} \cdot \frac{\sqrt{\xi^2 + x^2}}{x} = 0$$
-    因此：
-    \[ L = -2 \]
-    
-\end{solution}
-\begin{myRemark}
-    关于多重变限积分的求导，事实上是莱布尼茨积分法则的推广，具体来说，如果 $F(x) = \displaystyle\int_{a(x)}^{b(x)} f(t,x) \d t$，则：
-\[ F'(x) = f(b(x), x) \cdot b'(x) - f(a(x), x) \cdot a'(x) + \int_{a(x)}^{b(x)} \frac{\partial f(t,x)}{\partial x} \d t \]
-    在本题中，分子中的积分是一个二重变限积分，因此需要对内外两层积分分别使用莱布尼茨法则进行求导．
-\end{myRemark}
-\begin{exercise}
+
+\begin{example}
     设函数$f(x,y)$可微，$f'_x(x,y)=-f(x,y),f(0,\frac{\pi}{2})=1$，且满足\[\lim_{n\to\infty}\left[\frac{f(0,y+\frac{1}{n})}{f(0,y)}\right]^n = e^{\cot y}\]求$f(x,y)$
-\end{exercise}
+\end{example}
 \begin{solution}
     将$f'_x(x,y)=-f(x,y)$视为关于$x$的常微分方程，解出$f(x,y)$关于$x$的表达式：
     \[\frac{\d f(x,y)}{f(x,y)}= -\d x\Rightarrow f(x,y) = \varphi(y)e^{-x}\]
@@ -121,9 +67,9 @@
     \[e^{\cot y} = \lim_{n\to\infty}\left[\frac{\varphi(y+\frac{1}{n})}{\varphi(y)}\right]^n =e^{\displaystyle\lim_{n\to\infty} \frac{\ln \varphi({y+\frac{1}{n}})-\ln \varphi(y)}{\frac{1}{n}}}= e^{\frac{\varphi'(y)}{\varphi(y)}}\Rightarrow \frac{\varphi'(y)}{\varphi(y)} = \cot y\]
     解出$\varphi(y) = C\sin y$，又由$f(0,\frac{\pi}{2})=1$，得$C=1$，因此$f(x,y) = e^{-x}\sin y$．
 \end{solution}
-\begin{exercise}
+\begin{example}
     设$z=u\cdot v,x=e^u\cos v,y=e^u\sin v$，求$\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$．
-\end{exercise}
+\end{example}
 \begin{solution}
     利用微分不变性，得：
     \[ \d z = v \d u + u \d v \]
@@ -153,23 +99,69 @@
     \[ \d^2 z = \frac{\partial^2 z}{\partial x^2} \d x^2 + 2 \frac{\partial^2 z}{\partial x \partial y} \d x \d y + \frac{\partial^2 z}{\partial y^2} \d y^2 \]
     利用混合偏导数相等 $\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial^2 z}{\partial y \partial x}$，通过对比给定的形式 $\d^2 z = P \d x^2 + 2Q \d x \d y + R \d y^2$，可得各二阶偏导数．
 \end{proof}
-\begin{exercise}
-    设变换$\begin{cases}
-        u = x-2y\\
-        v = x+ay
-    \end{cases}$可把方程$\displaystyle{6\frac{\partial^2z}{\partial x^2}+\frac{\partial^2z}{\partial x \partial y}-\frac{\partial^2z}{\partial y^2}}$化简为$\displaystyle\frac{\partial^2 z}{\partial u \partial v} = 0$，求常数$a$．
-\end{exercise}
-\begin{solution}
-    \[\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}+\frac{\partial z}{\partial v},\qquad\frac{\partial z}{\partial y}=-2\frac{\partial z}{\partial u}+a\frac{\partial z}{\partial v}\]
-    \[\frac{\partial^2z}{\partial x^2}=\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\]
-    \[\frac{\partial^2 z}{\partial x \partial y}=-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\]
-    \[\frac{\partial^2 z}{\partial y^2}=4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\]
-    将上述三个二阶偏导数代入原方程，得：
-    \[6\left(\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\right) + \left(-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\right) - \left(4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\right) = 0 \]
-    整理得：
-    \[ (10+5a)\frac{\partial^2z}{\partial u \partial v}+(6+a-a^2)\frac{\partial^2 z}{\partial v^2} = 0 \]
-    因此，需满足 $10 + 5a \neq 0$ 且 $6 + a - a^2 = 0$．解出 $a = 3$．
-\end{solution}
+
+\section{隐函数求导公式}
+\begin{theorem}[隐函数存在定理]
+    设函数 $F(x, y, z)$ 在点 $P(x_0, y_0, z_0)$ 的某邻域内具有连续偏导数，且满足：
+    \begin{enumerate}
+        \item $F(x_0, y_0, z_0) = 0$；
+        \item $F_z(x_0, y_0, z_0) \neq 0$．
+    \end{enumerate}
+    则方程 $F(x, y, z) = 0$ 在点 $P$ 的某邻域内能唯一确定一个具有连续偏导数的函数 $z = f(x, y)$，其偏导数为：
+    \[ \frac{\partial z}{\partial x} = -\frac{F_x}{F_z}, \quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z} \]
+\end{theorem}
+
+\begin{theorem}[隐函数组情形]
+    对于由方程组 $\begin{cases} F(x, y, u, v) = 0 \\ G(x, y, u, v) = 0 \end{cases}$ 确定的隐函数 $u(x, y), v(x, y)$，其偏导数通常通过对原方程组两边求全微分，解关于 $\d u, \d v$ 的线性方程组得到。
+    
+    利用克莱姆法则，其结果也可表示为如下行列式形式：
+    \[ \frac{\partial u}{\partial x} = -\frac{\begin{vmatrix} F_x & F_v \\ G_x & G_v \end{vmatrix}}{\begin{vmatrix} F_u & F_v \\ G_u & G_v \end{vmatrix}}, \quad \frac{\partial v}{\partial x} = -\frac{\begin{vmatrix} F_u & F_x \\ G_u & G_x \end{vmatrix}}{\begin{vmatrix} F_u & F_v \\ G_u & G_v \end{vmatrix}} \]
+    其中分母行列式 $\begin{vmatrix} F_u & F_v \\ G_u & G_v \end{vmatrix} \neq 0$．
+\end{theorem}
+
+\begin{theorem}[二元隐函数二阶导数计算技巧]
+    设由方程 $F(x, y, z) = 0$ 确定隐函数 $z = z(x, y)$，在满足存在定理条件下，二阶偏导数通常有两种高效处理技巧：
+
+    \begin{enumerate}
+        \item \textbf{全微分法}：
+        对方程 $F(x, y, z) = 0$ 两边求全微分，得 $F_x \d x + F_y \d y + F_z \d z = 0$．
+        整理出 $\d z = -\frac{F_x}{F_z} \d x - \frac{F_y}{F_z} \d y$，由此得一阶偏导数 $z_x, z_y$．
+        
+        对全微分等式 $F_x \d x + F_y \d y + F_z \d z = 0$ 再次求微分 $\d(F_x \d x + F_y \d y + F_z \d z) = 0$：
+        \[ (F_{xx}\d x + F_{xy}\d y + F_{xz}\d z)\d x + (F_{yx}\d x + F_{yy}\d y + F_{yz}\d z)\d y + (F_{zx}\d x + F_{zy}\d y + F_{zz}\d z)\d z + F_z \d^2 z = 0 \]
+        利用 $\d^2 z = z_{xx}\d x^2 + 2z_{xy}\d x \d y + z_{yy}\d y^2$，通过对比 $\d x^2, \d x \d y, \d y^2$ 的系数即可直接求得二阶偏导数．
+
+        \item \textbf{隐式求导法}：
+        不使用显式公式，而是将 $z$ 看作 $x,y$ 的函数，直接对等式 $F(x, y, z(x, y)) = 0$ 关于自变量求导．
+        例如求 $z_{xy}$，先对 $x$ 求导得 $F_x + F_z z_x = 0$，再对此式关于 $y$ 求导：
+        \[ \frac{\partial}{\partial y}(F_x + F_z z_x) = (F_{xy} + F_{xz}z_y) + (F_{zy} + F_{zz}z_y) z_x + F_z z_{xy} = 0 \]
+        这种方法在处理具体数值点或抽象函数证明时最为灵活．
+    \end{enumerate}
+\end{theorem}
+\begin{example}
+    设函数$z=z(x,y)$由方程$F(x+\frac{z}{y}, y+\frac{z}{x}) = 0$确定，且$F,z$都是可微函数，证明：
+    \[ x\pdv{z}{x} + y\pdv{z}{y} = z-xy \]
+\end{example}
+\begin{proof}
+    记 $G(x,y,z) = F(x+\frac{z}{y}, y+\frac{z}{x}) = 0$．由隐函数求导公式：
+    \[ \pdv{z}{x} = -\frac{G_x}{G_z}, \quad \pdv{z}{y} = -\frac{G_y}{G_z} \]
+    
+    计算 $G$ 对各变量的偏导数：
+    \begin{align*}
+        G_x &= F_1 \cdot 1 + F_2 \cdot \left( -\frac{z}{x^2} \right) = F_1 - \frac{z}{x^2} F_2 \\
+        G_y &= F_1 \cdot \left( -\frac{z}{y^2} \right) + F_2 \cdot 1 = F_2 - \frac{z}{y^2} F_1 \\
+        G_z &= F_1 \cdot \frac{1}{y} + F_2 \cdot \frac{1}{x} = \frac{F_1}{y} + \frac{F_2}{x}
+    \end{align*}
+
+    代入偏导数公式：
+    \[ \pdv{z}{x} = -\frac{F_1 - \frac{z}{x^2} F_2}{\frac{F_1}{y} + \frac{F_2}{x}}, \quad \pdv{z}{y} = -\frac{F_2 - \frac{z}{y^2} F_1}{\frac{F_1}{y} + \frac{F_2}{x}} \]
+
+    代入 $x\pdv{z}{x} + y\pdv{z}{y}$：
+    \begin{align*}
+        x\pdv{z}{x} + y\pdv{z}{y} &= -\frac{xF_1 - \frac{z}{x} F_2 + yF_2 - \frac{z}{y} F_1}{\frac{F_1}{y} + \frac{F_2}{x}} \\
+        &= -\frac{\left( x - \frac{z}{y} \right) F_1 + \left( y - \frac{z}{x} \right) F_2}{\frac{F_1}{y} + \frac{F_2}{x}} = z - xy
+    \end{align*}
+\end{proof}
 \section{方向导数}
 \begin{definition}
     设函数 $f(x, y)$ 在点 $(x_0, y_0)$ 处可微，$\bm{l} = (\cos \alpha, \sin \alpha)$ 是从点 $(x_0, y_0)$ 出发的单位向量，则称
@@ -196,6 +188,159 @@
         \item 当 $\theta = \frac{\pi}{2}$，即方向 $\bm{l}$ 与梯度 $\nabla f$ 垂直时，方向导数为 $0$．
     \end{enumerate}
 \end{theorem}
+\begin{example}
+    $z=f(x,y)$是由方程$e^{xz}-xy+z=0$在点$(1,1,0)$确定的隐函数，求\begin{tasks}[label = (\arabic*), label-width = 1.5em, label-align = right, column-sep = 1em]
+        \task $\displaystyle\pdv{z}{x},\;\pdv{z}{x}{y}$；
+        \task $f(x,y)$在点$(1,1)$沿方向$(1,2)$的方向导数；
+        \task $f(x,y)$下降最快的方向及沿该方向的最大下降率．
+    \end{tasks}
+\end{example}
+\begin{solution}
+    (1) 记 $F(x,y,z) = e^{xz} - xy + z = 0$．由隐函数存在定理，在点 $(1,1,0)$ 处：
+    \[ F_x = ze^{xz} - y,\quad F_y = -x,\quad F_z = xe^{xz} + 1 \]
+    代入点 $(1,1,0)$ 得：
+    \[ F_x(1,1,0) = -1,\quad F_y(1,1,0) = -1,\quad F_z(1,1,0) = 2 \]
+    根据隐函数求导公式：
+    \[ \frac{\partial z}{\partial x} = -\frac{F_x}{F_z} = -\frac{-1}{2} = \frac{1}{2},\quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z} = -\frac{-1}{2} = \frac{1}{2} \]
+    为了求二阶偏导数 $\dfrac{\partial^2 z}{\partial x \partial y}$，对恒等式 $F_x(x,y,z(x,y)) + F_z(x,y,z(x,y)) \dfrac{\partial z}{\partial x} = 0$ 两边关于 $y$ 求导（注意 $z$ 是 $x,y$ 的函数）：
+    \[ \frac{\partial}{\partial y}[F_x(x,y,z)] + \frac{\partial}{\partial y}[F_z(x,y,z)] z_x + F_z z_{xy} = 0 \]
+    根据复合函数链式法则 $\dfrac{\partial}{\partial y}[F_i(x,y,z)] = F_{iy} + F_{iz}z_y$，展开得：
+    \[ (F_{xy} + F_{xz}z_y) + (F_{zy} + F_{zz}z_y)z_x + F_z z_{xy} = 0 \]
+    计算各二阶偏导数：$F_{xy} = -1$，$F_{xz} = ze^{xz} + xze^{xz}$，$F_{zy} = F_{yz} = 0$，$F_{zz} = x^2 e^{xz}$．
+    在点 $(1,1,0)$ 处具体值为：
+    \[ F_{xy} = -1, \quad F_{xz} = e^{xz}(z+xz) \big|_{(1,1,0)} = 0, \quad F_{zy} = 0, \quad F_{zz} = 1^2 e^{0} = 1 \]
+    代入上式及 $z_x = 1/2, z_y = 1/2$：
+    \[ (-1 + 0 \cdot \frac{1}{2}) + (0 + 1 \cdot \frac{1}{2})\frac{1}{2} + 2 z_{xy} = 0 \implies -1 + \frac{1}{4} + 2 z_{xy} = 0 \implies z_{xy} = \frac{3}{8} \]
+
+    (2) 点 $(1,1)$ 处的梯度为 $\nabla f(1,1) = \left( \frac{\partial z}{\partial x}, \frac{\partial z}{\partial y} \right) = \left( \frac{1}{2}, \frac{1}{2} \right)$．
+    方向 $\bm{l} = (1, 2)$ 的单位向量为 $\bm{l}^0 = \frac{(1,2)}{\sqrt{1^2+2^2}} = \left( \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}} \right)$．
+    方向导数为：
+    \[ \frac{\partial f}{\partial \bm{l}} = \nabla f \cdot \bm{l}^0 = \frac{1}{2} \cdot \frac{1}{\sqrt{5}} + \frac{1}{2} \cdot \frac{2}{\sqrt{5}} = \frac{3}{2\sqrt{5}} = \frac{3\sqrt{5}}{10} \]
+
+    (3) 函数下降最快的方向为梯度的反方向：
+    \[ -\nabla f(1,1) = \left( -\frac{1}{2}, -\frac{1}{2} \right) \]
+    对应的单位方向向量为 $\left( -\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2} \right)$．
+    最大下降率为梯度的模长：
+    \[ |\nabla f(1,1)| = \sqrt{\left(\frac{1}{2}\right)^2 + \left(\frac{1}{2}\right)^2} = \frac{\sqrt{2}}{2} \]
+\end{solution}
+
+\section{泰勒公式}
+\begin{theorem}[二元函数泰勒公式]
+    设 $f(x,y)$ 在点 $(x_0, y_0)$ 的某个邻域内具有 $n+1$ 阶连续偏导数，则对于该邻域内任一点 $(x_0+h, y_0+k)$，有：
+    \[ f(x_0+h, y_0+k) = f(x_0, y_0) + \sum_{i=1}^n \frac{1}{i!} \left( h\frac{\partial}{\partial x} + k\frac{\partial}{\partial y} \right)^i f(x_0, y_0) + R_n \]
+    其中：
+    \begin{enumerate}
+        \item 记号 $\left( h\frac{\partial}{\partial x} + k\frac{\partial}{\partial y} \right)^i f(x_0, y_0)$ 表示：
+        \[ \sum_{j=0}^i \binom{i}{j} h^j k^{i-j} \frac{\partial^i f}{\partial x^j \partial y^{i-j}}(x_0, y_0) \]
+        \item 常用二阶阶麦克劳林展开：
+        \[f(x,y)=f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2}\left(f_{xx}(0,0)x^2+2f_{xy}(0,0)xy+f_{yy}(0,0)y^2\right)+O(\rho^2)\]
+    \end{enumerate}
+\end{theorem}
+
+\section{练习}
+\subsection{复合函数偏微分}
+\begin{exercise}
+    设变换$\begin{cases}
+        u = x-2y\\
+        v = x+ay
+    \end{cases}$可把方程$\displaystyle{6\frac{\partial^2z}{\partial x^2}+\frac{\partial^2z}{\partial x \partial y}-\frac{\partial^2z}{\partial y^2}}$化简为$\displaystyle\frac{\partial^2 z}{\partial u \partial v} = 0$，求常数$a$．
+\end{exercise}
+\begin{solution}
+    \[\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}+\frac{\partial z}{\partial v},\qquad\frac{\partial z}{\partial y}=-2\frac{\partial z}{\partial u}+a\frac{\partial z}{\partial v}\]
+    \[\frac{\partial^2z}{\partial x^2}=\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\]
+    \[\frac{\partial^2 z}{\partial x \partial y}=-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\]
+    \[\frac{\partial^2 z}{\partial y^2}=4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\]
+    将上述三个二阶偏导数代入原方程，得：
+    \[6\left(\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\right) + \left(-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\right) - \left(4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\right) = 0 \]
+    整理得：
+    \[ (10+5a)\frac{\partial^2z}{\partial u \partial v}+(6+a-a^2)\frac{\partial^2 z}{\partial v^2} = 0 \]
+    因此，需满足 $10 + 5a \neq 0$ 且 $6 + a - a^2 = 0$．解出 $a = 3$．
+\end{solution}
+\subsection{全微分}
+\begin{exercise}
+    设$u=f(x,y,z)$有连续一阶偏导数，又函数$y=y(x)$及$z=z(x)$分别由下列两式确定：$e^{xy}-xy=2,\quad e^x=\displaystyle\int_{0}^{x-z}\frac{\sin t}{t}\d t$，求$\dfrac{\d u}{\d x}$．
+\end{exercise}
+\begin{solution}
+    全微分得：
+    \[ e^{xy}(x\d y + y \d x) - (x \d y + y \d x) = 0 \]
+    \[ e^x \d x = \frac{\sin(x-z)}{x-z} (\d x - \d z) \]
+    从而：
+    \[ \d y = -\frac{y}{x} \d x, \quad \d z = \left( 1 - \frac{(x-z)e^x}{\sin(x-z)} \right) \d x \]
+    因此：
+    \[ \frac{\d u}{\d x} = f_x + f_y \frac{\d y}{\d x} + f_z \frac{\d z}{\d x} = f_x - \frac{y}{x} f_y + \left[ 1 - \frac{(x-z)e^x}{\sin(x-z)} \right] f_z \]
+\end{solution}
+\subsection{综合}
+\begin{exercise}
+    已知
+    \[f(x,y)=\begin{cases}
+    \dfrac{|xy|^\alpha}{(x^2+y^2)^\frac{3}{2}}\cos\dfrac{1}{\sqrt{x^2+y^2}},&(x,y)\ne (0,0)\\
+    0, & (x,y) = (0,0)
+    \end{cases}\]
+    求$\alpha$的取值范围，使得\begin{tasks}[label = (\arabic*), label-width = 1.5em, label-align = right, column-sep = 1em]
+    \task 函数在$(0,0)$处连续；
+    \task 函数在$(0,0)$处可微；
+    \task 函数在$(0,0)$处偏导数连续．
+    \end{tasks}
+\end{exercise}
+\begin{solution}
+    (1) 函数 $f(x,y)$ 在 $(0,0)$ 处连续的定义为 $\lim\limits_{(x,y) \to (0,0)} f(x,y) = f(0,0) = 0$．\\
+    引入极坐标 $x = r\cos\theta, y = r\sin\theta (r>0)$，则有
+    \[ |f(x,y) - 0| = \left| \frac{|r^2\cos\theta\sin\theta|^\alpha}{r^3} \cos\frac{1}{r} \right| \le r^{2\alpha-3} |\cos\theta\sin\theta|^\alpha \le \frac{1}{2^\alpha} r^{2\alpha-3} \]
+    若要对任意 $\theta$ 均有 $\lim\limits_{r \to 0^+} |f| = 0$，由夹逼定理知需满足 $2\alpha - 3 > 0$，即 $\alpha > \dfrac{3}{2}$．
+
+    (2) 函数在 $(0,0)$ 处可微的定义为：存在常数 $A, B$ 使得 $\Delta z - (A\Delta x + B\Delta y) = o(\rho)$．\\
+    首先考察偏导数是否存在：
+    \[ f'_x(0,0) = \lim_{\Delta x \to 0} \frac{f(\Delta x, 0) - f(0,0)}{\Delta x} = \lim_{\Delta x \to 0} \frac{0 - 0}{\Delta x} = 0 \]
+    同理 $f'_y(0,0) = 0$．故若可微，则必有 $A=B=0$．\\
+    考察可微定义极限：
+    \[ \lim_{(x,y) \to (0,0)} \frac{|f(x,y) - f(0,0) - (0 \cdot x + 0 \cdot y)|}{\sqrt{x^2+y^2}} = \lim_{r \to 0^+} \frac{|f(r\cos\theta, r\sin\theta)|}{r} \]
+    代入得
+    \[ 0 \le \frac{|f|}{r} = \left| \frac{r^{2\alpha}|\cos\theta\sin\theta|^\alpha \cos\frac{1}{r}}{r^4} \right| \le \frac{1}{2^\alpha} r^{2\alpha-4} \]
+    若要在此极限为 $0$，由夹逼定理知需满足 $2\alpha - 4 > 0$，即 $\alpha > 2$．
+
+    (3) 函数在 $(0,0)$ 处偏导数连续，即满足 $\lim\limits_{(x,y) \to (0,0)} f'_x(x,y) = f'_x(0,0) = 0$（以 $f'_x$ 为例）．\\
+    当 $(x,y) \ne (0,0)$ 时，记 $g(x,y) = |xy|^\alpha$，$h(x,y) = (x^2+y^2)^{-3/2}$，则 $f = g \cdot h \cdot \cos\frac{1}{r}$．\\
+    由求导法则：
+    \[ f'_x = (g'_x h + g h'_x) \cos\frac{1}{r} + g h \left( \sin\frac{1}{r} \cdot \frac{1}{r^2} \cdot \frac{x}{r} \right) \]
+    其中阶数最低项（决定性项）为最后由 $\cos\frac{1}{r}$ 求导产生的项 $I = \dfrac{|xy|^\alpha \cdot x}{r^6} \sin\frac{1}{r}$．\\
+    充分性：若 $\alpha > \dfrac{5}{2}$，则 $|I| \le \dfrac{r^{2\alpha} \cdot r}{r^6} = r^{2\alpha-5} \to 0 (r \to 0^+)$．其余项含 $r^{2\alpha-4}$ 等更高阶无穷小，故 $f'_x \to 0$．\\
+    必要性：若 $f'_x$ 在原点连续，则沿任何路径极限均为 $0$．取路径 $y=x > 0$，此时 $I = \dfrac{x^{2\alpha+1}}{(2x^2)^3} \sin\frac{1}{\sqrt{2}x} = \frac{1}{8} x^{2\alpha-5} \sin\frac{1}{\sqrt{2}x}$．若要此极限存在且为 $0$，必须满足 $2\alpha - 5 > 0$，即 $\alpha > \dfrac{5}{2}$．
+\end{solution}
+
+\begin{exercise}
+    设$z=f(x,y)$是区域$D=\{(x,y)|0\le x\le 1,0\le y\le 1\}$上连续可微的函数，且满足$f(0,0)=0$，且$\d z\Big|_{(0,0)}=3\d x+2\d y$，求极限$\displaystyle\lim_{x \to 0} \dfrac{\displaystyle \int_{0}^{x^2}\d t\displaystyle\int_{x}^{\sqrt{t}}f(t,u)\d u}{1-\sqrt[4]{1-x^4}}$
+\end{exercise}
+\begin{solution}
+    设极限为 $L$．首先处理分母：当 $x \to 0$ 时，使用等价无穷小 $(1+x)^\alpha - 1 \sim \alpha x$，有：
+    \[ 1 - \sqrt[4]{1-x^4} = 1 - (1 - x^4)^{\frac{1}{4}} \sim -\left[ \frac{1}{4} (-x^4) \right] = \frac{1}{4}x^4 \]
+    于是：
+    \[ L = \lim_{x \to 0} \frac{\displaystyle\int_{0}^{x^2} \d t \int_{x}^{\sqrt{t}} f(t,u) \d u}{\frac{1}{4}x^4} \]
+    接下来处理分子，对分子先进行交换积分次序：
+    \[ \int_{0}^{x^2} \d t \int_{x}^{\sqrt{t}} f(t,u) \d u = -\int_{0}^{x}\d u\int_{0}^{u^2} f(t,u) \d t \]
+    容易发现整个分式是$\frac{0}{0}$型的，因此可以使用洛必达法则．对分子分母求导：
+    \[L = \lim_{x \to 0^+}\frac{-\displaystyle\int_{0}^{x}\d u\int_{0}^{u^2} f(t,u) \d t}{\frac{1}{4}x^4}
+        = -\lim_{x \to 0^+}\frac{\displaystyle\int_{0}^{x^2}f(t,x)\d t}{x^3} \]
+    容易发现分子分母又是$\frac{0}{0}$型的，但如果继续使用洛必达法则，分子是变限积分，求导后积分仍然存在，不如使用定积分中值定理．\\
+    由定积分中值定理，存在 $\xi \in (0, x^2)$ 使得：
+    \[ \int_{0}^{x^2} f(t,x) \d t = f(\xi, x) \cdot x^2 \]
+    因此：
+    \[ L = -\lim_{x \to 0^+} \frac{f(\xi, x) \cdot x^2}{x^3} = -\lim_{x \to 0^+} \frac{f(\xi, x)}{x} \]
+    当 $x \to 0^+$ 时，$\xi \to 0^+$，因此：
+    \[ f(\xi, x) = f(0,0) + \frac{\partial f}{\partial x}(0,0) \cdot \xi + \frac{\partial f}{\partial y}(0,0) \cdot x + o(\sqrt{\xi^2 + x^2}) \]
+    代入得：
+    \[ L = -\lim_{x \to 0^+} \frac{f(0,0) + 3\xi + 2x + o(\sqrt{\xi^2 + x^2})}{x}
+        = -2 + 3\lim_{x \to 0^+} \frac{\xi}{x}+\lim_{x\to 0^+}\frac{o(\sqrt{\xi^2 + x^2})}{x} \]
+    由于 $0 < \xi < x^2$，所以$0 < \dfrac{\xi}{x} < x$，因此 $\lim\limits_{x \to 0^+} \dfrac{\xi}{x} = 0$．
+    而 $$\lim_{x \to 0^+} \frac{\sqrt{\xi^2 + x^2}}{x} = \lim_{x \to 0^+} \frac{o(\sqrt{\xi^2 + x^2})}{\sqrt{\xi^2 + x^2}} \cdot \frac{\sqrt{\xi^2 + x^2}}{x} = 0$$
+    因此：
+    \[ L = -2 \]
+    
+\end{solution}
+\begin{myRemark}
+    关于多重变限积分的求导，事实上是莱布尼茨积分法则的推广，具体来说，如果 $F(x) = \displaystyle\int_{a(x)}^{b(x)} f(t,x) \d t$，则：
+\[ F'(x) = f(b(x), x) \cdot b'(x) - f(a(x), x) \cdot a'(x) + \int_{a(x)}^{b(x)} \frac{\partial f(t,x)}{\partial x} \d t \]
+    在本题中，分子中的积分是一个二重变限积分，因此需要对内外两层积分分别使用莱布尼茨法则进行求导．
+\end{myRemark}
 \ifx\allfiles\undefined
 \end{document}
 \fi

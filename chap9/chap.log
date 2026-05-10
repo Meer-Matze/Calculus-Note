@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.12.27)  4 APR 2026 13:58
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2026.4.24)  8 MAY 2026 19:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1223,6 +1223,24 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 Package: ulem 2019/11/18
 \ULdepth=\dimen330
 )
+(D:\Appdata\MiKTeX\tex/latex/physics\physics.sty
+Package: physics 
+)
+(D:\Appdata\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip94
+\multirow@cntb=\count393
+\multirow@dima=\skip95
+\bigstrutjot=\dimen331
+)
+(D:\Appdata\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count394
+\float@exts=\toks46
+\float@box=\box86
+\@float@everytoks=\toks47
+\@floatcapt=\box87
+)
 (D:\Appdata\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1267,29 +1285,29 @@ File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
 )) (../config/theorem1_zh.tex
 (D:\Appdata\MiKTeX\tex/latex/changepage\changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count393
-\cp@tempcnt=\count394
+\c@cp@cntr=\count395
+\cp@tempcnt=\count396
 )
 (D:\Appdata\MiKTeX\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip94
-\fb@frw=\dimen331
-\fb@frh=\dimen332
-\FrameRule=\dimen333
-\FrameSep=\dimen334
+\OuterFrameSep=\skip96
+\fb@frw=\dimen332
+\fb@frh=\dimen333
+\FrameRule=\dimen334
+\FrameSep=\dimen335
 )
-\c@myDefn=\count395
-\c@myLemma=\count396
-\c@myProposition=\count397
-\c@example=\count398
-\c@exercise=\count399
+\c@myDefn=\count397
+\c@myLemma=\count398
+\c@myProposition=\count399
+\c@example=\count400
+\c@exercise=\count401
 ) (../config/custom.tex)
 (../config/cover_package_3.tex)
 (D:\Appdata\MiKTeX\tex/latex/titling\titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip95
-\thanksmargin=\skip96
-\droptitle=\skip97
+\thanksmarkwidth=\skip97
+\thanksmargin=\skip98
+\droptitle=\skip99
 )) (chap.aux)
 \openout1 = `chap.aux'.
 
@@ -1410,7 +1428,7 @@ Package hyperref Info: Link coloring ON on input line 5.
 \@outlinefile=\write4
 \openout4 = `chap.out'.
 
-\c@lstlisting=\count400
+\c@lstlisting=\count402
 
 第一章
 LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
@@ -1461,7 +1479,21 @@ Underfull \hbox (badness 7613) in paragraph at lines 51--52
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
 65.
-[2] [3] [4] [5] (chap.aux)
+[2] [3] [4] [5]
+Overfull \hbox (3.31355pt too wide) detected at line 171
+\OML/cmm/m/it/12 D \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f[]f[] \OMS/cmsy/m/n/12 ^
+^@ \OML/cmm/m/it/12 f[] \OT1/cmr/m/n/12 = 8\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (4
+\OML/cmm/m/it/12 k[]y[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 6\OML/cmm/m/it/12 
+ky \OT1/cmr/m/n/12 + 2\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ 
+\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 k\OT1/cm
+r/m/n/12 )[] = 32\OML/cmm/m/it/12 k[]y[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 4
+8\OML/cmm/m/it/12 k[]y \OT1/cmr/m/n/12 + 16\OML/cmm/m/it/12 k[] \OMS/cmsy/m/n/1
+2 ^^@ \OT1/cmr/m/n/12 16\OML/cmm/m/it/12 k[] \OT1/cmr/m/n/12 = 16\OML/cmm/m/it/
+12 k[]\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ky[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n
+/12 3\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )
+ []
+
+[6] [7] (chap.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/08/05>
@@ -1471,16 +1503,16 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `chap.out' has not changed.
-(rerunfilecheck)             Checksum: 5F4F751F7376FE2EC284B43C8B95B8A0;263.
+(rerunfilecheck)             Checksum: 6774F5130A3175C59063698F29F118BB;333.
  )
-(\end occurred when \ifx on line 146 was incomplete) 
+(\end occurred when \ifx on line 188 was incomplete) 
 Here is how much of TeX's memory you used:
- 29849 strings out of 402987
- 616396 string characters out of 5454112
- 2147463 words of memory out of 5000000
- 58032 multiletter control sequences out of 15000+600000
+ 30509 strings out of 402987
+ 625343 string characters out of 5454113
+ 2165140 words of memory out of 5000000
+ 58683 multiletter control sequences out of 15000+600000
  639356 words of font info for 109 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  98i,8n,111p,1264b,619s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chap.pdf (5 pages).
+Output written on chap.pdf (7 pages).

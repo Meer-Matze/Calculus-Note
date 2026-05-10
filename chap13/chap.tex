@@ -111,6 +111,28 @@
     于是方程化为 $\d\left(\arctan\dfrac{y}{x}\right) = \d x$。两边同时积分，得通解 $\arctan\dfrac{y}{x} = x + C$。
 \end{solution}
 
+\begin{exercise}
+    求全微分方程$(x^3-y^2)\d x +(x^2y+xy)\d y=0$的通解．
+\end{exercise}
+\begin{solution}
+    法一：\\
+    设$u=y^2$，则原方程化为$\displaystyle \frac{\d u}{\d x}-\frac{2u}{x(1+x)}=-\frac{2x^2}{x+1}$，即
+    \[\left(\frac{1+x}{x}\right)^2y^2+(1+x^2)=C\]
+    法二：\\
+    原方程化为
+    \[
+        \begin{array}{l@{\qquad}c}
+            &\displaystyle x\d x+y \d y +y \frac{x\d y-y\d x}{x^2}=0\\[10pt]
+            \Rightarrow & \displaystyle \dfrac{1}{2}\d(x^2+y^2)+y \d \left(\frac{y}{x}\right)=0\\[10pt]
+            \Rightarrow & \displaystyle \dfrac{1}{2}\cdot \dfrac{\d(x^2+y^2)}{\sqrt{x^2+y^2}}+\dfrac{\left(\frac{y}{x}\right)}{\sqrt{1+\left(\frac{y}{x}\right)^2}}\d \left(\frac{y}{x}\right)=0\\[20pt]
+            \Rightarrow & \displaystyle \d \sqrt{x^2+y^2}+\d \sqrt{1+\left(\frac{y}{x}\right)^2}=0\\[10pt]
+            \Rightarrow & \displaystyle \sqrt{x^2+y^2}+\sqrt{1+\left(\frac{y}{x}\right)^2}=C\\
+        \end{array}
+    \]
+    故通解为
+    \[(1+x)\sqrt{x^2+y^2}=Cx\]
+\end{solution}
+
 \section{偏微分方程初步~(Introduction to PDEs)}
 在常微分方程 (ODE) 中，未知函数只依赖于\textbf{一个}自变量（比如单纯随时间 $t$ 变化，或单纯随位置 $x$ 变化）。但在真实的物理世界中，一个基本量往往同时受时空影响，比如一根铁丝上的温度 $u(x,t)$ 既取决于你在铁丝上的哪个位置 ($x$)，又取决于现在是几点钟 ($t$)。这就引入了含有多个自变量偏导数的\textbf{偏微分方程 (PDE)}。
 

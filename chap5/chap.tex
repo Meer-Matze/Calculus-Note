@@ -175,11 +175,12 @@
     \end{enumerate}
 \end{theorem}
 \begin{example}
-    \begin{enumerate}[label=(\arabic*)]
-        \item 求$y''-y'+\dfrac{1}{4}y=0$的通解；
-        \item 求$y''-2y'-3y=0$的通解;
-        \item 求$y''-2y'+5y=0$的通解.
-    \end{enumerate}
+    求下列微分方程的通解：
+    \begin{tasks}[label=(\arabic*), ](3)
+        \task $y''-y'+\dfrac{1}{4}y=0$
+        \task $y''-2y'-3y=0$
+        \task $y''-2y'+5y=0$
+    \end{tasks}
 \end{example}
 \begin{solution}
     \begin{enumerate}[label=(\arabic*)]
@@ -203,8 +204,10 @@
             2, & r = \lambda_1 = \lambda_2
         \end{cases}
         \]
-        \item 若$f(x)=e^{\alpha x}[P_l(x)\cos \beta x + Q_m(x)\sin \beta x]$，
-        则可设非齐次特解$y^*=x^k e^{\alpha x}\left[M_n(x)\cos \beta x + N_n(x)\sin \beta x\right]$，其中$n=\max{\{l,m\}}$，
+        \item 若$f(x)=e^{\alpha x}\left[P_l(x)\cos \beta x + Q_m(x)\sin \beta x\right]$，
+        则可设非齐次特解
+        \[y^*=x^k e^{\alpha x}\left[M_n(x)\cos \beta x + N_n(x)\sin \beta x\right]\]
+        其中$n=\max{\{l,m\}}$，
         \[
         k = \begin{cases}
             0, & \alpha + \beta i \text{ 不是特征根} \\
@@ -384,27 +387,7 @@
     代入$W=\dfrac{V}{U},U=u+2,V=v+1,u=x^2,v=y^2$得通解为
     \[C(y^2-2x^2-3)^3=(y^2 - x^2 -1)^2\]
 \end{solution}
-\begin{exercise}
-    求全微分方程$(x^3-y^2)\d x +(x^2y+xy)\d y=0$的通解．
-\end{exercise}
-\begin{solution}
-    法一：\\
-    设$u=y^2$，则原方程化为$\displaystyle \frac{\d u}{\d x}-\frac{2u}{x(1+x)}=-\frac{2x^2}{x+1}$，即
-    \[\left(\frac{1+x}{x}\right)^2y^2+(1+x^2)=C\]
-    法二：\\
-    原方程化为
-    \[
-        \begin{array}{l@{\qquad}c}
-            &\displaystyle x\d x+y \d y +y \frac{x\d y-y\d x}{x^2}=0\\[10pt]
-            \Rightarrow & \displaystyle \dfrac{1}{2}\d(x^2+y^2)+y \d \left(\frac{y}{x}\right)=0\\[10pt]
-            \Rightarrow & \displaystyle \dfrac{1}{2}\cdot \dfrac{\d(x^2+y^2)}{\sqrt{x^2+y^2}}+\dfrac{\left(\frac{y}{x}\right)}{\sqrt{1+\left(\frac{y}{x}\right)^2}}\d \left(\frac{y}{x}\right)=0\\[20pt]
-            \Rightarrow & \displaystyle \d \sqrt{x^2+y^2}+\d \sqrt{1+\left(\frac{y}{x}\right)^2}=0\\[10pt]
-            \Rightarrow & \displaystyle \sqrt{x^2+y^2}+\sqrt{1+\left(\frac{y}{x}\right)^2}=C\\
-        \end{array}
-    \]
-    故通解为
-    \[(1+x)\sqrt{x^2+y^2}=Cx\]
-\end{solution}
+
 \begin{exercise}
     解微分方程$y''y-\left(y'\right)^2-\left(y'\right)^4=0$
 \end{exercise}
