@@ -457,6 +457,26 @@ $\displaystyle\pdv{}{\phi}$ & $\sin\theta \bm{\hat{\phi}}$ & $\cos\theta \bm{\ha
 \section{重积分练习}
 \subsection{二重积分}
 \begin{exercise}
+    设$f(x)$在$[0,1]$上连续，且$f(x)=x+\int_x^1f(y)f(y-x)\d y$，求$\int_0^1f(x)\d x$
+\end{exercise}
+\begin{solution}
+    对原等式 $f(x)=x+\int_x^1f(y)f(y-x)\d y$ 在 $[0,1]$ 上积分：
+    \[ \int_0^1 f(x) \d x = \int_0^1 x \d x + \int_0^1 \d x \int_x^1 f(y)f(y-x) \d y \]
+    第一项为 $\frac{1}{2}$．考察第二项二重积分 $I = \int_0^1 \d x \int_x^1 f(y)f(y-x) \d y$．
+    积分区域为 $D: \{ (x,y) \mid 0 \le x \le 1, x \le y \le 1 \}$．交换积分次序得：
+    \[ I = \int_0^1 f(y) \d y \int_0^y f(y-x) \d x \]
+    对内层积分做变量替换 $t = y-x$，则 $\d x = -\d t$，且当 $x=0$ 时 $t=y$，当 $x=y$ 时 $t=0$．
+    \[ \int_0^y f(y-x) \d x = \int_0^y f(t) \d t \]
+    故
+    \[ I = \int_0^1 f(y) \left( \int_0^y f(t) \d t \right) \d y \]
+    令 $F(y) = \int_0^y f(t) \d t$，则 $F'(y) = f(y)$，且 $F(0) = 0, F(1) = \int_0^1 f(x) \d x$．
+    于是
+    \[ I = \int_0^1 F'(y) F(y) \d y = \left[ \frac{1}{2} F^2(y) \right]_0^1 = \frac{1}{2} \left[ \int_0^1 f(x) \d x \right]^2 \]
+    设 $S = \displaystyle\int_0^1 f(x) \d x$，代入原式得：
+    \[ S = \frac{1}{2} + \frac{1}{2} S^2 \implies S^2 - 2S + 1 = 0 \implies (S-1)^2 = 0 \]
+    解得 $S = 1$．
+\end{solution}
+\begin{exercise}
     计算极限 $\displaystyle\lim_{r \to 0} \frac{1}{\pi r^2} \iint_{x^2+y^2 \le r^2} e^{x^2-y^2} \cos (x+y) \d x \d y$．
 \end{exercise}
 \begin{solution}

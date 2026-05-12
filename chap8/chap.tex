@@ -67,6 +67,16 @@
     \[e^{\cot y} = \lim_{n\to\infty}\left[\frac{\varphi(y+\frac{1}{n})}{\varphi(y)}\right]^n =e^{\displaystyle\lim_{n\to\infty} \frac{\ln \varphi({y+\frac{1}{n}})-\ln \varphi(y)}{\frac{1}{n}}}= e^{\frac{\varphi'(y)}{\varphi(y)}}\Rightarrow \frac{\varphi'(y)}{\varphi(y)} = \cot y\]
     解出$\varphi(y) = C\sin y$，又由$f(0,\frac{\pi}{2})=1$，得$C=1$，因此$f(x,y) = e^{-x}\sin y$．
 \end{solution}
+\subsection{变量替换求偏微分}
+\begin{theorem}
+    对于函数$z=f(x,y)$，若存在中间变量$u=u(x,y),v=v(x,y)$使得$z=z(u,v)$，则对于$z$的偏导数有下列关系：
+    \[ \pdv{z}{x} = \pdv{z}{u} \pdv{u}{x} + \pdv{z}{v} \pdv{v}{x},\qquad \pdv{z}{y} = \pdv{z}{u} \pdv{u}{y} + \pdv{z}{v} \pdv{v}{y} \]
+    请注意，在多数情况下，中间变量与自变量位置的关系是\textbf{双向}的，即$u=u(x,y),v=v(x,y)$与$x=x(u,v),y=y(u,v)$是等价的．因此，变量替换求偏导数时，必须首先区分清楚哪些是自变量，哪些是中间变量．\\
+\end{theorem}
+\begin{theorem}[微分不变性求一阶偏导数]
+    若全微分 $\d z = A \d x + B \d y$，则其一阶偏导数为：
+    \[ \frac{\partial z}{\partial x} = A, \quad \frac{\partial z}{\partial y} = B \]
+\end{theorem}
 \begin{example}
     设$z=u\cdot v,x=e^u\cos v,y=e^u\sin v$，求$\dfrac{\partial z}{\partial x},\dfrac{\partial z}{\partial y}$．
 \end{example}
@@ -78,27 +88,18 @@
     \[\d z = \frac{v \cos v - u \sin v}{e^u} \d x + \frac{v \sin v + u \cos v}{e^u} \d y\]
 \end{solution}
 \begin{myRemark}
-    或许有人会想可以利用$\frac{\partial u}{\partial x}=\frac{1}{\frac{\partial x}{\partial u}}$来求解，但这是不一定成立的．当且仅当等式两边固定的变量相同时，才有$\frac{\partial u}{\partial x}=\frac{1}{\frac{\partial x}{\partial u}}$．在本题中，$\frac{\partial u}{\partial x}$是固定$y$（$\d y=0$）求$u$的偏导数，而$\frac{\partial x}{\partial u}$是固定$v$（$\d v=0$）求$x$的偏导数，因此两者固定的变量不同，无法使用该等式．
+    或许有人会想可以利用$\pdv{u}{x}=\frac{1}{\pdv{x}{u}}$来求解，但这是不一定成立的．不妨从微分角度观察：\\
+    求$\pdv{u}{x}$时，我们将$y$视作固定，即$\d y=0$\\
+    求$\pdv{x}{u}$时，我们\textbf{往往}将$v$视作固定，即$\d v=0$\\
+    显然的，两式条件不一致，自然导出错误的等式。\\
+    当且仅当等式两边固定的变量相同时，才有$\frac{\partial u}{\partial x}=\frac{1}{\frac{\partial x}{\partial u}}$．\\
+    从这里，我们可以看出区分自变量与中间变量的方法
+    \begin{enumerate}
+        \item \textbf{自变量}：求偏导时\textbf{会被固定}
+        \item \textbf{中间变量}：求偏导时\textbf{不会被固定}
+    \end{enumerate}
 \end{myRemark}
-\begin{theorem}[微分不变性求一阶偏导数和二阶偏导数]
-    若全微分 $\d z = A \d x + B \d y$，则其一阶偏导数为：
-    \[ \frac{\partial z}{\partial x} = A, \quad \frac{\partial z}{\partial y} = B \]
-    若二阶全微分 $\d^2 z = P \d x^2 + 2Q \d x \d y + R \d y^2$，则其二阶偏导数为：
-    \[ \frac{\partial^2 z}{\partial x^2} = P, \quad \frac{\partial^2 z}{\partial x \partial y} = Q, \quad \frac{\partial^2 z}{\partial y^2} = R \]
-\end{theorem}
-\begin{proof}
-    由自变量的全微分定义：
-    对于一阶全微分，$\d z = \frac{\partial z}{\partial x} \d x + \frac{\partial z}{\partial y} \d y$．
-    由于 $\d x, \d y$ 是自变量的增量且线性无关，其系数 $A, B$ 必满足 $A = \frac{\partial z}{\partial x}$ 且 $B = \frac{\partial z}{\partial y}$．
-    
-    对于二阶全微分，利用 $\d^2 z = \d(\d z)$：
-    \[ \d^2 z = \d\left( \frac{\partial z}{\partial x} \d x + \frac{\partial z}{\partial y} \d y \right) = \d\left( \frac{\partial z}{\partial x} \right) \d x + \frac{\partial z}{\partial x} \d^2 x + \d\left( \frac{\partial z}{\partial y} \right) \d y + \frac{\partial z}{\partial y} \d^2 y \]
-    由于 $x, y$ 是最终自变量，有 $\d^2 x = 0, \d^2 y = 0$，则上述代数式简化为：
-    \[ \d^2 z = \left( \frac{\partial^2 z}{\partial x^2} \d x + \frac{\partial^2 z}{\partial x \partial y} \d y \right) \d x + \left( \frac{\partial^2 z}{\partial y \partial x} \d x + \frac{\partial^2 z}{\partial y^2} \d y \right) \d y \]
-    展开并整理得：
-    \[ \d^2 z = \frac{\partial^2 z}{\partial x^2} \d x^2 + 2 \frac{\partial^2 z}{\partial x \partial y} \d x \d y + \frac{\partial^2 z}{\partial y^2} \d y^2 \]
-    利用混合偏导数相等 $\frac{\partial^2 z}{\partial x \partial y} = \frac{\partial^2 z}{\partial y \partial x}$，通过对比给定的形式 $\d^2 z = P \d x^2 + 2Q \d x \d y + R \d y^2$，可得各二阶偏导数．
-\end{proof}
+
 
 \section{隐函数求导公式}
 \begin{theorem}[隐函数存在定理]
@@ -113,31 +114,27 @@
 
 \begin{theorem}[隐函数组情形]
     对于由方程组 $\begin{cases} F(x, y, u, v) = 0 \\ G(x, y, u, v) = 0 \end{cases}$ 确定的隐函数 $u(x, y), v(x, y)$，其偏导数通常通过对原方程组两边求全微分，解关于 $\d u, \d v$ 的线性方程组得到。
-    
-    利用克莱姆法则，其结果也可表示为如下行列式形式：
-    \[ \frac{\partial u}{\partial x} = -\frac{\begin{vmatrix} F_x & F_v \\ G_x & G_v \end{vmatrix}}{\begin{vmatrix} F_u & F_v \\ G_u & G_v \end{vmatrix}}, \quad \frac{\partial v}{\partial x} = -\frac{\begin{vmatrix} F_u & F_x \\ G_u & G_x \end{vmatrix}}{\begin{vmatrix} F_u & F_v \\ G_u & G_v \end{vmatrix}} \]
-    其中分母行列式 $\begin{vmatrix} F_u & F_v \\ G_u & G_v \end{vmatrix} \neq 0$．
 \end{theorem}
 
-\begin{theorem}[二元隐函数二阶导数计算技巧]
-    设由方程 $F(x, y, z) = 0$ 确定隐函数 $z = z(x, y)$，在满足存在定理条件下，二阶偏导数通常有两种高效处理技巧：
-
-    \begin{enumerate}
-        \item \textbf{全微分法}：
-        对方程 $F(x, y, z) = 0$ 两边求全微分，得 $F_x \d x + F_y \d y + F_z \d z = 0$．
-        整理出 $\d z = -\frac{F_x}{F_z} \d x - \frac{F_y}{F_z} \d y$，由此得一阶偏导数 $z_x, z_y$．
-        
-        对全微分等式 $F_x \d x + F_y \d y + F_z \d z = 0$ 再次求微分 $\d(F_x \d x + F_y \d y + F_z \d z) = 0$：
-        \[ (F_{xx}\d x + F_{xy}\d y + F_{xz}\d z)\d x + (F_{yx}\d x + F_{yy}\d y + F_{yz}\d z)\d y + (F_{zx}\d x + F_{zy}\d y + F_{zz}\d z)\d z + F_z \d^2 z = 0 \]
-        利用 $\d^2 z = z_{xx}\d x^2 + 2z_{xy}\d x \d y + z_{yy}\d y^2$，通过对比 $\d x^2, \d x \d y, \d y^2$ 的系数即可直接求得二阶偏导数．
-
-        \item \textbf{隐式求导法}：
-        不使用显式公式，而是将 $z$ 看作 $x,y$ 的函数，直接对等式 $F(x, y, z(x, y)) = 0$ 关于自变量求导．
-        例如求 $z_{xy}$，先对 $x$ 求导得 $F_x + F_z z_x = 0$，再对此式关于 $y$ 求导：
-        \[ \frac{\partial}{\partial y}(F_x + F_z z_x) = (F_{xy} + F_{xz}z_y) + (F_{zy} + F_{zz}z_y) z_x + F_z z_{xy} = 0 \]
-        这种方法在处理具体数值点或抽象函数证明时最为灵活．
-    \end{enumerate}
+\begin{theorem}[二元隐函数的二阶导数]
+    设由方程 $F(x, y, z) = 0$ 确定隐函数 $z = z(x, y)$，那么，其二阶偏导由下列式子给出：
+    \[\pdv{z}{x}{x}=\frac{F_{xx}F_z^2-2F_{xz}F_xF_z+F_{zz}F_x^2}{F_z^3}\]
+    \[\pdv{z}{x}{y}=\frac{F_{xy}F_z^2-F_{xz}F_yF_z-F_{yz}F_xF_z+F_{zz}F_xF_y}{F_z^3}\]
+    \[\pdv{z}{y}{y}=\frac{F_{yy}F_z^2-2F_{yz}F_yF_z+F_{zz}F_y^2}{F_z^3}\]
 \end{theorem}
+\begin{proof}
+    由隐函数求导公式 $z_x = -\frac{F_x}{F_z}$，两边对 $x$ 求导：
+    \begin{align*}
+        z_{xx} &= \pdv{x} \left( -\frac{F_x}{F_z} \right) = -\frac{\pdv{F_x}{x} F_z - F_x \pdv{F_z}{x}}{F_z^2} \\
+        &= -\frac{(F_{xx} + F_{xz} z_x) F_z - F_x (F_{zx} + F_{zz} z_x)}{F_z^2}
+    \end{align*}
+    代入 $z_x = -\frac{F_x}{F_z}$：
+    \begin{align*}
+        z_{xx} &= -\frac{\left( F_{xx} - F_{xz} \frac{F_x}{F_z} \right) F_z - F_x \left( F_{xz} - F_{zz} \frac{F_x}{F_z} \right)}{F_z^2} \\
+        &= -\frac{F_{xx} F_z - F_{xz} F_x - F_{xz} F_x + F_{zz} \frac{F_x^2}{F_z}}{F_z^2} = \frac{F_{xx} F_z^2 - 2F_{xz} F_x F_z + F_{zz} F_x^2}{F_z^3}
+    \end{align*}
+    同理可证 $z_{xy}$ 与 $z_{yy}$．
+\end{proof}
 \begin{example}
     设函数$z=z(x,y)$由方程$F(x+\frac{z}{y}, y+\frac{z}{x}) = 0$确定，且$F,z$都是可微函数，证明：
     \[ x\pdv{z}{x} + y\pdv{z}{y} = z-xy \]
@@ -246,6 +243,8 @@
     \end{cases}$可把方程$\displaystyle{6\frac{\partial^2z}{\partial x^2}+\frac{\partial^2z}{\partial x \partial y}-\frac{\partial^2z}{\partial y^2}}$化简为$\displaystyle\frac{\partial^2 z}{\partial u \partial v} = 0$，求常数$a$．
 \end{exercise}
 \begin{solution}
+    首先区分中间变量和自变量：
+    在第一个方程中显然$x,y$为自变量，那么，既然第二个方程与第一个方程等价，则$x,y$也是第二个方程的自变量．因此，$u,v$是中间变量．
     \[\frac{\partial z}{\partial x}=\frac{\partial z}{\partial u}+\frac{\partial z}{\partial v},\qquad\frac{\partial z}{\partial y}=-2\frac{\partial z}{\partial u}+a\frac{\partial z}{\partial v}\]
     \[\frac{\partial^2z}{\partial x^2}=\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\]
     \[\frac{\partial^2 z}{\partial x \partial y}=-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\]
@@ -269,7 +268,7 @@
     因此：
     \[ \frac{\d u}{\d x} = f_x + f_y \frac{\d y}{\d x} + f_z \frac{\d z}{\d x} = f_x - \frac{y}{x} f_y + \left[ 1 - \frac{(x-z)e^x}{\sin(x-z)} \right] f_z \]
 \end{solution}
-\subsection{综合}
+\subsection{综合性问题}
 \begin{exercise}
     已知
     \[f(x,y)=\begin{cases}
