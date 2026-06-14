@@ -12,7 +12,7 @@
     \[\d s = \sqrt{1 + y'^2} \d x = \sqrt{[x'(t)]^2+y'[t]^2}\d t=\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\d \theta\]
 \end{theorem}
 \begin{example}
-    计算曲线积分 $\int_\Gamma (x^2+y^2+z^2) \d s$，其中 $\Gamma$ 是螺旋线 $x = a\cos t, y = a\sin t, z = kt$上相应于 $t \in [0,2\pi]$ 的部分．
+    计算曲线积分 $\displaystyle\int_\Gamma (x^2+y^2+z^2) \d s$，其中 $\Gamma$ 是螺旋线 $x = a\cos t, y = a\sin t, z = kt$上相应于 $t \in [0,2\pi]$ 的部分．
 \end{example}
 \begin{solution}
     \begin{align*}
@@ -22,14 +22,14 @@
     \end{align*}
 \end{solution}
 \begin{example}
-    设 $L$ 为椭圆 $\frac{x^2}{4} + \frac{y^2}{3} = 1$，周长为$a$，求$\oint_L (2xy+3x^2+4y^2)\d s$．
+    设 $L$ 为椭圆 $\frac{x^2}{4} + \frac{y^2}{3} = 1$，周长为$a$，求$\displaystyle\oint_L (2xy+3x^2+4y^2)\d s$．
 \end{example}
 \begin{solution}
     记积分结果为$I$，注意到被积函数中的项$2xy$是关于$x$轴和$y$轴的奇函数，因此在椭圆$L$上积分为零．因此有
     \[I = \oint_L (3x^2 + 4y^2) \d s = 12\oint_L \d s= 12a\]
 \end{solution}
 \begin{example}
-    计算曲线积分 $\oint_L(x^2+y^2)\d s$，其中 $L$ 为球面$x^2+y^2+z^2=a^2$与平面$x+y+z=0$的交线．
+    计算曲线积分 $\displaystyle\oint_L(x^2+y^2)\d s$，其中 $L$ 为球面$x^2+y^2+z^2=a^2$与平面$x+y+z=0$的交线．
 \end{example}
 \begin{solution}
     注意到被积表达式满足轮换对称，$L$同样满足轮换对称，因此有
@@ -57,7 +57,7 @@
     其中 $\d s$ 为第一类曲线积分的弧微分．该公式揭示了：第二类曲线积分本质上是向量场在曲线切轴方向投影的第一类曲线积分．
 \end{theorem}
 \begin{example}
-    计算曲线积分 $\int_L xy\d x$，其中 $L$ 是$y^2=x$上从点$A(1,-1)$到点$B(1,1)$的弧段．
+    计算曲线积分 $\displaystyle\int_L xy\d x$，其中 $L$ 是$y^2=x$上从点$A(1,-1)$到点$B(1,1)$的弧段．
 \end{example}
 \begin{solution}
     法一：
@@ -66,7 +66,7 @@
     \[\int_L xy \d x = \int_L y^2\cdot y\cdot 2y \d y = 2\int_{-1}^{1} y^4 \d y = \frac{4}{5}\]
 \end{solution}
 \begin{example}
-    计算曲线积分 $\int_\Gamma x^3 \d x + 3zy^2 \d y - x^2y \d z$，其中 $\Gamma$ 是由点 $A(3,2,1)$ 沿直线到点 $B(0,0,0)$ 的有向线段．
+    计算曲线积分 $\displaystyle\int_\Gamma x^3 \d x + 3zy^2 \d y - x^2y \d z$，其中 $\Gamma$ 是由点 $A(3,2,1)$ 沿直线到点 $B(0,0,0)$ 的有向线段．
 \end{example}
 \begin{solution}
     设 $\Gamma^-$为由点$B$沿直线到点$A$的有向线段，参数方程为
@@ -99,7 +99,7 @@ z = t
     \end{itemize}
 \end{itemize}
 \begin{example}
-    计算曲线积分 $\int_L x^2\d x+(y-x) \d y$，其中 $L$ 是$y=\sqrt{a^2-x^2}$，方向为逆时针．
+    计算曲线积分 $\displaystyle\int_L x^2\d x+(y-x) \d y$，其中 $L$ 是$y=\sqrt{a^2-x^2}$，方向为逆时针．
 \end{example}
 \begin{solution}
     法一：极坐标换元，读者自做练习．\\
@@ -168,14 +168,14 @@ z = t
     计算曲面积分 $I = \displaystyle\oiint_\Sigma (x^2+y^2+yz)\d S$，其中 $\Sigma$ 为球面 $x^2+y^2+z^2=R^2$ ．
 \end{example}
 \begin{solution}
-    利用轮换对称性和奇偶性可以极大地简化计算。
+    利用轮换对称性和奇偶性可以极大地简化计算．
     首先，由于球面 $\Sigma$ 关于 $y=0$ （或 $z=0$）平面对称，且 $yz$ 是关于 $y$ 的奇函数，故：
     \[ \oiint_\Sigma yz \d S = 0 \]
     其次，根据轮换对称性，对于球面有：
     \[ \oiint_\Sigma x^2 \d S = \oiint_\Sigma y^2 \d S = \oiint_\Sigma z^2 \d S = \frac{1}{3} \oiint_\Sigma (x^2+y^2+z^2) \d S \]
     而在原球面方程中，恒有 $x^2+y^2+z^2=R^2$，且球的表面积为 $4\pi R^2$，所以：
     \[ \oiint_\Sigma (x^2+y^2) \d S = \frac{2}{3} \oiint_\Sigma (x^2+y^2+z^2) \d S = \frac{2}{3} \oiint_\Sigma R^2 \d S = \frac{2}{3} R^2 \times 4\pi R^2 = \frac{8}{3}\pi R^4 \]
-    综上得出，原积分为 $I = \frac{8}{3}\pi R^4$。
+    综上得出，原积分为 $I = \frac{8}{3}\pi R^4$．
 \end{solution}
 
 \section{第二类曲面积分}
@@ -191,12 +191,12 @@ z = t
 \end{theorem}
 
 \begin{example}
-    计算曲面积分 $I = \iint_\Sigma xyz \d x \d y$，其中 $\Sigma$ 是球面 $x^2+y^2+z^2=a^2$ 在$x\ge 0,y\ge 0$处的外侧．
+    计算曲面积分 $I = \displaystyle\iint_\Sigma xyz \d x \d y$，其中 $\Sigma$ 是球面 $x^2+y^2+z^2=a^2$ 在$x\ge 0,y\ge 0$处的外侧．
 \end{example}
 \begin{solution}
-    \textbf{法一：利用高斯公式（最简便）}。
-    原曲面不是闭曲面，为其补充两个平截面 $\Sigma_1: x=0$ 与 $\Sigma_2: y=0$（均取外侧），使得使得这三者共同构成包围着 $1/4$ 球体区域 $\Omega: x \ge 0, y \ge 0, x^2+y^2+z^2 \le a^2$ 的闭合曲面。
-    由于积分微元是 $\d x \d y$，在 $\Sigma_1$ (法向量垂直于 $x$ 轴) 和 $\Sigma_2$ (法向量垂直于 $y$ 轴) 上的 $\d x \d y$ 投影均为 0，积分等于 0。
+    \textbf{法一：利用高斯公式（最简便）}．
+    原曲面不是闭曲面，为其补充两个平截面 $\Sigma_1: x=0$ 与 $\Sigma_2: y=0$（均取外侧），使得使得这三者共同构成包围着 $1/4$ 球体区域 $\Omega: x \ge 0, y \ge 0, x^2+y^2+z^2 \le a^2$ 的闭合曲面．
+    由于积分微元是 $\d x \d y$，在 $\Sigma_1$ (法向量垂直于 $x$ 轴) 和 $\Sigma_2$ (法向量垂直于 $y$ 轴) 上的 $\d x \d y$ 投影均为 0，积分等于 0．
     由高斯公式，原积分可化为体积分（注意只对 $z$ 求导）：
     \[ I = \iiint_\Omega \frac{\partial(xyz)}{\partial z} \d V = \iiint_\Omega xy \d V \]
     采用球坐标计算体积积分：
@@ -206,8 +206,8 @@ z = t
           &= \left[\frac{1}{2}\sin^2\phi\right]_0^{\pi/2} \cdot \left[ \frac{1}{3}\cos^3\theta - \cos\theta \right]_0^\pi \cdot \left[\frac{a^5}{5}\right] = \frac{1}{2} \cdot \frac{4}{3} \cdot \frac{a^5}{5} = \frac{2a^5}{15}
     \end{align*}
 
-    \textbf{法二：分面投影法}。
-    将曲面拆分为上半球面 $\Sigma_{up}$（取上侧）和下半球面 $\Sigma_{down}$（取下侧）。在 $xOy$ 面上的投影均位于 $D: x \ge 0, y \ge 0, x^2+y^2 \le a^2$。
+    \textbf{法二：分面投影法}．
+    将曲面拆分为上半球面 $\Sigma_{up}$（取上侧）和下半球面 $\Sigma_{down}$（取下侧）．在 $xOy$ 面上的投影均位于 $D: x \ge 0, y \ge 0, x^2+y^2 \le a^2$．
     \begin{align*}
         I &= \iint_{D} xy\sqrt{a^2-x^2-y^2} \d x \d y - \iint_{D} xy(-\sqrt{a^2-x^2-y^2}) \d x \d y \\
           &= 2 \iint_{D} xy\sqrt{a^2-x^2-y^2} \d x \d y
@@ -224,16 +224,16 @@ z = t
 \end{solution}
 
 \begin{example}
-    计算曲面积分 $I=\iint_\Sigma (x+z^2)\d y \d z - z \d x \d y$，其中 $\Sigma: z=\dfrac{1}{2}(x^2+y^2),\;(0\le z\le 2)$，方向取下侧． 
+    计算曲面积分 $I = \displaystyle\iint_\Sigma (x+z^2)\d y \d z - z \d x \d y$，其中 $\Sigma: z=\dfrac{1}{2}(x^2+y^2),\;(0\le z\le 2)$，方向取下侧． 
 \end{example}
 \begin{solution}
-    直接利用法向量投影计算。因为取下侧，积分转化为向 $xOy$ 面的二重积分时有公式 $\iint_\Sigma \bm{F}\cdot\d\bm{S} = \iint_{D} (P z_x + Q z_y - R) \d x \d y$。
-    已知 $P = x+z^2, Q = 0, R = -z$，偏导数 $z_x = x, z_y = y$。投影区域 $D$ 为由 $z=2$ 决定的圆 $x^2+y^2 \le 4$。
+    直接利用法向量投影计算．因为取下侧，积分转化为向 $xOy$ 面的二重积分时有公式 $\iint_\Sigma \bm{F}\cdot\d\bm{S} = \iint_{D} (P z_x + Q z_y - R) \d x \d y$．
+    已知 $P = x+z^2, Q = 0, R = -z$，偏导数 $z_x = x, z_y = y$．投影区域 $D$ 为由 $z=2$ 决定的圆 $x^2+y^2 \le 4$．
     积分函数变为：
     \[ P z_x + Q z_y - R = (x+z^2)x + 0 - (-z) = x^2 + xz^2 + z \]
     故：
     \[ I = \iint_D \left(x^2 + x \cdot \left[\frac{1}{2}(x^2+y^2)\right]^2 + \frac{1}{2}(x^2+y^2)\right) \d x \d y \]
-    由对称性，含有奇次幂项 $x z^2$ 的积分为 0，而 $\iint_D x^2 \d x \d y = \iint_D y^2 \d x \d y = \frac{1}{2} \iint_D (x^2+y^2) \d x \d y$。
+    由对称性，含有奇次幂项 $x z^2$ 的积分为 0，而 $\iint_D x^2 \d x \d y = \iint_D y^2 \d x \d y = \frac{1}{2} \iint_D (x^2+y^2) \d x \d y$．
     \begin{align*}
         I &= \iint_D \left( \frac{1}{2} (x^2+y^2) + \frac{1}{2}(x^2+y^2) \right) \d x \d y = \iint_D (x^2+y^2) \d x \d y \\
         &= \int_0^{2\pi} \d\theta \int_0^2 r^3 \d r = 2\pi \cdot \frac{16}{4} = 8\pi
@@ -244,52 +244,52 @@ z = t
     \[I=\iint_\Sigma\left[xf(xy)+2x-y\right]\d y\d z+\left[yf(xy)+2y+x\right]\d z\d x+\left[zf(xy)+z\right]\d x\d y\]
 \end{example}
 \begin{solution}
-    使用投影法向 $xOy$ 面化为二重积分。曲面取下侧，投影区域 $D: 1 \le x^2+y^2 \le 4$，公式与前题相同： integrand $= P z_x + Q z_y - R$。
-    对 $\Sigma$：$z_x = \frac{x}{\sqrt{x^2+y^2}} = \frac{x}{z}, \quad z_y = \frac{y}{z}$。
+    使用投影法向 $xOy$ 面化为二重积分．曲面取下侧，投影区域 $D: 1 \le x^2+y^2 \le 4$，公式与前题相同： integrand $= P z_x + Q z_y - R$．
+    对 $\Sigma$：$z_x = \frac{x}{\sqrt{x^2+y^2}} = \frac{x}{z}, \quad z_y = \frac{y}{z}$．
     \begin{align*}
         P z_x + Q z_y - R &= [xf(xy)+2x-y]\frac{x}{z} + [yf(xy)+2y+x]\frac{y}{z} - [zf(xy)+z] \\
         &= \frac{1}{z} \left( x^2f(xy) + 2x^2 - xy + y^2f(xy) + 2y^2 + xy - z^2f(xy) - z^2 \right) \\
         &= \frac{1}{z} \left( (x^2+y^2-z^2)f(xy) + 2(x^2+y^2) - z^2 \right)
     \end{align*}
-    由于在曲面上 $z^2 = x^2+y^2$，代入上式得 integrand $= \frac{1}{z} (0 \cdot f(xy) + 2z^2 - z^2) = z$。
+    由于在曲面上 $z^2 = x^2+y^2$，代入上式得 integrand $= \frac{1}{z} (0 \cdot f(xy) + 2z^2 - z^2) = z$．
     非常巧妙地，未知函数 $f(xy)$ 被全部消去！
     \[ I = \iint_D z \d x \d y = \iint_D \sqrt{x^2+y^2} \d x \d y = \int_0^{2\pi} \d\theta \int_1^2 r^2 \d r = 2\pi \left( \frac{8}{3} - \frac{1}{3} \right) = \frac{14\pi}{3} \]
 \end{solution}
 \section{高斯公式}
 \begin{theorem}[Gauss's Theorem]
-    设空间闭区域 $\Omega$ 由分片光滑的闭曲面 $\Sigma$ 围成，$\Sigma$ 取外侧方向。若函数 $P, Q, R$ 在 $\Omega$ 上具有一阶连续偏导数，则有：
+    设空间闭区域 $\Omega$ 由分片光滑的闭曲面 $\Sigma$ 围成，$\Sigma$ 取外侧方向．若函数 $P, Q, R$ 在 $\Omega$ 上具有一阶连续偏导数，则有：
     \[ \oiint_\Sigma P \d y \d z + Q \d z \d x + R \d x \d y = \iiint_\Omega \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \d V \]
-    即：向量场穿过闭曲面的通量等于其散度在区域内的体积分。
+    即：向量场穿过闭曲面的通量等于其散度在区域内的体积分．
 \end{theorem}
 
 \begin{example}
-    计算曲面积分 $I = \displaystyle\iint_\Sigma x^2 \d y \d z + y^2 \d z \d x + z^2 \d x \d y$，其中 $\Sigma$ 为曲面 $x^2+y^2=z^2$介于$z=0,z=h\;(h>0)$之间的部分的下侧。
+    计算曲面积分 $I = \displaystyle\iint_\Sigma x^2 \d y \d z + y^2 \d z \d x + z^2 \d x \d y$，其中 $\Sigma$ 为曲面 $x^2+y^2=z^2$介于$z=0,z=h\;(h>0)$之间的部分的下侧．
 \end{example}
 \begin{solution}
-    该曲面并不是闭曲面，我们需要添加一个顶盖 $\Sigma_1: z=h\ (x^2+y^2 \le h^2)$ 取上侧，以构成一个闭合圆锥区域 $\Omega$ 的边界。
+    该曲面并不是闭曲面，我们需要添加一个顶盖 $\Sigma_1: z=h\ (x^2+y^2 \le h^2)$ 取上侧，以构成一个闭合圆锥区域 $\Omega$ 的边界．
     利用高斯公式：
     \[ I + I_1 = \iiint_\Omega (2x + 2y + 2z) \d V \]
-    由对称性，$\iiint_\Omega x \d V = 0, \iiint_\Omega y \d V = 0$。
+    由对称性，$\iiint_\Omega x \d V = 0, \iiint_\Omega y \d V = 0$．
     \begin{align*}
         I_{\Omega} &= \iiint_\Omega 2z \d V = 2 \int_0^{2\pi} \d\theta \int_0^h r \d r \int_r^h z \d z = 4\pi \int_0^h r \frac{h^2-r^2}{2} \d r \\
         &= 2\pi \left[ \frac{h^2r^2}{2} - \frac{r^4}{4} \right]_0^h = \frac{\pi h^4}{2}
     \end{align*}
     再单独计算顶盖 $\Sigma_1$ 上的通量，由于取上侧，其法向量只在 $z$ 方向且为正，积分为对 $\d x\d y$ 的重积分，而在该面上 $z=h$：
     \[ I_1 = \iint_{\Sigma_1} h^2 \d x \d y = h^2 \cdot \pi h^2 = \pi h^4 \]
-    故所求积分为：$I = I_{\Omega} - I_1 = \frac{\pi h^4}{2} - \pi h^4 = -\frac{\pi h^4}{2}$。
+    故所求积分为：$I = I_{\Omega} - I_1 = \frac{\pi h^4}{2} - \pi h^4 = -\frac{\pi h^4}{2}$．
 \end{solution}
 \begin{example}
     计算曲面积分\[I=\oiint_\Sigma \frac{x\d y\d z+y\d z\d x+z\d x\d y}{\left(x^2+y^2+z^2\right)^{\frac{3}{2}}}\]
     其中$\Sigma$为椭球面$2x^2+y^2+z^2=4$的外侧．
 \end{example}
 \begin{solution}
-    被积函数即为原点处点电荷的电场通量公式 $\displaystyle\int_\Sigma \frac{\bm{r}}{r^3} \cdot \d \bm{S}$。其散度 $\nabla \cdot \dfrac{\bm{r}}{r^3} = 0$，但在原点 $(0,0,0)$ 处有奇点。
-    因为椭球面 $\Sigma$ 内部包含原点，不能直接在整个内部区域使用高斯公式。
-    故我们在原点周围取一个足够小的球面 $\Sigma_{\varepsilon}: x^2+y^2+z^2=\varepsilon^2$ （外侧），记它与 $\Sigma$ 共同构成的区域为 $\Omega_{\varepsilon}$。
-    在 $\Omega_{\varepsilon}$ 上无奇点，由高斯公式可得 $\displaystyle\oiint_{\Sigma} - \oiint_{\Sigma_{\varepsilon}} = \iiint_{\Omega_{\varepsilon}} 0 \d V = 0$。
+    被积函数即为原点处点电荷的电场通量公式 $\displaystyle\int_\Sigma \frac{\bm{r}}{r^3} \cdot \d \bm{S}$．其散度 $\nabla \cdot \dfrac{\bm{r}}{r^3} = 0$，但在原点 $(0,0,0)$ 处有奇点．
+    因为椭球面 $\Sigma$ 内部包含原点，不能直接在整个内部区域使用高斯公式．
+    故我们在原点周围取一个足够小的球面 $\Sigma_{\varepsilon}: x^2+y^2+z^2=\varepsilon^2$ （外侧），记它与 $\Sigma$ 共同构成的区域为 $\Omega_{\varepsilon}$．
+    在 $\Omega_{\varepsilon}$ 上无奇点，由高斯公式可得 $\displaystyle\oiint_{\Sigma} - \oiint_{\Sigma_{\varepsilon}} = \iiint_{\Omega_{\varepsilon}} 0 \d V = 0$．
     因此原积分等于在足够小球面 $\Sigma_{\varepsilon}$ 上的积分：
     \[ I = \oiint_{\Sigma_{\varepsilon}} \frac{x\d y\d z+y\d z\d x+z\d x\d y}{\varepsilon^3} \]
-    可以直接对球使用高斯公式将其化为球体体积的偏导积分，或者利用方向余弦直接求解。这里用高斯公式计算：
+    可以直接对球使用高斯公式将其化为球体体积的偏导积分，或者利用方向余弦直接求解．这里用高斯公式计算：
     \[ I = \frac{1}{\varepsilon^3} \iiint_{x^2+y^2+z^2 \le \varepsilon^2} (1+1+1) \d V = \frac{3}{\varepsilon^3} \cdot \frac{4}{3}\pi\varepsilon^3 = 4\pi \]
 \end{solution}
 \section{斯托克斯公式}
@@ -339,7 +339,7 @@ z = t
     \item \textbf{正负含义}：若 $\text{div} \bm{F}  > 0$，该点是“正源”（如喷头）；若 $\text{div} \bm{F}  < 0$，该点是“负源”或“洞”（如排水口）；若处处为 $0$，则称场为\textbf{无源场}（或螺线场），流体不可压缩．
 \end{itemize}
 \begin{example}
-    计算向量场 $\bm{A} = yz \bm{\hat{j}}+z^2\bm{\hat{k}}$的散度． 
+    计算向量场 $\bm{A} = yz \bm{j}+z^2\bm{k}$的散度． 
 \end{example}
 \begin{solution}
     $\text{div} \bm{A} = \frac{\partial 0}{\partial x} + \frac{\partial (yz)}{\partial y} + \frac{\partial (z^2)}{\partial z} = z + 2z = 3z$
@@ -347,7 +347,7 @@ z = t
 \subsection{旋度 (Curl)}
 \begin{definition}
     向量场 $\bm{F}$ 的旋度是一个向量，描述了场在某点附近的旋转特性：
-    \[ \text{curl} \bm{F} = \curl \bm{F} = \begin{vmatrix} \bm{\hat{i}} & \bm{\hat{j}} & \bm{\hat{k}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ P & Q & R \end{vmatrix} \]
+    \[ \text{curl} \bm{F} = \curl \bm{F} = \begin{vmatrix} \bm{i} & \bm{j} & \bm{k} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ P & Q & R \end{vmatrix} \]
 \end{definition}
 \textbf{直观解释}：
 \begin{itemize}
@@ -364,24 +364,191 @@ z = t
 
 \subsection{核心定理的统一视角}
 \begin{itemize}
-    \item \textbf{高斯公式 (散度定理)}\footnote{$\partial V$ 表示区域 $V$ 的边界曲面，方向默认取外侧．}：$$\iiint_V (\div \bm{F}) \d V = \oiint_{\partial V} \bm{F} \cdot \d \bm{S} $$
+    \item \textbf{高斯公式 (散度定理)}\footnote{$\partial V$ 表示区域 $V$ 的边界，方向默认取正向，下面同理．}：$$\iiint_V (\div \bm{F}) \d V = \oiint_{\partial V} \bm{F} \cdot \d \bm{S} $$
     \begin{itemize}
         \item \textbf{物理含义}：高斯公式表明了一个区域内的总源强度（散度的体积分）等于穿过该区域边界的净通量．
         \item \textbf{与斯托克斯公式的关系}：当边界曲面 $\partial V$ 退化为一个闭曲线时，高斯公式即退化为斯托克斯公式．
     \end{itemize}
-    \item \textbf{斯托克斯公式}\footnote{$\partial \Sigma$ 表示曲面 $\Sigma$ 的边界曲线，方向与曲面侧满足右手螺旋法则．}：$$\iint_\Sigma (\curl \bm{F}) \cdot \d \bm{S} = \oint_{\partial \Sigma} \bm{F} \cdot \d \bm{r} $$
+    \item \textbf{斯托克斯公式}：$$\iint_\Sigma (\curl \bm{F}) \cdot \d \bm{S} = \oint_{\partial \Sigma} \bm{F} \cdot \d \bm{r} $$
     \begin{itemize}
     \item \textbf{物理含义}：斯托克斯公式是格林公式在三维空间的推广．它表明向量场沿闭曲线的环量等于该向量场的旋度通过由该曲线所围曲面的通量．
-    \item \textbf{与格林公式的关系}：当曲面 $\Sigma$ 位于 $xOy$ 平面时（即 $\bm{n} = \bm{\hat{k}}$），斯托克斯公式即退化为格林公式．
+    \item \textbf{与格林公式的关系}：当曲面 $\Sigma$ 位于 $xOy$ 平面时（即 $\bm{n} = \bm{k}$），斯托克斯公式即退化为格林公式．
     \end{itemize}
 \end{itemize}
 \section{练习}
+\subsection{曲线积分}
+\begin{exercise}
+    计算积分$\displaystyle\oint_L (y^2+z^2)\d x+(z^2+x^2)\d y+(x^2+y^2)\d z$，其中$L$为曲面$x^2+y^2+z^2=4x(z\ge 0)$与平面$x^2+y^2=2x$的交线，且从$z$轴正向看去，$L$为逆时针方向．
+\end{exercise}
+\begin{solution}
+    记积分曲面$\Sigma$为圆柱面$x^2+y^2=2x$内位于$z=0$和$z = \sqrt{4x-x^2-y^2}$之间的半球面部分，取上侧．此时$L$的方向与$\Sigma$的法向量符合右手法则．
+    根据斯托克斯公式：
+    \begin{align*}
+        I &= \iint_\Sigma \begin{vmatrix} \d y\d z & \d z\d x & \d x\d y \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y^2+z^2 & z^2+x^2 & x^2+y^2 \end{vmatrix} \\
+        &= \iint_\Sigma (2y-2z)\d y\d z + (2z-2x)\d z\d x + (2x-2y)\d x\d y
+    \end{align*}
+    将积分转化为在$xOy$平面上的投影，积分区域$D$为$(x-1)^2+y^2 \le 1$．由于$\Sigma$的方程为$z(x,y)=\sqrt{4x-x^2-y^2}$，则$z_x = \frac{2-x}{z}$，$z_y = \frac{-y}{z}$．结合上侧曲面投影的法向量代换$\d y\d z = -z_x \d x\d y, \d z\d x = -z_y \d x\d y$，有：
+    \begin{align*}
+        I &= \iint_D \left[-(2y-2z)\frac{2-x}{z} - (2z-2x)\frac{-y}{z} + 2x-2y\right]\d x\d y \\
+        &= \iint_D \left[ 4 - \frac{4y}{z} \right] \d x\d y
+    \end{align*}
+    由于积分区域$D$关于$x$轴对称，且$z(x,y)$是偶函数，所以$\iint_D \frac{4y}{z} \d x\d y = 0$．
+    故 $I = \iint_D 4 \d x\d y = 4 \times \pi \cdot 1^2 = 4\pi$．
+\end{solution}
+\begin{exercise}
+    计算积分$\displaystyle\int_{\wideparen{AOB}}(12xy+e^y)\d x-(\cos y-xe^y)\d y$，其中$\wideparen{AOB}$为由点$A(-1,1)$沿曲线$y=x^2$至到点$O(0,0)$，再沿直线$y=0$到点$B(1,0)$的路径．
+\end{exercise}
+\begin{solution}
+    令 $P = 12xy+e^y, Q = x e^y - \cos y$．原积分为非闭合曲线的积分，可拆分为两部分：
+    \[ I = \int_{\wideparen{AOB}} (e^y \d x + x e^y \d y) + \int_{\wideparen{AOB}} (12xy \d x - \cos y \d y) = I_1 + I_2 \]
+    对于 $I_1$，由于 $\frac{\partial}{\partial y}(e^y) = \frac{\partial}{\partial x}(x e^y) = e^y$，此项积分与路径无关，存在原函数 $u(x,y) = x e^y$．所以：
+    \[ I_1 = \int_{A(-1,1)}^{B(1,0)} \d (x e^y) = x e^y \Big|_{(-1,1)}^{(1,0)} = 1 \cdot e^0 - (-1) \cdot e^1 = 1 + e \]
+    对于 $I_2$，根据指定路径分段积分．在 $\wideparen{AO}$ 段，曲线方程为 $y=x^2$，从 $x=-1$ 到 $x=0$：
+    \begin{align*}
+        \int_{\wideparen{AO}} 12xy \d x - \cos y \d y &= \int_{-1}^0 [12x(x^2) - \cos(x^2)(2x)] \d x = \int_{-1}^0 (12x^3 - 2x\cos x^2) \d x \\
+        &= \left[ 3x^4 - \sin(x^2) \right]_{-1}^0 = 0 - (3 - \sin 1) = \sin 1 - 3
+    \end{align*}
+    在 $\overline{OB}$ 段，曲线方程为 $y=0$，从 $x=0$ 到 $x=1$．此时 $\d y = 0, y=0$：
+    \[ \int_{\overline{OB}} 12xy \d x - \cos y \d y = \int_0^1 0 \d x = 0 \]
+    故 $I_2 = \sin 1 - 3 + 0 = \sin 1 - 3$．
+    所以原积分 $I = I_1 + I_2 = e + \sin 1 - 2$．
+\end{solution}
+\begin{exercise}
+    设$f(-1)=1$，试求可微函数$f(x)$，使曲线积分$\displaystyle\oint_L \frac{y}{x}[\sin x-f(x)]\d x+[f(x)-x^2]\d y$在半平面$D=\{(x,y)|x<0\}$内与积分路径无关，并计算从点$(-\frac{3\pi}{2},\pi)$到点$(-\frac{\pi}{2},0)$的积分值．
+\end{exercise}
+\begin{solution}
+    令 $P = \frac{y}{x}[\sin x-f(x)], Q = f(x)-x^2$．因积分与路径无关，故有 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，即：
+    \[ \frac{\sin x - f(x)}{x} = f'(x) - 2x \]
+    整理得：
+    \[ x f'(x) + f(x) = \sin x + 2x^2 \implies [x f(x)]' = \sin x + 2x^2 \]
+    两边对 $x$ 积分得：
+    \[ x f(x) = -\cos x + \frac{2}{3}x^3 + C \]
+    代入 $f(-1)=1$ 得 $-1 = -\cos(-1) - \frac{2}{3} + C$，故 $C = \cos 1 - \frac{1}{3}$．
+    \[ f(x) = \frac{2}{3}x^2 - \frac{\cos x}{x} + \frac{\cos 1 - \frac{1}{3}}{x} \]
+    此时存在势函数 $u(x,y)$ 满足 $\d u = P \d x + Q \d y$．观察式子：
+    \[ \d u = y(f'(x)-2x) \d x + (f(x)-x^2) \d y = \d[y(f(x)-x^2)] \]
+    故势函数可取为：
+    \[ u(x,y) = y(f(x) - x^2) = y \left( -\frac{\cos x}{x} - \frac{1}{3}x^2 + \frac{\cos 1 - \frac{1}{3}}{x} \right) \]
+    原积分值为：
+    \begin{align*}
+        I &= u\left(-\frac{\pi}{2}, 0\right) - u\left(-\frac{3\pi}{2}, \pi\right) \\
+        &= 0 - \pi \left[ f\left(-\frac{3\pi}{2}\right) - \left(-\frac{3\pi}{2}\right)^2 \right] \\
+        &= -\pi \left[ \left( \frac{2}{3}\left(-\frac{3\pi}{2}\right)^2 - 0 + \frac{2C}{-3\pi} \right) - \frac{9\pi^2}{4} \right] \\
+        &= -\pi \left[ \frac{3\pi^2}{2} - \frac{2C}{3\pi} - \frac{9\pi^2}{4} \right] \\
+        &= -\pi \left[ -\frac{3\pi^2}{4} - \frac{2C}{3\pi} \right] \\
+        &= \frac{3\pi^3}{4} + \frac{2}{3}C = \frac{3\pi^3}{4} + \frac{2}{3}\cos 1 - \frac{2}{9}
+    \end{align*}
+\end{solution}
+\begin{exercise}
+    设$u(x,y)=x^2-xy+y^2,\;L$为抛物线$y=x^2$自原点至点$A(1,1)$的有向弧段，$\bm{n}$为$L$的切向量顺时针旋转$\frac{\pi}{2}$后的法向量，$\pdv{u}{\bm{n}}$为$u$沿法向量$\bm{n}$的方向导数，试计算积分$\displaystyle\int_L \pdv{u}{\bm{n}}\d s$．
+\end{exercise}
+\begin{solution}
+    设法向量$\bm{n}$的方向余弦为$(\cos\alpha, \cos\beta)$，因为$\bm{n}$由切向量$(\d x, \d y)$顺时针旋转$\frac{\pi}{2}$得到，所以$\cos\alpha\d s = \d y, \cos\beta\d s = -\d x$．
+    方向导数 $\pdv{u}{\bm{n}} = \nabla u \cdot \bm{n} = u_x \cos\alpha + u_y \cos\beta = (2x-y)\cos\alpha + (2y-x)\cos\beta$．
+    故原曲线积分化为第二类曲线积分：
+    \begin{align*}
+        \int_L \pdv{u}{\bm{n}}\d s &= \int_L (2x-y)\d y - (2y-x)\d x
+    \end{align*}
+    将$y=x^2, \d y=2x\d x$代入，且$x$从$0$变到$1$：
+    \begin{align*}
+        \int_L \pdv{u}{\bm{n}}\d s &= \int_0^1 \left[ (2x-x^2)2x - (2x^2-x) \right] \d x = \int_0^1 (-2x^3 + 2x^2 + x) \d x = \frac{2}{3}
+    \end{align*}
+\end{solution}
+\begin{exercise}
+    确定常数$\lambda$，使在右半平面$x>0$上的向量场$\bm{A}(x,y) = 2xy(x^4+y^2)^\lambda\, \bm{i}-x^2(x^4+y^2)^\lambda\,\bm{j}$为某二元函数$u(x,y)$的梯度，并求$u(x,y)$．
+\end{exercise}
+\begin{solution}
+    若 $\bm{A}$ 为某函数的梯度，则 $\bm{A}$ 为保守场，需满足 $\dfrac{\partial P}{\partial y} = \dfrac{\partial Q}{\partial x}$，其中
+    \[ P = 2xy(x^4+y^2)^\lambda,\quad Q = -x^2(x^4+y^2)^\lambda \]
+    计算偏导数：
+    \begin{align*}
+        \frac{\partial P}{\partial y} &= 2x(x^4+y^2)^\lambda + 2xy\cdot\lambda(x^4+y^2)^{\lambda-1}\cdot 2y
+            = 2x(x^4+y^2)^\lambda + 4\lambda xy^2(x^4+y^2)^{\lambda-1} \\
+        \frac{\partial Q}{\partial x} &= -2x(x^4+y^2)^\lambda - x^2\cdot\lambda(x^4+y^2)^{\lambda-1}\cdot 4x^3
+            = -2x(x^4+y^2)^\lambda - 4\lambda x^4(x^4+y^2)^{\lambda-1}
+    \end{align*}
+    令二者相等：
+    \[ 2x(x^4+y^2)^\lambda + 4\lambda xy^2(x^4+y^2)^{\lambda-1}
+        = -2x(x^4+y^2)^\lambda - 4\lambda x^4(x^4+y^2)^{\lambda-1} \]
+    整理得：
+    \[ 4x(x^4+y^2)^\lambda + 4\lambda x(x^4+y^2)^{\lambda-1}(x^4+y^2) = 0 \]
+    \[ 4x(x^4+y^2)^\lambda(1+\lambda) = 0 \]
+    由于 $x>0$ 且 $x^4+y^2>0$，故 $1+\lambda = 0$，即 $\boxed{\lambda = -1}$．
+
+    此时 $\bm{A} = \dfrac{2xy}{x^4+y^2}\,\bm{i} - \dfrac{x^2}{x^4+y^2}\,\bm{j}$．由于 $\bm{A}$ 为保守场，势函数可由曲线积分
+    \[ u(x,y) = \int_{(1,0)}^{(x,y)} P\d x + Q\d y + C\]
+    沿任意路径求得．取路径 $\Gamma$：先从 $(1,0)$ 沿竖直线至 $(1,y)$，再沿水平线至 $(x,y)$．
+    \begin{itemize}
+        \item 第一段：$x=1,\ \d x=0$，$y$ 从 $0$ 到 $y$：
+        \[ \int_0^y Q(1,t)\d t = \int_0^y -\frac{1}{1+t^2}\d t = -\arctan y \]
+        \item 第二段：$y$ 为常数，$\d y=0$，$x$ 从 $1$ 到 $x$，令 $t = x^2$ 换元：
+        \[ \int_1^x P(t,y)\d t = \int_1^x \frac{2ty}{t^4+y^2}\d t
+           = \int_1^{x^2} \frac{y}{u^2+y^2}\d u
+           = \left[\arctan\frac{u}{y}\right]_1^{x^2}
+           = \arctan\frac{x^2}{y} - \arctan\frac{1}{y} \]
+    \end{itemize}
+    因此
+    \[ u(x,y) = -\arctan y + \arctan\frac{x^2}{y} - \arctan\frac{1}{y} \]
+    利用恒等式 $\arctan\dfrac{1}{y} = \dfrac{\pi}{2} - \arctan y\;(y>0)$，得 $u = \arctan\dfrac{x^2}{y} - \dfrac{\pi}{2}$，吸收常数后得
+    \[ \boxed{u(x,y) = \arctan\frac{x^2}{y} + C} \]
+\end{solution}
+\subsection{曲面积分}
 \begin{exercise}
     设$a>0$，求均匀曲面$x^2+y^2+z^2=a^2\;(x\ge 0,y\ge 0,z\ge 0)$的重心坐标
 \end{exercise}
 \begin{solution}
-    \[\bar{z}=\frac{\iint_\Sigma z\d S}{\iint_\Sigma \d S}=\frac{2}{\pi a^2}\iint_\Sigma \frac{az}{\sqrt{a^2-x^2-y^2}}\d x\d y=\frac{a}{2}\]
-    由对称性，$\bar{x}=\bar{y}=\bar{z}=\frac{a}{2}$．
+    由于曲面具有均匀面密度，$\Sigma$的面积为$S=\frac{1}{8}\times 4\pi a^2 = \frac{\pi a^2}{2}$．重心坐标$(\bar{x},\bar{y},\bar{z})$由公式给出的推导：
+    \[\bar{z}=\frac{\iint_\Sigma z\d S}{\iint_\Sigma \d S}=\frac{2}{\pi a^2}\iint_D \frac{az}{\sqrt{a^2-x^2-y^2}}\d x\d y = \frac{2a}{\pi a^2}\iint_D \d x\d y\]
+    区域$D$为$x^2+y^2 \le a^2\;(x,y\ge 0)$，其面积为$\frac{\pi a^2}{4}$，故$\bar{z} = \frac{2a}{\pi a^2} \cdot \frac{\pi a^2}{4} = \frac{a}{2}$．
+    由对称性，得\[\bar{x}=\bar{y}=\bar{z}=\frac{a}{2}\]
+\end{solution}
+\begin{exercise}
+    计算曲面积分$\displaystyle\iint_\Sigma x^2y^2z \d x\d y$，其中$\Sigma$为球面$x^2+y^2+z^2=R^2$的下半部分的下侧．
+\end{exercise}
+\begin{solution}
+    将曲面积分转化为对 $xOy$ 平面上区域 $D: x^2+y^2 \le R^2$ 的二重积分．
+    在该曲面上，$z = -\sqrt{R^2-x^2-y^2}$．由于 $\Sigma$ 取下侧，其余弦函数 $\cos\gamma < 0$，根据第二类曲面积分向 $xOy$ 面投影的公式，需在积分前加负号（或直接利用 $z$ 的代数式方向）：
+    \begin{align*}
+        I &= -\iint_D x^2 y^2 (-\sqrt{R^2-x^2-y^2}) \d x\d y \\
+        &= \iint_D x^2 y^2 \sqrt{R^2-x^2-y^2} \d x\d y
+    \end{align*}
+    使用极坐标计算二重积分：
+    \begin{align*}
+        I &= \int_0^{2\pi} \cos^2\theta \sin^2\theta \d \theta \int_0^R r^4 \sqrt{R^2-r^2} \cdot r \d r \\
+        &= \left( \frac{1}{4} \int_0^{2\pi} \sin^2 2\theta \d \theta \right) \int_0^R r^5 \sqrt{R^2-r^2} \d r \\
+        &= \frac{\pi}{4} \int_0^R r^5 \sqrt{R^2-r^2} \d r
+    \end{align*}
+    令 $r = R\sin t, \d r = R\cos t \d t$，于是
+    \begin{align*}
+        \int_0^R r^5 \sqrt{R^2-r^2} \d r &= \int_0^{\frac{\pi}{2}} R^5 \sin^5 t \cdot R\cos t \cdot R\cos t \d t \\
+        &= R^7 \int_0^{\frac{\pi}{2}} \sin^5 t \cos^2 t \d t \\
+        &= R^7 \int_0^{\frac{\pi}{2}} (\sin^5 t - \sin^7 t) \d t
+    \end{align*}
+    利用 Wallis 公式：
+    \[ I = \frac{\pi}{4} R^7 \left( \frac{4 \cdot 2}{5 \cdot 3 \cdot 1} - \frac{6 \cdot 4 \cdot 2}{7 \cdot 5 \cdot 3 \cdot 1} \right) = \frac{\pi}{4} R^7 \left( \frac{8}{15} - \frac{16}{35} \right) = \frac{\pi}{4} R^7 \cdot \frac{8}{105} = \frac{2}{105}\pi R^7 \]
+\end{solution}
+\begin{exercise}
+    计算曲面积分$\displaystyle\iint_\Sigma \frac{2\d y\d z}{x\cos^2x}+\frac{\d z\d x}{\cos^2y}-\frac{\d x\d y}{z\cos^2z}$，其中$\Sigma$为球面$x^2+y^2+z^2=1$的外侧．
+\end{exercise}
+\begin{solution}
+    利用两类曲面积分的关系转化为第一类曲面积分．球面外侧的单位法向量为 $\bm{n} = (x,y,z)$，方向余弦为 $\cos\alpha = x,\ \cos\beta = y,\ \cos\gamma = z$，故
+    \begin{align*}
+        I &= \iint_\Sigma \left( \frac{2}{x\cos^2x}\cdot x + \frac{1}{\cos^2y}\cdot y - \frac{1}{z\cos^2z}\cdot z \right) \d S \\
+        &= \iint_\Sigma \left( \frac{2}{\cos^2x} + \frac{y}{\cos^2y} - \frac{1}{\cos^2z} \right) \d S
+    \end{align*}
+    由对称性，$\iint_\Sigma \dfrac{y}{\cos^2y} \d S = 0$（$y$ 为奇函数，球面关于 $y=0$ 对称）；又球面具有轮换对称性，记
+    \[ A = \iint_\Sigma \frac{1}{\cos^2x} \d S = \iint_\Sigma \frac{1}{\cos^2y} \d S = \iint_\Sigma \frac{1}{\cos^2z} \d S \]
+    则 $\displaystyle\iint_\Sigma \frac{2}{\cos^2x} \d S = 2A$，$\displaystyle\iint_\Sigma \frac{1}{\cos^2z} \d S = A$，于是
+    \[ I = 2A - A = A = \iint_\Sigma \frac{1}{\cos^2x} \d S \]
+    
+    下面计算 $A$．将球面分为上、下两半，向 $xOy$ 面投影得 $D: x^2+y^2 \le 1$．上半球面 $z = \sqrt{1-x^2-y^2}$ 的面积元为 $\d S = \dfrac{1}{\sqrt{1-x^2-y^2}}\d x\d y$，由对称性：
+    \[ A = 2 \iint_D \frac{1}{\cos^2x} \cdot \frac{1}{\sqrt{1-x^2-y^2}} \d x\d y \]
+    先对 $y$ 积分：
+    \[ \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}} \frac{1}{\sqrt{1-x^2-y^2}} \d y
+        = \int_{-1}^{1} \frac{1}{\sqrt{1-u^2}} \d u = \pi \]
+    （令 $u = \dfrac{y}{\sqrt{1-x^2}}$）．故
+    \[ A = 2 \int_{-1}^{1} \frac{1}{\cos^2x} \cdot \pi \d x = 2\pi \int_{-1}^{1} \sec^2x \d x = 2\pi [\tan x]_{-1}^{1} = 4\pi \tan 1 \]
+    因此原曲面积分 $I = 4\pi \tan 1$．
 \end{solution}
 \ifx\allfiles\undefined
 \end{document}

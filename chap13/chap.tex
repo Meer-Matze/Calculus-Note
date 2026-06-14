@@ -8,7 +8,7 @@
 \fi
 \chapter{偏微分方程初步与全微分方程}
 
-以自然界中的物理现象为引，本章我们将探讨多变量微积分的核心应用：全微分方程及偏微分方程初步。经典偏微分教材常常将这类理论放置在流体力学、热力学或电磁学的情境下进行直观解释。
+以自然界中的物理现象为引，本章我们将探讨多变量微积分的核心应用：全微分方程及偏微分方程初步．经典偏微分教材常常将这类理论放置在流体力学、热力学或电磁学的情境下进行直观解释．
 
 \section{全微分方程~(Exact Differential Equations)}
 \subsection{全微分的物理含义与 $\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$ 判定}
@@ -16,9 +16,9 @@
 \begin{definition}[全微分方程及其含义]
     设一阶微分方程的形式为 $P(x,y)\d x + Q(x,y)\d y = 0$．如果在某区域内存在一个势函数 $u(x,y)$，使得其全微分恰好等于方程的左端：
     \[ \d u = \frac{\partial u}{\partial x}\d x + \frac{\partial u}{\partial y}\d y = P(x,y)\d x + Q(x,y)\d y \]
-    则称该方程为\textbf{全微分方程}。
+    则称该方程为\textbf{全微分方程}．
     
-    \textbf{物理含义}上，这等价于平面向量场 $\vec{F} = (P, Q)$ 是一个保守场（无散/无旋场），且无耗散作功。方程的通解直接由等势线给出：$u(x,y) = C$．
+    \textbf{物理含义}上，这等价于平面向量场 $\vec{F} = (P, Q)$ 是一个保守场（无散/无旋场），且无耗散作功．方程的通解直接由等势线给出：$u(x,y) = C$．
 \end{definition}
 
 \begin{theorem}
@@ -27,21 +27,21 @@
 \end{theorem}
 
 \subsection{偏积分解法~(Method of Partial Integration)}
-如果方程满足上述判定条件 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，那么必定存在势函数 $u(x,y)$ 满足 $\frac{\partial u}{\partial x} = P$ 且 $\frac{\partial u}{\partial y} = Q$。
+如果方程满足上述判定条件 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，那么必定存在势函数 $u(x,y)$ 满足 $\frac{\partial u}{\partial x} = P$ 且 $\frac{\partial u}{\partial y} = Q$．
 
 要系统地复原出 $u(x,y)$，最严谨的代数手段是\textbf{偏积分}，其核心逻辑包含三步：
 \begin{enumerate}
     \item \textbf{选向偏积分：} 利用 $\frac{\partial u}{\partial x} = P(x,y)$，暂时将 $y$ 视作常数，对 $x$ 进行积分：
     \[ u(x,y) = \int P(x,y) \d x + \varphi(y) \]
-    【核心注意】：由于这是对 $x$ 的偏向不定积分，所以产生的“积分常数”实际上是一个可能包含另一变量 $y$ 的未知函数 $\varphi(y)$。
+    【核心注意】：由于这是对 $x$ 的偏向不定积分，所以产生的“积分常数”实际上是一个可能包含另一变量 $y$ 的未知函数 $\varphi(y)$．
     \item \textbf{求导做比对：} 利用尚未使用的条件 $\frac{\partial u}{\partial y} = Q(x,y)$，将上式对 $y$ 求偏导，并强制等于 $Q(x,y)$：
     \[ \frac{\partial}{\partial y} \left( \int P(x,y) \d x \right) + \varphi'(y) = Q(x,y) \]
-    \item \textbf{得出原函数：} 移项去解 $\varphi'(y)$。依据判定条件，此时等式中残留的 $x$ 会奇迹般地全部抵消掉！算出纯关于 $y$ 的 $\varphi'(y)$ 后，对 $y$ 积分求得 $\varphi(y)$。代回第一步即可拼凑出通解 $u(x,y) = C$。
+    \item \textbf{得出原函数：} 移项去解 $\varphi'(y)$．依据判定条件，此时等式中残留的 $x$ 会奇迹般地全部抵消掉！算出纯关于 $y$ 的 $\varphi'(y)$ 后，对 $y$ 积分求得 $\varphi(y)$．代回第一步即可拼凑出通解 $u(x,y) = C$．
 \end{enumerate}
-这就是求解全微分方程最基础、普适的“系统级保底解法”，这种方法也在物理中用于由保守力场反推标量势。
+这就是求解全微分方程最基础、普适的“系统级保底解法”，这种方法也在物理中用于由保守力场反推标量势．
 
 \subsection{常用全微分公式与配凑法}
-除了老实地求解偏积分或者沿着路径进行曲线积分外，物理直觉上最常用的进阶解法是\textbf{配凑法 (Method of Grouping / Inspection)}。这要求我们非常熟悉以下常见的全微分形式（即微分乘除法则的逆推）：
+除了老实地求解偏积分或者沿着路径进行曲线积分外，物理直觉上最常用的进阶解法是\textbf{配凑法 (Method of Grouping / Inspection)}．这要求我们非常熟悉以下常见的全微分形式（即微分乘除法则的逆推）：
 
 \begin{table}[H]
     \centering
@@ -66,14 +66,14 @@
 \end{example}
 \begin{solution}
     \textbf{方法一（检验法与偏积分解法）：}\\
-    分析全微分方程结构，记 $P(x,y) = 3x^2+2y,\, Q(x,y) = 2x-3y^2$。\\
+    分析全微分方程结构，记 $P(x,y) = 3x^2+2y,\, Q(x,y) = 2x-3y^2$．\\
     由于 $P(x,y)$ 与 $Q(x,y)$ 及其偏导数在整个 $xy$-平面内均连续：\\
     $\dfrac{\partial P}{\partial y} = \dfrac{\partial}{\partial y}(3x^2+2y) = 2$\\
     $\dfrac{\partial Q}{\partial x} = \dfrac{\partial}{\partial x}(2x-3y^2) = 2$\\
-    显然 $\dfrac{\partial P}{\partial y} \equiv \dfrac{\partial Q}{\partial x}$，所以原方程确实是一个确切的（Exact）全微分方程，必定存在标量势函数 $u(x,y)$。
+    显然 $\dfrac{\partial P}{\partial y} \equiv \dfrac{\partial Q}{\partial x}$，所以原方程确实是一个确切的（Exact）全微分方程，必定存在标量势函数 $u(x,y)$．
 
     现在通过偏积分寻找 $u(x,y)$：
-    由全微分定义，$\dfrac{\partial u}{\partial x} = P(x,y) = 3x^2+2y$。\\
+    由全微分定义，$\dfrac{\partial u}{\partial x} = P(x,y) = 3x^2+2y$．\\
     对 $x$ 进行第一轮偏偏积分（将 $y$ 视作未变化的参数），可以得到含有未知单变量函数 $\varphi(y)$ 的初始形式：
     \[ u(x,y) = \int (3x^2+2y) \d x + \varphi(y) = x^3 + 2xy + \varphi(y) \]
     接着，使用该结果去匹配本应满足的另外一个偏导条件 $\dfrac{\partial u}{\partial y} = Q(x,y)$：
@@ -83,7 +83,7 @@
     \[ 2x + \varphi'(y) = 2x - 3y^2 \]
     在这个等式中，包含 $x$ 的项由于全微分的旋度判定条件完美相互抵消，化简得到只含有 $y$ 的微分关系：
     \[ \varphi'(y) = -3y^2 \]
-    直接进行一元积分 $\varphi(y) = -y^3$（势函数积分常数可约定吸收到总常数内）。
+    直接进行一元积分 $\varphi(y) = -y^3$（势函数积分常数可约定吸收到总常数内）．
     至此我们组合拼凑得到了隐式的通解势曲面簇 $u(x,y) = C$：
     \[ x^3 + 2xy - y^3 = C \]
 
@@ -92,23 +92,23 @@
     \[ (3x^2\d x - 3y^2\d y) + (2y \d x + 2x \d y) = 0 \]
     由于观察前几项极其显眼地满足标准全导数形式，我们马上可以将其包装回复合求导法则的形态：\\
     第一组直接就是普通的一元变量导数：$\d(x^3)$ 和 $-\d(y^3)$；\\
-    第二组可以提出常数 $2(y \d x + x \d y) = 2\d(xy)$。\\
+    第二组可以提出常数 $2(y \d x + x \d y) = 2\d(xy)$．\\
     得到完美的确切微分总和结构式：
     \[ \d(x^3) - \d(y^3) + 2\d(xy) = 0 \implies \d(x^3 - y^3 + 2xy) = 0 \]
     全微分等于零，立刻给出其原函数结构恒为一个不依赖时空演变的任意常数 $C$：
     \[ x^3 - y^3 + 2xy = C \]
-    这远比复杂的两步“积分再求导对比”来得更加干净利落。
+    这远比复杂的两步“积分再求导对比”来得更加干净利落．
 \end{solution}
 
 \begin{example}
     利用配凑法求解：$x \d y - y \d x = (x^2+y^2) \d x$．
 \end{example}
 \begin{solution}
-    观察到方程左端包含 $x\d y - y\d x$，右端有 $x^2+y^2$，这直接对应到 $\arctan(y/x)$ 的全微分核心结构。\\
+    观察到方程左端包含 $x\d y - y\d x$，右端有 $x^2+y^2$，这直接对应到 $\arctan(y/x)$ 的全微分核心结构．\\
     将等式两边同除以 $x^2+y^2$（此时设 $x^2+y^2\neq0$）：
     \[ \frac{x \d y - y \d x}{x^2+y^2} = \d x \]
-    此时左边正是 $\d\left(\arctan\dfrac{y}{x}\right)$。\\
-    于是方程化为 $\d\left(\arctan\dfrac{y}{x}\right) = \d x$。两边同时积分，得通解 $\arctan\dfrac{y}{x} = x + C$。
+    此时左边正是 $\d\left(\arctan\dfrac{y}{x}\right)$．\\
+    于是方程化为 $\d\left(\arctan\dfrac{y}{x}\right) = \d x$．两边同时积分，得通解 $\arctan\dfrac{y}{x} = x + C$．
 \end{solution}
 
 \begin{exercise}
@@ -134,27 +134,27 @@
 \end{solution}
 
 \section{偏微分方程初步~(Introduction to PDEs)}
-在常微分方程 (ODE) 中，未知函数只依赖于\textbf{一个}自变量（比如单纯随时间 $t$ 变化，或单纯随位置 $x$ 变化）。但在真实的物理世界中，一个基本量往往同时受时空影响，比如一根铁丝上的温度 $u(x,t)$ 既取决于你在铁丝上的哪个位置 ($x$)，又取决于现在是几点钟 ($t$)。这就引入了含有多个自变量偏导数的\textbf{偏微分方程 (PDE)}。
+在常微分方程 (ODE) 中，未知函数只依赖于\textbf{一个}自变量（比如单纯随时间 $t$ 变化，或单纯随位置 $x$ 变化）．但在真实的物理世界中，一个基本量往往同时受时空影响，比如一根铁丝上的温度 $u(x,t)$ 既取决于你在铁丝上的哪个位置 ($x$)，又取决于现在是几点钟 ($t$)．这就引入了含有多个自变量偏导数的\textbf{偏微分方程 (PDE)}．
 
-面对 PDE，初学者往往会感到无从下手。但请记住我们最核心的破局策略：\textbf{想尽一切办法把它退化成我们已经学过的一元 ODE。}
+面对 PDE，初学者往往会感到无从下手．但请记住我们最核心的破局策略：\textbf{想尽一切办法把它退化成我们已经学过的一元 ODE．}
 
 \subsection{三大基本方程（一般三维形式）}
 对于物理世界中最一般的三维空间问题，刻画空间变化率（即各个方向局部凹凸程度的叠加）的绝佳数学工具是\textbf{拉普拉斯算子}（Laplacian），记为 $\nabla^2$ 或 $\Delta$：
 \[ \nabla^2 u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \]
 自然界最基础的 PDE 主要有以下三类：
 \begin{enumerate}
-    \item \textbf{波动方程~(Wave Equation):} $\dfrac{\partial^2 u}{\partial t^2} = a^2 \nabla^2 u$。描述声波、光波或引力波的传播。左边是时间二阶导（受力加速度），右边是空间二次偏导的汇总，这说明“一点处的场与其周围环境差值越大（越弯曲），它试图回弹的加速度就越大”。
-    \item \textbf{热传导方程~(Heat Equation):} $\dfrac{\partial u}{\partial t} = \alpha^2 \nabla^2 u$。描述热量扩散或分子扩散。左边是时间一阶导（升降温速度）——说明“温度随时间的演化速度，正比于该点与其周围环境的温度差，总是向着熨平温差的方向进行”。
-    \item \textbf{拉普拉斯方程~(Laplace Equation):} $\nabla^2 u = 0$。描述没有任何随时间变化 ($t$) 的最终平衡态，比如一个内部没有自由电荷的静电场势能分布，或者一块不均匀受热金属体达到恒温稳定后的空间三维温度分布。
+    \item \textbf{波动方程~(Wave Equation):} $\dfrac{\partial^2 u}{\partial t^2} = a^2 \nabla^2 u$．描述声波、光波或引力波的传播．左边是时间二阶导（受力加速度），右边是空间二次偏导的汇总，这说明“一点处的场与其周围环境差值越大（越弯曲），它试图回弹的加速度就越大”．
+    \item \textbf{热传导方程~(Heat Equation):} $\dfrac{\partial u}{\partial t} = \alpha^2 \nabla^2 u$．描述热量扩散或分子扩散．左边是时间一阶导（升降温速度）——说明“温度随时间的演化速度，正比于该点与其周围环境的温度差，总是向着熨平温差的方向进行”．
+    \item \textbf{拉普拉斯方程~(Laplace Equation):} $\nabla^2 u = 0$．描述没有任何随时间变化 ($t$) 的最终平衡态，比如一个内部没有自由电荷的静电场势能分布，或者一块不均匀受热金属体达到恒温稳定后的空间三维温度分布．
 \end{enumerate}
 
 \subsection{降维打击：分离变量法 (Separation of Variables)}
-既然我们目前只掌握了求解一元常微分方程 (ODE) 的本领，那求解偏微分方程最自然的物理直觉就是：假设时间演化和空间形态互不干涉。
+既然我们目前只掌握了求解一元常微分方程 (ODE) 的本领，那求解偏微分方程最自然的物理直觉就是：假设时间演化和空间形态互不干涉．
 
-我们大胆地猜测，二元函数 $u(x,t)$ 可以被拆解为两个一元函数的乘积：$u(x,t) = X(x) \cdot T(t)$。通过这种设定，我们能神奇地把原本复杂纠缠的 PDE，一刀劈成两个各自独立的 ODE。
+我们大胆地猜测，二元函数 $u(x,t)$ 可以被拆解为两个一元函数的乘积：$u(x,t) = X(x) \cdot T(t)$．通过这种设定，我们能神奇地把原本复杂纠缠的 PDE，一刀劈成两个各自独立的 ODE．
 
 \begin{example}[一维热传导方程初值问题]
-    设长为 $L$ 的均质金属细杆绝热，两端温度坚壁冷却至 $0^\circ \text{C}$，试研究系统从任意初始分布的内部温度场 $u(x,t)$ 演化规律。
+    设长为 $L$ 的均质金属细杆绝热，两端温度坚壁冷却至 $0^\circ \text{C}$，试研究系统从任意初始分布的内部温度场 $u(x,t)$ 演化规律．
     \begin{align*}
         \textbf{热传导方程:} \quad & \frac{\partial u}{\partial t} = \alpha^2 \frac{\partial^2 u}{\partial x^2} \quad (0<x<L, \, t>0) \\
         \textbf{边界条件:} \quad & u(0,t) = 0, \quad u(L,t) = 0
@@ -162,20 +162,20 @@
 \end{example}
 \begin{solution}
     \textbf{第 1 步：剥离时空，转化为纯理论 O.D.E.}\\
-    将 $u(x,t) = X(x)T(t)$ 代入主方程得 $X(x)T'(t) = \alpha^2 X''(x)T(t)$。\\
-    重整化：$\dfrac{T'(t)}{\alpha^2 T(t)} = \dfrac{X''(x)}{X(x)}$。\\
+    将 $u(x,t) = X(x)T(t)$ 代入主方程得 $X(x)T'(t) = \alpha^2 X''(x)T(t)$．\\
+    重整化：$\dfrac{T'(t)}{\alpha^2 T(t)} = \dfrac{X''(x)}{X(x)}$．\\
     等式左边仅依赖时间 $t$，右边仅依赖空间结构 $x$，它们长久保持等于一个公用常数 $-\lambda$：
     \[ T'(t) + \alpha^2 \lambda T(t) = 0, \qquad X''(x) + \lambda X(x) = 0 \]
     
     \textbf{第 2 步：求解空间本征模态 (驻波动)}\\
-    由杆两端结冰条件知 $X(0)=0$ 以及 $X(L)=0$。\\
-    排除零解和指数发散解（$\lambda \le 0$），必定有特征值 $\lambda > 0$。令 $\lambda = \omega^2$，此时二阶常系数方程空间通解为谐振荡 $X(x) = C_1 \cos\omega x + C_2 \sin\omega x$。\\
-    带入左端 $X(0) = C_1 = 0$；带入右端使得 $X(L) = C_2 \sin\omega L = 0$ 取非零，必要求 $\omega_n = \frac{n\pi}{L}$。\\
+    由杆两端结冰条件知 $X(0)=0$ 以及 $X(L)=0$．\\
+    排除零解和指数发散解（$\lambda \le 0$），必定有特征值 $\lambda > 0$．令 $\lambda = \omega^2$，此时二阶常系数方程空间通解为谐振荡 $X(x) = C_1 \cos\omega x + C_2 \sin\omega x$．\\
+    带入左端 $X(0) = C_1 = 0$；带入右端使得 $X(L) = C_2 \sin\omega L = 0$ 取非零，必要求 $\omega_n = \frac{n\pi}{L}$．\\
     故在空间上我们得到了\textbf{离散的本征基（正交函数族）}和\textbf{本征值}：
     \[ X_n(x) = \sin\left(\frac{n\pi x}{L}\right), \quad \lambda_n = \left(\frac{n\pi}{L}\right)^2, \; (n=1,2,3,\dots) \]
     
     \textbf{第 3 步：带回时间方程与完美级数收束}\\
-    将得到的特有能级 $\lambda_n$ 送回时间常微分公式，得到解 $T_n(t) = e^{-\alpha^2 (n\pi/L)^2 t}$。\\
+    将得到的特有能级 $\lambda_n$ 送回时间常微分公式，得到解 $T_n(t) = e^{-\alpha^2 (n\pi/L)^2 t}$．\\
     由于原始偏微分方程全呈线性叠加律，最终温度场必然是全部离散本征场的线性级数组合：
     \[ u(x,t) = \sum_{n=1}^\infty b_n e^{-\alpha^2 \left(\frac{n\pi}{L}\right)^2 t} \sin\left(\frac{n\pi x}{L}\right) \]
     看那极速衰减的时间负指数项！随着时间 $t \to \infty$，所有内部高温波动终将迅速崩塌平息到绝对背景温度 $0$！\\
