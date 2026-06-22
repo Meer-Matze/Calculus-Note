@@ -10,7 +10,7 @@
 
 以自然界中的物理现象为引，本章我们将探讨多变量微积分的核心应用：全微分方程及偏微分方程初步．经典偏微分教材常常将这类理论放置在流体力学、热力学或电磁学的情境下进行直观解释．
 
-\section{全微分方程~(Exact Differential Equations)}
+\section{全微分方程}
 \subsection{全微分的物理含义与 $\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$ 判定}
 
 \begin{definition}[全微分方程及其含义]
@@ -26,7 +26,7 @@
     \[ \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \]
 \end{theorem}
 
-\subsection{偏积分解法~(Method of Partial Integration)}
+\subsection{偏积分解法}
 如果方程满足上述判定条件 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，那么必定存在势函数 $u(x,y)$ 满足 $\frac{\partial u}{\partial x} = P$ 且 $\frac{\partial u}{\partial y} = Q$．
 
 要系统地复原出 $u(x,y)$，最严谨的代数手段是\textbf{偏积分}，其核心逻辑包含三步：
@@ -85,7 +85,7 @@
     \[ \varphi'(y) = -3y^2 \]
     直接进行一元积分 $\varphi(y) = -y^3$（势函数积分常数可约定吸收到总常数内）．
     至此我们组合拼凑得到了隐式的通解势曲面簇 $u(x,y) = C$：
-    \[ x^3 + 2xy - y^3 = C \]
+    \[ \boxed{x^3 + 2xy - y^3 = C} \]
 
     \textbf{方法二（配凑法：Method of Grouping）：}\\
     原方程不带条件直接强制拆分重组（按同类变量组合）：\\
@@ -96,7 +96,7 @@
     得到完美的确切微分总和结构式：
     \[ \d(x^3) - \d(y^3) + 2\d(xy) = 0 \implies \d(x^3 - y^3 + 2xy) = 0 \]
     全微分等于零，立刻给出其原函数结构恒为一个不依赖时空演变的任意常数 $C$：
-    \[ x^3 - y^3 + 2xy = C \]
+    \[ \boxed{x^3 - y^3 + 2xy = C} \]
     这远比复杂的两步“积分再求导对比”来得更加干净利落．
 \end{solution}
 
@@ -108,7 +108,7 @@
     将等式两边同除以 $x^2+y^2$（此时设 $x^2+y^2\neq0$）：
     \[ \frac{x \d y - y \d x}{x^2+y^2} = \d x \]
     此时左边正是 $\d\left(\arctan\dfrac{y}{x}\right)$．\\
-    于是方程化为 $\d\left(\arctan\dfrac{y}{x}\right) = \d x$．两边同时积分，得通解 $\arctan\dfrac{y}{x} = x + C$．
+    于是方程化为 $\d\left(\arctan\dfrac{y}{x}\right) = \d x$．两边同时积分，得通解 $\boxed{\arctan\dfrac{y}{x} = x + C}$．
 \end{solution}
 
 \begin{exercise}
@@ -117,7 +117,7 @@
 \begin{solution}
     法一：\\
     设$u=y^2$，则原方程化为$\displaystyle \frac{\d u}{\d x}-\frac{2u}{x(1+x)}=-\frac{2x^2}{x+1}$，即
-    \[\left(\frac{1+x}{x}\right)^2y^2+(1+x^2)=C\]
+    \[ \boxed{\left(\frac{1+x}{x}\right)^2y^2+(1+x^2)=C} \]
     法二：\\
     原方程化为
     \[
@@ -130,10 +130,10 @@
         \end{array}
     \]
     故通解为
-    \[(1+x)\sqrt{x^2+y^2}=Cx\]
+    \[ \boxed{(1+x)\sqrt{x^2+y^2}=Cx} \]
 \end{solution}
 
-\section{偏微分方程初步~(Introduction to PDEs)}
+\section{偏微分方程初步}
 在常微分方程 (ODE) 中，未知函数只依赖于\textbf{一个}自变量（比如单纯随时间 $t$ 变化，或单纯随位置 $x$ 变化）．但在真实的物理世界中，一个基本量往往同时受时空影响，比如一根铁丝上的温度 $u(x,t)$ 既取决于你在铁丝上的哪个位置 ($x$)，又取决于现在是几点钟 ($t$)．这就引入了含有多个自变量偏导数的\textbf{偏微分方程 (PDE)}．
 
 面对 PDE，初学者往往会感到无从下手．但请记住我们最核心的破局策略：\textbf{想尽一切办法把它退化成我们已经学过的一元 ODE．}

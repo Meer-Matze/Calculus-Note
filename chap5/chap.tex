@@ -17,7 +17,7 @@
         \label{eq1}
         \arcsin y=\arcsin x+C
     \end{align}
-    即通解为$y=\sin(\arcsin x+C)$．
+    即通解为$\boxed{y=\sin(\arcsin x+C)}$．
 \end{solution}
 \begin{myRemark}
     该解法中，式\ref{eq1}舍去了$y = \pm 1$的解，实际上它们也是原方程的解，称为\textbf{奇解}．
@@ -38,7 +38,7 @@
     即通解为
     \[y=\frac{x}{\sqrt{\ln|x|+C}}\]
     代入$y\Big|_{x=1}=1$得$C=1$，所求特解之一为
-    \[y=\frac{x}{\sqrt{\ln|x|+1}}\]
+    \[\boxed{y=\frac{x}{\sqrt{\ln|x|+1}}}\]
 \end{solution}
 \begin{myRemark}
     事实上，由于题目只要求特解，故不必保留$|x|$，$y=\dfrac{x}{\sqrt{\ln x+1}}$同样符合题意
@@ -69,7 +69,7 @@
         &=x(-\ln|x|+C)
     \end{align*}
     代入点$(1,1)$得$C=1$，所求曲线方程为
-    \[y=x(1-\ln x)\]
+    \[\boxed{y=x(1-\ln x)}\]
 \end{solution}
 \begin{myRemark}
     求解一阶线性微分方程时，括号内外的$|x|$总可以去绝对值符号，因为内外的符号总是可抵消的．
@@ -90,7 +90,7 @@
     故通解为
     \[x-\dfrac{1}{2}+Ce^{-2x}\]
     易知$f(0)=0$，代入得$C=\dfrac{1}{2}$，所求函数为
-    \[f(x)=x-\dfrac{1}{2}+\dfrac{1}{2}e^{-2x}\]
+    \[\boxed{f(x)=x-\dfrac{1}{2}+\dfrac{1}{2}e^{-2x}}\]
 \end{solution}
 \begin{example}
     求微分方程$y'=\dfrac{1}{xy+y^3}$的通解．
@@ -102,9 +102,10 @@
         \Rightarrow & \dfrac{\d x}{\d y}=xy+y^3\\[8pt]
         \Rightarrow & \dfrac{\d x}{\d y}-yx=y^3\\[8pt]
         \Rightarrow & x=e^{\int y\,\d y}\left(\int y^3e^{-\int y\,\d y}\,\d y+C\right)\\[8pt]
-        \Rightarrow & x=-(y^2+2)+Ce^{\frac{y^2}{2}}\\[8pt]
     \end{array}
     \]
+    整理得
+    \[\boxed{x=-(y^2+2)Ce^{\frac{y^2}{2}}}\]
 \end{solution}
 \section{伯努利方程}
 \begin{definition}
@@ -125,7 +126,7 @@
     &=\dfrac{x^2(x^2-2)+C}{8(x^2-1)}
     \end{align*}
     即通解为
-    \[y=\left[\dfrac{x^2(x^2-2)+C}{8(x^2-1)}\right]^2\]
+    \[\boxed{y=\left[\dfrac{x^2(x^2-2)+C}{8(x^2-1)}\right]^2}\]
 \end{solution}
 \section{二阶可降阶微分方程}
 \subsection{$y''=f(x,y')$型}
@@ -140,7 +141,7 @@
     即$p=\dfrac{C_3}{x^3}$，故
     \[y=\int \dfrac{C_3}{x^3}\,\d x=-\dfrac{C_3}{2x^2}+C_2\]
     即通解为
-    \[y=\dfrac{C_1}{x^2}+C_2,\,C_1 = -\dfrac{C_3}{2}\]
+    \[\boxed{y=\dfrac{C_1}{x^2}+C_2},\,C_1 = -\dfrac{C_3}{2}\]
 \end{solution}
 \subsection{$y''=f(y,y')$型}
 记$y' = p$，则$y'' = \dfrac{\d p}{\d x} = \dfrac{\d p}{\d y} \cdot \dfrac{\d y}{\d x} = p \dfrac{\d p}{\d y}$.
@@ -159,7 +160,7 @@
     即
     \[y^2=x+C_2\]
     易得$C_2=1$，所求特解为
-    \[y=\sqrt{x+1}\]
+    \[\boxed{y=\sqrt{x+1}}\]
 \end{solution}
 \section{二阶常系数线性微分方程}
 \begin{theorem}[解的结构]
@@ -185,11 +186,11 @@
 \begin{solution}
     \begin{enumerate}[label=(\arabic*)]
         \item 特征方程$\lambda^2 - \lambda + \dfrac{1}{4} = 0$，有重根$\lambda_1 = \lambda_2 = \dfrac{1}{2}$，故通解为
-        \[y=(C_1 + C_2 x) e^{\frac{x}{2}}\]
+        \[\boxed{y=(C_1 + C_2 x) e^{\frac{x}{2}}}\]
         \item 特征方程$\lambda^2 - 2\lambda - 3 = 0$，有不等实根$\lambda_1=3, \lambda_2=-1$，故通解为
-        \[y=C_1 e^{3x} + C_2 e^{-x}\]
+        \[\boxed{y=C_1 e^{3x} + C_2 e^{-x}}\]
         \item 特征方程$\lambda^2 - 2\lambda + 5 = 0$，有共轭复根$\lambda_{1,2} = 1 \pm 2i$，故通解为
-        \[y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)\]
+        \[\boxed{y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)}\]
     \end{enumerate}
 \end{solution}
 \subsection{非齐次方程}
@@ -229,7 +230,7 @@
     将$y^*,y^{*'},y^{*''}$代入原方程得$A=\dfrac{1}{2}$，故非齐次特解为
     \[y^*=\dfrac{1}{2}x^2 e^{-2x}\]
     故所求通解为
-    \[y=(C_1+C_2 x)e^{-2x}+\dfrac{1}{2}x^2 e^{-2x}\]
+    \[\boxed{y=(C_1+C_2 x)e^{-2x}+\dfrac{1}{2}x^2 e^{-2x}}\]
 \end{solution}
 \begin{example}
     求微分方程$y''-2y'+5y=\dfrac{1}{2}e^{x}\cos 2x$的通解．
@@ -244,7 +245,7 @@
     将$y^*,y^{*'},y^{*''}$代入原方程得$A=0,B=\dfrac{1}{8}$，故非齐次特解为
     \[y^*=\dfrac{1}{8}xe^{x} \sin 2x\]
     故所求通解为
-    \[y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)+\dfrac{1}{8}xe^{x} \sin 2x\]
+    \[\boxed{y=e^{x}(C_1 \cos 2x + C_2 \sin 2x)+\dfrac{1}{8}xe^{x} \sin 2x}\]
 \end{solution}
 \section{高阶常系数线性齐次微分方程}
 \begin{definition}
@@ -267,7 +268,7 @@
 \end{example}
 \begin{solution}
     特征方程为$\lambda^4 - 2\lambda^3 + 5\lambda^2 = 0$，解得特征根$\lambda_1=\lambda_2=0,\lambda_{3,4}=1\pm 2i$，故通解为
-    \[y=C_1 + C_2 x + e^{x}(C_3 \cos 2x + C_4 \sin 2x)\]
+    \[\boxed{y=C_1 + C_2 x + e^{x}(C_3 \cos 2x + C_4 \sin 2x)}\]
 \end{solution}
 \section{欧拉方程}
 \begin{definition}
@@ -298,7 +299,7 @@
     特征方程$\lambda^2 + 3\lambda + 2 = 0$，有不等实根$\lambda_1 = -1, \lambda_2 = -2$，故通解为
     \[y = C_1 e^{-t} + C_2 e^{-2t}\]
     即
-    \[y = C_1 x^{-1} + C_2 x^{-2}\]
+    \[\boxed{y = C_1 x^{-1} + C_2 x^{-2}}\]
 \end{solution}
 \section{微分方程练习}
 \begin{exercise}
@@ -312,7 +313,7 @@
     即
     \[2 C_1 e^{x} + 5 C_2 e^{-2x} = 2 e^{x}\]
     故$C_1=1,C_2=0$，所求函数为
-    \[f(x) = e^{x}\]
+    \[\boxed{f(x) = e^{x}}\]
 \end{solution}
 \begin{exercise}
     求微分方程$\dfrac{\d y}{\d x}x\ln x\, \sin y +\cos y\,(1-x\cos y)=0$的通解．
@@ -327,7 +328,7 @@
     \end{array}
     \]
     于是通解为
-    \[(x+C)\cos y=\ln x\]
+    \[\boxed{(x+C)\cos y=\ln x}\]
 \end{solution}
 \begin{exercise}
     可导函数$f(x)$满足$f(x)\cos x+2\displaystyle\int_{0}^{2}f(t)\sin t\d t=x+1$，求$f(x)$.
@@ -341,7 +342,7 @@
         &=|\cos x|\left[\int \dfrac{\sec x}{|\cos x|}\d x+C\right]=\cos x(\tan x+C)
     \end{align*}
     代入$x=0$得$f(x)=1\Rightarrow C=1$，所求函数为
-    \[ f(x)=\cos x(\tan x+1) \]
+    \[\boxed{f(x)=\cos x(\tan x+1)}\]
 \end{solution}
 \begin{exercise}
     若$f(x)$在$[0,+\infty)$上是有界连续函数，证明：$y'+14y'+13y=f(x)$的每一个解在$[0,+\infty)$上都是有界的．
@@ -385,7 +386,7 @@
     即
     \[(W-1)^2=CU(W-2)^3,C=\pm e^{C'}\neq 0\]
     代入$W=\dfrac{V}{U},U=u+2,V=v+1,u=x^2,v=y^2$得通解为
-    \[C(y^2-2x^2-3)^3=(y^2 - x^2 -1)^2\]
+    \[\boxed{C(y^2-2x^2-3)^3=(y^2 - x^2 -1)^2}\]
 \end{solution}
 
 \begin{exercise}
@@ -410,7 +411,7 @@
         &= -\dfrac{1}{C_1} \left( \ln |\sec \theta + \tan \theta| - \sin \theta \right)
     \end{align*}
     故通解为
-    \[\sqrt{1-C_1^2y^2}-\ln\left|\dfrac{1+\sqrt{1-C_1^2y^2}}{C_1y}\right| = C_1x+C_2\]
+    \[\boxed{\sqrt{1-C_1^2y^2}-\ln\left|\dfrac{1+\sqrt{1-C_1^2y^2}}{C_1y}\right| = C_1x+C_2}\]
 \end{solution}
 \begin{exercise}
     敌方导弹A沿$y$轴正方向飞行，速度恒为$v$，经过点$(0,0)$时，我方导弹B从点$(16,0)$发射，速度恒为$2v$，且始终朝向敌方导弹A的当前位置．
@@ -433,8 +434,8 @@
     于是积分得
     \[y=\dfrac{1}{12}x^{\frac{3}{2}} - 4\sqrt{x} + C_2\]
     代入初值条件得$C_2=\dfrac{16}{3}$，故我方导弹B的飞行轨迹方程为
-    \[y=\dfrac{1}{12}x^{\frac{3}{2}} - 4\sqrt{x} + \dfrac{32}{3}\]
-    $x=0$时，$y=\dfrac{32}{3}$，即导弹A、B相遇时的坐标为$(0,\dfrac{32}{3})$.
+    \[\boxed{y=\dfrac{1}{12}x^{\frac{3}{2}} - 4\sqrt{x} + \dfrac{32}{3}}\]
+    $x=0$时，$y=\dfrac{32}{3}$，即导弹A、B相遇时的坐标为$\boxed{(0,\dfrac{32}{3})}$.
 \end{solution}
 \ifx\allfiles\undefined
 \end{document}

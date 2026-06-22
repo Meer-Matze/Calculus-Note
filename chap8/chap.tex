@@ -47,14 +47,14 @@
     由 $x=u$ 知 $\dfrac{\partial x}{\partial u} = 1$．
     由 $\dfrac{1}{y} = v + \dfrac{1}{u}$ 知 $-\dfrac{1}{y^2} \dfrac{\partial y}{\partial u} = -\dfrac{1}{u^2}$，即 $\dfrac{\partial y}{\partial u} = \dfrac{y^2}{u^2} = \dfrac{y^2}{x^2}$．
     
-    代入得：
+        代入得：
     \[ \frac{\partial z}{\partial u} = \frac{\partial z}{\partial x} \cdot 1 + \frac{\partial z}{\partial y} \cdot \frac{y^2}{x^2} = \frac{1}{x^2} \left( x^2 \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} \right) \]
     已知原方程 $x^2 \dfrac{\partial z}{\partial x} + y^2 \dfrac{\partial z}{\partial y} = 2z^2$，则：
     \[ \frac{\partial z}{\partial u} = \frac{2z^2}{x^2} \]
     代入 $\dfrac{\partial w}{\partial u}$ 的表达式：
     \[ \frac{\partial w}{\partial u} = -\frac{1}{z^2} \cdot \frac{2z^2}{x^2} + \frac{1}{x^2} = -\frac{2}{x^2} + \frac{1}{x^2} = -\frac{1}{x^2} \]
     当 $u=2, v=1$ 时，$x=u=2$，故：
-    \[ \frac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}} = -\frac{1}{2^2} = -\frac{1}{4} \]
+    \[ \boxed{\frac{\partial w}{\partial u}\Big|_{\substack{u=2\\v=1}} = -\frac{1}{4}} \]
 \end{solution}
 
 \begin{example}
@@ -65,7 +65,7 @@
     \[\frac{\d f(x,y)}{f(x,y)}= -\d x\Rightarrow f(x,y) = \varphi(y)e^{-x}\]
     依题意，得
     \[e^{\cot y} = \lim_{n\to\infty}\left[\frac{\varphi(y+\frac{1}{n})}{\varphi(y)}\right]^n =e^{\displaystyle\lim_{n\to\infty} \frac{\ln \varphi({y+\frac{1}{n}})-\ln \varphi(y)}{\frac{1}{n}}}= e^{\frac{\varphi'(y)}{\varphi(y)}}\Rightarrow \frac{\varphi'(y)}{\varphi(y)} = \cot y\]
-    解出$\varphi(y) = C\sin y$，又由$f(0,\frac{\pi}{2})=1$，得$C=1$，因此$f(x,y) = e^{-x}\sin y$．
+    解出$\varphi(y) = C\sin y$，又由$f(0,\frac{\pi}{2})=1$，得$C=1$，因此$\boxed{f(x,y) = e^{-x}\sin y}$．
 \end{solution}
 \subsection{变量替换求偏微分}
 \begin{theorem}
@@ -86,6 +86,8 @@
     \[\d x = e^u \cos v \d u - e^u \sin v \d v,\qquad\d y = e^u \sin v \d u + e^u \cos v \d v\]
     将 $\d z$ 表示为 $\d x$ 和 $\d y$ 的线性组合：
     \[\d z = \frac{v \cos v - u \sin v}{e^u} \d x + \frac{v \sin v + u \cos v}{e^u} \d y\]
+    因此：
+    \[ \frac{\partial z}{\partial x} = \boxed{\frac{v \cos v - u \sin v}{e^u}}, \quad \frac{\partial z}{\partial y} = \boxed{\frac{v \sin v + u \cos v}{e^u}} \]
 \end{solution}
 \begin{myRemark}
     或许有人会想可以利用$\pdv{u}{x}=\frac{1}{\pdv{x}{u}}$来求解，但这是不一定成立的．不妨从微分角度观察：\\
@@ -198,7 +200,7 @@
     代入点 $(1,1,0)$ 得：
     \[ F_x(1,1,0) = -1,\quad F_y(1,1,0) = -1,\quad F_z(1,1,0) = 2 \]
     根据隐函数求导公式：
-    \[ \frac{\partial z}{\partial x} = -\frac{F_x}{F_z} = -\frac{-1}{2} = \frac{1}{2},\quad \frac{\partial z}{\partial y} = -\frac{F_y}{F_z} = -\frac{-1}{2} = \frac{1}{2} \]
+    \[ \boxed{\frac{\partial z}{\partial x} = \frac{1}{2}},\quad \frac{\partial z}{\partial y} = \frac{1}{2} \]
     为了求二阶偏导数 $\dfrac{\partial^2 z}{\partial x \partial y}$，对恒等式 $F_x(x,y,z(x,y)) + F_z(x,y,z(x,y)) \dfrac{\partial z}{\partial x} = 0$ 两边关于 $y$ 求导（注意 $z$ 是 $x,y$ 的函数）：
     \[ \frac{\partial}{\partial y}[F_x(x,y,z)] + \frac{\partial}{\partial y}[F_z(x,y,z)] z_x + F_z z_{xy} = 0 \]
     根据复合函数链式法则 $\dfrac{\partial}{\partial y}[F_i(x,y,z)] = F_{iy} + F_{iz}z_y$，展开得：
@@ -207,18 +209,18 @@
     在点 $(1,1,0)$ 处具体值为：
     \[ F_{xy} = -1, \quad F_{xz} = e^{xz}(z+xz) \big|_{(1,1,0)} = 0, \quad F_{zy} = 0, \quad F_{zz} = 1^2 e^{0} = 1 \]
     代入上式及 $z_x = 1/2, z_y = 1/2$：
-    \[ (-1 + 0 \cdot \frac{1}{2}) + (0 + 1 \cdot \frac{1}{2})\frac{1}{2} + 2 z_{xy} = 0 \implies -1 + \frac{1}{4} + 2 z_{xy} = 0 \implies z_{xy} = \frac{3}{8} \]
+    \[ (-1 + 0 \cdot \frac{1}{2}) + (0 + 1 \cdot \frac{1}{2})\frac{1}{2} + 2 z_{xy} = 0 \implies -1 + \frac{1}{4} + 2 z_{xy} = 0 \implies \boxed{z_{xy} = \frac{3}{8}} \]
 
     (2) 点 $(1,1)$ 处的梯度为 $\nabla f(1,1) = \left( \frac{\partial z}{\partial x}, \frac{\partial z}{\partial y} \right) = \left( \frac{1}{2}, \frac{1}{2} \right)$．
     方向 $\bm{l} = (1, 2)$ 的单位向量为 $\bm{l}^0 = \frac{(1,2)}{\sqrt{1^2+2^2}} = \left( \frac{1}{\sqrt{5}}, \frac{2}{\sqrt{5}} \right)$．
     方向导数为：
-    \[ \frac{\partial f}{\partial \bm{l}} = \nabla f \cdot \bm{l}^0 = \frac{1}{2} \cdot \frac{1}{\sqrt{5}} + \frac{1}{2} \cdot \frac{2}{\sqrt{5}} = \frac{3}{2\sqrt{5}} = \frac{3\sqrt{5}}{10} \]
+    \[ \boxed{\frac{\partial f}{\partial \bm{l}} = \frac{3\sqrt{5}}{10}} \]
 
     (3) 函数下降最快的方向为梯度的反方向：
-    \[ -\nabla f(1,1) = \left( -\frac{1}{2}, -\frac{1}{2} \right) \]
+    \[ \boxed{-\nabla f(1,1) = \left( -\frac{1}{2}, -\frac{1}{2} \right)} \]
     对应的单位方向向量为 $\left( -\frac{\sqrt{2}}{2}, -\frac{\sqrt{2}}{2} \right)$．
     最大下降率为梯度的模长：
-    \[ |\nabla f(1,1)| = \sqrt{\left(\frac{1}{2}\right)^2 + \left(\frac{1}{2}\right)^2} = \frac{\sqrt{2}}{2} \]
+    \[ \boxed{|\nabla f(1,1)| = \frac{\sqrt{2}}{2}} \]
 \end{solution}
 
 \section{泰勒公式}
@@ -253,7 +255,7 @@
     \[6\left(\frac{\partial^2 z}{\partial u^2}+2\frac{\partial^2 z}{\partial u \partial v}+\frac{\partial^2 z}{\partial v^2}\right) + \left(-2\frac{\partial^2 z}{\partial u^2}+(a-2)\frac{\partial^2 z}{\partial u \partial v}+a\frac{\partial^2 z}{\partial v^2}\right) - \left(4\frac{\partial^2 z}{\partial u^2}-4a\frac{\partial^2 z}{\partial u \partial v}+a^2\frac{\partial^2 z}{\partial v^2}\right) = 0 \]
     整理得：
     \[ (10+5a)\frac{\partial^2z}{\partial u \partial v}+(6+a-a^2)\frac{\partial^2 z}{\partial v^2} = 0 \]
-    因此，需满足 $10 + 5a \neq 0$ 且 $6 + a - a^2 = 0$．解出 $a = 3$．
+    因此，需满足 $10 + 5a \neq 0$ 且 $6 + a - a^2 = 0$．解出 $\boxed{a = 3}$．
 \end{solution}
 \subsection{全微分}
 \begin{exercise}
@@ -266,7 +268,7 @@
     从而：
     \[ \d y = -\frac{y}{x} \d x, \quad \d z = \left( 1 - \frac{(x-z)e^x}{\sin(x-z)} \right) \d x \]
     因此：
-    \[ \frac{\d u}{\d x} = f_x + f_y \frac{\d y}{\d x} + f_z \frac{\d z}{\d x} = f_x - \frac{y}{x} f_y + \left[ 1 - \frac{(x-z)e^x}{\sin(x-z)} \right] f_z \]
+    \[ \boxed{\frac{\d u}{\d x} = f_x - \frac{y}{x} f_y + \left[ 1 - \frac{(x-z)e^x}{\sin(x-z)} \right] f_z} \]
 \end{solution}
 \subsection{综合性问题}
 \begin{exercise}
@@ -285,7 +287,7 @@
     (1) 函数 $f(x,y)$ 在 $(0,0)$ 处连续的定义为 $\lim\limits_{(x,y) \to (0,0)} f(x,y) = f(0,0) = 0$．\\
     引入极坐标 $x = r\cos\theta, y = r\sin\theta (r>0)$，则有
     \[ |f(x,y) - 0| = \left| \frac{|r^2\cos\theta\sin\theta|^\alpha}{r^3} \cos\frac{1}{r} \right| \le r^{2\alpha-3} |\cos\theta\sin\theta|^\alpha \le \frac{1}{2^\alpha} r^{2\alpha-3} \]
-    若要对任意 $\theta$ 均有 $\lim\limits_{r \to 0^+} |f| = 0$，由夹逼定理知需满足 $2\alpha - 3 > 0$，即 $\alpha > \dfrac{3}{2}$．
+    若要对任意 $\theta$ 均有 $\lim\limits_{r \to 0^+} |f| = 0$，由夹逼定理知需满足 $2\alpha - 3 > 0$，即 $\boxed{\alpha > \dfrac{3}{2}}$．
 
     (2) 函数在 $(0,0)$ 处可微的定义为：存在常数 $A, B$ 使得 $\Delta z - (A\Delta x + B\Delta y) = o(\rho)$．\\
     首先考察偏导数是否存在：
@@ -295,7 +297,7 @@
     \[ \lim_{(x,y) \to (0,0)} \frac{|f(x,y) - f(0,0) - (0 \cdot x + 0 \cdot y)|}{\sqrt{x^2+y^2}} = \lim_{r \to 0^+} \frac{|f(r\cos\theta, r\sin\theta)|}{r} \]
     代入得
     \[ 0 \le \frac{|f|}{r} = \left| \frac{r^{2\alpha}|\cos\theta\sin\theta|^\alpha \cos\frac{1}{r}}{r^4} \right| \le \frac{1}{2^\alpha} r^{2\alpha-4} \]
-    若要在此极限为 $0$，由夹逼定理知需满足 $2\alpha - 4 > 0$，即 $\alpha > 2$．
+    若要在此极限为 $0$，由夹逼定理知需满足 $2\alpha - 4 > 0$，即 $\boxed{\alpha > 2}$．
 
     (3) 函数在 $(0,0)$ 处偏导数连续，即满足 $\lim\limits_{(x,y) \to (0,0)} f'_x(x,y) = f'_x(0,0) = 0$（以 $f'_x$ 为例）．\\
     当 $(x,y) \ne (0,0)$ 时，记 $g(x,y) = |xy|^\alpha$，$h(x,y) = (x^2+y^2)^{-3/2}$，则 $f = g \cdot h \cdot \cos\frac{1}{r}$．\\
@@ -303,7 +305,7 @@
     \[ f'_x = (g'_x h + g h'_x) \cos\frac{1}{r} + g h \left( \sin\frac{1}{r} \cdot \frac{1}{r^2} \cdot \frac{x}{r} \right) \]
     其中阶数最低项（决定性项）为最后由 $\cos\frac{1}{r}$ 求导产生的项 $I = \dfrac{|xy|^\alpha \cdot x}{r^6} \sin\frac{1}{r}$．\\
     充分性：若 $\alpha > \dfrac{5}{2}$，则 $|I| \le \dfrac{r^{2\alpha} \cdot r}{r^6} = r^{2\alpha-5} \to 0 (r \to 0^+)$．其余项含 $r^{2\alpha-4}$ 等更高阶无穷小，故 $f'_x \to 0$．\\
-    必要性：若 $f'_x$ 在原点连续，则沿任何路径极限均为 $0$．取路径 $y=x > 0$，此时 $I = \dfrac{x^{2\alpha+1}}{(2x^2)^3} \sin\frac{1}{\sqrt{2}x} = \frac{1}{8} x^{2\alpha-5} \sin\frac{1}{\sqrt{2}x}$．若要此极限存在且为 $0$，必须满足 $2\alpha - 5 > 0$，即 $\alpha > \dfrac{5}{2}$．
+    必要性：若 $f'_x$ 在原点连续，则沿任何路径极限均为 $0$．取路径 $y=x > 0$，此时 $I = \dfrac{x^{2\alpha+1}}{(2x^2)^3} \sin\frac{1}{\sqrt{2}x} = \frac{1}{8} x^{2\alpha-5} \sin\frac{1}{\sqrt{2}x}$．若要此极限存在且为 $0$，必须满足 $2\alpha - 5 > 0$，即 $\boxed{\alpha > \dfrac{5}{2}}$．
 \end{solution}
 
 \begin{exercise}
@@ -332,7 +334,7 @@
     由于 $0 < \xi < x^2$，所以$0 < \dfrac{\xi}{x} < x$，因此 $\lim\limits_{x \to 0^+} \dfrac{\xi}{x} = 0$．
     而 $$\lim_{x \to 0^+} \frac{\sqrt{\xi^2 + x^2}}{x} = \lim_{x \to 0^+} \frac{o(\sqrt{\xi^2 + x^2})}{\sqrt{\xi^2 + x^2}} \cdot \frac{\sqrt{\xi^2 + x^2}}{x} = 0$$
     因此：
-    \[ L = -2 \]
+    \[ \boxed{L = -2} \]
     
 \end{solution}
 \begin{myRemark}

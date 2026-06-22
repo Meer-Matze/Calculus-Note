@@ -26,14 +26,14 @@
 \end{example}
 \begin{solution}
     记积分结果为$I$，注意到被积函数中的项$2xy$是关于$x$轴和$y$轴的奇函数，因此在椭圆$L$上积分为零．因此有
-    \[I = \oint_L (3x^2 + 4y^2) \d s = 12\oint_L \d s= 12a\]
+    \[I = \oint_L (3x^2 + 4y^2) \d s = 12\oint_L \d s= \boxed{12a}\]
 \end{solution}
 \begin{example}
     计算曲线积分 $\displaystyle\oint_L(x^2+y^2)\d s$，其中 $L$ 为球面$x^2+y^2+z^2=a^2$与平面$x+y+z=0$的交线．
 \end{example}
 \begin{solution}
     注意到被积表达式满足轮换对称，$L$同样满足轮换对称，因此有
-    \[\oint_L (x^2+y^2)\d s = \frac{2}{3}\oint_L (x^2+y^2+z^2) \d s = \frac{2}{3}a^2\oint_L \d s=\frac{4}{3}\pi a^2\]
+    \[\oint_L (x^2+y^2)\d s = \frac{2}{3}\oint_L (x^2+y^2+z^2) \d s = \frac{2}{3}a^2\oint_L \d s=\boxed{\frac{4}{3}\pi a^2}\]
 \end{solution}
 
 \section{第二类曲线积分}
@@ -63,7 +63,7 @@
     法一：
     \[\int_L xy \d x = \int_{\overset{\frown}{AO}} xy \d x + \int_{\overset{\frown}{OB}} xy \d x = \int_{1}^{0} -x\sqrt{x}\d x + \int_{0}^{1} x\sqrt{x} \d x = \frac{4}{5}\]
     法二：
-    \[\int_L xy \d x = \int_L y^2\cdot y\cdot 2y \d y = 2\int_{-1}^{1} y^4 \d y = \frac{4}{5}\]
+    \[\int_L xy \d x = \int_L y^2\cdot y\cdot 2y \d y = 2\int_{-1}^{1} y^4 \d y = \boxed{\frac{4}{5}}\]
 \end{solution}
 \begin{example}
     计算曲线积分 $\displaystyle\int_\Gamma x^3 \d x + 3zy^2 \d y - x^2y \d z$，其中 $\Gamma$ 是由点 $A(3,2,1)$ 沿直线到点 $B(0,0,0)$ 的有向线段．
@@ -78,7 +78,7 @@ z = t
     则\begin{align*}
         \int_\Gamma x^3 \d x + 3zy^2 \d y - x^2y \d z &= -\int_{\Gamma^-} x^3 \d x + 3zy^2 \d y - x^2y \d z \\
         &= -\int_0^1 (3t)^3(3) + 3t(2t)^2(2) - (3t)^2(2t)(1) \d t \\
-        &= -\int_0^1 81t^3 + 24t^3 - 18t^3 \d t = -\int_0^1 87t^3 \d t = -\frac{87}{4}
+        &= -\int_0^1 81t^3 + 24t^3 - 18t^3 \d t = -\int_0^1 87t^3 \d t = \boxed{-\frac{87}{4}}
     \end{align*}
 \end{solution}
 \section{格林公式}
@@ -99,6 +99,21 @@ z = t
     \end{itemize}
 \end{itemize}
 \begin{example}
+    $P(x,y), Q(x,y)$为定义在复（多）连通区域$G$上的可微函数，下列说法与另外三项不等价的是（~~~）
+    \begin{tasks}[style = itemize,label=\Alph*.](2)
+        \task 在$G$上有$\displaystyle\pdv{Q}{x}=\pdv{P}{y}$
+        \task $\displaystyle\int_L P\d x+Q\d y$与路径无关
+        \task $G$上存在函数$u(x,y)$，使得$\d u=P\d x+Q\d y$
+        \task 对于$G$上任意闭曲线$C$，有$\displaystyle\oint_C P\d x+Q\d y=0$
+    \end{tasks}
+\end{example}
+\begin{solution}
+    取
+    \[G=\R^2\backslash\{0,0\},\quad P=\frac{-y}{x^2+y^2},\quad Q=\frac{x}{x^2+y^2}\]
+    则$\displaystyle\pdv{Q}{x}=\pdv{P}{y}$，但$\displaystyle\oint_C P\d x+Q\d y=2\pi$（其中$C$为以原点为圆心的单位圆周），因此选项\boxed{\text{A}}与其他三项不等价．
+    事实上，只要$G$是单连通区域，选项A与其他三项等价．
+\end{solution}
+\begin{example}
     计算曲线积分 $\displaystyle\int_L x^2\d x+(y-x) \d y$，其中 $L$ 是$y=\sqrt{a^2-x^2}$，方向为逆时针．
 \end{example}
 \begin{solution}
@@ -106,7 +121,7 @@ z = t
     法二：取$L_1:y=0$，从$(-a,0)$到$(a,0)$，$D$为$L$和$L_1$围成的区域，则
     \[\oint_{L+L_1} x^2\d x+(y-x) \d y = \iint_D -1\d x \d y = -\frac{1}{2}\pi a^2\]
     注意到$\displaystyle\int_{L_1} x^2\d x+(y-x) \d y = \int_{-a}^{a} x^2 \d x = \frac{2}{3}a^3$，因此
-    \[\int_L x^2\d x+(y-x) \d y = -\frac{1}{2}\pi a^2 - \frac{2}{3}a^3\]
+    \[\int_L x^2\d x+(y-x) \d y = \boxed{-\frac{1}{2}\pi a^2 - \frac{2}{3}a^3}\]
 \end{solution}
 \begin{example}
     计算曲线积分 $I=\displaystyle\oint_L \dfrac{x\d y-y\d x}{4x^2+y^2}$，其中 $L$ 是以$(1,0)$为圆心，半径为$R$的圆周，方向为逆时针．
@@ -121,7 +136,7 @@ z = t
     \int_{L_1} \dfrac{x\d y-y\d x}{4x^2+y^2} = -\frac{1}{\varepsilon^2}\oint_{L_1^-} x\d y-y\d x
     = -\frac{1}{\varepsilon^2}\iint_{D_\varepsilon} 2\d \sigma = -\pi
     \]
-    因此\[\int_L \dfrac{x\d y-y\d x}{4x^2+y^2} = \pi\]
+    因此\[\int_L \dfrac{x\d y-y\d x}{4x^2+y^2} = \boxed{\pi}\]
 \end{solution}
 \section{第一类曲面积分}
 \begin{definition}[第一类曲面积分的定义]
@@ -147,7 +162,7 @@ z = t
     采用极坐标计算：
     \begin{align*}
         I &= a \int_0^{2\pi} \d\theta \int_0^{\sqrt{a^2-h^2}} \frac{r}{a^2-r^2} \d r = 2\pi a \left[ -\frac{1}{2} \ln(a^2-r^2) \right]_0^{\sqrt{a^2-h^2}} \\
-        &= \pi a \left( -\ln(h^2) + \ln(a^2) \right) = 2\pi a \ln\frac{a}{h}
+        = \pi a \left( -\ln(h^2) + \ln(a^2) \right) = \boxed{2\pi a \ln\frac{a}{h}}
     \end{align*}
 \end{solution}
 \begin{example}
@@ -162,7 +177,7 @@ z = t
         &= \sqrt{3} \int_0^1 x \left[ \frac{1}{2}(1-x)y^2 - \frac{1}{3}y^3 \right]_0^{1-x} \d x = \frac{\sqrt{3}}{6} \int_0^1 x(1-x)^3 \d x 
     \end{align*}
     令 $u=1-x$，则：
-    \[ I = \frac{\sqrt{3}}{6} \int_0^1 (1-u)u^3 \d u = \frac{\sqrt{3}}{6} \left( \frac{1}{4} - \frac{1}{5} \right) = \frac{\sqrt{3}}{120} \]
+    \[ I = \frac{\sqrt{3}}{6} \int_0^1 (1-u)u^3 \d u = \frac{\sqrt{3}}{6} \left( \frac{1}{4} - \frac{1}{5} \right) = \boxed{\frac{\sqrt{3}}{120}} \]
 \end{solution}
 \begin{example}
     计算曲面积分 $I = \displaystyle\oiint_\Sigma (x^2+y^2+yz)\d S$，其中 $\Sigma$ 为球面 $x^2+y^2+z^2=R^2$ ．
@@ -175,7 +190,7 @@ z = t
     \[ \oiint_\Sigma x^2 \d S = \oiint_\Sigma y^2 \d S = \oiint_\Sigma z^2 \d S = \frac{1}{3} \oiint_\Sigma (x^2+y^2+z^2) \d S \]
     而在原球面方程中，恒有 $x^2+y^2+z^2=R^2$，且球的表面积为 $4\pi R^2$，所以：
     \[ \oiint_\Sigma (x^2+y^2) \d S = \frac{2}{3} \oiint_\Sigma (x^2+y^2+z^2) \d S = \frac{2}{3} \oiint_\Sigma R^2 \d S = \frac{2}{3} R^2 \times 4\pi R^2 = \frac{8}{3}\pi R^4 \]
-    综上得出，原积分为 $I = \frac{8}{3}\pi R^4$．
+    综上得出，原积分为 $\boxed{I = \frac{8}{3}\pi R^4}$．
 \end{solution}
 
 \section{第二类曲面积分}
@@ -203,7 +218,7 @@ z = t
     \begin{align*}
         I &= \int_0^{\pi/2} \d \phi \int_0^\pi \d \theta \int_0^a (r\sin\theta\cos\phi)\cdot(r\sin\theta\sin\phi) \cdot r^2\sin\theta \d r \\
           &= \int_0^{\pi/2} \sin\phi\cos\phi \d \phi \int_0^\pi \sin^3\theta \d \theta \int_0^a r^4 \d r \\
-          &= \left[\frac{1}{2}\sin^2\phi\right]_0^{\pi/2} \cdot \left[ \frac{1}{3}\cos^3\theta - \cos\theta \right]_0^\pi \cdot \left[\frac{a^5}{5}\right] = \frac{1}{2} \cdot \frac{4}{3} \cdot \frac{a^5}{5} = \frac{2a^5}{15}
+          &= \left[\frac{1}{2}\sin^2\phi\right]_0^{\pi/2} \cdot \left[ \frac{1}{3}\cos^3\theta - \cos\theta \right]_0^\pi \cdot \left[\frac{a^5}{5}\right] = \frac{1}{2} \cdot \frac{4}{3} \cdot \frac{a^5}{5} = \boxed{\frac{2a^5}{15}}
     \end{align*}
 
     \textbf{法二：分面投影法}．
@@ -219,7 +234,7 @@ z = t
     令 $t = a^2-r^2$，则 $r^2 = a^2-t$ 且 $r \d r = -\frac{1}{2} \d t$：
     \begin{align*}
         \int_0^a r^2 \cdot r\sqrt{a^2-r^2} \d r &= \int_{a^2}^0 (a^2-t)\sqrt{t} \left(-\frac{1}{2}\right) \d t = \frac{1}{2} \int_0^{a^2} (a^2 t^{1/2} - t^{3/2}) \d t \\
-        &= \frac{1}{2} \left[ \frac{2}{3}a^2 t^{3/2} - \frac{2}{5} t^{5/2} \right]_0^{a^2} = \frac{1}{2} a^5 \left(\frac{2}{3} - \frac{2}{5}\right) = \frac{2a^5}{15}
+        &= \frac{1}{2} \left[ \frac{2}{3}a^2 t^{3/2} - \frac{2}{5} t^{5/2} \right]_0^{a^2} = \frac{1}{2} a^5 \left(\frac{2}{3} - \frac{2}{5}\right) = \boxed{\frac{2a^5}{15}}
     \end{align*}
 \end{solution}
 
@@ -236,7 +251,7 @@ z = t
     由对称性，含有奇次幂项 $x z^2$ 的积分为 0，而 $\iint_D x^2 \d x \d y = \iint_D y^2 \d x \d y = \frac{1}{2} \iint_D (x^2+y^2) \d x \d y$．
     \begin{align*}
         I &= \iint_D \left( \frac{1}{2} (x^2+y^2) + \frac{1}{2}(x^2+y^2) \right) \d x \d y = \iint_D (x^2+y^2) \d x \d y \\
-        &= \int_0^{2\pi} \d\theta \int_0^2 r^3 \d r = 2\pi \cdot \frac{16}{4} = 8\pi
+        &= \int_0^{2\pi} \d\theta \int_0^2 r^3 \d r = 2\pi \cdot \frac{16}{4} = \boxed{8\pi}
     \end{align*}
 \end{solution}
 \begin{example}
@@ -253,7 +268,7 @@ z = t
     \end{align*}
     由于在曲面上 $z^2 = x^2+y^2$，代入上式得 integrand $= \frac{1}{z} (0 \cdot f(xy) + 2z^2 - z^2) = z$．
     非常巧妙地，未知函数 $f(xy)$ 被全部消去！
-    \[ I = \iint_D z \d x \d y = \iint_D \sqrt{x^2+y^2} \d x \d y = \int_0^{2\pi} \d\theta \int_1^2 r^2 \d r = 2\pi \left( \frac{8}{3} - \frac{1}{3} \right) = \frac{14\pi}{3} \]
+    \[ I = \iint_D z \d x \d y = \iint_D \sqrt{x^2+y^2} \d x \d y = \int_0^{2\pi} \d\theta \int_1^2 r^2 \d r = 2\pi \left( \frac{8}{3} - \frac{1}{3} \right) = \boxed{\frac{14\pi}{3}} \]
 \end{solution}
 \section{高斯公式}
 \begin{theorem}[Gauss's Theorem]
@@ -276,7 +291,7 @@ z = t
     \end{align*}
     再单独计算顶盖 $\Sigma_1$ 上的通量，由于取上侧，其法向量只在 $z$ 方向且为正，积分为对 $\d x\d y$ 的重积分，而在该面上 $z=h$：
     \[ I_1 = \iint_{\Sigma_1} h^2 \d x \d y = h^2 \cdot \pi h^2 = \pi h^4 \]
-    故所求积分为：$I = I_{\Omega} - I_1 = \frac{\pi h^4}{2} - \pi h^4 = -\frac{\pi h^4}{2}$．
+    故所求积分为：$I = I_{\Omega} - I_1 = \frac{\pi h^4}{2} - \pi h^4 = \boxed{-\frac{\pi h^4}{2}}$．
 \end{solution}
 \begin{example}
     计算曲面积分\[I=\oiint_\Sigma \frac{x\d y\d z+y\d z\d x+z\d x\d y}{\left(x^2+y^2+z^2\right)^{\frac{3}{2}}}\]
@@ -290,7 +305,7 @@ z = t
     因此原积分等于在足够小球面 $\Sigma_{\varepsilon}$ 上的积分：
     \[ I = \oiint_{\Sigma_{\varepsilon}} \frac{x\d y\d z+y\d z\d x+z\d x\d y}{\varepsilon^3} \]
     可以直接对球使用高斯公式将其化为球体体积的偏导积分，或者利用方向余弦直接求解．这里用高斯公式计算：
-    \[ I = \frac{1}{\varepsilon^3} \iiint_{x^2+y^2+z^2 \le \varepsilon^2} (1+1+1) \d V = \frac{3}{\varepsilon^3} \cdot \frac{4}{3}\pi\varepsilon^3 = 4\pi \]
+    \[ I = \frac{1}{\varepsilon^3} \iiint_{x^2+y^2+z^2 \le \varepsilon^2} (1+1+1) \d V = \frac{3}{\varepsilon^3} \cdot \frac{4}{3}\pi\varepsilon^3 = \boxed{4\pi} \]
 \end{solution}
 \section{斯托克斯公式}
 \begin{theorem}[Stokes' Theorem]
@@ -312,10 +327,10 @@ z = t
     法一：取$\Sigma$为$\Gamma$在$x+z=a$上包围的部分，方向取外侧，同时，$x+z=a$上的单位法向量为$\bm{n} = (\frac{1}{\sqrt{2}},0,\frac{1}{\sqrt{2}})$，满足斯托克斯公式的条件，因此
     \begin{align*}
         I &= \iint_\Sigma \begin{vmatrix} \frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}} \\ \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\ y & z & x \end{vmatrix}\d S \\
-        &= -\sqrt{2}\iint_\Sigma -1 \d y \d z = -\sqrt{2}\pi a^2
+        &= -\sqrt{2}\iint_\Sigma -1 \d y \d z = \boxed{-\sqrt{2}\pi a^2}
     \end{align*}
     法二：设$\Gamma$在$xOy$平面上的投影为$L:2x^2+y^2=a^2$，包围区域$D$，又$\d z=-\d x$，因此
-    \[I=\oint_\Gamma y\d x + z\d y + x\d z = \oint_L y\d x + (a-x)\d y - x\d x = \iint_D -2\d \sigma=-\sqrt{2}\pi a^2\]
+    \[I=\oint_\Gamma y\d x + z\d y + x\d z = \oint_L y\d x + (a-x)\d y - x\d x = \iint_D -2\d \sigma=\boxed{-\sqrt{2}\pi a^2}\]
 
 \end{solution}
 \begin{myRemark}
@@ -342,7 +357,7 @@ z = t
     计算向量场 $\bm{A} = yz \bm{j}+z^2\bm{k}$的散度． 
 \end{example}
 \begin{solution}
-    $\text{div} \bm{A} = \frac{\partial 0}{\partial x} + \frac{\partial (yz)}{\partial y} + \frac{\partial (z^2)}{\partial z} = z + 2z = 3z$
+    $\text{div} \bm{A} = \frac{\partial 0}{\partial x} + \frac{\partial (yz)}{\partial y} + \frac{\partial (z^2)}{\partial z} = z + 2z = \boxed{3z}$
 \end{solution}
 \subsection{旋度 (Curl)}
 \begin{definition}
@@ -393,7 +408,7 @@ z = t
         &= \iint_D \left[ 4 - \frac{4y}{z} \right] \d x\d y
     \end{align*}
     由于积分区域$D$关于$x$轴对称，且$z(x,y)$是偶函数，所以$\iint_D \frac{4y}{z} \d x\d y = 0$．
-    故 $I = \iint_D 4 \d x\d y = 4 \times \pi \cdot 1^2 = 4\pi$．
+    故 $I = \iint_D 4 \d x\d y = 4 \times \pi \cdot 1^2 = \boxed{4\pi}$．
 \end{solution}
 \begin{exercise}
     计算积分$\displaystyle\int_{\wideparen{AOB}}(12xy+e^y)\d x-(\cos y-xe^y)\d y$，其中$\wideparen{AOB}$为由点$A(-1,1)$沿曲线$y=x^2$至到点$O(0,0)$，再沿直线$y=0$到点$B(1,0)$的路径．
@@ -411,7 +426,7 @@ z = t
     在 $\overline{OB}$ 段，曲线方程为 $y=0$，从 $x=0$ 到 $x=1$．此时 $\d y = 0, y=0$：
     \[ \int_{\overline{OB}} 12xy \d x - \cos y \d y = \int_0^1 0 \d x = 0 \]
     故 $I_2 = \sin 1 - 3 + 0 = \sin 1 - 3$．
-    所以原积分 $I = I_1 + I_2 = e + \sin 1 - 2$．
+    所以原积分 $I = I_1 + I_2 = \boxed{e + \sin 1 - 2}$．
 \end{solution}
 \begin{exercise}
     设$f(-1)=1$，试求可微函数$f(x)$，使曲线积分$\displaystyle\oint_L \frac{y}{x}[\sin x-f(x)]\d x+[f(x)-x^2]\d y$在半平面$D=\{(x,y)|x<0\}$内与积分路径无关，并计算从点$(-\frac{3\pi}{2},\pi)$到点$(-\frac{\pi}{2},0)$的积分值．
@@ -436,7 +451,7 @@ z = t
         &= -\pi \left[ \left( \frac{2}{3}\left(-\frac{3\pi}{2}\right)^2 - 0 + \frac{2C}{-3\pi} \right) - \frac{9\pi^2}{4} \right] \\
         &= -\pi \left[ \frac{3\pi^2}{2} - \frac{2C}{3\pi} - \frac{9\pi^2}{4} \right] \\
         &= -\pi \left[ -\frac{3\pi^2}{4} - \frac{2C}{3\pi} \right] \\
-        &= \frac{3\pi^3}{4} + \frac{2}{3}C = \frac{3\pi^3}{4} + \frac{2}{3}\cos 1 - \frac{2}{9}
+        &= \frac{3\pi^3}{4} + \frac{2}{3}C = \boxed{\frac{3\pi^3}{4} + \frac{2}{3}\cos 1 - \frac{2}{9}}
     \end{align*}
 \end{solution}
 \begin{exercise}
@@ -451,7 +466,7 @@ z = t
     \end{align*}
     将$y=x^2, \d y=2x\d x$代入，且$x$从$0$变到$1$：
     \begin{align*}
-        \int_L \pdv{u}{\bm{n}}\d s &= \int_0^1 \left[ (2x-x^2)2x - (2x^2-x) \right] \d x = \int_0^1 (-2x^3 + 2x^2 + x) \d x = \frac{2}{3}
+        \int_L \pdv{u}{\bm{n}}\d s &= \int_0^1 \left[ (2x-x^2)2x - (2x^2-x) \right] \d x = \int_0^1 (-2x^3 + 2x^2 + x) \d x = \boxed{\frac{2}{3}}
     \end{align*}
 \end{solution}
 \begin{exercise}
@@ -500,7 +515,7 @@ z = t
     由于曲面具有均匀面密度，$\Sigma$的面积为$S=\frac{1}{8}\times 4\pi a^2 = \frac{\pi a^2}{2}$．重心坐标$(\bar{x},\bar{y},\bar{z})$由公式给出的推导：
     \[\bar{z}=\frac{\iint_\Sigma z\d S}{\iint_\Sigma \d S}=\frac{2}{\pi a^2}\iint_D \frac{az}{\sqrt{a^2-x^2-y^2}}\d x\d y = \frac{2a}{\pi a^2}\iint_D \d x\d y\]
     区域$D$为$x^2+y^2 \le a^2\;(x,y\ge 0)$，其面积为$\frac{\pi a^2}{4}$，故$\bar{z} = \frac{2a}{\pi a^2} \cdot \frac{\pi a^2}{4} = \frac{a}{2}$．
-    由对称性，得\[\bar{x}=\bar{y}=\bar{z}=\frac{a}{2}\]
+    由对称性，得\[\boxed{\bar{x}=\bar{y}=\bar{z}=\frac{a}{2}}\]
 \end{solution}
 \begin{exercise}
     计算曲面积分$\displaystyle\iint_\Sigma x^2y^2z \d x\d y$，其中$\Sigma$为球面$x^2+y^2+z^2=R^2$的下半部分的下侧．
@@ -525,7 +540,7 @@ z = t
         &= R^7 \int_0^{\frac{\pi}{2}} (\sin^5 t - \sin^7 t) \d t
     \end{align*}
     利用 Wallis 公式：
-    \[ I = \frac{\pi}{4} R^7 \left( \frac{4 \cdot 2}{5 \cdot 3 \cdot 1} - \frac{6 \cdot 4 \cdot 2}{7 \cdot 5 \cdot 3 \cdot 1} \right) = \frac{\pi}{4} R^7 \left( \frac{8}{15} - \frac{16}{35} \right) = \frac{\pi}{4} R^7 \cdot \frac{8}{105} = \frac{2}{105}\pi R^7 \]
+    \[ I = \frac{\pi}{4} R^7 \left( \frac{4 \cdot 2}{5 \cdot 3 \cdot 1} - \frac{6 \cdot 4 \cdot 2}{7 \cdot 5 \cdot 3 \cdot 1} \right) = \frac{\pi}{4} R^7 \left( \frac{8}{15} - \frac{16}{35} \right) = \frac{\pi}{4} R^7 \cdot \frac{8}{105} = \boxed{\frac{2}{105}\pi R^7} \]
 \end{solution}
 \begin{exercise}
     计算曲面积分$\displaystyle\iint_\Sigma \frac{2\d y\d z}{x\cos^2x}+\frac{\d z\d x}{\cos^2y}-\frac{\d x\d y}{z\cos^2z}$，其中$\Sigma$为球面$x^2+y^2+z^2=1$的外侧．
@@ -548,7 +563,7 @@ z = t
         = \int_{-1}^{1} \frac{1}{\sqrt{1-u^2}} \d u = \pi \]
     （令 $u = \dfrac{y}{\sqrt{1-x^2}}$）．故
     \[ A = 2 \int_{-1}^{1} \frac{1}{\cos^2x} \cdot \pi \d x = 2\pi \int_{-1}^{1} \sec^2x \d x = 2\pi [\tan x]_{-1}^{1} = 4\pi \tan 1 \]
-    因此原曲面积分 $I = 4\pi \tan 1$．
+    因此原曲面积分 $I = \boxed{4\pi \tan 1}$．
 \end{solution}
 \ifx\allfiles\undefined
 \end{document}

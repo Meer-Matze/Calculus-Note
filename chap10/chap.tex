@@ -49,7 +49,7 @@ y = x - 2
 \int_{-1}^{2} y\d y\left[\frac{1}{2}x^2\right]_{y^2}^{y+2} \\
 &=\frac{1}{2} \int_{-1}^{2} y\left( y^2 + 4y + 4 - y^4 \right) \d y \\
 &=\frac{1}{2} \left[ -\frac{1}{6}y^6 + \frac{1}{4}y^4 + \frac{4}{3}y^3 +2y^2 \right]_{-1}^{2} \\
-&=\frac{45}{8}
+&=\boxed{\frac{45}{8}}
 \end{align*}
 \end{solution}
 \begin{example}
@@ -70,7 +70,7 @@ y = x - 2
     = \frac{1}{3} \int_0^1 y^3 e^{-y^2} \d y 
     = \frac{1}{6} \int_0^1 y^2e^{-y^2} \d (y^2) 
     = -\frac{1}{6} \left[ (y^2 + 1)e^{-y^2} \right]_0^1 \\
-    &= \frac{1}{6} - \frac{1}{3e}
+    &= \boxed{\frac{1}{6} - \frac{1}{3e}}
 \end{align*}
 \end{solution}
 \begin{example}
@@ -95,7 +95,7 @@ D_1 = \{(x,y)|0 \le x \le 2, 0 \le y \le 2, xy \le 1\} \quad \text{和} \quad D_
     &= \int_\frac{1}{2}^2 x\d x \int_\frac{1}{x}^{2} y \, \d y + 4 -\int_\frac{1}{2}^2 \d x \int_\frac{1}{x}^2  \, \d y \\
     &= \int_{\frac{1}{2}}^{2} x\left(2-\frac{1}{2x^2} \right) \d x + 4 - \int_{\frac{1}{2}}^{2} \left( 2- \frac{1}{x} \right) \d x\\
     &= \left[ x^2 - \frac{1}{2} \ln x \right]_{\frac{1}{2}}^{2} + 4 - 3 + \ln x\Big|_{\frac{1}{2}}^{2} \\
-    &= \frac{19}{4} + \ln 2
+    &= \boxed{\frac{19}{4} + \ln 2}
 \end{align*}
 \end{solution}
 \section{三重积分}
@@ -120,7 +120,7 @@ z = 0
 \begin{align*}
     I &= \iiint_\Omega x \d V = \iint_{D_{xy}}x \d x\d y \int_0^{1-x-2y}  \d z = \iint_{D_{xy}} x(1-x-2y) \d x\d y \\
       &= \int_{0}^{1} x\d x \int_0^{\frac{1-x}{2}} (1-x-2y) \d y = \int_0^1 x\left[ (1-x)\cdot\frac{1-x}{2} - \left(\frac{1-x}{2}\right)^2\right] \d x\\
-      &= \int_{0}^{1} x \cdot \frac{(1-x)^2}{4} \d x = \frac{1}{48}
+      &= \int_{0}^{1} x \cdot \frac{(1-x)^2}{4} \d x = \boxed{\frac{1}{48}}
 \end{align*}
 \end{solution}
 \subsection{截面法}
@@ -151,7 +151,7 @@ z = 0
         I = \int_{-c}^{c}z^2 \d z\iint_{D_z} \d x \d y
 \]
 注意到$D_z$为椭圆区域$\dfrac{x^2}{a^2(1-\frac{z^2}{c^2})}+\dfrac{y^2}{b^2(1-\frac{z^2}{c^2})}=1$，因此其面积为$\pi ab(1-\frac{z^2}{c^2})$．于是有
-\[ I = \pi ab\int_{-c}^{c}(1-\frac{z^2}{c^2})z^2\d z = \frac{4}{15}\pi abc^3\]
+\[ I = \pi ab\int_{-c}^{c}(1-\frac{z^2}{c^2})z^2\d z = \boxed{\frac{4}{15}\pi abc^3}\]
 \end{solution}
 \begin{example}
     计算积分 $\displaystyle\iiint_\Omega z \d V$，其中 $\Omega$ 是抛物面 $z=x^2+y^2$ 与平面 $z=4$ 围成的区域．
@@ -172,12 +172,12 @@ z = 0
     \end{tikzpicture}
     \end{center}
     法一：投影法\\
-    \[ I = \iint_{D_{xy}} \d x\d y \int_{x^2+y^2}^{4} z \d z = \iint_{D_{r\theta}} r\d r\d \theta \int_{r^2}^{4} z \d z = \pi \int_0^2 (16 - r^4)r \d r =  \frac{64}{3}\pi \]
+    \[ I = \iint_{D_{xy}} \d x\d y \int_{x^2+y^2}^{4} z \d z = \iint_{D_{r\theta}} r\d r\d \theta \int_{r^2}^{4} z \d z = \pi \int_0^2 (16 - r^4)r \d r =  \boxed{\frac{64}{3}\pi} \]
     法二：截面法\\
     立体 $\Omega$ 在 $z$ 轴上的投影区间为 $[0, 4]$．对于任意固定的 $z \in [0, 4]$，水平面 $z$ 与 $\Omega$ 所截得的区域 $D_z$ 为圆区域：
     \[ D_z = \{(x,y) \mid x^2 + y^2 \le z\} \]
     其面积为 $S(z) = \pi (\sqrt{z})^2 = \pi z$．于是有：
-    \[ I = \int_0^4 z \d z \iint_{D_z} \d x \d y = \int_0^4 z \cdot S(z) \d z = \int_0^4 \pi z^2 \d z = \frac{64\pi}{3} \]
+    \[ I = \int_0^4 z \d z \iint_{D_z} \d x \d y = \int_0^4 z \cdot S(z) \d z = \int_0^4 \pi z^2 \d z = \boxed{\frac{64\pi}{3}} \]
 \end{solution}
 \section{重积分的对称性}
 \subsection{普通对称性（奇偶性）}
@@ -195,7 +195,7 @@ z = 0
 \begin{solution}
     \sout{圆神!启动！}\\
     换用极坐标，其中被积表达式中的第二项是关于$x$的奇函数，且区域 $D$ 关于 $y$ 轴对称，因此在圆盘$D$上积分为零．因此有
-\[I = \iint_D e^{-x^2-y^2} \d x \d y = \int_0^{2\pi} \d \theta\int_0^a e^{-r^2}\cdot r \d r  = \pi (1 - e^{-a^2})\]
+\[ I = \iint_D e^{-x^2-y^2} \d x \d y = \int_0^{2\pi} \d \theta\int_0^a e^{-r^2}\cdot r \d r  = \boxed{\pi (1 - e^{-a^2})}\]
 \end{solution}
 
 \begin{example}
@@ -229,7 +229,7 @@ y = -3x
 
 其中$D_1$和$D_2$由直线 $y=3x$ 分开，于是二重积分可以写成：
 \[ I=\iint_{D_1} y\ln(x+\sqrt{1+x^2})\d x \d y + \iint_{D_2} y\ln(x+\sqrt{1+x^2})\d x \d y\]
-容易发现，$D_1$ 关于$y$轴对称，且被积函数是$x$的奇函数，因此$\iint_{D_1} y\ln(x+\sqrt{1+x^2})\d x \d y=0$．$D_2$ 关于$x$轴对称，且被积函数是$y$的奇函数，因此$\iint_{D_2} y\ln(x+\sqrt{1+x^2})\d x \d y=0$．综上所述，$I=0$．
+容易发现，$D_1$ 关于$y$轴对称，且被积函数是$x$的奇函数，因此$\iint_{D_1} y\ln(x+\sqrt{1+x^2})\d x \d y=0$．$D_2$ 关于$x$轴对称，且被积函数是$y$的奇函数，因此$\iint_{D_2} y\ln(x+\sqrt{1+x^2})\d x \d y=0$．综上所述，$\boxed{I=0}$．
 \end{solution}
 
 \subsection{轮换对称性}
@@ -248,7 +248,7 @@ y = -3x
 \end{example}
 \begin{solution}
     注意到积分区域$D$关于$y=x$对称，且被积函数满足轮换对称，记$g(x,y)=\dfrac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqrt{f(x)}+\sqrt{f(y)}}$，因此有
-    \[ I = \frac{1}{2}\iint_D \left[ g(x,y) + g(y,x) \right] \d x \d y = \frac{1}{2}\iint_D (a+b) \d x \d y = \frac{a+b}{2}\pi\]
+    \[ I = \frac{1}{2}\iint_D \left[ g(x,y) + g(y,x) \right] \d x \d y = \frac{1}{2}\iint_D (a+b) \d x \d y = \boxed{\frac{a+b}{2}\pi} \]
 \end{solution}
 
 \begin{example}
@@ -260,7 +260,7 @@ y = -3x
     因此
     \[ I = \iiint_\Omega z^2\d V = \frac{1}{3}\iiint_\Omega (x^2+y^2+z^2) \d V\]
     利用球坐标计算（或直接利用体积结果）：
-    \[ I = \frac{1}{3} \int_0^{2\pi} \d\phi \int_0^\pi \sin\theta \d\theta \int_0^1 r^2 \cdot r^2 \d r = \frac{1}{3} \cdot 4\pi \cdot \frac{1}{5} = \frac{4\pi}{15}\]
+    \[ I = \frac{1}{3} \int_0^{2\pi} \d\phi \int_0^\pi \sin\theta \d\theta \int_0^1 r^2 \cdot r^2 \d r = \frac{1}{3} \cdot 4\pi \cdot \frac{1}{5} = \boxed{\frac{4\pi}{15}}\]
 \end{solution}
 \section{重积分的导数}
 \begin{theorem}[雷诺传输定理（Reynolds Transport Theorem）]
@@ -474,14 +474,14 @@ $\displaystyle\pdv{}{\phi}$ & $\sin\theta \bm{\hat{\phi}}$ & $\cos\theta \bm{\ha
     \[ I = \int_0^1 F'(y) F(y) \d y = \left[ \frac{1}{2} F^2(y) \right]_0^1 = \frac{1}{2} \left[ \int_0^1 f(x) \d x \right]^2 \]
     设 $S = \displaystyle\int_0^1 f(x) \d x$，代入原式得：
     \[ S = \frac{1}{2} + \frac{1}{2} S^2 \implies S^2 - 2S + 1 = 0 \implies (S-1)^2 = 0 \]
-    解得 $S = 1$．
+    解得 $\boxed{S = 1}$．
 \end{solution}
 \begin{exercise}
     计算极限 $\displaystyle\lim_{r \to 0} \frac{1}{\pi r^2} \iint_{x^2+y^2 \le r^2} e^{x^2-y^2} \cos (x+y) \d x \d y$．
 \end{exercise}
 \begin{solution}
     由积分中值定理知
-    \[I=\lim_{r\to 0}\frac{e^{\xi^2-\eta^2}\cos(\xi+\eta)\cdot\pi r^2}{\pi r^2}=\lim_{\substack{\xi\to 0\\\eta\to 0}} e^{\xi^2-\eta^2}\cos(\xi+\eta) = 1 \]
+    \[I=\lim_{r\to 0}\frac{e^{\xi^2-\eta^2}\cos(\xi+\eta)\cdot\pi r^2}{\pi r^2}=\lim_{\substack{\xi\to 0\\\eta\to 0}} e^{\xi^2-\eta^2}\cos(\xi+\eta) = \boxed{1} \]
     其中 $(\xi, \eta)\in D$．
 \end{solution}
 
@@ -500,7 +500,7 @@ $\displaystyle\pdv{}{\phi}$ & $\sin\theta \bm{\hat{\phi}}$ & $\cos\theta \bm{\ha
 &= 2\pi \int_0^{\frac{\pi}{4}} \cos^3\phi \sin\phi \left[ \frac{\rho^6}{6} \right]_0^{2\cos\phi} \d\phi \\
 &= 2\pi \int_0^{\frac{\pi}{4}} \frac{32}{3}\cos^9\phi \sin\phi \d\phi \\
 &= \frac{64\pi}{3} \left[ -\frac{\cos^{10}\phi}{10} \right]_0^{\frac{\pi}{4}} 
-= \frac{32\pi}{15} \left( 1 - \frac{1}{32} \right) = \frac{31\pi}{15}
+= \frac{32\pi}{15} \left( 1 - \frac{1}{32} \right) = \boxed{\frac{31\pi}{15}}
 \end{align*}
 \end{solution}
 
@@ -526,7 +526,7 @@ I &= \int_0^{\frac{\pi}{2}} \d x \int_0^x y \d y \int_0^{\frac{\pi}{2}-x} \cos(x
 &= 2 \left( \frac{\pi}{2} - [-\cos x]_0^{\frac{\pi}{2}} \right) = \pi - 2
 \end{align*}
 综上所述：
-\[ I = \frac{\pi^3}{48} - \frac{\pi - 2}{2} = \frac{\pi^3}{48} - \frac{\pi}{2} + 1 \]
+\[ I = \frac{\pi^3}{48} - \frac{\pi - 2}{2} = \boxed{\frac{\pi^3}{48} - \frac{\pi}{2} + 1} \]
 \end{solution}
 
 \begin{exercise}
@@ -542,7 +542,7 @@ I &= \int_0^{\frac{\pi}{2}} \d x \int_0^x y \d y \int_0^{\frac{\pi}{2}-x} \cos(x
 \begin{align*}
 I &= \int_0^{2\pi} \d\phi \int_0^\pi \sin\theta \d\theta \int_0^R r^2 \cdot r^2 \d r \\
   &= 2\pi \cdot \left[ -\cos\theta \right]_0^\pi \cdot \left[ \frac{r^5}{5} \right]_0^R \\
-  &= 2\pi \cdot 2 \cdot \frac{R^5}{5} = \frac{4\pi R^5}{5}
+  &= 2\pi \cdot 2 \cdot \frac{R^5}{5} = \boxed{\frac{4\pi R^5}{5}}
 \end{align*}
 \end{solution}
 
@@ -575,7 +575,7 @@ I = \iiint_\Omega z^2 \d V &= \int_0^{\frac{R}{2}} z^2 \cdot \pi(2Rz - z^2) \d z
 &= \pi \left( \frac{2}{15} - \frac{17}{480} \right) R^5 = \pi \left( \frac{64 - 17}{480} \right) R^5 = \frac{47\pi R^5}{480} 
 \end{align*}
 两者相加得到最终结果：
-\[ I = \frac{12\pi R^5}{480} + \frac{47\pi R^5}{480} = \frac{59\pi R^5}{480} \]
+\[ I = \frac{12\pi R^5}{480} + \frac{47\pi R^5}{480} = \boxed{\frac{59\pi R^5}{480}} \]
 \end{solution}
 
 \begin{exercise}
@@ -596,7 +596,7 @@ I = \iiint_\Omega z^2 \d V &= \int_0^{\frac{R}{2}} z^2 \cdot \pi(2Rz - z^2) \d z
     \[ V_{cap} = \int_{\frac{1}{2}}^1 \pi(1-v^2) \d v = \pi \left[ v - \frac{v^3}{3} \right]_{\frac{1}{2}}^1 = \frac{5\pi}{24} \]
 \end{itemize}
 使得 $V' = \frac{3\pi}{8} - \frac{5\pi}{24} = \frac{\pi}{6}$．
-原体积 $V = \iiint_\Omega \d x\d y\d z = 6 \iiint_{\Omega'} \d u\d v\d w = 6 V' = \pi$．
+原体积 $V = \iiint_\Omega \d x\d y\d z = 6 \iiint_{\Omega'} \d u\d v\d w = 6 V' = \boxed{\pi}$．
 \end{solution}
 
 \begin{exercise}
@@ -622,7 +622,7 @@ I = \iiint_\Omega z^2 \d V &= \int_0^{\frac{R}{2}} z^2 \cdot \pi(2Rz - z^2) \d z
 \[ \int_0^{\frac{\pi}{2}} \sin^5\theta\cos\theta \d\theta = \left[ \frac{1}{6}\sin^6\theta \right]_0^{\frac{\pi}{2}} = \frac{1}{6} \]
 \[ \int_0^{\frac{\pi}{2}} \sin^3\phi\cos^3\phi \d\phi = \int_0^{\frac{\pi}{2}} \sin^3\phi (1-\sin^2\phi) \d(\sin\phi) = \frac{1}{4} - \frac{1}{6} = \frac{1}{12} \]
 最终结果为：
-\[ I = a^4 \times \frac{1}{6} \times \frac{1}{12} = \frac{a^4}{72} \]
+\[ I = a^4 \times \frac{1}{6} \times \frac{1}{12} = \boxed{\frac{a^4}{72}} \]
 \end{solution}
 
 \begin{exercise}
@@ -637,7 +637,7 @@ I = \iiint_\Omega z^2 \d V &= \int_0^{\frac{R}{2}} z^2 \cdot \pi(2Rz - z^2) \d z
       &= \int_1^2 \d z \int_0^z \frac{y}{\sqrt{y^2+z^2}} \d y \\
       &= \int_1^2 \left[ \sqrt{y^2+z^2} \right]_{y=0}^{y=z} \d z \\
       &= \int_1^2 (\sqrt{2z^2} - \sqrt{z^2}) \d z \\
-      &= \int_1^2 (\sqrt{2}-1)z \d z = (\sqrt{2}-1) \left[ \frac{z^2}{2} \right]_1^2 = \frac{3(\sqrt{2}-1)}{2}
+      &= \int_1^2 (\sqrt{2}-1)z \d z = (\sqrt{2}-1) \left[ \frac{z^2}{2} \right]_1^2 = \boxed{\frac{3(\sqrt{2}-1)}{2}}
 \end{align*}
 \end{solution}
 
@@ -659,7 +659,7 @@ V(t) = \iiint_{\Omega(t)} \d V &= \int_0^{2\pi} \d\theta \int_0^{\frac{\pi}{4}} 
 当 $t \to 0$ 时，区域 $\Omega(t)$ 缩向原点 $(0,0,0)$，因此 $\zeta \to 0$，且 $(\xi^2+\eta^2+\zeta^2) \to 0$．由于 $f(x)$ 连续，且 $f(0)=a$，故：
 \[ \lim_{t\to 0} [\zeta + f(\xi^2+\eta^2+\zeta^2)] = 0 + f(0) = a \]
 于是，所求极限为：
-\[ \lim_{t\to 0} \frac{F(t)}{t^3} = \lim_{t\to 0} \frac{[\zeta + f(\xi^2+\eta^2+\zeta^2)] V(t)}{t^3} = a \cdot \frac{V(t)}{t^3} = \frac{(2-\sqrt{2})\pi a}{3} \]
+\[ \lim_{t\to 0} \frac{F(t)}{t^3} = \lim_{t\to 0} \frac{[\zeta + f(\xi^2+\eta^2+\zeta^2)] V(t)}{t^3} = a \cdot \frac{V(t)}{t^3} = \boxed{\frac{(2-\sqrt{2})\pi a}{3}} \]
 \end{solution}
 \begin{myRemark}
     本题也可以采用洛必达法则来计算极限，这涉及重积分的求导．\\
@@ -687,7 +687,7 @@ S &= \int_0^1 \left( x_2 - x_1 \right) \d y \\
   &= \int_0^1 \left( (e+1)-y - e^y \right) \d y \\
   &= \left[ (e+1)y - \frac{1}{2}y^2 - e^y \right]_0^1 \\
   &= \left( (e+1) - \frac{1}{2} - e \right) - \left( 0 - 0 - 1 \right) \\
-  &= \frac{1}{2} + 1 = \frac{3}{2}
+  &= \frac{1}{2} + 1 = \boxed{\frac{3}{2}}
 \end{align*}
 \end{solution}
 \begin{exercise}
@@ -709,7 +709,7 @@ V &= 2 \iint_{D} \sqrt{4a^2-x^2-y^2} \d x \d y \\
 \[ \int_0^{\frac{\pi}{2}} 1 \d\theta = \frac{\pi}{2} \]
 \[ \int_0^{\frac{\pi}{2}} \sin^3\theta \d\theta = \int_0^{\frac{\pi}{2}} (1-\cos^2\theta)\sin\theta \d\theta = \left[ -\cos\theta + \frac{1}{3}\cos^3\theta \right]_0^{\frac{\pi}{2}} = \frac{2}{3} \]
 代入上式得最终体积：
-\[ V = \frac{32a^3}{3} \left( \frac{\pi}{2} - \frac{2}{3} \right) = \frac{16\pi a^3}{3} - \frac{64a^3}{9} \]
+\[ V = \frac{32a^3}{3} \left( \frac{\pi}{2} - \frac{2}{3} \right) = \boxed{\frac{16\pi a^3}{3} - \frac{64a^3}{9}} \]
 \end{solution}
 \begin{exercise}
     设有一个半径为 $R$ 的球体，$P_0$ 是球面上的一个定点，球体内每个点 $P$ 的密度与该点到$P_0$的距离的平方成正比（比例常数$k>0$），求球体的重心位置．
@@ -737,7 +737,7 @@ M_{xy} &= \iiint_\Omega z\rho(x,y,z) \d V = k \iiint_\Omega z(x^2+y^2+z^2+R^2-2R
 \[ M_{xy} = -2kR \left( \frac{4\pi R^5}{15} \right) = -\frac{8\pi k R^6}{15} \]
 因此，重心 $z$ 坐标为：
 \[ \bar{z} = \frac{M_{xy}}{M} = \frac{-\frac{8\pi k R^6}{15}}{\frac{32\pi k R^5}{15}} = -\frac{R}{4} \]
-综上所述，重心位置在过点 $P_0$ 与球心的直线上，位于球心偏向 $P_0$ 的反方向（另一侧），距球心的距离为 $\frac{R}{4}$．
+综上所述，重心位置在过点 $P_0$ 与球心的直线上，位于球心偏向 $P_0$ 的反方向（另一侧），距球心的距离为 $\boxed{\frac{R}{4}}$．
 \end{solution}
 
 \subsection{技巧性问题}
@@ -755,7 +755,7 @@ M_{xy} &= \iiint_\Omega z\rho(x,y,z) \d V = k \iiint_\Omega z(x^2+y^2+z^2+R^2-2R
 \[ 2I = \iint_{D_1\cup D_2} f(x)f(y) \d x\d y = \int_0^1 \d x \int_0^1 f(x)f(y) \d y \]
 由于变量可以分离，故：
 \[ 2I = \left(\int_0^1 f(x) \d x\right) \left(\int_0^1 f(y) \d y\right) = A \cdot A = A^2 \]
-故 $I = \frac{A^2}{2}$．
+故 $\boxed{I = \frac{A^2}{2}}$．
 \end{solution}
 
 \begin{exercise}

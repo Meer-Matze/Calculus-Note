@@ -93,23 +93,23 @@
         \task $\lim\limits_{(x,y) \to (0,0)} \dfrac{x^2 +y^2}{|x| + |y|}$；
     \end{tasks}
 \end{example}
-\begin{proof}
+\begin{solution}
     \begin{enumerate}[label=(\arabic*)]
-        \item \[0<=\left| \dfrac{xy}{\sqrt{x^2+y^2}} \right| \leq |x| \to 0 (x,y) \to (0,0)\]
-        故原极限为0．
+        \item \[0\leq\left| \dfrac{xy}{\sqrt{x^2+y^2}} \right| \leq |x| \to 0 (x,y) \to (0,0)\]
+        故原极限为$\boxed{0}$．
         \item \begin{align*}
             \lim\limits_{(x,y) \to (0,0)} \dfrac{\ln(1+x^2y^4)}{x^2+y^2} & = \lim\limits_{(x,y) \to (0,0)} \dfrac{x^2y^4}{x^2+y^2} \quad (\text{因为} \ln(1+u) \sim u, u \to 0) \\
             & = \lim\limits_{(x,y) \to (0,0)} y^4 \cdot \dfrac{x^2}{x^2+y^2} 
         \end{align*}
-        其中 $0 < \dfrac{x^2}{x^2+y^2} \leq 1$，且 $\lim\limits_{(x,y) \to (0,0)} y^4 = 0$，由 $0 \times$ 有界量法，原极限为0．\\
+        其中 $0 < \dfrac{x^2}{x^2+y^2} \leq 1$，且 $\lim\limits_{(x,y) \to (0,0)} y^4 = 0$，由 $0 \times$ 有界量法，原极限为$\boxed{0}$．\\
         \item 法一：
         \[ \lim\limits_{(x,y) \to (0,0)} \dfrac{x^2 +y^2}{|x| + |y|}= \lim\limits_{(x,y) \to (0,0)} |x| \cdot \dfrac{|x|}{|x| + |y|} + |y| \cdot \dfrac{|y|}{|x| + |y|} \]
-        其中 $0 \leq \dfrac{|x|}{|x| + |y|} \leq 1$，$0 \leq \dfrac{|y|}{|x| + |y|} \leq 1$，且 $\lim\limits_{(x,y) \to (0,0)} |x| = 0$，$\lim\limits_{(x,y) \to (0,0)} |y| = 0$，由 $0 \times$ 有界量法，原极限为0．\\
+        其中 $0 \leq \dfrac{|x|}{|x| + |y|} \leq 1$，$0 \leq \dfrac{|y|}{|x| + |y|} \leq 1$，且 $\lim\limits_{(x,y) \to (0,0)} |x| = 0$，$\lim\limits_{(x,y) \to (0,0)} |y| = 0$，由 $0 \times$ 有界量法，原极限为$\boxed{0}$．\\
         法二：作极坐标变换 $x=r\cos\theta, y=r\sin\theta$，则
         \[ \lim_{r \to 0^+} \dfrac{(r\cos\theta)^2 +(r\sin\theta)^2}{|r\cos\theta| + |r\sin\theta|} = \lim_{r \to 0^+} \dfrac{r^2}{r(|\cos\theta| + |\sin\theta|)} = \lim_{r \to 0^+} \dfrac{r}{|\cos\theta| + |\sin\theta|} = 0. \]
-        故原极限为0．
+        故原极限为$\boxed{0}$．
     \end{enumerate}
-\end{proof}
+\end{solution}
 \begin{example}
     求二元函数 $f(x,y) = \begin{cases}
         \dfrac{2xy^2}{x^2+y^2}-\dfrac{2x^3y^2}{(x^2+y^2)^2}, & (x,y) \neq (0,0) \\
@@ -122,14 +122,14 @@
         & = \lim\limits_{(x,y) \to (0,0)} 2x\cdot\dfrac{y^2}{x^2+y^2}-x\dfrac{2x^2y^2}{(x^2+y^2)^2}
     \end{align*}
     其中 $0 \leq \dfrac{y^2}{x^2+y^2} \leq 1$，$0 \leq \dfrac{2x^2y^2}{(x^2+y^2)^2} \leq 1$，且 $\lim\limits_{(x,y) \to (0,0)} 2x = 0$，$\lim\limits_{(x,y) \to (0,0)} x = 0$，由 $0 \times$ 有界量法，原极限为0．\\
-    因为 $\lim\limits_{(x,y) \to (0,0)} f(x,y) = f(0,0) = 0$，故函数 $f(x,y)$ 在点 $(0,0)$ 处连续．
+    因为 $\lim\limits_{(x,y) \to (0,0)} f(x,y) = f(0,0) = 0$，故$\boxed{\text{函数 } f(x,y) \text{ 在点 } (0,0) \text{ 处连续}}$．
 \end{solution}
 \subsection{二次极限}
 \begin{example}
     求极限 $\lim\limits_{x \to 0}\lim\limits_{y \to 0} (x\sin\dfrac{1}{y}+y\sin\dfrac{1}{x})$
 \end{example}
 \begin{solution}
-    由于$\lim\limits_{y \to 0} x\sin\dfrac{1}{y}$ 不存在，故整个极限不存在．
+    由于$\lim\limits_{y \to 0} x\sin\dfrac{1}{y}$ 不存在，故整个极限$\boxed{\text{不存在}}$．
 \end{solution}
 \ifx\allfiles\undefined
 \end{document}
