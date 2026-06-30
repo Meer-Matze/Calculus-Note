@@ -128,6 +128,70 @@
     即通解为
     \[\boxed{y=\left[\dfrac{x^2(x^2-2)+C}{8(x^2-1)}\right]^2}\]
 \end{solution}
+\section{全微分方程}
+
+\begin{definition}[全微分方程及其含义]
+    设一阶微分方程的形式为 $P(x,y)\d x + Q(x,y)\d y = 0$．如果在某区域内存在一个势函数 $u(x,y)$，使得其全微分恰好等于方程的左端：
+    \[ \d u = \frac{\partial u}{\partial x}\d x + \frac{\partial u}{\partial y}\d y = P(x,y)\d x + Q(x,y)\d y \]
+    则称该方程为\textbf{全微分方程}．
+\end{definition}
+
+\begin{theorem}
+    设函数 $P(x,y)$ 与 $Q(x,y)$ 在单连通区域内具有连续的一阶偏导数，则 $P\d x + Q\d y = 0$ 是全微分方程的充分必要条件为（即等价于标量旋度为零）：
+    \[ \frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} \]
+\end{theorem}
+
+\begin{theorem}[曲线积分法求解全微分方程]
+    若$P(x,y),Q(x,y)$在某一单连通区域上连续且具有连续偏导数，且满足$\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x}$，则方程$P(x,y)\d x+Q(x,y)\d y=0$是全微分方程，且其通解为$u(x,y)=C$，其中
+    \[ u(x,y)= \int_{(x_0,y_0)}^{(x,y)} P(x,y)\d x + Q(x,y)\d y \]
+\end{theorem}
+
+若对全微分有足够的熟练度，能利用常见的全微分公式进行配凑，则无需使用曲线积分法．
+
+\begin{table}[H]
+    \centering
+    \caption{常用全微分公式}
+    \renewcommand\arraystretch{1.8}
+    \begin{tabular}{ll}
+        \hline
+        $y \d x + x \d y=\d(xy)$ &
+        $\dfrac{x \d y - y \d x}{x^2}=\d\left(\dfrac{y}{x}\right)$ \\
+        $\dfrac{y \d x - x \d y}{y^2}=\d\left(\dfrac{x}{y}\right)$ &
+        $\dfrac{x \d x + y \d y}{\sqrt{x^2+y^2}}=\d(\sqrt{x^2+y^2})$ \\
+        $\dfrac{y \d x - x \d y}{xy}=\d\left(\ln\dfrac{x}{y}\right)$ &
+        $\dfrac{y\d x-x\d y}{x^2-y^2}=\d\left(\ln\sqrt{\dfrac{x-y}{x+y}}\right)$ \\
+        $\dfrac{x \d x + y \d y}{x^2+y^2}=\d\left(\dfrac{1}{2}\ln(x^2+y^2)\right)$ &
+        $\dfrac{x \d y - y \d x}{x^2+y^2}=\d\left(\arctan\dfrac{y}{x}\right)$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{example}
+    求解一阶微分方程：$(3x^2+2y)\d x + (2x-3y^2)\d y = 0$．
+\end{example}
+\begin{solution}
+    法一（曲线积分法）：\\
+    容易发现
+    \[ \pdv{P}{y} = 2 = \pdv{Q}{x} \]
+    故该方程是全微分方程，设其势函数为 $u(x,y)$，则
+    \begin{align*}
+        u(x,y) &= \int_{(x_0,y_0)}^{(x,y)} P(x,y)\d x + Q(x,y)\d y \\
+        &= \int_{x_0}^x (3t^2+2y_0)\d t + \int_{y_0}^y (2x-3t^2)\d t \\
+        &= x^3 + 2xy - y^3 + C
+    \end{align*}
+    于是该方程的通解为
+    \[ \boxed{x^3 + 2xy - y^3 = C} \]
+
+    法二（配凑法）：\\
+    \begin{align*}
+        (3x^2+2y)\d x + (2x-3y^2)\d y &=
+        \d(x^3) - \d(y^3) + 2\d(xy)  \\
+        &= \d(x^3 - y^3 + 2xy)
+    \end{align*}
+    于是该方程的通解为
+    \[ \boxed{x^3 - y^3 + 2xy = C} \]
+\end{solution}
+
 \section{二阶可降阶微分方程}
 \subsection{$y''=f(x,y')$型}
 \begin{example}
@@ -302,19 +366,7 @@
     \[\boxed{y = C_1 x^{-1} + C_2 x^{-2}}\]
 \end{solution}
 \section{微分方程练习}
-\begin{exercise}
-    若$f(x)$满足$f''(x)+f'(x)-2f(x)=0$，且$f''(x)+f(x)=2e^{x}$，求$f(x)$．
-\end{exercise}
-\begin{solution}
-    由$f''(x)+f'(x)-2f(x)=0$，可得齐次通解为
-    \[f(x)=C_1 e^{x} + C_2 e^{-2x}\]
-    代入$f''(x)+f(x)=2e^{x}$得
-    \[C_1 e^{x} + C_2 e^{-2x} + C_1 e^{x} + 4 C_2 e^{-2x} = 2 e^{x}\]
-    即
-    \[2 C_1 e^{x} + 5 C_2 e^{-2x} = 2 e^{x}\]
-    故$C_1=1,C_2=0$，所求函数为
-    \[\boxed{f(x) = e^{x}}\]
-\end{solution}
+\subsection{一阶微分方程}
 \begin{exercise}
     求微分方程$\dfrac{\d y}{\d x}x\ln x\, \sin y +\cos y\,(1-x\cos y)=0$的通解．
 \end{exercise}
@@ -330,6 +382,7 @@
     于是通解为
     \[\boxed{(x+C)\cos y=\ln x}\]
 \end{solution}
+
 \begin{exercise}
     可导函数$f(x)$满足$f(x)\cos x+2\displaystyle\int_{0}^{2}f(t)\sin t\d t=x+1$，求$f(x)$.
 \end{exercise}
@@ -344,6 +397,7 @@
     代入$x=0$得$f(x)=1\Rightarrow C=1$，所求函数为
     \[\boxed{f(x)=\cos x(\tan x+1)}\]
 \end{solution}
+
 \begin{exercise}
     若$f(x)$在$[0,+\infty)$上是有界连续函数，证明：$y'+14y'+13y=f(x)$的每一个解在$[0,+\infty)$上都是有界的．
 \end{exercise}
@@ -363,6 +417,72 @@
     \[\left| - \dfrac{1}{12}e^{-13x}\int f(x)e^{13x}\d x \right| \le \dfrac{M}{12} \quad\text{且}\quad \left| \dfrac{1}{12}e^{-x}\int f(x)e^{x}\d x \right| \le \dfrac{M}{12}\]
     故$y$在$[0,+\infty)$上有界．
 \end{proof}
+
+\subsection{全微分方程}
+
+\begin{exercise}
+    求全微分方程$(x^3-y^2)\d x +(x^2y+xy)\d y=0$的通解．
+\end{exercise}
+\begin{solution}
+    法一：\\
+    设$u=y^2$，则原方程化为$\displaystyle \frac{\d u}{\d x}-\frac{2u}{x(1+x)}=-\frac{2x^2}{x+1}$，即
+    \[ \boxed{\left(\frac{1+x}{x}\right)^2y^2+(1+x^2)=C} \]
+    法二：\\
+    原方程化为
+    \[
+        \begin{array}{l@{\qquad}c}
+            &\displaystyle x\d x+y \d y +y \frac{x\d y-y\d x}{x^2}=0\\[10pt]
+            \Rightarrow & \displaystyle \dfrac{1}{2}\d(x^2+y^2)+y \d \left(\frac{y}{x}\right)=0\\[10pt]
+            \Rightarrow & \displaystyle \dfrac{1}{2}\cdot \dfrac{\d(x^2+y^2)}{\sqrt{x^2+y^2}}+\dfrac{\left(\frac{y}{x}\right)}{\sqrt{1+\left(\frac{y}{x}\right)^2}}\d \left(\frac{y}{x}\right)=0\\[20pt]
+            \Rightarrow & \displaystyle \d \sqrt{x^2+y^2}+\d \sqrt{1+\left(\frac{y}{x}\right)^2}=0\\[10pt]
+            \Rightarrow & \displaystyle \sqrt{x^2+y^2}+\sqrt{1+\left(\frac{y}{x}\right)^2}=C\\
+        \end{array}
+    \]
+    故通解为
+    \[ \boxed{(1+x)\sqrt{x^2+y^2}=Cx} \]
+\end{solution}
+\subsection{高阶微分方程}
+\begin{exercise}
+    若$f(x)$满足$f''(x)+f'(x)-2f(x)=0$，且$f''(x)+f(x)=2e^{x}$，求$f(x)$．
+\end{exercise}
+\begin{solution}
+    由$f''(x)+f'(x)-2f(x)=0$，可得齐次通解为
+    \[f(x)=C_1 e^{x} + C_2 e^{-2x}\]
+    代入$f''(x)+f(x)=2e^{x}$得
+    \[C_1 e^{x} + C_2 e^{-2x} + C_1 e^{x} + 4 C_2 e^{-2x} = 2 e^{x}\]
+    即
+    \[2 C_1 e^{x} + 5 C_2 e^{-2x} = 2 e^{x}\]
+    故$C_1=1,C_2=0$，所求函数为
+    \[\boxed{f(x) = e^{x}}\]
+\end{solution}
+
+\begin{exercise}
+    解微分方程$y''y-\left(y'\right)^2-\left(y'\right)^4=0$
+\end{exercise}
+\begin{solution}
+    令$y'=p$，则$y''=\dfrac{\d p}{\d x}=\dfrac{\d p}{\d y}\cdot \dfrac{\d y}{\d x}=p \dfrac{\d p}{\d y}$，原方程化为
+    \[y p \dfrac{\d p}{\d y} - p^2 - p^4 = 0\]
+    在$p$不恒为零时，可分离变量得
+    \[\dfrac{\d p}{p + p^3} = \dfrac{\d y}{y}\]
+    于是可得
+    \[\ln |y| = \ln |p| - \dfrac{1}{2} \ln |1 + p^2| + C'\]
+    即
+    \[y' = \dfrac{C_1 y}{\sqrt{1 + (y')^2}}\]
+    再令$C_1y = \cos \theta$，则$C_1\d y= -\sin \theta \d \theta$，那么原式化为
+    \[\frac{\sqrt{1-C_1^2y^2}}{C_1y}\d y=-\sin \theta \d \theta\]
+    左侧积分得
+    \begin{align*}
+        &\displaystyle\int \dfrac{\sqrt{1-C_1^2y^2}}{C_1y}\d y 
+        = \int \dfrac{\sqrt{1-\cos^2 \theta}}{\cos \theta} \cdot \left(-\dfrac{\sin \theta}{C_1}\right) \d \theta 
+        = -\dfrac{1}{C_1} \int \sec \theta - \cos \theta \d \theta\\
+        &= -\dfrac{1}{C_1} \left( \ln |\sec \theta + \tan \theta| - \sin \theta \right)
+    \end{align*}
+    故通解为
+    \[\boxed{\sqrt{1-C_1^2y^2}-\ln\left|\dfrac{1+\sqrt{1-C_1^2y^2}}{C_1y}\right| = C_1x+C_2}\]
+\end{solution}
+
+\subsection{综合题}
+
 \begin{exercise}
     求方程$(x^2+y^2+3) \dfrac{\d y}{\d x} = 2x(2y - \dfrac{x^2}{y})$的通解．
 \end{exercise}
@@ -390,30 +510,6 @@
 \end{solution}
 
 \begin{exercise}
-    解微分方程$y''y-\left(y'\right)^2-\left(y'\right)^4=0$
-\end{exercise}
-\begin{solution}
-    令$y'=p$，则$y''=\dfrac{\d p}{\d x}=\dfrac{\d p}{\d y}\cdot \dfrac{\d y}{\d x}=p \dfrac{\d p}{\d y}$，原方程化为
-    \[y p \dfrac{\d p}{\d y} - p^2 - p^4 = 0\]
-    在$p$不恒为零时，可分离变量得
-    \[\dfrac{\d p}{p + p^3} = \dfrac{\d y}{y}\]
-    于是可得
-    \[\ln |y| = \ln |p| - \dfrac{1}{2} \ln |1 + p^2| + C'\]
-    即
-    \[y' = \dfrac{C_1 y}{\sqrt{1 + (y')^2}}\]
-    再令$C_1y = \cos \theta$，则$C_1\d y= -\sin \theta \d \theta$，那么原式化为
-    \[\frac{\sqrt{1-C_1^2y^2}}{C_1y}\d y=-\sin \theta \d \theta\]
-    左侧积分得
-    \begin{align*}
-        &\displaystyle\int \dfrac{\sqrt{1-C_1^2y^2}}{C_1y}\d y 
-        = \int \dfrac{\sqrt{1-\cos^2 \theta}}{\cos \theta} \cdot \left(-\dfrac{\sin \theta}{C_1}\right) \d \theta 
-        = -\dfrac{1}{C_1} \int \sec \theta - \cos \theta \d \theta\\
-        &= -\dfrac{1}{C_1} \left( \ln |\sec \theta + \tan \theta| - \sin \theta \right)
-    \end{align*}
-    故通解为
-    \[\boxed{\sqrt{1-C_1^2y^2}-\ln\left|\dfrac{1+\sqrt{1-C_1^2y^2}}{C_1y}\right| = C_1x+C_2}\]
-\end{solution}
-\begin{exercise}
     敌方导弹A沿$y$轴正方向飞行，速度恒为$v$，经过点$(0,0)$时，我方导弹B从点$(16,0)$发射，速度恒为$2v$，且始终朝向敌方导弹A的当前位置．
     求我方导弹B的飞行轨迹方程及导弹A、B相遇时的坐标．
 \end{exercise}
@@ -437,6 +533,7 @@
     \[\boxed{y=\dfrac{1}{12}x^{\frac{3}{2}} - 4\sqrt{x} + \dfrac{32}{3}}\]
     $x=0$时，$y=\dfrac{32}{3}$，即导弹A、B相遇时的坐标为$\boxed{(0,\dfrac{32}{3})}$.
 \end{solution}
+
 \ifx\allfiles\undefined
 \end{document}
 \fi

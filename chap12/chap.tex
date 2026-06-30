@@ -8,8 +8,8 @@
 \fi
 \chapter{无穷级数}
 \section{正项级数及其收敛判定}
-\begin{theorem}[比较判别法的极限形式]
-    设 $\sum u_n$ 和 $\sum v_n$ 为正项级数，且 $\lim_{n \to \infty} \frac{u_n}{v_n} = l$：
+\begin{theorem}[比较判别法的极限形式]\label{thm:lim-comp}
+    设 $\sum u_n$ 和 $\sum v_n$ 为正项级数，且 $\lim\limits_{n \to \infty} \frac{u_n}{v_n} = l$：
     \begin{itemize}
         \item 若 $0 < l < +\infty$，则 $\sum u_n$ 与 $\sum v_n$ 同敛散；
         \item 若 $l = 0$，且 $\sum v_n$ 收敛，则 $\sum u_n$ 收敛；
@@ -18,7 +18,7 @@
 \end{theorem}
 
 \begin{theorem}[比值判别法 (D'Alembert)]
-    若 $\lim_{n \to \infty} \dfrac{u_{n+1}}{u_n} = \rho$：
+    若 $\lim\limits_{n \to \infty} \dfrac{u_{n+1}}{u_n} = \rho$：
     \begin{itemize}
         \item $\rho < 1$ 时级数收敛；
         \item $\rho > 1$ 时级数发散；
@@ -27,7 +27,7 @@
 \end{theorem}
 
 \begin{theorem}[根值判别法 (Cauchy)]
-    若 $\lim_{n \to \infty} \sqrt[n]{u_n} = \rho$：
+    若 $\lim\limits_{n \to \infty} \sqrt[n]{u_n} = \rho$：
     \begin{itemize}
         \item $\rho < 1$ 时级数收敛；
         \item $\rho > 1$ 时级数发散；
@@ -80,6 +80,20 @@
         由反常积分 $p$-积分的判定结论知，该积分当且仅当 $\beta > 1$ 时收敛，$\beta \le 1$ 时发散．因此原级数与积分敛散性一致．
     \end{enumerate}
 \end{proof}
+
+\begin{example}
+    若$\displaystyle\sum_{n=1}^{\infty}u_n$收敛，且$\lim\limits_{n\to\infty}\dfrac{v_n}{u_n}=1$，判定$\displaystyle\sum_{n=1}^{\infty}v_n$的敛散性．
+\end{example}
+\begin{solution}
+    \textbf{无法判定} $\sum v_n$ 的敛散性．\\
+    根据\hyperref[thm:lim-comp]{比较判别法的极限形式}，只有$\sum u_n$ 和 $\sum v_n$ 为正项级数时，可判断 $\sum v_n$ 收敛．
+
+    \textbf{反例}：取
+    \[ u_n = \frac{(-1)^n}{\sqrt{n}},\qquad v_n = \frac{(-1)^n}{\sqrt{n}} + \frac{1}{n} \]
+    则 $\sum u_n$ 收敛，且
+    \[ \frac{v_n}{u_n} = 1 + \frac{(-1)^n}{\sqrt{n}} \to 1 \]
+    但 $\displaystyle\sum_{n=1}^{\infty} \frac{1}{n}$ 发散，故 $\sum v_n$ 作为收敛级数与发散级数之和，\textbf{发散}．
+\end{solution}
 
 \begin{example}
     判定级数$\displaystyle\sum_{n=1}^{\infty}\frac{2n-1}{2^n}$的敛散性．
@@ -138,6 +152,38 @@
 \end{itemize}
 
 \begin{example}
+    已知幂级数 $\displaystyle\sum_{n=1}^{\infty}a_n(x-1)^n$ 在 $x=2$ 处条件收敛，则改幂级数（~~~~~~）
+    \begin{tasks}[style = itemize, label=\Alph*.](2)
+        \task 收敛半径为 $2$
+        \task 收敛区间为 $(0, 2]$
+        \task 收敛域为 $(0, 2]$
+        \task 收敛区间为 $(0, 2)$
+    \end{tasks}
+\end{example}
+\begin{solution}
+    幂级数 $\displaystyle\sum_{n=1}^{\infty}a_n(x-1)^n$ 的中心为 $x=1$．在 $x=2$ 处条件收敛，即 $|2-1|=1$ 处条件收敛．
+
+    由 Abel 定理，在收敛区间内部幂级数绝对收敛，在边界上可能条件收敛或发散．
+    若收敛半径 $R>1$，则 $x=2$ 在收敛区间内部，应绝对收敛，与条件收敛矛盾．故 $R \le 1$．
+    又 $x=2$ 处收敛，故 $R \ge 1$．因此 $R=1$．
+
+    收敛区间（开区间）为 $|x-1|<1$，即 $(0,2)$．
+
+    在右端点 $x=2$ 处条件收敛，左端点 $x=0$ 处敛散性未知，例如\begin{enumerate}[label=\roman*.]
+        \item 取$a_n = \begin{cases}
+            \dfrac{(-1)^{\lfloor{\frac{n}{2}}\rfloor}}{n}, & n \text{ 为奇数} \\
+            0, & n \text{ 为偶数}
+            \end{cases}$
+        则 $\sum a_n(x-1)^n$ 在 $x=0$ 处收敛；
+        \item 取$a_n = \dfrac{(-1)^n}{n}$，则 $\sum a_n(x-1)^n$ 在 $x=0$ 处发散．
+    \end{enumerate}
+    
+    
+
+    因此 $\boxed{\text{D}}$ 正确．
+\end{solution}
+
+\begin{example}
      求下列幂级数的收敛域
      \begin{tasks}[label=(\arabic*)](3)
         \task $\displaystyle\sum_{n=1}^{\infty}\left(\frac{3^n}{n^2}\right)x^n$
@@ -167,19 +213,6 @@
     \end{enumerate}
 \end{solution}
 
-\begin{example}
-    设$\displaystyle\sum_{n=0}^{\infty}a_nx^n$的收敛半径为$R=3$，则$\displaystyle\sum_{n=1}^{\infty}na_n(x-1)^{n+1}$在$x=3$处（~~~~~~）
-    \begin{tasks}[style = itemize, label=\Alph*.](2)
-        \task 绝对收敛
-        \task 条件收敛
-        \task 发散
-        \task 与收敛区间端点的收敛性相同
-    \end{tasks}
-\end{example}
-\begin{solution}
-    由逐项求导知 $\sum_{n=1}^\infty n a_n x^{n-1}$ 与原级数 $\sum_{n=0}^\infty a_n x^n$ 的收敛半径相同，均为 $R = 3$．同样 $\sum_{n=1}^\infty n a_n x^n$ 及 $\sum_{n=1}^\infty n a_n (x-1)^{n+1}$ (平移并不改变绝对收敛半径，只是中心变为 1)，其收敛域内绝对收敛的半径为 $|x-1| < 3$，即 $x \in (-2, 4)$．在 $x = 3$ 处，满足 $|3-1| = 2 < 3$，因此在收敛区间内部，级数绝对收敛．故选 \boxed{\textbf{A}}．
-\end{solution}
-
 \begin{theorem}[幂级数的分析性质 (逐项求导与积分)]
     设幂级数 $\displaystyle\sum_{n=0}^\infty a_n x^n$ 的收敛半径为 $R > 0$，其和函数 $S(x) = \displaystyle\sum_{n=0}^\infty a_n x^n$：
     \begin{itemize}
@@ -200,7 +233,7 @@
     \renewcommand\arraystretch{1.5}
     \begin{tabular}{lll}
         \hline
-        \textbf{函数表达式} & \textbf{幂级数展开及收敛域} \\
+        \textbf{函数表达式} & \textbf{幂级数展开} & \textbf{收敛域} \\
         \hline
         $e^x$ & $\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!}$ & $ x \in (-\infty, +\infty)$ \\
         $\sin x$ & $\displaystyle\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{(2n+1)!}$ & $ x \in (-\infty, +\infty)$ \\
@@ -282,8 +315,8 @@
 
 \section{傅里叶级数}
 \begin{theorem}[Dirichlet 收敛定理]
-    设 $f(x)$ 是周期为 $2\pi$ 的周期函数，在一个周期内分段连续且仅有有限个极值点，则 $f(x)$ 的傅里叶级数收敛于：
-    \[ \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx) = \frac{f(x^+) + f(x^-)}{2} \]
+    设 $f(x)$ 是周期为 $2\pi$ 的周期函数，在一个周期内连续或只有有限个第一类间断点，并且至多只有有限个极值点，则 $f(x)$ 的傅里叶级数收敛于：
+    \[ \frac{a_0}{2} + \sum_{n=1}^\infty (a_n \cos nx + b_n \sin nx) = \frac{f(x+0) + f(x-0)}{2} \]
     其中：
     \[ a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos nx \d x, \quad b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin nx \d x \]
 \end{theorem}
@@ -310,16 +343,58 @@
 \end{solution}
 
 \begin{example}
-    将$f(x)=2+|x|\;(x\in[-1,1])$展开成以$2$为周期的傅里叶级数，并求$\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^2}$．
+    将$f(x)=|\sin x|\;(x\in(-\pi,\pi])$展开成傅里叶级数
 \end{example}
 \begin{solution}
-    $f(x)$ 为偶函数，所以 $b_n = 0$，只有余弦项展开，且周期 $2L = 2, L = 1$．
-    \[a_0 = \frac{2}{1} \int_0^1 (2+x) \d x = 5\]
-    \[a_n = 2 \int_0^1 (2+x) \cos(n\pi x) \d x = 2\left(\frac{x\sin(n\pi x)}{n\pi} \Big|_0^1 - \int_0^1 \frac{\sin(n\pi x)}{n\pi} \d x\right)\]由于 $\sin(n\pi) = 0$：
-    \[a_n = \left[\frac{2\cos(n\pi x)}{(n\pi)^2}\right]_0^1 = \frac{2((-1)^n - 1)}{n^2\pi^2}\]
-    故 \[\boxed{f(x) = \frac{5}{2} - \sum_{k=0}^\infty \frac{4}{(2k+1)^2\pi^2} \cos((2k+1)\pi x)}\]由于 $f(x)$ 连续，这在整个实轴成立．
-    代入令 $x = 0$，则 $f(0) = 2$，得到 \[2 = \frac{5}{2} - \frac{4}{\pi^2} \sum_{k=0}^\infty \frac{1}{(2k+1)^2}\]即 \[\sum_{k=0}^\infty \frac{1}{(2k+1)^2} = \frac{\pi^2}{8}\]
-    由于 \[\sum_{n=1}^\infty \frac{1}{n^2} = \sum_{k=0}^\infty \frac{1}{(2k+1)^2} + \sum_{m=1}^\infty \frac{1}{(2m)^2}\]易得 \[\boxed{\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}}\]
+    $f(x)=|\sin x|$ 是偶函数，故 $b_n = 0$，只需计算 $a_n$．
+    \[ a_0 = \frac{2}{\pi} \int_{0}^{\pi} \sin x \d x = \frac{2}{\pi}[-\cos x]_{0}^{\pi} = \frac{4}{\pi} \]
+    对于 $n \ge 1$，利用积化和差公式：
+    \[ a_n = \frac{2}{\pi} \int_{0}^{\pi} \sin x \cos nx \d x = \frac{1}{\pi} \int_{0}^{\pi} [\sin((n+1)x) - \sin((n-1)x)] \d x \]
+    \begin{itemize}
+        \item 当 $n=1$ 时：$\sin((n-1)x) = 0$，故
+        \[ a_1 = \frac{1}{\pi} \int_0^\pi \sin 2x \d x = \frac{1}{\pi} \left[-\frac{\cos 2x}{2}\right]_0^\pi = 0 \]
+        \item 当 $n \neq 1$ 时：
+        \begin{align*}
+            a_n &= \frac{1}{\pi} \left[ -\frac{\cos((n+1)x)}{n+1} + \frac{\cos((n-1)x)}{n-1} \right]_{0}^{\pi} \\
+            &= \frac{1}{\pi} \left[ \left( -\frac{(-1)^{n+1}}{n+1} + \frac{(-1)^{n-1}}{n-1} \right) - \left( -\frac{1}{n+1} + \frac{1}{n-1} \right) \right]
+        \end{align*}
+        当 $n$ 为奇数 $(n=2k+1,\;k\ge 1)$ 时，$a_{2k+1}=0$；当 $n$ 为偶数 $(n=2k)$ 时：
+        \[ a_{2k} = \frac{1}{\pi} \left( -\frac{4}{4k^2-1} \right) = -\frac{4}{\pi(4k^2-1)} \]
+    \end{itemize}
+    因此 $f(x) = |\sin x|$ 的傅里叶级数展开式为：
+    \[ \boxed{|\sin x| = \frac{2}{\pi} - \frac{4}{\pi} \sum_{n=1}^{\infty} \frac{\cos 2nx}{4n^2-1},\quad x\in(-\infty,+\infty)} \]
+    由于 $|\sin x|$ 在 $\R$ 上连续且逐段光滑，该展开式在整个实数轴上成立．
+\end{solution}
+
+\begin{myRemark}
+    在上题中，我们将$2\pi$作为展开的周期，但$|\sin x|$的最小正周期为$\pi$，那么，为什么我们不以$\pi$作为展开的周期呢？\\
+    事实上，无论哪一种周期展开，最终的傅里叶级数都是等价的，不过三角函数的频率不同而已。
+    但是，在\textbf{应试}中，往往直接采用给定的定义域作为展开的周期，多数答案也是如此。
+\end{myRemark}
+
+\begin{example}
+    将$f(x)=2+x\;(x\in[0,1])$展开成以$2$为周期的余弦级数，并求$\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^2}$．
+\end{example}
+\begin{solution}
+    余弦级数需对 $f(x)$ 作偶延拓，周期 $T=2L=2$ 即 $L=1$，$b_n=0$．
+    \[ a_0 = \frac{2}{L} \int_0^L f(x) \d x = 2 \int_0^1 (2+x) \d x = 2\left[ 2x + \frac{x^2}{2} \right]_0^1 = 5 \]
+    对于 $n \ge 1$：
+    \begin{align*}
+        a_n &= \frac{2}{L} \int_0^L f(x) \cos\frac{n\pi x}{L} \d x = 2 \int_0^1 (2+x) \cos(n\pi x) \d x \\
+        &= 2 \left[ (2+x)\frac{\sin(n\pi x)}{n\pi} \Big|_0^1 - \int_0^1 \frac{\sin(n\pi x)}{n\pi} \d x \right] \\
+        &= -\frac{2}{n\pi} \int_0^1 \sin(n\pi x) \d x = -\frac{2}{n\pi}\cdot\frac{1-(-1)^n}{n\pi} \\
+        &= \frac{2[(-1)^n-1]}{n^2\pi^2} = \begin{cases}
+            0, & n \text{ 为偶数},\\
+            -\dfrac{4}{n^2\pi^2}, & n \text{ 为奇数}
+        \end{cases}
+    \end{align*}
+    故余弦级数展开式为：
+    \[ \boxed{2+x = \frac{5}{2} - \frac{4}{\pi^2} \sum_{k=0}^{\infty} \frac{\cos[(2k+1)\pi x]}{(2k+1)^2},\quad x\in[0,1]} \]
+    为求 $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^2}$，取 $x=0$ 代入上式，得 $f(0)=2$：
+    \[ 2 = \frac{5}{2} - \frac{4}{\pi^2} \sum_{k=0}^{\infty} \frac{1}{(2k+1)^2} \]
+    \[ \sum_{k=0}^{\infty} \frac{1}{(2k+1)^2} = \frac{\pi^2}{8} \]
+    又 $\displaystyle\sum_{n=1}^{\infty}\frac{1}{n^2} = \sum_{k=0}^{\infty}\frac{1}{(2k+1)^2} + \sum_{k=1}^{\infty}\frac{1}{(2k)^2} = \frac{\pi^2}{8} + \frac{1}{4}\sum_{n=1}^{\infty}\frac{1}{n^2}$，解得：
+    \[ \boxed{\sum_{n=1}^{\infty}\frac{1}{n^2} = \frac{\pi^2}{6}} \]
 \end{solution}
 
 \section{习题}

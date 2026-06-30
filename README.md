@@ -30,7 +30,6 @@
 - 第十章 [重积分](chap10/chap.tex)
 - 第十一章 [曲线积分与曲面积分](chap11/chap.tex)
 - 第十二章 [无穷级数](chap12/chap.tex)
-- 第十三章 [偏微分方法初步与全微分方程](chap13/chap.tex)
 
 ## 参考资料
 

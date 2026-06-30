@@ -7,11 +7,11 @@
 \else
 \fi
 \chapter{多元函数微分学}
-\section{偏导数与微分}
+\section{偏导数与全微分}
 \begin{definition}
     设函数$z=f(x,y)$在点$(x_0,y_0)$的某邻域内有定义，且存在常数$A,B$使得
     \[ \lim_{(x,y) \to (x_0,y_0)} \frac{|f(x,y) - f(x_0,y_0) - A(x-x_0) - B(y-y_0)|}{\sqrt{(x-x_0)^2 + (y-y_0)^2}} = 0 \]
-    则称函数$z=f(x,y)$在点$(x_0,y_0)$处可微．
+    则称函数$z=f(x,y)$在点$(x_0,y_0)$处可微．$\d z = A\d x + B\d y$称为函数$z=f(x,y)$在点$(x_0,y_0)$处的全微分．
 \end{definition}
 \begin{theorem}
     多元函数的可微、连续可微、偏导数存在及连续的关系如下：
@@ -87,7 +87,7 @@
     将 $\d z$ 表示为 $\d x$ 和 $\d y$ 的线性组合：
     \[\d z = \frac{v \cos v - u \sin v}{e^u} \d x + \frac{v \sin v + u \cos v}{e^u} \d y\]
     因此：
-    \[ \frac{\partial z}{\partial x} = \boxed{\frac{v \cos v - u \sin v}{e^u}}, \quad \frac{\partial z}{\partial y} = \boxed{\frac{v \sin v + u \cos v}{e^u}} \]
+    \[ \boxed{\frac{\partial z}{\partial x} = \frac{v \cos v - u \sin v}{e^u}, \quad \frac{\partial z}{\partial y} = \frac{v \sin v + u \cos v}{e^u}} \]
 \end{solution}
 \begin{myRemark}
     或许有人会想可以利用$\pdv{u}{x}=\frac{1}{\pdv{x}{u}}$来求解，但这是不一定成立的．不妨从微分角度观察：\\
@@ -171,6 +171,39 @@
     若函数$f(x,y)$在点$(x_0,y_0)$处可微，则对于任意单位向量$\bm{l}=(\cos \alpha, \sin \alpha)$，函数$f$在点$(x_0,y_0)$沿方向$\bm{l}$的方向导数存在，且满足：
     \[ \frac{\partial f}{\partial \bm{l}} = \frac{\partial f}{\partial x}(x_0, y_0) \cos \alpha + \frac{\partial f}{\partial y}(x_0, y_0) \sin \alpha = \nabla f \cdot \bm{l} \]
 \end{theorem}
+
+\begin{example}
+    定义在$\R^2$上的函数
+    \[f(x,y) = \begin{cases}
+        \dfrac{xy}{\sqrt{x^2+y^2}}, & (x,y)\neq(0,0)\\[1em]
+        0, & (x,y)=(0,0)
+    \end{cases}\]
+    讨论函数$f(x,y)$在原点处的连续性和可微性，以及原点处方向导数的存在性．
+\end{example}
+\begin{solution}
+    \textbf{(1) 连续性．}
+    采用极坐标代换 $x = r\cos\theta,\; y = r\sin\theta$，则当 $(x,y) \to (0,0)$ 时 $r \to 0$，且
+    \[ |f(x,y)-f(0,0)| = \left|\frac{xy}{\sqrt{x^2+y^2}}\right| = \frac{r^2|\cos\theta\sin\theta|}{r} = r|\cos\theta\sin\theta| \le \frac{r}{2} \to 0 \]
+    由夹逼准则知 $\lim\limits_{(x,y)\to(0,0)} f(x,y) = 0 = f(0,0)$，故 $f(x,y)$ 在原点处\textbf{连续}．
+
+    \textbf{(2) 偏导数．}
+    \[ f_x(0,0) = \lim_{h\to 0} \frac{f(h,0)-f(0,0)}{h} = \lim_{h\to 0} \frac{0-0}{h} = 0 \]
+    \[ f_y(0,0) = \lim_{h\to 0} \frac{f(0,h)-f(0,0)}{h} = \lim_{h\to 0} \frac{0-0}{h} = 0 \]
+    故两个一阶偏导数在原点处均\textbf{存在}，且均为 $0$．
+
+    \textbf{(3) 可微性．}
+    若 $f$ 在原点处可微，则全微分为 $\d f = f_x(0,0)\d x + f_y(0,0)\d y = 0$．检验可微定义：
+    \[ \lim_{(x,y)\to(0,0)} \frac{|f(x,y)-f(0,0)-0\cdot x-0\cdot y|}{\sqrt{x^2+y^2}} = \lim_{(x,y)\to(0,0)} \frac{|xy|}{x^2+y^2} \]
+    取路径 $y = x$，则上式变为 $\displaystyle\lim_{x\to 0} \frac{x^2}{2x^2} = \frac12 \neq 0$，故$f(x,y)$ 在原点处\textbf{不可微}．
+
+    \textbf{(4) 方向导数．}
+    对任意单位方向 $\bm{l} = (\cos\alpha,\sin\alpha)$，当 $h>0$ 时有：
+    \[ f(h\cos\alpha, h\sin\alpha) = \frac{h^2\cos\alpha\sin\alpha}{h} = h\cos\alpha\sin\alpha \]
+    因此方向导数为：
+    \[ \frac{\partial f}{\partial \bm{l}}(0,0) = \lim_{h\to 0^+} \frac{f(h\cos\alpha, h\sin\alpha)-f(0,0)}{h} = \lim_{h\to 0^+} \frac{h\cos\alpha\sin\alpha}{h} = \cos\alpha\sin\alpha \]
+    故沿任意方向的方向导数均\textbf{存在}．
+\end{solution}
+
 \section{梯度}
 \begin{definition}
     设函数 $f(x, y)$ 在点 $(x_0, y_0)$ 处具有偏导数，则称向量
@@ -231,7 +264,7 @@
     \begin{enumerate}
         \item 记号 $\left( h\frac{\partial}{\partial x} + k\frac{\partial}{\partial y} \right)^i f(x_0, y_0)$ 表示：
         \[ \sum_{j=0}^i \binom{i}{j} h^j k^{i-j} \frac{\partial^i f}{\partial x^j \partial y^{i-j}}(x_0, y_0) \]
-        \item 常用二阶阶麦克劳林展开：
+        \item 常用二阶麦克劳林展开：
         \[f(x,y)=f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2}\left(f_{xx}(0,0)x^2+2f_{xy}(0,0)xy+f_{yy}(0,0)y^2\right)+O(\rho^2)\]
     \end{enumerate}
 \end{theorem}

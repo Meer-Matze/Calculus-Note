@@ -91,12 +91,6 @@ z = t
     \item \textbf{面积计算}：利用格林公式，平面区域 $D$ 的面积 $A$ 可表示为：
     \[ A = \iint_D \d x \d y = \oint_L x \d y = -\oint_L y \d x = \frac{1}{2} \oint_L x \d y - y \d x \]
     \item \textbf{单连通区域与路径无关}：若 $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$ 在单连通区域 $D$ 内恒成立，则第二类曲线积分 $\int_L P \d x + Q \d y$ 与路径无关．
-    \item \textbf{物理含义 (环量与散度)}：
-    \begin{itemize}
-        \item \textbf{环量 (Circulation)}：左侧 $\oint_L \bm{F} \cdot \d \bm{r}$ 表示向量场沿闭曲线的环量．
-        \item \textbf{旋度 (Curl)}：右侧被积项 $\left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)$ 是二维向量场的旋转强度（即 $\text{curl} \bm{F}$ 的 $k$ 分量）．
-        \item \textbf{直观理解}：格林公式说明了“边界上的累积环量”等于“内部所有微小涡旋强度的总和”．如果区域内处处无旋，则沿闭曲线的环量为零．
-    \end{itemize}
 \end{itemize}
 \begin{example}
     $P(x,y), Q(x,y)$为定义在复（多）连通区域$G$上的可微函数，下列说法与另外三项不等价的是（~~~）
@@ -204,6 +198,11 @@ z = t
     若 $\bm{n} = (\cos \alpha, \cos \beta, \cos \gamma)$ 是有向曲面 $\Sigma$ 的单位法向量，则：
     \[ \iint_\Sigma P \d y \d z + Q \d z \d x + R \d x \d y = \iint_\Sigma (P \cos \alpha + Q \cos \beta + R \cos \gamma) \d S \]
 \end{theorem}
+
+\begin{corollary}[常用投影到$xOy$面公式]
+    若正向曲面 $\Sigma$ 的方程为 $z = z(x,y)$，且在 $xOy$ 面上的投影区域为 $D_{xy}$，则：
+    \[ \iint_\Sigma P \d y \d z + Q \d z \d x + R \d x \d y = \iint_{D_{xy}} (-P z_x - Q z_y + R) \d x \d y \]
+\end{corollary}
 
 \begin{example}
     计算曲面积分 $I = \displaystyle\iint_\Sigma xyz \d x \d y$，其中 $\Sigma$ 是球面 $x^2+y^2+z^2=a^2$ 在$x\ge 0,y\ge 0$处的外侧．
