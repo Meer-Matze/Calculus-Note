@@ -174,7 +174,7 @@
             \dfrac{(-1)^{\lfloor{\frac{n}{2}}\rfloor}}{n}, & n \text{ 为奇数} \\
             0, & n \text{ 为偶数}
             \end{cases}$
-        则 $\sum a_n(x-1)^n$ 在 $x=0$ 处收敛；
+        ，则 $\sum a_n(x-1)^n$ 在 $x=0$ 处收敛；
         \item 取$a_n = \dfrac{(-1)^n}{n}$，则 $\sum a_n(x-1)^n$ 在 $x=0$ 处发散．
     \end{enumerate}
     
@@ -464,6 +464,48 @@
         当 $|x| > 1$ 时，$\dfrac{|x|^n}{2} \to +\infty > 1$，级数发散．
         故收敛域为 $|x| \le 1$，即 $\boxed{[-1,\,1]}$．
     \end{enumerate}
+\end{solution}
+\begin{exercise}
+    设 $u_n = \displaystyle\int_{n\pi}^{(n+1)\pi} \frac{\sin x}{\sqrt{1+x^p}} \d x$，讨论级数 $\displaystyle\sum_{n=1}^{\infty} u_n$ 的敛散性．
+\end{exercise}
+\begin{solution}
+    令 $x = t + n\pi$，则 $\d x = \d t$，且 $\sin x = \sin(t+n\pi) = (-1)^n \sin t$，因此
+    \[ u_n = (-1)^n \int_0^{\pi} \frac{\sin t}{\sqrt{1+(t+n\pi)^p}} \d t \]
+    记 $\displaystyle v_n = \int_0^{\pi} \frac{\sin t}{\sqrt{1+(t+n\pi)^p}} \d t > 0$，则 $\displaystyle\sum_{n=1}^{\infty} u_n = \sum_{n=1}^{\infty} (-1)^n v_n$ 为交错级数．
+
+    \begin{enumerate}[label=\Roman*.]
+        \item\textbf{$p \le 0$ 时}
+        \begin{itemize}
+            \item 若 $p = 0$，则 $v_n = \dfrac{1}{\sqrt{2}} \displaystyle\int_0^{\pi} \sin t \d t = \sqrt{2}$，$\lim\limits_{n\to\infty} |u_n| = \sqrt{2} \neq 0$，级数发散．
+            \item 若 $p < 0$，令 $q = -p > 0$，则 $(t+n\pi)^p = (t+n\pi)^{-q} \to 0\;(n\to\infty)$，故
+            \[ \lim_{n\to\infty} v_n = \int_0^{\pi} \sin t \d t = 2 \neq 0 \]
+            通项不趋于 $0$，级数发散．
+        \end{itemize}
+
+        \item\textbf{$p > 0$ 时}
+        \begin{itemize}
+            \item 单调性：$p > 0$ 时分母 $\sqrt{1+(t+n\pi)^p}$ 随 $n$ 严格递增，故 $v_{n+1} < v_n$．
+            \item 极限为零：$0 < v_n \le \displaystyle\int_0^{\pi} \frac{\sin t}{\sqrt{1+(n\pi)^p}} \d t = \frac{2}{\sqrt{1+(n\pi)^p}} \to 0$，由夹逼定理得 $\lim\limits_{n\to\infty} v_n = 0$．
+        \end{itemize}
+        故 $\sum u_n$ 收敛．
+
+        \item\textbf{$p > 0$ 时绝对收敛性的判定．} 考察正项级数 $\sum v_n$．
+        \[ \frac{2}{\sqrt{1+((n+1)\pi)^p}} \le v_n \le \frac{2}{\sqrt{1+(n\pi)^p}} \]
+        取比较基准 $\dfrac{1}{n^{\frac{p}{2}}}$，由于
+        \[ \lim_{n\to\infty} \frac{v_n}{\frac{1}{n^{\frac{p}{2}}}} = \frac{2}{\pi^{\frac{p}{2}}} \in (0, +\infty) \]
+        故 $\sum v_n$ 与 $\sum \dfrac{1}{n^{\frac{p}{2}}}$ 同敛散．由 $p$-级数结论：
+        \begin{itemize}
+            \item 当 $p > 2$ 时 $\sum \dfrac{1}{n^{\frac{p}{2}}}$ 收敛，从而 $\sum |u_n|$ 收敛，原级数\textbf{绝对收敛}；
+            \item 当 $0 < p \le 2$ 时 $\sum \dfrac{1}{n^{\frac{p}{2}}}$ 发散，从而 $\sum |u_n|$ 发散，原级数\textbf{条件收敛}．
+        \end{itemize}
+    \end{enumerate}
+
+    综上所述，
+    \[ \boxed{\begin{cases}
+        p > 2, & \text{绝对收敛} \\[4pt]
+        0 < p \le 2, & \text{条件收敛} \\[4pt]
+        p \le 0, & \text{发散}
+    \end{cases}} \]
 \end{solution}
 \ifx\allfiles\undefined
 \end{document}

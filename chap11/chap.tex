@@ -97,12 +97,12 @@ z = t
     \begin{tasks}[style = itemize,label=\Alph*.](2)
         \task 在$G$上有$\displaystyle\pdv{Q}{x}=\pdv{P}{y}$
         \task $\displaystyle\int_L P\d x+Q\d y$与路径无关
-        \task $G$上存在函数$u(x,y)$，使得$\d u=P\d x+Q\d y$
-        \task 对于$G$上任意闭曲线$C$，有$\displaystyle\oint_C P\d x+Q\d y=0$
+        \task*(2) $G$上存在函数$u(x,y)$，使得$\d u=P\d x+Q\d y$
+        \task*(2) 对于$G$上任意闭曲线$C$，有$\displaystyle\oint_C P\d x+Q\d y=0$
     \end{tasks}
 \end{example}
 \begin{solution}
-    取
+    不妨取
     \[G=\R^2\backslash\{0,0\},\quad P=\frac{-y}{x^2+y^2},\quad Q=\frac{x}{x^2+y^2}\]
     则$\displaystyle\pdv{Q}{x}=\pdv{P}{y}$，但$\displaystyle\oint_C P\d x+Q\d y=2\pi$（其中$C$为以原点为圆心的单位圆周），因此选项\boxed{\text{A}}与其他三项不等价．
     事实上，只要$G$是单连通区域，选项A与其他三项等价．
@@ -339,7 +339,7 @@ z = t
     \end{itemize}
 \end{myRemark}
 
-\section{场论初步：三类核心物理算子}
+\section{在场论中的应用}
 在场论中，我们通过研究向量场在无穷小区域内的行为来理解其宏观性质．正如《费曼物理学讲义》中所述，理解这些算子的关键在于想象流体的运动．
 
 \subsection{散度 (Divergence)}
