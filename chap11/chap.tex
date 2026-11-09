@@ -564,6 +564,36 @@ z = t
     \[ A = 2 \int_{-1}^{1} \frac{1}{\cos^2x} \cdot \pi \d x = 2\pi \int_{-1}^{1} \sec^2x \d x = 2\pi [\tan x]_{-1}^{1} = 4\pi \tan 1 \]
     因此原曲面积分 $I = \boxed{4\pi \tan 1}$．
 \end{solution}
+\begin{exercise}
+    设 $a, b, c > 0$，计算曲面积分 $\displaystyle\iint_\Sigma \frac{\d S}{\displaystyle\left(ax^2+by^2+cz^2\right)^\frac{3}{2}\sqrt{\displaystyle\frac{x^2}{a^4}+\frac{y^2}{b^4}+\frac{z^2}{c^4}}}$，其中 $\Sigma$ 为椭球面 $\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$．
+\end{exercise}
+\begin{solution}
+    注意到 $\sqrt{\displaystyle\frac{x^2}{a^4}+\frac{y^2}{b^4}+\frac{z^2}{c^4}}$ 与椭球面 $\Sigma$ 的法向量的模形式相近，写出 $\Sigma$ 的法向量如下：
+    \[ \nabla\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1\right) = \left(\frac{2x}{a^2}, \frac{2y}{b^2}, \frac{2z}{c^2}\right) \]
+
+    其模为：
+    \[ |\nabla| = \sqrt{\left(\frac{2x}{a^2}\right)^2 + \left(\frac{2y}{b^2}\right)^2 + \left(\frac{2z}{c^2}\right)^2} = 2\sqrt{\frac{x^2}{a^4}+\frac{y^2}{b^4}+\frac{z^2}{c^4}} \]
+
+    自然的，想到将曲面积分转化为第二类曲面积分：
+
+    \[\frac{(x, y, z)\cdot\nabla}{2}=1,\qquad \frac{\nabla}{|\nabla|}\d S = \left(\d y\d z,\d z\d x,\d x\d y\right)\]
+
+    代入，原积分于是转化为第二类曲面积分：
+    \[ I = \iint_\Sigma \frac{x\d y\d z+y\d z\d x+z\d x\d y}{(ax^2+by^2+cz^2)^{3/2}} \]
+
+    记
+    \[\Gamma: ax^2+by^2+cz^2 = \rho^2,\quad \rho > 0,\quad\text{取外侧}\]
+
+    适当地选取 $\rho$，使得 $\Gamma$ 在 $\Sigma$ 内部。注意到散度：
+    \[\nabla\cdot \left(\frac{x}{(ax^2+by^2+cz^2)^{3/2}}, \frac{y}{(ax^2+by^2+cz^2)^{3/2}}, \frac{z}{(ax^2+by^2+cz^2)^{3/2}}\right) = 0\]
+
+    那么，利用高斯公式，可以大幅简化计算。其中 $\Sigma$ 取外侧，$\Gamma$ 将 $\Sigma$ 分割成 $V_1$（内部） 和 $V_2$（外部）：
+    \begin{align*}
+        I &= \iint_{\Sigma-\Gamma}\frac{x\d y\d z+y\d z\d x+z\d x\d y}{(ax^2+by^2+cz^2)^{3/2}} + \iint_{\Gamma}\frac{x\d y\d z+y\d z\d x+z\d x\d y}{(ax^2+by^2+cz^2)^{3/2}} \\[0.6em]
+        &= 0 + \rho^{-3} \iint_{\Gamma} (x\d y\d z+y\d z\d x+z\d x\d y) \\[0.6em]
+        &= \rho^{-3} \iiint_{V_1} \nabla\cdot (x,y,z) \d V = 3\rho^{-3} \iiint_{V_1} \d V = \boxed{\frac{4\pi}{\sqrt{abc}}}
+    \end{align*}
+\end{solution}
 \ifx\allfiles\undefined
 \end{document}
 \fi
