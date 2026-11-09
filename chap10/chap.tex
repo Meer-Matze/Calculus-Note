@@ -295,23 +295,43 @@ y = -3x
 \end{tabular}
 \end{center}
 
-\subsection{重积分变量替换公式（雅可比行列式）}
+\subsection{雅可比矩阵}
+\begin{definition}[Jacobian 矩阵]
+    设函数 $f:\R^n \to \R^m$
+    \[f(\bm{x}) = \begin{bmatrix}
+        f_1(x_1, \dots, x_n) \\
+        f_2(x_1, \dots, x_n) \\
+        \vdots \\
+        f_m(x_1, \dots, x_n)
+    \end{bmatrix}\]
+    则雅可比矩阵定义为：
+    \[ J_f(\bm{x}) = \begin{bmatrix}
+        \displaystyle\pdv{f_1}{x_1} & \displaystyle\pdv{f_1}{x_2} & \cdots & \displaystyle\pdv{f_1}{x_n} \\[1.5ex]
+        \displaystyle\pdv{f_2}{x_1} & \displaystyle\pdv{f_2}{x_2} & \cdots & \displaystyle\pdv{f_2}{x_n} \\[1.0ex]
+        \vdots & \vdots & \ddots & \vdots \\[0.5ex]
+        \displaystyle\pdv{f_m}{x_1} & \displaystyle\pdv{f_m}{x_n} & \cdots & \displaystyle\pdv{f_m}{x_n}
+    \end{bmatrix}_{m \times n} \]
+\end{definition}
+\begin{myRemark}
+    雅可比矩阵将导数推广至任意维向量到任意维向量的映射。
+
+    容易发现，梯度本质上是一个 $n \times 1$ 的雅可比矩阵的转置，而散度是一个 $n \times n$ 的雅可比矩阵的迹。
+
+    在多元微积分中，雅可比矩阵把函数的局部映射\textbf{近似为线性映射}，从而可以用线性代数的工具来分析函数的性质。
+
+    对梯度求雅可比矩阵就会得到 Hessian 矩阵。
+
+    若$n=m$，则雅可比矩阵是一个方阵，其行列式称为雅可比行列式。与导数类似，雅可比行列式的绝对值可以理解为映射$f$在点$\bm{x}$处的局部体积缩放因子。
+\end{myRemark}
 \begin{theorem}[变量替换定理]
-    设 $\Omega'$ 是 $u_1, u_2, \dots, u_n$ 空间中的有界闭区域，变换 $\bm{x} = \bm{g}(\bm{u})$（即 $x_i = g_i(u_1, \dots, u_n)$）满足：
+    设 $\Omega'$ 是 $u_1, u_2, \dots, u_n$ 空间中的有界闭区域，变换 $\bm{x} = g(\bm{u})$（$\R^n\to\R^n$）满足：
     \begin{itemize}
-        \item $\bm{g}$ 在 $\Omega'$ 上具有连续的一阶偏导数；
-        \item $\bm{g}$ 将 $\Omega'$ 一一对应地映射为 $\bm{x}$ 空间中的区域 $\Omega$；
-        \item 在 $\Omega'$ 内，雅可比行列式 $J = \dfrac{\partial(x_1, \dots, x_n)}{\partial(u_1, \dots, u_n)} \neq 0$．
+        \item $g$ 在 $\Omega'$ 上具有连续的一阶偏导数；
+        \item $g$ 将 $\Omega'$ 一一对应地映射为 $\bm{x}$ 空间中的区域 $\Omega$；
+        \item 在 $\Omega'$ 内，雅可比行列式 $\det J\neq 0$．
     \end{itemize}
     则对于 $\Omega$ 上的连续函数 $f(\bm{x})$，有：
-    \[ \int_{\Omega} f(\bm{x}) \d V_x = \int_{\Omega'} f(\bm{g}(\bm{u})) |J| \d V_u \]
-    其中雅可比行列式定义为：
-    \[ J = \frac{\partial(x_1, \dots, x_n)}{\partial(u_1, \dots, u_n)} = \begin{vmatrix}
-        \displaystyle\pdv{x_1}{u_1} & \displaystyle\pdv{x_1}{u_2} & \cdots & \displaystyle\pdv{x_1}{u_n} \\[1.5ex]
-        \displaystyle\pdv{x_2}{u_1} & \displaystyle\pdv{x_2}{u_2} & \cdots & \displaystyle\pdv{x_2}{u_n} \\[1.0ex]
-        \vdots & \vdots & \ddots & \vdots \\[0.5ex]
-        \displaystyle\pdv{x_n}{u_1} & \displaystyle\pdv{x_n}{u_2} & \cdots & \displaystyle\pdv{x_n}{u_n}
-    \end{vmatrix} \]
+    \[ \int_{\Omega} f(\bm{x}) \d V_x = \int_{\Omega'} f(g(\bm{u})) |\det J| \d V_u \]
 \end{theorem}
 
 \begin{example}
@@ -319,7 +339,7 @@ y = -3x
 \end{example}
 \begin{solution}
     考虑在圆盘 $D_R = \{(x,y) \mid x^2+y^2 \le R^2\}$ 上的积分．引入极坐标变换：
-    \[ \begin{cases} x = r\cos\theta \\ y = r\sin\theta \end{cases} \implies J = \frac{\partial(x,y)}{\partial(r,\theta)} = \det \begin{pmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{pmatrix} = r \]
+    \[ \begin{cases} x = r\cos\theta \\ y = r\sin\theta \end{cases} \implies \det J = \det \begin{bmatrix} \cos\theta & -r\sin\theta \\ \sin\theta & r\cos\theta \end{bmatrix} = r \]
     计算圆盘上的积分：
     \[ \iint_{D_R} e^{-(x^2+y^2)} \d x \d y = \int_0^{2\pi} \d\theta \int_0^R e^{-r^2} r \d r = 2\pi \left[ -\frac{1}{2}e^{-r^2} \right]_0^R = \pi(1-e^{-R^2}) \]
     令 $R \to +\infty$，得到整个平面的积分：
@@ -328,12 +348,6 @@ y = -3x
     \[ I = \int_{-\infty}^{+\infty} e^{-x^2} \d x \int_{-\infty}^{+\infty} e^{-y^2} \d y = \left( \int_{-\infty}^{+\infty} e^{-x^2} \d x \right)^2 \]
     从而证得 $\displaystyle\int_{-\infty}^{+\infty} e^{-x^2} \d x = \sqrt{\pi}$．
 \end{solution}
-
-\noindent \textbf{雅可比行列式的几何意义}：
-\begin{itemize}
-    \item \textbf{局部伸缩率}：$\abs{J}$ 描述了从 $\bm{u}$ 空间映射到 $\bm{x}$ 空间时，局部体积单元的\textbf{放大或缩小倍数}．
-    \item \textbf{线性逼近}：在极小区域内，非线性变换 $\bm{g}$ 可以看作一个线性变换（由雅可比矩阵描述）．线性变换对体积的改变恰好是其变换矩阵的行列式．
-\end{itemize}
 
 \subsection{微元对照表}
 在不同坐标系下，长度、面积、体积微元及雅可比行列式 $\abs{J}$ 的对应关系如下：
@@ -484,7 +498,21 @@ $\displaystyle\pdv{}{\phi}$ & $\sin\theta \bm{\hat{\phi}}$ & $\cos\theta \bm{\ha
     \[I=\lim_{r\to 0}\frac{e^{\xi^2-\eta^2}\cos(\xi+\eta)\cdot\pi r^2}{\pi r^2}=\lim_{\substack{\xi\to 0\\\eta\to 0}} e^{\xi^2-\eta^2}\cos(\xi+\eta) = \boxed{1} \]
     其中 $(\xi, \eta)\in D$．
 \end{solution}
-
+\begin{exercise}
+    设区域$D$由摆线$L:\begin{cases}
+        x=t-\sin t\\
+        y=1-\cos t
+    \end{cases}\; (0\le t\le 2\pi)$ 与$x$轴所围成，计算积分$\displaystyle\iint_D(x+2y)\d x\d y$．
+\end{exercise}
+\begin{solution}
+    区域$D$恰是摆线的一个完整周期所围成的区域，$0\le x\le 2\pi$，于是
+    \begin{align*}
+        I &= \int_0^{2\pi} \d x \int_0^{y(x)} (x+2y) \d y = \int_0^{2\pi} \left[ xy + y^2 \right]_0^{1-\cos t} \d x \\
+        &= \int_0^{2\pi} \left[ x(1-\cos t) + (1-\cos t)^2 \right] \d x = \int_0^{2\pi} \left[ (t-\sin t)(1-\cos t) + (1-\cos t)^2 \right](1-\cos t) \d t \\
+        &\xlongequal{\text{区间再现}} \frac12\int_0^{2\pi}(t-\sin t+2\pi-t+\sin t)(1-\cos t)^2\d t + \int_0^{2\pi}(2\sin^2 \frac{t}{2})^3\d t \\
+        &\xlongequal{u=\frac{t}{2}} 16\pi\int_{0}^{\frac{\pi}{2}}\sin^4u\d u+32\int_0^{\frac{\pi}{2}}\sin^6u\d u = 3\pi^2+5\pi
+    \end{align*}
+\end{solution}
 \subsection{三重积分}
 \begin{exercise}
     计算积分 $\displaystyle\iiint_\Omega (x+y+z^3) \d V$，其中 $\Omega$ 是由曲面$x^2+y^2+z^2=2z(z>1)$与$z=\sqrt{x^2+y^2}$所围成的区域．
